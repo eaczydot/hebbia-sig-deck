@@ -2,7 +2,7 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, Calendar } from 'lucide-react';
+import { ArrowRight, Mail, Phone, Calendar, Users } from 'lucide-react';
 
 export const Slide20_Conclusion = () => {
     return (
