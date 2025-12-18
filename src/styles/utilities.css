@@ -32,7 +32,7 @@
 /* Text Styles Map */
 .text-hero {
     font-family: var(--font-display);
-    font-size: 64px;
+    font-size: clamp(38px, 7vw, 64px);
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -45,7 +45,7 @@
 
 .text-subhero {
     font-family: var(--font-primary);
-    font-size: 24px;
+    font-size: clamp(18px, 3vw, 24px);
     font-weight: 400;
     color: var(--color-text-secondary);
     margin-bottom: var(--spacing-2xl);
@@ -81,7 +81,7 @@
 
 .text-cell-data {
     font-family: var(--font-primary);
-    font-size: 14px;
+    font-size: clamp(13px, 2.1vw, 14px);
     color: var(--color-text-code);
     line-height: 1.5;
 }
@@ -169,6 +169,55 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 20px;
+}
+
+@media (max-width: 1024px) {
+    .split-30-70,
+    .split-50-50,
+    .split-40-60 {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .u-flex-center {
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .split-30-70,
+    .split-50-50,
+    .split-40-60 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .grid-2x2 {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+
+    .big-num {
+        font-size: clamp(32px, 9vw, 48px);
+    }
+
+    .progress-bar {
+        height: 6px;
+    }
+
+    .pill {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
 }
 
 /* ====================================

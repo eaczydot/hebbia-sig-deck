@@ -82,4 +82,26 @@
   --duration-normal: 0.4s;
   --duration-slow: 0.8s;
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Layout */
+  --slide-padding: 40px 60px;
+  --header-height: 60px;
+  --header-padding: 0 60px;
+  --header-font-size: 12px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --slide-padding: 32px 36px;
+    --header-padding: 0 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --slide-padding: 20px 16px;
+    --header-height: 56px;
+    --header-padding: 0 20px;
+    --header-font-size: 11px;
+  }
 }
