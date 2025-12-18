@@ -1,64 +1,77 @@
 import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
-import { ArrowRight } from 'lucide-react';
-
-const Step = ({ number, title, text }) => (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-        <div style={{
-            fontSize: '48px',
-            fontWeight: 700,
-            color: 'rgba(255, 255, 255, 0.1)',
-            lineHeight: 1,
-            marginBottom: '16px'
-        }}>
-            {number}
-        </div>
-        <div style={{ fontSize: '18px', fontWeight: 600, color: 'var(--color-agent-reasoning-blue)', marginBottom: '8px' }}>
-            {title}
-        </div>
-        <div style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
-            {text}
-        </div>
-    </div>
-);
+import { motion } from 'framer-motion';
+import { ArrowRight, Mail, Phone, Calendar } from 'lucide-react';
 
 export const Slide20_Conclusion = () => {
     return (
         <SlideContainer className="u-flex-center">
-            <div style={{ width: '100%', maxWidth: '900px' }}>
-                <h2 className="text-hero" style={{ textAlign: 'center', marginBottom: '24px' }}>
-                    Next Steps
-                </h2>
-                <p style={{ textAlign: 'center', color: 'var(--color-text-secondary)', fontSize: '18px', maxWidth: '700px', margin: '0 auto 60px auto', lineHeight: 1.6 }}>
-                    Let's build the future of quantitative reasoning, together. We propose a collaborative path to validate value:
-                </p>
+            <div style={{ maxWidth: '900px', width: '100%', position: 'relative' }}>
 
-                <GlassPanel style={{ padding: '40px', display: 'flex', gap: '40px', position: 'relative' }}>
-                    <Step
-                        number="01"
-                        title="Deep-Dive Demo"
-                        text="90-minute interactive session with key stakeholders (Trading, Quant, Risk) to demonstrate Use Cases on live data."
-                    />
-                    <div style={{ width: '1px', background: 'var(--color-border-subtle)' }}></div>
-                    <Step
-                        number="02"
-                        title="Co-Design Pilot"
-                        text="Half-day workshop to define scope, users, and success metrics for the 6-8 week pilot program."
-                    />
-                    <div style={{ width: '1px', background: 'var(--color-border-subtle)' }}></div>
-                    <Step
-                        number="03"
-                        title="Procurement"
-                        text="Review SOC 2 reports, Security Architecture, and MSA/DPA to clear legal & compliance."
-                    />
-                </GlassPanel>
-
-                <div style={{ marginTop: '60px', textAlign: 'center' }}>
-                    <div className="text-matrix-header" style={{ marginBottom: '16px' }}>CONTACT</div>
-                    <div style={{ fontSize: '16px', color: 'white' }}>Head of Strategic Accounts, Financial Services</div>
-                    <div style={{ fontSize: '16px', color: 'var(--color-agent-reasoning-blue)', marginTop: '4px' }}>strategic.accounts@hebbia.ai</div>
+                {/* Hero Ending */}
+                <div style={{ textAlign: 'center', marginBottom: '80px' }}>
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1 }}
+                    >
+                        <h2 className="text-hero" style={{ fontSize: '72px', lineHeight: 1 }}>
+                            The Future of <br /> Financial Reasoning IS HEBBIA.
+                        </h2>
+                        <p className="text-subhero" style={{ marginTop: '32px', maxWidth: '600px', margin: '32px auto' }}>
+                            Join the world's most sophisticated investment teams in decoupling growth from headcount.
+                        </p>
+                    </motion.div>
                 </div>
+
+                {/* Next Steps Grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '80px' }}>
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
+                        <GlassPanel style={{ padding: '32px', textAlign: 'center', borderTop: '2px solid var(--color-agent-reasoning-blue)' }}>
+                            <div style={{ color: 'var(--color-agent-reasoning-blue)', marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
+                                <Calendar size={32} />
+                            </div>
+                            <h4 style={{ color: 'white', fontWeight: 600, fontSize: '18px', marginBottom: '8px' }}>Schedule Deep-Dive</h4>
+                            <p className="text-cell-data" style={{ fontSize: '13px' }}>A technical session for SIG's engineering and security leads.</p>
+                        </GlassPanel>
+                    </motion.div>
+
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}>
+                        <GlassPanel style={{ padding: '32px', textAlign: 'center', borderTop: '2px solid var(--color-agent-extraction-green)' }}>
+                            <div style={{ color: 'var(--color-agent-extraction-green)', marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
+                                <ArrowRight size={32} />
+                            </div>
+                            <h4 style={{ color: 'white', fontWeight: 600, fontSize: '18px', marginBottom: '8px' }}>Start Pilot Design</h4>
+                            <p className="text-cell-data" style={{ fontSize: '13px' }}>Identify the 10 users and 3 use cases for the 8-week POV.</p>
+                        </GlassPanel>
+                    </motion.div>
+
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }}>
+                        <GlassPanel style={{ padding: '32px', textAlign: 'center', borderTop: '2px solid var(--color-agent-synthesis-purple)' }}>
+                            <div style={{ color: 'var(--color-agent-synthesis-purple)', marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
+                                <Users size={32} />
+                            </div>
+                            <h4 style={{ color: 'white', fontWeight: 600, fontSize: '18px', marginBottom: '8px' }}>Executive Briefing</h4>
+                            <p className="text-cell-data" style={{ fontSize: '13px' }}>Review ROI projections and strategic roadmap with SIG leadership.</p>
+                        </GlassPanel>
+                    </motion.div>
+                </div>
+
+                {/* Footer / Contact */}
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '60px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '40px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <Mail size={16} color="var(--color-text-secondary)" />
+                        <span style={{ fontSize: '14px', fontFamily: 'var(--font-mono)' }}>strategy@hebbia.ai</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                        <Phone size={16} color="var(--color-text-secondary)" />
+                        <span style={{ fontSize: '14px', fontFamily: 'var(--font-mono)' }}>+1 (212) 555-0198</span>
+                    </div>
+                </div>
+
+                {/* Background Glow */}
+                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '800px', height: '600px', background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent 70%)', zIndex: -1, pointerEvents: 'none' }} />
             </div>
         </SlideContainer>
     );

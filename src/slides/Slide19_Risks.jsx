@@ -1,65 +1,81 @@
 import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
-import { ShieldAlert, Lock, FileCheck, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ShieldAlert, ShieldCheck, Eye, Database, Lock } from 'lucide-react';
 
-const ControlItem = ({ title, text }) => (
-    <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
-        <CheckCircle2 size={18} style={{ color: 'var(--color-agent-extraction-green)', minWidth: '18px' }} />
-        <div>
-            <div style={{ fontWeight: 600, fontSize: '14px', marginBottom: '4px' }}>{title}</div>
-            <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>{text}</div>
-        </div>
-    </div>
+const RiskItem = ({ risk, mitigation, icon: Icon, delay }) => (
+    <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay, duration: 0.6 }}
+    >
+        <GlassPanel style={{ padding: '24px', display: 'grid', gridTemplateColumns: '80px 1fr 1.2fr', gap: '24px', alignItems: 'center' }}>
+            <div style={{ background: 'rgba(255,255,255,0.03)', padding: '16px', borderRadius: '12px', display: 'flex', justifyContent: 'center', color: 'var(--color-text-tertiary)' }}>
+                <Icon size={32} />
+            </div>
+            <div>
+                <div className="text-matrix-header" style={{ color: '#EF4444', marginBottom: '8px' }}>POTENTIAL RISK</div>
+                <div style={{ color: 'white', fontWeight: 600, fontSize: '16px' }}>{risk}</div>
+            </div>
+            <div style={{ borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '24px' }}>
+                <div className="text-matrix-header" style={{ color: 'var(--color-agent-extraction-green)', marginBottom: '8px' }}>HEBBIA MITIGATION</div>
+                <div className="text-cell-data" style={{ fontSize: '13px' }}>{mitigation}</div>
+            </div>
+        </GlassPanel>
+    </motion.div>
 );
 
 export const Slide19_Risks = () => {
     return (
         <SlideContainer>
-            <div className="text-matrix-header" style={{ marginBottom: '16px' }}>Risk Management</div>
-            <h2 className="text-hero" style={{ fontSize: '32px', marginBottom: '32px' }}>
-                Mitigating IP & Confidentiality Risks
-            </h2>
-
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '32px' }}>
-                <GlassPanel style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    background: 'rgba(239, 68, 68, 0.05)',
-                    border: '1px solid rgba(239, 68, 68, 0.2)',
-                    textAlign: 'center',
-                    padding: '32px'
-                }}>
-                    <ShieldAlert size={48} style={{ color: '#fca5a5', marginBottom: '24px' }} />
-                    <div style={{ fontSize: '20px', fontWeight: 600, color: 'white', marginBottom: '16px' }}>Primary Risk: IP Leakage</div>
-                    <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
-                        Exposure of proprietary trading strategies, quantitative models, or MNPI through third-party AI platforms.
-                    </p>
-                </GlassPanel>
-
-                <GlassPanel style={{ padding: '32px' }}>
-                    <div className="text-matrix-header" style={{ marginBottom: '24px', color: 'var(--color-agent-extraction-green)' }}>CONTROLS & MITIGATIONS</div>
-
-                    <ControlItem
-                        title="No Training on Customer Data"
-                        text="Explicit contractual prohibition (MSA/DPA) against using SIG data for model training. Your IP remains isolated."
-                    />
-                    <ControlItem
-                        title="Encryption Everywhere"
-                        text="Data encrypted at rest (AES-256) and in transit (TLS 1.3). Keys managed with strict access policies."
-                    />
-                    <ControlItem
-                        title="Verified Compliance"
-                        text="SOC 2 Type I & II, GDPR, and CCPA certified. Regular third-party penetration testing."
-                    />
-                    <ControlItem
-                        title="Audit Trails"
-                        text="Immutable logs of all data access and user activities linked to SIEM for forensic monitoring."
-                    />
-                </GlassPanel>
+            <div style={{ marginBottom: '60px' }}>
+                <div className="text-matrix-header" style={{ color: '#EF4444' }}>RISK GATING</div>
+                <h2 className="text-hero" style={{ fontSize: '48px' }}>Addressing the Core Concerns</h2>
+                <p className="text-subhero" style={{ maxWidth: '600px' }}>
+                    Institutional-grade controls for the most sensitive data environments.
+                </p>
             </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                <RiskItem
+                    icon={ShieldAlert}
+                    risk="IP & Model Poisoning"
+                    mitigation="Strict zero-retention policy. Hubbia never trains on customer data. All prompts and data are ephemeral within your session."
+                    delay={0.2}
+                />
+                <RiskItem
+                    icon={Eye}
+                    risk="Hallucinations"
+                    mitigation="Citation-first architecture. Any claim without a verifiable source is flagged. Users must click to verify the source text."
+                    delay={0.3}
+                />
+                <RiskItem
+                    icon={Database}
+                    risk="Data Residency"
+                    mitigation="Regional data isolation. SIG data stays within your preferred Azure/AWS region. No cross-border data flows."
+                    delay={0.4}
+                />
+                <RiskItem
+                    icon={Lock}
+                    risk="MNPI / Insider Data"
+                    mitigation="Role-based access control (RBAC) synced with SIG's Active Directory. Granular folder-level permissions enforced."
+                    delay={0.5}
+                />
+            </div>
+
+            {/* Bottom Summary */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+                style={{ marginTop: 'auto', display: 'flex', justifyContent: 'center' }}
+            >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--color-agent-extraction-green)', background: 'rgba(16, 185, 129, 0.05)', padding: '12px 24px', borderRadius: '99px', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                    <ShieldCheck size={20} />
+                    <span style={{ fontWeight: 700, fontSize: '13px', letterSpacing: '0.05em' }}>CERTIFIED FOR USE IN HIGHLY REGULATED FINANCIAL ENVIRONMENTS</span>
+                </div>
+            </motion.div>
         </SlideContainer>
     );
 };

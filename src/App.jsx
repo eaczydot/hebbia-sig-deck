@@ -20,6 +20,8 @@ import { Slide17_Integration } from './slides/Slide17_Integration';
 import { Slide18_Competitive } from './slides/Slide18_Competitive';
 import { Slide19_Risks } from './slides/Slide19_Risks';
 import { Slide20_Conclusion } from './slides/Slide20_Conclusion';
+import { Slide21_ReasoningEngine } from './slides/Slide21_ReasoningEngine';
+import { Slide22_MatrixDeepDive } from './slides/Slide22_MatrixDeepDive';
 import { Slide18_References } from './slides/Slide18_References';
 
 import { AnimatePresence } from 'framer-motion';
@@ -39,8 +41,10 @@ const SLIDES = [
   Slide4_TheConstraint,
   Slide5_ValueThesis,
   Slide6_IntroducingHebbia,
+  Slide21_ReasoningEngine, // New Deep Dive
   Slide7_HowItWorks,
-  Slide15_Security, // Security moved earlier per report flow
+  Slide22_MatrixDeepDive, // New Deep Dive
+  Slide15_Security,
   Slide8_UseCaseTrading,
   Slide9_UseCaseQuant,
   Slide10_UseCaseLegal,
@@ -58,7 +62,7 @@ const SLIDES = [
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 21; // Updated count
+  const totalSlides = 23; // Updated count
 
   const nextSlide = () => setCurrentSlide(prev => Math.min(prev + 1, totalSlides - 1));
   const prevSlide = () => setCurrentSlide(prev => Math.max(prev - 1, 0));

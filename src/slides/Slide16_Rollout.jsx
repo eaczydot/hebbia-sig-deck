@@ -1,90 +1,94 @@
 import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
-import { Flag, Users, Rocket, BarChart } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Globe, ShieldCheck, Zap, Users } from 'lucide-react';
 
-const TimelineCard = ({ day, title, items, icon: Icon }) => (
-    <GlassPanel className="u-flex-col" style={{ padding: '20px', height: '100%', gap: '16px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <div style={{
-                background: 'rgba(59, 130, 246, 0.1)',
-                padding: '8px',
-                borderRadius: '50%',
-                color: 'var(--color-agent-reasoning-blue)'
-            }}>
-                <Icon size={18} />
-            </div>
-            <div>
-                <div className="text-matrix-header" style={{ color: 'var(--color-agent-reasoning-blue)' }}>{day}</div>
-                <div style={{ fontWeight: 600, fontSize: '16px' }}>{title}</div>
-            </div>
-        </div>
-        <ul style={{ paddingLeft: '20px', margin: 0, fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: '1.5' }}>
-            {items.map((item, i) => (
-                <li key={i} style={{ marginBottom: '8px' }}>{item}</li>
-            ))}
-        </ul>
-    </GlassPanel>
+const PhaseItem = ({ title, items, color, delay }) => (
+    <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay, duration: 0.6 }}
+        style={{ flex: 1 }}
+    >
+        <GlassPanel style={{ height: '100%', padding: '24px', borderTop: `2px solid ${color}` }}>
+            <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'white', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: color }}></div>
+                {title}
+            </h3>
+            <ul style={{ padding: 0, margin: 0, listStyle: 'none' }}>
+                {items.map((item, i) => (
+                    <li key={i} style={{ display: 'flex', gap: '8px', marginBottom: '14px', fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+                        <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#333', marginTop: '6px' }} />
+                        {item}
+                    </li>
+                ))}
+            </ul>
+        </GlassPanel>
+    </motion.div>
 );
 
 export const Slide16_Rollout = () => {
     return (
         <SlideContainer>
-            <div className="text-matrix-header" style={{ marginBottom: '16px' }}>Change Management</div>
-            <h2 className="text-hero" style={{ fontSize: '32px', marginBottom: '32px' }}>
-                Phased Rollout Plan
-            </h2>
+            <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+                <div className="text-matrix-header" style={{ justifyContent: 'center' }}>STRATEGIC ROADMAP</div>
+                <h2 className="text-hero" style={{ fontSize: '48px' }}>Phased Enterprise Rollout</h2>
+                <p className="text-subhero" style={{ maxWidth: '600px', margin: '24px auto' }}>
+                    Ensuring adoption, compliance, and institutional memory across global desks.
+                </p>
+            </div>
 
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gap: '24px',
-                marginBottom: '32px'
-            }}>
-                <TimelineCard
-                    day="Days 1-90"
-                    title="Partner Enablement"
-                    icon={Flag}
+            <div style={{ display: 'flex', gap: '20px', alignItems: 'stretch', flex: 1, marginBottom: '60px' }}>
+                <PhaseItem
+                    title="Phase 1: Pilot Core"
+                    color="var(--color-agent-reasoning-blue)"
+                    delay={0.2}
                     items={[
-                        "Foundational Onboarding & Training for initial core teams.",
-                        "Co-develop GTM playbooks for internal adoption (Quant, Legal, etc).",
-                        "Launch internal co-marketing to promote benefits.",
-                        "Goal: 5 new qualified internal pilots identified."
+                        "Initial 10-15 users in Credit & Quant",
+                        "Focused on specific deal/backtest workflows",
+                        "Weekly feedback loops with Hebbia Eng",
+                        "Security/Compliance final sign-off"
                     ]}
                 />
-                <TimelineCard
-                    day="Days 91-180"
-                    title="Structure Expansion"
-                    icon={Users}
+                <PhaseItem
+                    title="Phase 2: SIG US Scale"
+                    color="var(--color-agent-extraction-green)"
+                    delay={0.4}
                     items={[
-                        "Execute 5+ new pilots in adjacent teams.",
-                        "Codify successful workflows into standardized templates.",
-                        "Socialize success stories to build momentum.",
-                        "Goal: 3 new departmental pilots completed."
+                        "Expand to Equities, Options, and Trading",
+                        "Integration with SIG Internal Data APIs",
+                        "Custom training for specific deal desk needs",
+                        "Co-development of SIG-specific 'Agents'"
                     ]}
                 />
-                <TimelineCard
-                    day="Days 181-365"
-                    title="Enterprise Scale"
-                    icon={Rocket}
+                <PhaseItem
+                    title="Phase 3: Global Rollout"
+                    color="var(--color-agent-synthesis-purple)"
+                    delay={0.6}
                     items={[
-                        "Full enterprise-wide rollout to all trading desks & research teams.",
-                        "Establish Center of Excellence (CoE) for AI governance.",
-                        "Transition to strategic partnership model for co-innovation.",
-                        "Goal: >80% adoption across targeted departments."
+                        "Deploy to Dublin, Shanghai, Sydney offices",
+                        "Multi-region data tenancy (GDPR compliant)",
+                        "Enterprise-wide API for internal apps",
+                        "institutional knowledge graph completion"
                     ]}
                 />
             </div>
 
-            <GlassPanel style={{ padding: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-                    <BarChart className="text-blue-400" size={24} />
-                    <div>
-                        <div style={{ fontWeight: 600, color: 'white' }}>Governance & KPI Cadence</div>
-                        <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Quarterly SteerCo, Monthly Operational Reviews, Weekly Adoption Dashboards</div>
-                    </div>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '40px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <Users size={20} color="var(--color-text-secondary)" />
+                    <div style={{ fontSize: '13px', fontWeight: 600 }}>Training & Onboarding Included</div>
                 </div>
-            </GlassPanel>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <ShieldCheck size={20} color="var(--color-text-secondary)" />
+                    <div style={{ fontSize: '13px', fontWeight: 600 }}>Dedicated Solution Architects</div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <Zap size={20} color="var(--color-text-secondary)" />
+                    <div style={{ fontSize: '13px', fontWeight: 600 }}>24/7 Enterprise Support</div>
+                </div>
+            </div>
         </SlideContainer>
     );
 };
