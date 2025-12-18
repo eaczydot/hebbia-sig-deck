@@ -77,7 +77,7 @@ export const Slide8_UseCaseTrading = () => {
                             <div style={{ minWidth: '2px', background: '#EF4444' }} />
                             <div>
                                 <h4 style={{ color: 'white', fontWeight: 600, marginBottom: '4px' }}>Scenario</h4>
-                                <p className="text-cell-data">Distressed retail sector sell-off. Need to find issuers with liquidity runways > 12mo.</p>
+                                <p className="text-cell-data">Distressed retail sector sell-off. Need to find issuers with liquidity runways &gt; 12mo.</p>
                             </div>
                         </div>
                         <div style={{ display: 'flex', gap: '16px' }}>
