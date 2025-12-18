@@ -1,0 +1,113 @@
+/* Glass Panel Effect V2 */
+.glass-panel {
+    background: var(--gradient-glass-surface);
+    backdrop-filter: blur(var(--glass-backdrop-blur));
+    -webkit-backdrop-filter: blur(var(--glass-backdrop-blur));
+    border: 1px solid transparent;
+    border-top-color: rgba(255, 255, 255, 0.15);
+    border-left-color: rgba(255, 255, 255, 0.08);
+    border-right-color: rgba(255, 255, 255, 0.08);
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--glass-radius);
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle inner glow for active panels */
+.glass-panel.active {
+    box-shadow:
+        0 0 0 1px var(--color-border-active-agent),
+        0 0 20px -5px var(--color-agent-reasoning-glow);
+}
+
+/* Matrix Gradient Glow */
+.matrix-glow {
+    background: var(--gradient-matrix-glow);
+}
+
+/* Text Styles Map */
+.text-hero {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    background: var(--gradient-hero-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.text-subhero {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    font-weight: 400;
+}
+
+.text-matrix-header {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-agent-reasoning-blue);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Decoration line for matrix headers */
+.text-matrix-header::after {
+    content: '';
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-agent-reasoning-blue) 0%, transparent 100%);
+    flex: 1;
+    opacity: 0.3;
+}
+
+.text-cell-data {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    color: var(--color-text-code);
+    line-height: 1.5;
+}
+
+.text-mono-data {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-text-tertiary);
+}
+
+/* Grid Background Animation Utilities */
+.bg-grid-pattern {
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+.u-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.u-full-size {
+    width: 100%;
+    height: 100%;
+}
+
+.u-absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

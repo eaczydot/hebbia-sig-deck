@@ -1,0 +1,78 @@
+:root {
+  /* Canvas */
+  --color-canvas-base: #050505;
+  --color-canvas-layer-1: #0F0F0F;
+  --color-canvas-layer-2: #1A1A1A;
+  --color-canvas-layer-floating: rgba(15, 15, 20, 0.7);
+  --color-overlay-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+
+  /* Borders */
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-functional: rgba(255, 255, 255, 0.15);
+  --color-border-active-agent: #60A5FA;
+  --color-border-glass-edge: rgba(255, 255, 255, 0.12);
+  --color-border-glow: rgba(59, 130, 246, 0.5);
+
+  /* Text */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #9CA3AF;
+  --color-text-tertiary: #6B7280;
+  --color-text-code: #E5E7EB;
+
+  /* Agents: Enhanced Palette with Glows */
+  --color-agent-reasoning-blue: #3B82F6;
+  --color-agent-reasoning-glow: rgba(59, 130, 246, 0.4);
+
+  --color-agent-extraction-green: #10B981;
+  --color-agent-extraction-glow: rgba(16, 185, 129, 0.4);
+
+  --color-agent-synthesis-purple: #8B5CF6;
+  --color-agent-synthesis-glow: rgba(139, 92, 246, 0.4);
+
+  --color-agent-citation-orange: #F59E0B;
+  --color-agent-citation-glow: rgba(245, 158, 11, 0.4);
+
+  /* Gradients */
+  --gradient-matrix-glow: radial-gradient(circle at 50% -20%, rgba(59, 130, 246, 0.25) 0%, rgba(0, 0, 0, 0) 60%);
+  --gradient-glass-surface: linear-gradient(145deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.2) 100%);
+  --gradient-glass-border: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
+  --gradient-hero-text: linear-gradient(135deg, #FFFFFF 0%, #9CA3AF 100%);
+
+  /* Typography Functions */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: 'Inter', sans-serif;
+  /* Could be different if we had one */
+
+  /* Spacing & Layout */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 48px;
+
+  /* Components: Matrix Grid */
+  --matrix-cell-padding: 12px 16px;
+  --matrix-border-width: 1px;
+  --matrix-header-bg: rgba(15, 23, 42, 0.8);
+
+  /* Components: Agent Pill */
+  --pill-radius: 9999px;
+  /* More rounded for pills */
+  --pill-padding: 6px 12px;
+  --pill-text-size: 12px;
+  --pill-bg: rgba(59, 130, 246, 0.15);
+  --pill-border: rgba(59, 130, 246, 0.3);
+
+  /* Components: Glass Panel */
+  --glass-backdrop-blur: 16px;
+  --glass-radius: 12px;
+
+  /* Animation Durations */
+  --duration-fast: 0.2s;
+  --duration-normal: 0.4s;
+  --duration-slow: 0.8s;
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

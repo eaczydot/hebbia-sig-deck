@@ -1,0 +1,33 @@
+.gridContainer {
+    display: grid;
+    width: 100%;
+    border: var(--matrix-border-width) solid var(--color-border-subtle);
+    background-color: var(--color-canvas-base);
+}
+
+.headerCell {
+    background-color: var(--matrix-header-bg);
+    padding: var(--matrix-cell-padding);
+    border-bottom: var(--matrix-border-width) solid var(--color-border-subtle);
+    border-right: var(--matrix-border-width) solid var(--color-border-subtle);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+}
+
+.cell {
+    padding: var(--matrix-cell-padding);
+    border-bottom: var(--matrix-border-width) solid var(--color-border-subtle);
+    border-right: var(--matrix-border-width) solid var(--color-border-subtle);
+    font-family: var(--font-primary);
+    font-size: 14px;
+    color: var(--color-text-code);
+    position: relative;
+}
+
+/* Remove right border for the last column to prevent double borders if the container has a border */
+.cell:last-child {
+    /* This might need adjustment based on how the grid is constructed prop-wise */
+}

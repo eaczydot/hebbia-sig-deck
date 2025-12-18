@@ -1,0 +1,60 @@
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-canvas-base);
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    /* App-like feel, no global scrollbar */
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    color: inherit;
+}
+
+/* Utilities */
+.u-font-mono {
+    font-family: var(--font-mono);
+}
+
+.u-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.u-full-size {
+    width: 100%;
+    height: 100%;
+}
