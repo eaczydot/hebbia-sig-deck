@@ -1,101 +1,83 @@
 import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
-import { FileText, Clock, AlertCircle } from 'lucide-react';
+import { ContextBox } from '../components/ContextBox';
 import { motion } from 'framer-motion';
 
 export const Slide4_TheConstraint = () => {
     return (
         <SlideContainer>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', height: '100%' }}>
+            {/* Header */}
+            <div style={{ marginBottom: '40px' }}>
+                <div className="text-matrix-header">03 // THE CONSTRAINT</div>
+                <h2 className="text-hero" style={{ fontSize: '48px' }}>Decision Latency is Opportunity Cost</h2>
+            </div>
 
-                {/* Visual Side (Left) - "The Flood" */}
-                <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    {/* Background noise/chaos effect */}
-                    <div style={{
-                        position: 'absolute',
-                        inset: '-20px',
-                        background: 'radial-gradient(circle, rgba(239, 68, 68, 0.1), transparent 70%)',
-                        zIndex: 0
-                    }} />
+            {/* Split Layout */}
+            <div className="split-30-70" style={{ flex: 1 }}>
+                {/* Left Column - Context */}
+                <div className="stagger-in active">
+                    <ContextBox header="LINEAR SCALING">
+                        Manual document review creates a ceiling on growth. Adding more data requires adding more headcount linearly.
+                    </ContextBox>
 
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        style={{ position: 'relative', zIndex: 1 }}
-                    >
-                        <h2 className="text-hero" style={{ fontSize: '48px', marginBottom: '24px' }}>
-                            The Unstructured <br />Data Trap
-                        </h2>
-                        <p className="text-subhero" style={{ maxWidth: '90%' }}>
-                            High-value information is trapped in documents that resist automation. Analysts spend valuable hours on low-leverage extraction rather than high-leverage synthesis.
-                        </p>
-                    </motion.div>
-
-                    {/* Stack of Documents Visual */}
-                    <div style={{ marginTop: '40px', position: 'relative', height: '200px' }}>
-                        {[0, 1, 2].map((i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20, rotate: 0 }}
-                                animate={{ opacity: 1, y: 0, rotate: (i - 1) * 5 }}
-                                transition={{ delay: 0.5 + i * 0.2 }}
-                                style={{
-                                    position: 'absolute',
-                                    top: i * 10,
-                                    left: i * 20,
-                                    width: '240px',
-                                    height: '160px',
-                                    background: 'linear-gradient(135deg, #1e293b, #0f172a)',
-                                    border: '1px solid rgba(255,255,255,0.1)',
-                                    borderRadius: '8px',
-                                    boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    color: 'rgba(255,255,255,0.2)'
-                                }}
-                            >
-                                <FileText size={48} />
-                            </motion.div>
-                        ))}
-                    </div>
+                    <ContextBox header="OPPORTUNITY COST" style={{ marginTop: '30px' }}>
+                        Every hour spent on low-level data extraction is an hour not spent on high-level strategy and alpha generation.
+                    </ContextBox>
                 </div>
 
-                {/* Data Side (Right) - "The Cost" */}
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '24px' }}>
-                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}>
-                        <GlassPanel style={{ padding: '24px', borderLeft: '3px solid #EF4444' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                                <Clock className="text-red-400" size={20} />
-                                <div className="text-matrix-header" style={{ color: '#FCA5A5', margin: 0 }}>LATENCY</div>
+                {/* Right Column - Chart Visualization */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                >
+                    <GlassPanel style={{
+                        height: '100%',
+                        padding: '40px',
+                        position: 'relative',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-end'
+                    }}>
+                        {/* Top Label */}
+                        <div style={{ position: 'absolute', top: '30px', right: '30px', textAlign: 'right' }}>
+                            <div className="big-num" style={{ fontSize: '32px', color: '#EF4444', margin: 0 }}>UNSCALABLE</div>
+                            <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '12px' }}>Human Capacity vs. Data Volume</div>
+                        </div>
+
+                        {/* CSS Chart visualization */}
+                        <div style={{
+                            display: 'flex',
+                            height: '250px',
+                            gap: '40px',
+                            alignItems: 'flex-end',
+                            borderLeft: '1px solid var(--color-border-functional)',
+                            borderBottom: '1px solid var(--color-border-functional)',
+                            padding: '20px',
+                            position: 'relative'
+                        }}>
+                            {/* Data Volume Curve (SVG) */}
+                            <svg style={{ position: 'absolute', bottom: '20px', left: '50px', width: '80%', height: '200px', overflow: 'visible' }}>
+                                <path d="M0,200 C80,190 200,80 400,0" fill="none" stroke="#555" strokeWidth="2" strokeDasharray="5,5" />
+                                <text x="410" y="10" fill="#555" fontFamily="JetBrains Mono" fontSize="12">DATA VOLUME</text>
+                            </svg>
+
+                            {/* Capacity Bars */}
+                            {[100, 105, 110, 115].map((height, i) => (
+                                <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', flex: 1 }}>
+                                    <div style={{ width: '60px', height: `${height}px`, background: 'var(--color-border-functional)' }} />
+                                    {i === 0 && <div className="u-font-mono" style={{ fontSize: '11px', color: 'var(--color-text-secondary)' }}>Capacity (Manual)</div>}
+                                </div>
+                            ))}
+
+                            {/* Gap Annotation */}
+                            <div style={{ position: 'absolute', top: '30%', left: '50%', color: '#EF4444', fontFamily: 'var(--font-mono)', fontSize: '12px' }}>
+                                ↓ THE LATENCY GAP
                             </div>
-                            <div style={{ fontSize: '24px', fontWeight: 600, color: '#fff', marginBottom: '8px' }}>20-40 Hours / Deal</div>
-                            <div className="text-cell-data">Time spent manually reviewing credit agreements, indentures, and offering memos for a single transaction.</div>
-                        </GlassPanel>
-                    </motion.div>
-
-                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}>
-                        <GlassPanel style={{ padding: '24px', borderLeft: '3px solid #F59E0B' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                                <AlertCircle className="text-amber-400" size={20} />
-                                <div className="text-matrix-header" style={{ color: '#FCD34D', margin: 0 }}>OPPORTUNITY COST</div>
-                            </div>
-                            <div style={{ fontSize: '24px', fontWeight: 600, color: '#fff', marginBottom: '8px' }}>Missed Alpha</div>
-                            <div className="text-cell-data">Every hour spent extracting terms is an hour NOT spent analyzing market nuance, risk modeling, or sourcing new deals.</div>
-                        </GlassPanel>
-                    </motion.div>
-
-                    <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }}>
-                        <GlassPanel style={{ padding: '24px', borderLeft: '3px solid #64748B' }}>
-                            <div className="text-matrix-header" style={{ color: '#94A3B8', margin: 0, marginBottom: '12px' }}>VOLUME CONSTRAINT</div>
-                            <div style={{ fontSize: '24px', fontWeight: 600, color: '#fff', marginBottom: '8px' }}>Coverage Limitations</div>
-                            <div className="text-cell-data">Teams are forced to sample documents or limit the universe of securities they cover due to linear headcount constraints.</div>
-                        </GlassPanel>
-                    </motion.div>
-                </div>
-
+                        </div>
+                    </GlassPanel>
+                </motion.div>
             </div>
         </SlideContainer>
     );

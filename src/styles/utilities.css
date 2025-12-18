@@ -118,3 +118,178 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+/* ====================================
+   LAYOUT UTILITIES (from HTML v4.0)
+   ==================================== */
+
+/* Split Layouts */
+.split-30-70 {
+    display: grid;
+    grid-template-columns: 30fr 70fr;
+    gap: 60px;
+    height: 100%;
+}
+
+.split-50-50 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    height: 100%;
+}
+
+.split-40-60 {
+    display: grid;
+    grid-template-columns: 40fr 60fr;
+    gap: 50px;
+    height: 100%;
+}
+
+/* Grid Utilities */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+/* ====================================
+   STAGGERED ANIMATIONS (from HTML v4.0)
+   ==================================== */
+
+.stagger-in>* {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.stagger-in.active>*,
+.active .stagger-in>* {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger-in>*:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.stagger-in>*:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.stagger-in>*:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.stagger-in>*:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.stagger-in>*:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+.stagger-in>*:nth-child(6) {
+    transition-delay: 0.6s;
+}
+
+/* ====================================
+   PROGRESS BAR
+   ==================================== */
+
+.progress-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: var(--color-agent-reasoning-blue);
+    box-shadow: 0 0 20px var(--color-agent-reasoning-blue);
+    transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 100;
+}
+
+/* ====================================
+   BIG NUMBER DISPLAY
+   ==================================== */
+
+.big-num {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin: 10px 0;
+    font-family: var(--font-primary);
+}
+
+.big-num.text-blue {
+    color: var(--color-agent-reasoning-blue);
+}
+
+.big-num.text-green {
+    color: var(--color-agent-extraction-green);
+}
+
+.big-num.text-purple {
+    color: var(--color-agent-synthesis-purple);
+}
+
+.big-num.text-orange {
+    color: var(--color-agent-citation-orange);
+}
+
+/* ====================================
+   PILL VARIANTS
+   ==================================== */
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pill.blue {
+    border-color: rgba(70, 91, 255, 0.4);
+    background: rgba(70, 91, 255, 0.1);
+    color: var(--color-agent-reasoning-blue);
+}
+
+.pill.green {
+    border-color: rgba(16, 185, 129, 0.4);
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--color-agent-extraction-green);
+}
+
+.pill.purple {
+    border-color: rgba(139, 92, 246, 0.4);
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--color-agent-synthesis-purple);
+}
+
+.pill.orange {
+    border-color: rgba(245, 158, 11, 0.4);
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--color-agent-citation-orange);
+}

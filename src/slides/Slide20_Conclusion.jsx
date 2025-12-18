@@ -2,76 +2,48 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mail, Phone, Calendar, Users } from 'lucide-react';
 
 export const Slide20_Conclusion = () => {
     return (
-        <SlideContainer className="u-flex-center">
-            <div style={{ maxWidth: '900px', width: '100%', position: 'relative' }}>
-
-                {/* Hero Ending */}
-                <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1 }}
-                    >
-                        <h2 className="text-hero" style={{ fontSize: '72px', lineHeight: 1 }}>
-                            The Future of <br /> Financial Reasoning IS HEBBIA.
-                        </h2>
-                        <p className="text-subhero" style={{ marginTop: '32px', maxWidth: '600px', margin: '32px auto' }}>
-                            Join the world's most sophisticated investment teams in decoupling growth from headcount.
-                        </p>
-                    </motion.div>
-                </div>
-
-                {/* Next Steps Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '80px' }}>
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
-                        <GlassPanel style={{ padding: '32px', textAlign: 'center', borderTop: '2px solid var(--color-agent-reasoning-blue)' }}>
-                            <div style={{ color: 'var(--color-agent-reasoning-blue)', marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
-                                <Calendar size={32} />
-                            </div>
-                            <h4 style={{ color: 'white', fontWeight: 600, fontSize: '18px', marginBottom: '8px' }}>Schedule Deep-Dive</h4>
-                            <p className="text-cell-data" style={{ fontSize: '13px' }}>A technical session for SIG's engineering and security leads.</p>
-                        </GlassPanel>
-                    </motion.div>
-
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}>
-                        <GlassPanel style={{ padding: '32px', textAlign: 'center', borderTop: '2px solid var(--color-agent-extraction-green)' }}>
-                            <div style={{ color: 'var(--color-agent-extraction-green)', marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
-                                <ArrowRight size={32} />
-                            </div>
-                            <h4 style={{ color: 'white', fontWeight: 600, fontSize: '18px', marginBottom: '8px' }}>Start Pilot Design</h4>
-                            <p className="text-cell-data" style={{ fontSize: '13px' }}>Identify the 10 users and 3 use cases for the 8-week POV.</p>
-                        </GlassPanel>
-                    </motion.div>
-
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }}>
-                        <GlassPanel style={{ padding: '32px', textAlign: 'center', borderTop: '2px solid var(--color-agent-synthesis-purple)' }}>
-                            <div style={{ color: 'var(--color-agent-synthesis-purple)', marginBottom: '16px', display: 'flex', justifyContent: 'center' }}>
-                                <Users size={32} />
-                            </div>
-                            <h4 style={{ color: 'white', fontWeight: 600, fontSize: '18px', marginBottom: '8px' }}>Executive Briefing</h4>
-                            <p className="text-cell-data" style={{ fontSize: '13px' }}>Review ROI projections and strategic roadmap with SIG leadership.</p>
-                        </GlassPanel>
-                    </motion.div>
-                </div>
-
-                {/* Footer / Contact */}
-                <div style={{ display: 'flex', justifyContent: 'center', gap: '60px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '40px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <Mail size={16} color="var(--color-text-secondary)" />
-                        <span style={{ fontSize: '14px', fontFamily: 'var(--font-mono)' }}>strategy@hebbia.ai</span>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <Phone size={16} color="var(--color-text-secondary)" />
-                        <span style={{ fontSize: '14px', fontFamily: 'var(--font-mono)' }}>+1 (212) 555-0198</span>
+        <SlideContainer>
+            {/* Split Layout CTA */}
+            <div className="split-50-50" style={{ alignItems: 'center', height: '100%' }}>
+                {/* Left - Hero CTA */}
+                <div className="stagger-in active">
+                    <span className="pill blue" style={{ marginBottom: '20px', display: 'inline-block' }}>NEXT STEPS</span>
+                    <h1 className="text-hero" style={{ fontSize: '64px', lineHeight: 1.05 }}>
+                        Build the Future of Quantitative Reasoning.
+                    </h1>
+                    <div style={{ marginTop: '40px', borderLeft: '2px solid var(--color-border-functional)', paddingLeft: '20px' }}>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '14px', marginBottom: '10px' }}>1. Finalize Pilot Scope (Week 0)</div>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '14px', marginBottom: '10px' }}>2. Technical Deep Dive (Security)</div>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '14px' }}>3. Procurement Readiness</div>
                     </div>
                 </div>
 
-                {/* Background Glow */}
-                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '800px', height: '600px', background: 'radial-gradient(circle, rgba(70, 91, 255, 0.1), transparent 70%)', zIndex: -1, pointerEvents: 'none' }} />
+                {/* Right - Value Summary */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.3, duration: 0.8 }}
+                >
+                    <GlassPanel style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        padding: '60px 40px',
+                        height: '100%'
+                    }}>
+                        <div className="big-num text-blue" style={{ fontSize: '72px' }}>6 Weeks</div>
+                        <div className="u-font-mono" style={{ fontSize: '16px', marginBottom: '40px', color: 'var(--color-text-secondary)' }}>To Validated Value</div>
+                        <div style={{ fontSize: '14px', color: 'var(--color-text-tertiary)', lineHeight: 1.6 }}>
+                            partnerships@hebbia.ai<br />
+                            Classification: Confidential
+                        </div>
+                    </GlassPanel>
+                </motion.div>
             </div>
         </SlideContainer>
     );

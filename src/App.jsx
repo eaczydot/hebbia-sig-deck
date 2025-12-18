@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SlideContainer } from './components/SlideContainer';
+import { HeaderBar } from './components/HeaderBar';
 import { Slide1_Cover } from './slides/Slide1_Cover';
 import { Slide2_ExecutiveSummary } from './slides/Slide2_ExecutiveSummary';
 import { Slide3_StrategicContext } from './slides/Slide3_StrategicContext';
@@ -62,7 +63,7 @@ const SLIDES = [
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const totalSlides = 23; // Updated count
+  const totalSlides = SLIDES.length;
 
   const nextSlide = () => setCurrentSlide(prev => Math.min(prev + 1, totalSlides - 1));
   const prevSlide = () => setCurrentSlide(prev => Math.max(prev - 1, 0));
@@ -78,13 +79,23 @@ function App() {
   }, []);
 
   const CurrentSlideComponent = SLIDES[currentSlide] || (() => <SlidePlaceholder number={currentSlide + 1} />);
+  const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
 
   return (
     <div style={{ width: '100vw', height: '100vh', background: 'var(--color-canvas-base)' }}>
+      {/* Header Bar */}
+      <HeaderBar currentSlide={currentSlide} totalSlides={totalSlides} />
+
       {/* Render Current Slide */}
       <AnimatePresence mode="wait">
         <CurrentSlideComponent key={currentSlide} />
       </AnimatePresence>
+
+      {/* Progress Bar */}
+      <div
+        className="progress-bar"
+        style={{ width: `${progressPercent}%` }}
+      />
 
       {/* Navigation Overlay (for dev/mouse users) */}
       <div style={{
@@ -96,9 +107,6 @@ function App() {
         zIndex: 100
       }}>
         <button onClick={prevSlide} style={{ color: 'white', opacity: 0.5 }}>←</button>
-        <span style={{ color: 'var(--color-text-tertiary)', fontFamily: 'var(--font-primary)', fontWeight: 600, fontSize: '12px', letterSpacing: '0.05em' }}>
-          {currentSlide + 1} / {totalSlides}
-        </span>
         <button onClick={nextSlide} style={{ color: 'white', opacity: 0.5 }}>→</button>
       </div>
     </div>
@@ -106,3 +114,4 @@ function App() {
 }
 
 export default App;
+

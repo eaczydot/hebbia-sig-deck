@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hebbia x SIG | Enterprise Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 
+         * -----------------------------------------------------------
+         * HEBBIA MATRIX DESIGN SYSTEM v3.5 (Enterprise)
+         * -----------------------------------------------------------
+         */
+        :root {
+            --bg-void: #050505;
+            --bg-panel: rgba(20, 20, 20, 0.6);
+            --bg-glass: rgba(255, 255, 255, 0.03);
+            
+            --line-dim: #222;
+            --line-mid: #333;
+            --line-bright: #555;
+            
+            --txt-pri: #F0F0F0;
+            --txt-sec: #888;
+            --txt-dim: #444;
+            --txt-accent: #FFF;
+
+            /* Agent Colors */
+            --blue: #3B82F6;
+            --green: #10B981;
+            --purple: #8B5CF6;
+            --orange: #F59E0B;
+            --red: #EF4444;
+            
+            --font-ui: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --ease: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        * { box-sizing: border-box; }
+        
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background: var(--bg-void); 
+            color: var(--txt-pri);
+            font-family: var(--font-ui);
+            overflow: hidden;
+            width: 100vw; 
+            height: 100vh;
+        }
+
+        /* --- STAGE & SCALING --- */
+        #viewport {
+            width: 1920px;
+            height: 1080px;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 0%, #111, #000 60%);
+            box-shadow: 0 0 100px rgba(0,0,0,0.8);
+        }
+
+        /* --- GLOBAL UI ELEMENTS --- */
+        .grid-overlay {
+            position: absolute; inset: 0;
+            background-image: linear-gradient(var(--line-dim) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--line-dim) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .status-bar {
+            position: absolute; top: 0; left: 0; right: 0; height: 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 40px;
+            font-family: var(--font-mono); font-size: 12px; color: var(--txt-dim);
+            border-bottom: 1px solid var(--line-dim);
+            z-index: 100; background: var(--bg-void);
+        }
+
+        .progress-line {
+            position: absolute; bottom: 0; left: 0; height: 4px;
+            background: var(--blue);
+            width: 0%;
+            transition: width 0.6s var(--ease);
+            z-index: 100;
+            box-shadow: 0 0 20px var(--blue);
+        }
+
+        /* --- SLIDE ARCHITECTURE --- */
+        .slide {
+            position: absolute; inset: 0; padding: 100px 80px;
+            opacity: 0; transform: scale(1.02); filter: blur(8px);
+            transition: all 0.8s var(--ease);
+            pointer-events: none;
+            display: flex; flex-direction: column;
+        }
+        
+        .slide.active {
+            opacity: 1; transform: scale(1); filter: blur(0);
+            pointer-events: auto; z-index: 10;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1 { font-size: 80px; font-weight: 500; letter-spacing: -0.04em; margin: 0; line-height: 1; }
+        h2 { font-size: 48px; font-weight: 500; letter-spacing: -0.03em; margin: 0 0 40px 0; color: var(--txt-accent); }
+        h3 { font-family: var(--font-mono); font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--txt-sec); margin-bottom: 15px; }
+        
+        .mono { font-family: var(--font-mono); }
+        .text-blue { color: var(--blue); }
+        .text-green { color: var(--green); }
+        .text-purple { color: var(--purple); }
+        .text-orange { color: var(--orange); }
+        .text-sec { color: var(--txt-sec); }
+
+        /* --- COMPONENTS --- */
+        .glass-panel {
+            background: var(--bg-glass);
+            border: 1px solid var(--line-mid);
+            backdrop-filter: blur(10px);
+            border-radius: 4px;
+            padding: 30px;
+        }
+
+        .metric-tile {
+            display: flex; flex-direction: column; justify-content: space-between;
+            height: 100%; border: 1px solid var(--line-mid);
+            padding: 30px; background: var(--bg-panel);
+            transition: border-color 0.3s;
+        }
+        .metric-tile:hover { border-color: var(--blue); }
+        .big-num { font-size: 56px; font-weight: 600; letter-spacing: -0.04em; margin: 10px 0; }
+
+        .pill {
+            display: inline-block; padding: 4px 8px; border-radius: 4px;
+            border: 1px solid; font-size: 11px; font-family: var(--font-mono);
+            text-transform: uppercase;
+        }
+        .pill.blue { border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.1); color: var(--blue); }
+        
+        /* --- LAYOUTS --- */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; height: 100%; }
+        .col-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; height: 100%; }
+        .col-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; }
+
+        /* --- ANIMATIONS --- */
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s 0.2s var(--ease); }
+        .active .reveal { opacity: 1; transform: translateY(0); }
+        
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+    </style>
+</head>
+<body>
+
+<div id="viewport">
+    <div class="grid-overlay"></div>
+    
+    <!-- HEADER -->
+    <div class="status-bar">
+        <span>HEBBIA // MATRIX_OS v3.5</span>
+        <span id="slide-tracker">01 / 18</span>
+        <span>CONFIDENTIAL: SIG PROPOSAL</span>
+    </div>
+
+    <!-- SLIDE 1: COVER -->
+    <div class="slide active">
+        <div style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <div class="reveal">
+                <div class="pill blue" style="margin-bottom: 20px;">PROPOSAL FOR SUSQUEHANNA INTERNATIONAL GROUP</div>
+                <h1>A STRATEGIC PARTNERSHIP<br><span class="text-sec">FOR OPERATING LEVERAGE</span></h1>
+                <div class="mono text-blue" style="margin-top: 20px; font-size: 18px;">// UNLOCKING CAPACITY THROUGH REASONING</div>
+            </div>
+            
+            <div class="reveal delay-2" style="margin-top: auto; display: flex; gap: 60px; border-top: 1px solid var(--line-mid); padding-top: 30px;">
+                <div>
+                    <h3>PREPARED BY</h3>
+                    <div class="mono">HEBBIA ACCOUNT TEAM</div>
+                </div>
+                <div>
+                    <h3>DATE</h3>
+                    <div class="mono">DECEMBER 18, 2025</div>
+                </div>
+                <div>
+                    <h3>CLASSIFICATION</h3>
+                    <div class="mono text-orange">CONFIDENTIAL & PROPRIETARY</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: EXEC SUMMARY -->
+    <div class="slide">
+        <h3>01 // EXECUTIVE SUMMARY</h3>
+        <h2>Unlocking Capacity, Accelerating Conviction</h2>
+        <div class="col-4 reveal">
+            <div class="metric-tile">
+                <div class="mono text-sec">THE CHALLENGE</div>
+                <div style="font-size: 24px; line-height: 1.2;">Decision Latency is the primary constraint on opportunity capture.</div>
+                <div class="pill blue">BOTTLENECK</div>
+            </div>
+            <div class="metric-tile">
+                <div class="mono text-sec">THE SOLUTION</div>
+                <div style="font-size: 24px; line-height: 1.2;">Scalable Reasoning Engine transforming docs to data.</div>
+                <div class="pill green">HEBBIA MATRIX</div>
+            </div>
+            <div class="metric-tile">
+                <div class="mono text-sec">PROJECTED ROI</div>
+                <div class="big-num text-green">>3x</div>
+                <div class="mono">Multi-year return through capacity creation.</div>
+            </div>
+            <div class="metric-tile">
+                <div class="mono text-sec">RECOMMENDATION</div>
+                <div style="font-size: 24px; line-height: 1.2;">6-Week High-Impact Pilot to validate value.</div>
+                <div class="pill blue">ACTION</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: STRATEGIC CONTEXT -->
+    <div class="slide">
+        <h3>02 // STRATEGIC CONTEXT</h3>
+        <h2>SIG: A Global Quantitative Leader</h2>
+        <div class="col-2 reveal">
+            <div class="glass-panel">
+                <div style="font-size: 24px; margin-bottom: 20px;">Tech-Empowered Trading</div>
+                <p class="text-sec">Founded on scientific rigor, game theory, and collaboration. The diverse operations across market making, PE, and institutional brokerage demand tools that match the pace of inquiry.</p>
+                <div style="margin-top: 40px; display: flex; gap: 10px;">
+                    <span class="pill blue">QUANT TRADING</span>
+                    <span class="pill blue">MARKET MAKING</span>
+                    <span class="pill blue">GROWTH EQUITY</span>
+                </div>
+            </div>
+            <!-- Abstract Map Visualization -->
+            <div style="position: relative; border: 1px dashed var(--line-mid); opacity: 0.7;">
+                <div style="position: absolute; top: 30%; left: 25%; width: 10px; height: 10px; background: #fff; box-shadow: 0 0 10px #fff;"></div> <!-- Bala Cynwyd -->
+                <div style="position: absolute; top: 28%; left: 48%; width: 8px; height: 8px; background: var(--blue);"></div> <!-- Dublin -->
+                <div style="position: absolute; top: 35%; left: 80%; width: 8px; height: 8px; background: var(--blue);"></div> <!-- Shanghai -->
+                <div style="position: absolute; bottom: 20%; left: 85%; width: 8px; height: 8px; background: var(--blue);"></div> <!-- Sydney -->
+                <div class="mono" style="position: absolute; bottom: 20px; left: 20px;">17+ OFFICES GLOBALLY</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: THE CONSTRAINT -->
+    <div class="slide">
+        <h3>03 // PROBLEM STATEMENT</h3>
+        <h2>Decision Latency is Opportunity Cost</h2>
+        <div class="reveal" style="display: flex; align-items: center; justify-content: center; height: 600px;">
+            <!-- Funnel Vis -->
+            <div style="text-align: center; width: 300px;">
+                <div class="mono text-sec" style="margin-bottom: 10px;">INPUT</div>
+                <div style="border: 1px solid var(--line-mid); padding: 20px;">
+                    10Ks, Filings<br>Transcripts<br>News Feeds
+                </div>
+            </div>
+            <div style="width: 100px; height: 2px; background: var(--line-mid);"></div>
+            <div class="glass-panel" style="border-color: var(--red); box-shadow: 0 0 30px rgba(239,68,68,0.1); width: 300px; text-align: center;">
+                <div class="pill" style="background: var(--red); color: #000; margin-bottom: 10px;">BOTTLENECK</div>
+                <div style="font-size: 20px;">Manual Review & Synthesis</div>
+                <div class="mono text-sec" style="margin-top: 10px; font-size: 12px;">LINEAR SCALING CONSTRAINT</div>
+            </div>
+            <div style="width: 100px; height: 2px; background: var(--line-mid);"></div>
+            <div style="text-align: center; width: 300px;">
+                <div class="mono text-sec" style="margin-bottom: 10px;">OUTPUT</div>
+                <div style="border: 1px solid var(--blue); color: var(--blue); padding: 20px;">
+                    Alpha / Insight
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: VALUE THESIS -->
+    <div class="slide">
+        <h3>04 // VALUE THESIS</h3>
+        <h2>Operating Leverage from Reasoning</h2>
+        <div class="col-3 reveal">
+            <div class="metric-tile" style="border-top: 4px solid var(--blue);">
+                <h3>01 // GROWTH</h3>
+                <p>Increase decision throughput and expand analytical coverage without linear headcount growth.</p>
+                <div class="mono text-blue" style="margin-top: auto;">CAPACITY CREATION</div>
+            </div>
+            <div class="metric-tile" style="border-top: 4px solid var(--green);">
+                <h3>02 // EFFICIENCY</h3>
+                <p>Compress research cycle times and automate manual diligence tasks like covenant extraction.</p>
+                <div class="mono text-green" style="margin-top: auto;">COST REDUCTION</div>
+            </div>
+            <div class="metric-tile" style="border-top: 4px solid var(--purple);">
+                <h3>03 // DEFENSIBILITY</h3>
+                <p>Enhance decision quality with fully traceable, auditable, and verifiable reasoning trails.</p>
+                <div class="mono text-purple" style="margin-top: auto;">RISK CONTROL</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: HEBBIA OVERVIEW -->
+    <div class="slide">
+        <h3>05 // THE PLATFORM</h3>
+        <h2>The AI Reasoning Engine for Finance</h2>
+        <div class="reveal" style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; height: 100%;">
+            <div class="glass-panel" style="display: flex; flex-direction: column; justify-content: center; background: url('https://placehold.co/800x500/111/333?text=Matrix+Interface') no-repeat center; background-size: cover; border: 1px solid var(--blue);">
+                <!-- Placeholder for Interface Shot -->
+                <div style="background: rgba(0,0,0,0.8); padding: 20px; align-self: flex-start;">
+                    <div class="mono text-blue">System Status: ONLINE</div>
+                    <div class="mono">Indexing: 25M Documents</div>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div class="metric-tile">
+                    <div class="big-num text-blue">$25T+</div>
+                    <div class="mono">AUM Served</div>
+                </div>
+                <div class="metric-tile">
+                    <div class="big-num text-green">SOC 2</div>
+                    <div class="mono">Type II Compliant</div>
+                </div>
+                <div class="metric-tile">
+                    <div class="mono">"Citation-First" Architecture</div>
+                    <div class="text-sec" style="font-size: 14px; margin-top: 5px;">Zero training on customer data.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: HOW IT WORKS -->
+    <div class="slide">
+        <h3>06 // MECHANISM</h3>
+        <h2>From Raw Data to Verifiable Insight</h2>
+        <div class="col-4 reveal" style="margin-top: 60px;">
+            <div style="border-left: 1px solid var(--line-mid); padding-left: 20px;">
+                <div class="mono text-sec">01</div>
+                <div style="font-size: 24px; margin: 10px 0;">Ingest</div>
+                <p class="text-sec">Connect any data source: Internal docs, SEC filings, Web.</p>
+            </div>
+            <div style="border-left: 1px solid var(--line-mid); padding-left: 20px;">
+                <div class="mono text-blue">02</div>
+                <div style="font-size: 24px; margin: 10px 0;" class="text-blue">Reason</div>
+                <p class="text-sec">Ask complex, multi-step questions in natural language.</p>
+            </div>
+            <div style="border-left: 1px solid var(--line-mid); padding-left: 20px;">
+                <div class="mono text-purple">03</div>
+                <div style="font-size: 24px; margin: 10px 0;" class="text-purple">Synthesize</div>
+                <p class="text-sec">Agents decompose query and generate tabular answers.</p>
+            </div>
+            <div style="border-left: 1px solid var(--line-mid); padding-left: 20px;">
+                <div class="mono text-green">04</div>
+                <div style="font-size: 24px; margin: 10px 0;" class="text-green">Verify</div>
+                <div class="glass-panel" style="padding: 10px; margin-top: 10px; font-size: 12px; border-left: 2px solid var(--orange);">
+                    "Revenue grew 15%..." <br> <span class="mono text-orange">[Source: 10-K Pg 42]</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: TRADING USE CASES -->
+    <div class="slide">
+        <h3>07 // USE CASE: TRADING</h3>
+        <h2>Market-Facing Applications</h2>
+        <div class="col-3 reveal">
+            <div class="glass-panel">
+                <div class="pill blue">EVENT DIGESTION</div>
+                <p style="margin-top: 20px;">Instantly analyze news, transcripts, and reports to assess market impact.</p>
+                <div class="mono text-sec" style="margin-top: 20px;">KPI: Time-to-Impact Analysis</div>
+            </div>
+            <div class="glass-panel">
+                <div class="pill blue">PRECEDENT RETRIEVAL</div>
+                <p style="margin-top: 20px;">Find comparable trading scenarios or legal interpretations in seconds.</p>
+                <div class="mono text-sec" style="margin-top: 20px;">KPI: Search Latency</div>
+            </div>
+            <div class="glass-panel">
+                <div class="pill blue">TERMS DIFFS</div>
+                <p style="margin-top: 20px;">Automate comparison of ISDA agreements and regulatory changes.</p>
+                <div class="mono text-sec" style="margin-top: 20px;">KPI: Review Accuracy</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: QUANT USE CASES -->
+    <div class="slide">
+        <h3>08 // USE CASE: QUANT RESEARCH</h3>
+        <h2>Research & Risk Applications</h2>
+        <div class="col-2 reveal">
+            <div class="glass-panel">
+                <div style="display:flex; justify-content:space-between;">
+                    <div class="pill purple">RESEARCH LINEAGE</div>
+                    <div class="mono">AUDITABLE</div>
+                </div>
+                <h4 style="margin: 20px 0;">Experiment Synthesis</h4>
+                <p class="text-sec">Create auditable trails for experiments, linking code, data, and memos. Consolidate findings from hundreds of past projects.</p>
+                <div style="background: #111; padding: 15px; margin-top: 20px; font-family: monospace; font-size: 12px; color: var(--green);">
+                    > Linking model_v2.py to Memo_2024.pdf... [OK]
+                </div>
+            </div>
+            <div class="glass-panel">
+                <div class="pill purple">RISK MANAGEMENT</div>
+                <h4 style="margin: 20px 0;">Policy Synthesis</h4>
+                <p class="text-sec">Instantly query all internal policies and historical incident reports to assess strategy compliance.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: LEGAL USE CASES -->
+    <div class="slide">
+        <h3>09 // USE CASE: LEGAL</h3>
+        <h2>Compliance & Operations</h2>
+        <div class="reveal" style="display: flex; gap: 40px; align-items: center;">
+            <div class="metric-tile" style="flex: 1;">
+                <div class="big-num text-orange">75%</div>
+                <div>Reduction in Credit Agreement Review Time</div>
+            </div>
+            <div style="flex: 2; display: grid; grid-template-rows: 1fr 1fr; gap: 20px;">
+                <div class="glass-panel">
+                    <div class="pill orange">AMENDMENT DIFFS</div>
+                    <p>Automatically identify all changes in updated legal documents vs precedents.</p>
+                </div>
+                <div class="glass-panel">
+                    <div class="pill orange">AUDIT RESPONSE</div>
+                    <p>Rapidly assemble evidence packs for regulatory inquiries with full traceability.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: CAPACITY CREATION -->
+    <div class="slide">
+        <h3>10 // QUANTIFIED VALUE</h3>
+        <h2>Capacity Creation Model</h2>
+        <div class="col-2 reveal">
+            <div>
+                <p style="font-size: 24px; line-height: 1.5;">Reducing cycle time directly translates to increased decision throughput.</p>
+                <div class="glass-panel" style="margin-top: 40px; border-left: 4px solid var(--blue);">
+                    <div class="mono text-blue">FORMULA</div>
+                    <div style="font-size: 20px; margin-top: 10px;">
+                        (Baseline Analyses/Week) × (Cycle Time Reduction) = <span class="text-white">New Capacity</span>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: flex-end; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line-mid);">
+                <div style="width: 100px; height: 40%; background: var(--line-bright); margin-right: 20px; position: relative;">
+                    <div class="mono" style="position: absolute; top: -30px;">BASELINE</div>
+                </div>
+                <div style="width: 100px; height: 90%; background: var(--blue); position: relative;">
+                    <div class="mono text-blue" style="position: absolute; top: -30px;">WITH HEBBIA</div>
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #000; font-weight: bold;">+3/week</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: EFFICIENCY -->
+    <div class="slide">
+        <h3>11 // QUANTIFIED VALUE</h3>
+        <h2>Operational Efficiency</h2>
+        <div class="col-3 reveal">
+            <div class="metric-tile">
+                <div class="mono">TRADING</div>
+                <div class="big-num text-blue">4,000h</div>
+                <div class="text-sec">Projected Annual Savings</div>
+            </div>
+            <div class="metric-tile">
+                <div class="mono">QUANT RESEARCH</div>
+                <div class="big-num text-purple">2,500h</div>
+                <div class="text-sec">Projected Annual Savings</div>
+            </div>
+            <div class="metric-tile">
+                <div class="mono">LEGAL</div>
+                <div class="big-num text-orange">1,200h</div>
+                <div class="text-sec">Projected Annual Savings</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: ROI -->
+    <div class="slide">
+        <h3>12 // FINANCIAL IMPACT</h3>
+        <h2>Multi-Year ROI Projections</h2>
+        <div class="reveal">
+            <table style="width: 100%; border-collapse: collapse; font-family: var(--font-mono); margin-top: 40px;">
+                <tr style="border-bottom: 1px solid var(--line-mid); color: var(--txt-sec);">
+                    <th style="text-align: left; padding: 20px;">SCENARIO</th>
+                    <th style="text-align: left; padding: 20px;">ADOPTION</th>
+                    <th style="text-align: left; padding: 20px;">HOURS SAVED/WEEK</th>
+                    <th style="text-align: left; padding: 20px; color: var(--green);">ROI</th>
+                    <th style="text-align: left; padding: 20px;">PAYBACK</th>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--line-dim);">
+                    <td style="padding: 20px;">Conservative</td>
+                    <td style="padding: 20px;">40%</td>
+                    <td style="padding: 20px;">4</td>
+                    <td style="padding: 20px; color: var(--green);">180%</td>
+                    <td style="padding: 20px;">14 Months</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--line-dim); background: rgba(59, 130, 246, 0.1);">
+                    <td style="padding: 20px; color: var(--blue);">Base Case</td>
+                    <td style="padding: 20px;">70%</td>
+                    <td style="padding: 20px;">8</td>
+                    <td style="padding: 20px; color: var(--green);">320%</td>
+                    <td style="padding: 20px;">9 Months</td>
+                </tr>
+                <tr>
+                    <td style="padding: 20px;">Aggressive</td>
+                    <td style="padding: 20px;">90%</td>
+                    <td style="padding: 20px;">12</td>
+                    <td style="padding: 20px; color: var(--green);">450%</td>
+                    <td style="padding: 20px;">6 Months</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- SLIDE 14: PILOT PLAN -->
+    <div class="slide">
+        <h3>13 // EXECUTION</h3>
+        <h2>Pilot Plan: 6 Weeks to Value</h2>
+        <div style="display: flex; justify-content: space-between; margin-top: 60px;" class="reveal">
+            <div style="flex: 1; border-top: 2px solid var(--line-mid); padding-top: 20px;">
+                <div class="mono text-blue">WEEKS 1-2</div>
+                <h4>Setup & Baseline</h4>
+                <p class="text-sec">Ingest private data, configure agents, establish cycle time baselines.</p>
+            </div>
+            <div style="flex: 1; border-top: 2px solid var(--line-mid); padding-top: 20px; margin-left: 20px;">
+                <div class="mono text-blue">WEEKS 3-5</div>
+                <h4>Execution & Feedback</h4>
+                <p class="text-sec">5-10 users running live workflows. Weekly feedback loops.</p>
+            </div>
+            <div style="flex: 1; border-top: 2px solid var(--green); padding-top: 20px; margin-left: 20px;">
+                <div class="mono text-green">WEEK 6</div>
+                <h4>Validation & ROI</h4>
+                <p class="text-sec">Measure delta vs baseline. Finalize business case for rollout.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 15: SECURITY -->
+    <div class="slide">
+        <h3>14 // ENTERPRISE GRADE</h3>
+        <h2>Security, Privacy & Compliance</h2>
+        <div class="col-2 reveal">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="metric-tile" style="text-align: center;">SOC 2 Type II</div>
+                <div class="metric-tile" style="text-align: center;">GDPR</div>
+                <div class="metric-tile" style="text-align: center;">AES-256</div>
+                <div class="metric-tile" style="text-align: center;">TLS 1.3</div>
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: center;">
+                <div class="glass-panel" style="border-left: 4px solid var(--green);">
+                    <div style="font-size: 24px; margin-bottom: 10px;">Zero Training on Customer Data</div>
+                    <p class="text-sec">Your IP and sensitive information remain isolated. Hebbia models are never trained on your private inputs.</p>
+                </div>
+                <div class="mono text-sec" style="margin-top: 20px;">
+                    > Audit Logs: ENABLED<br>
+                    > Access Control: RBAC/SSO
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 16: COMPETITION -->
+    <div class="slide">
+        <h3>15 // DIFFERENTIATION</h3>
+        <h2>Why Hebbia?</h2>
+        <div class="col-3 reveal">
+            <div class="glass-panel">
+                <div class="mono">VS GENERIC CHATBOTS</div>
+                <hr style="border: 0; border-bottom: 1px solid var(--line-mid); margin: 15px 0;">
+                <p>We provide verifiable, cited, structured outputs—not uncited prose. No hallucinations.</p>
+            </div>
+            <div class="glass-panel">
+                <div class="mono">VS SEARCH PLATFORMS</div>
+                <hr style="border: 0; border-bottom: 1px solid var(--line-mid); margin: 15px 0;">
+                <p>Hebbia is a reasoning engine for your private data, not just a library of external content.</p>
+            </div>
+            <div class="glass-panel">
+                <div class="mono">VS INTERNAL BUILD</div>
+                <hr style="border: 0; border-bottom: 1px solid var(--line-mid); margin: 15px 0;">
+                <p>Faster time-to-value, lower TCO, and avoids diverting SIG's core engineering resources.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 17: PARTNERSHIP -->
+    <div class="slide">
+        <h3>16 // COMMERCIALS</h3>
+        <h2>Phased Enterprise Partnership</h2>
+        <div class="reveal">
+            <ul style="list-style: none; padding: 0; font-size: 24px; line-height: 2;">
+                <li style="border-bottom: 1px solid var(--line-dim); padding: 20px 0;">
+                    <span class="pill blue" style="margin-right: 20px;">PHASE 1</span>
+                    6-Week Fixed Scope Pilot
+                </li>
+                <li style="border-bottom: 1px solid var(--line-dim); padding: 20px 0;">
+                    <span class="pill blue" style="margin-right: 20px;">SUPPORT</span>
+                    Dedicated AI Strategist + White-Glove Onboarding
+                </li>
+                <li style="border-bottom: 1px solid var(--line-dim); padding: 20px 0;">
+                    <span class="pill blue" style="margin-right: 20px;">SCALE</span>
+                    Enterprise License with TCO Model Available
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SLIDE 18: NEXT STEPS -->
+    <div class="slide">
+        <h3>17 // CONCLUSION</h3>
+        <h2>Next Steps & Call to Action</h2>
+        <div class="col-2 reveal">
+            <div>
+                <ol style="font-size: 24px; line-height: 1.8; color: var(--txt-pri);">
+                    <li>Finalize scope and stakeholders for pilot.</li>
+                    <li>Schedule technical deep-dive with security.</li>
+                    <li>Initiate procurement readiness review.</li>
+                </ol>
+            </div>
+            <div class="glass-panel" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                <p style="font-size: 28px; margin-bottom: 20px;">Let's build the future of quantitative reasoning.</p>
+                <div class="mono text-blue">partnerships@hebbia.ai</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROGRESS LINE -->
+    <div class="progress-line" id="progress"></div>
+
+</div>
+
+<script>
+    const slides = document.querySelectorAll('.slide');
+    const tracker = document.getElementById('slide-tracker');
+    const progressBar = document.getElementById('progress');
+    let current = 0;
+
+    function update() {
+        slides.forEach((s, i) => {
+            s.classList.toggle('active', i === current);
+        });
+        tracker.innerText = `${String(current + 1).padStart(2, '0')} / ${slides.length}`;
+        progressBar.style.width = `${((current + 1) / slides.length) * 100}%`;
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            current = (current + 1) % slides.length;
+            update();
+        }
+        if (e.key === 'ArrowLeft') {
+            current = (current - 1 + slides.length) % slides.length;
+            update();
+        }
+    });
+
+    update();
+</script>
+
+</body>
+</html>

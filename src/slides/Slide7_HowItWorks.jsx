@@ -3,101 +3,99 @@ import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
 
-const ProcessStep = ({ number, title, description, color, active }) => (
-    <div style={{ position: 'relative', flex: 1, padding: '0 12px' }}>
-        {/* Connector Line */}
-        <div style={{
-            position: 'absolute',
-            top: '24px',
-            left: 0,
-            right: 0,
-            height: '2px',
-            background: 'rgba(255,255,255,0.05)',
-            zIndex: 0
-        }} />
-
-        <GlassPanel
-            style={{
-                padding: '24px',
-                height: '240px',
-                position: 'relative',
-                zIndex: 1,
-                borderTop: active ? `2px solid ${color}` : '1px solid rgba(255,255,255,0.1)',
-                background: active ? `linear-gradient(180deg, ${color}10 0%, rgba(0,0,0,0) 100%)` : 'rgba(20,20,20,0.6)'
-            }}
-        >
-            <div style={{
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
-                background: active ? color : '#1A1A1A',
-                color: active ? '#000' : '#444',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 700,
-                fontSize: '18px',
-                marginBottom: '20px',
-                border: `1px solid ${active ? color : '#333'}`
-            }}>
-                {number}
-            </div>
-
-            <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'white', marginBottom: '12px' }}>{title}</h3>
-            <p className="text-cell-data" style={{ fontSize: '13px', lineHeight: 1.5 }}>{description}</p>
-        </GlassPanel>
-    </div>
-);
-
 export const Slide7_HowItWorks = () => {
+    const steps = [
+        { num: '01', title: 'INGEST', desc: 'Index PDFs, Excel, emails from your VPC or SharePoint.', color: 'var(--color-text-tertiary)' },
+        { num: '02', title: 'PLAN', desc: 'Decompose queries into sub-questions and retrieval steps.', color: 'var(--color-agent-reasoning-blue)' },
+        { num: '03', title: 'EXECUTE', desc: 'Specialized agents run in parallel across documents.', color: 'var(--color-agent-extraction-green)' },
+        { num: '04', title: 'SYNTHESIZE', desc: 'Aggregate, compare, and export to structured formats.', color: 'var(--color-agent-synthesis-purple)' }
+    ];
+
     return (
         <SlideContainer>
-            <div style={{ marginBottom: '60px' }}>
-                <div className="text-matrix-header">HOW IT WORKS</div>
+            {/* Header */}
+            <div style={{ marginBottom: '40px' }}>
+                <div className="text-matrix-header">06 // HOW IT WORKS</div>
                 <h2 className="text-hero" style={{ fontSize: '48px' }}>From Query to Conviction</h2>
             </div>
 
-            <div style={{ display: 'flex', gap: '20px', alignItems: 'stretch' }}>
-                <ProcessStep
-                    number="1"
-                    title="Ingest"
-                    description="Hebbia indexes millions of documents (PDF, Excel, PPT) from your private data lake, creating a secure knowledge graph."
-                    color="#64748B"
-                    active={false}
-                />
-                <ProcessStep
-                    number="2"
-                    title="Plan"
-                    description="The Matrix breaks down complex analyst questions into sub-steps: 'Find change of control', 'Compare EBITDA', 'Check governing law'."
-                    color="var(--color-agent-reasoning-blue)"
-                    active={true}
-                />
-                <ProcessStep
-                    number="3"
-                    title="Execute"
-                    description="Specialized agents run in parallel across every document, extracting specific clauses and data points with pixel-perfect citations."
-                    color="var(--color-agent-extraction-green)"
-                    active={true}
-                />
-                <ProcessStep
-                    number="4"
-                    title="Scale"
-                    description="Insights are aggregated into a structured grid (Excel/CSV exportable), highlighting outliers and anomalies instantly."
-                    color="var(--color-agent-synthesis-purple)"
-                    active={true}
-                />
-            </div>
-
-            {/* Bottom Insight */}
+            {/* Horizontal Flow */}
             <motion.div
+                className="grid-4"
+                style={{ flex: 1 }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                style={{ marginTop: '60px', textAlign: 'center', color: 'var(--color-text-secondary)' }}
+                transition={{ delay: 0.2 }}
             >
-                <code style={{ background: 'rgba(255,255,255,0.05)', padding: '8px 16px', borderRadius: '4px', fontFamily: 'var(--font-mono)', fontSize: '12px' }}>
-                    Latency: ~30s per 100 documents vs. 4-6 hours human review
-                </code>
+                {steps.map((step, i) => (
+                    <div key={i} style={{ position: 'relative' }}>
+                        {/* Arrow connector */}
+                        {i < steps.length - 1 && (
+                            <div style={{
+                                position: 'absolute',
+                                top: '50%',
+                                right: '-15px',
+                                color: 'var(--color-border-functional)',
+                                fontSize: '20px',
+                                zIndex: 10
+                            }}>→</div>
+                        )}
+                        <GlassPanel style={{
+                            height: '100%',
+                            padding: '30px',
+                            borderTop: `2px solid ${step.color}`,
+                            display: 'flex',
+                            flexDirection: 'column'
+                        }}>
+                            <div className="u-font-mono" style={{
+                                color: step.color,
+                                fontSize: '24px',
+                                fontWeight: 700,
+                                marginBottom: '15px'
+                            }}>
+                                {step.num}
+                            </div>
+                            <div style={{
+                                fontSize: '14px',
+                                letterSpacing: '0.1em',
+                                color: step.color,
+                                marginBottom: '10px'
+                            }}>
+                                {step.title}
+                            </div>
+                            <div style={{
+                                fontSize: '14px',
+                                color: 'var(--color-text-secondary)',
+                                lineHeight: 1.5,
+                                flex: 1
+                            }}>
+                                {step.desc}
+                            </div>
+                        </GlassPanel>
+                    </div>
+                ))}
+            </motion.div>
+
+            {/* KPI Row */}
+            <motion.div
+                className="grid-3 stagger-in active"
+                style={{ marginTop: '40px' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+            >
+                <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: '20px' }}>
+                    <div className="big-num text-blue" style={{ fontSize: '40px', margin: 0 }}>~30s</div>
+                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Per 100 Documents</div>
+                </div>
+                <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: '20px' }}>
+                    <div className="big-num text-green" style={{ fontSize: '40px', margin: 0 }}>100%</div>
+                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Citation Coverage</div>
+                </div>
+                <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: '20px' }}>
+                    <div className="big-num text-purple" style={{ fontSize: '40px', margin: 0 }}>Excel</div>
+                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Native Export</div>
+                </div>
             </motion.div>
         </SlideContainer>
     );

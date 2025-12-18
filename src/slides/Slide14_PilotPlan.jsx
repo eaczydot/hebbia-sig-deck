@@ -1,111 +1,88 @@
 import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
+import { ContextBox } from '../components/ContextBox';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Rocket, Users, Target, Zap } from 'lucide-react';
-
-const WeekBlock = ({ week, title, tasks, current }) => (
-    <div style={{ flex: 1, position: 'relative' }}>
-        <div style={{
-            fontSize: '11px',
-            fontWeight: 700,
-            color: current ? 'var(--color-agent-reasoning-blue)' : 'var(--color-text-tertiary)',
-            marginBottom: '12px',
-            fontFamily: 'var(--font-mono)'
-        }}>WEEK {week}</div>
-
-        <GlassPanel style={{
-            padding: '24px',
-            height: '280px',
-            border: current ? '1px solid var(--color-agent-reasoning-blue)' : '1px solid rgba(255,255,255,0.05)',
-            background: current ? 'rgba(70, 91, 255, 0.05)' : 'rgba(15,15,15,0.6)',
-        }}>
-            <div style={{ fontWeight: 600, fontSize: '18px', color: 'white', marginBottom: '16px' }}>{title}</div>
-            <ul style={{ padding: 0, margin: 0, listStyle: 'none' }}>
-                {tasks.map((task, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '8px', marginBottom: '10px', fontSize: '12px', color: 'var(--color-text-secondary)', lineHeight: 1.4 }}>
-                        <CheckCircle2 size={14} color={current ? "var(--color-agent-reasoning-blue)" : "#333"} style={{ minWidth: '14px', marginTop: '2px' }} />
-                        {task}
-                    </li>
-                ))}
-            </ul>
-        </GlassPanel>
-    </div>
-);
 
 export const Slide14_PilotPlan = () => {
     return (
         <SlideContainer>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '60px' }}>
-                <div>
-                    <div className="text-matrix-header">IMPLEMENTATION</div>
-                    <h2 className="text-hero" style={{ fontSize: '48px' }}>8-Week Proof of Value</h2>
-                </div>
-                <div style={{ textAlign: 'right', maxWidth: '300px' }}>
-                    <p className="text-cell-data" style={{ fontSize: '13px' }}>
-                        A rapid, high-intensity pilot designed to validate technical feasibility and measurable alpha generation.
-                    </p>
-                </div>
+            {/* Header */}
+            <div style={{ marginBottom: '40px' }}>
+                <div className="text-matrix-header">13 // EXECUTION</div>
+                <h2 className="text-hero" style={{ fontSize: '48px' }}>6-Week Pilot Plan</h2>
             </div>
 
-            <div style={{ display: 'flex', gap: '20px', marginBottom: '40px' }}>
-                <WeekBlock
-                    week="1-2"
-                    title="Ingestion & Sync"
-                    tasks={[
-                        "Azure VPC Setup",
-                        "Data Source Connection (SharePoint/Shared Drive)",
-                        "PII/MNPI Policy Config",
-                        "User Whitelisting (10 initial analysts)"
-                    ]}
-                />
-                <WeekBlock
-                    week="3-4"
-                    title="Workflow Design"
-                    tasks={[
-                        "Identify Core Use Cases (Credit, Quant, Legal)",
-                        "Draft Custom Matrix Templates",
-                        "Initial Prompt Engineering Workshop",
-                        "Benchmark Baseline Manual Speed"
-                    ]}
-                    current={true}
-                />
-                <WeekBlock
-                    week="5-7"
-                    title="Live Execution"
-                    tasks={[
-                        "Analysts run active deal diligence in Hebbia",
-                        "Continuous iteration on Matrix logic",
-                        "Deep-dive technical performance audit",
-                        "Bi-weekly Steering Committee reviews"
-                    ]}
-                />
-                <WeekBlock
-                    week="8"
-                    title="Final POV Audit"
-                    tasks={[
-                        "Quantify hours saved vs baseline",
-                        "Success metrics scorecard finalization",
-                        "Enterprise expansion roadmap",
-                        "Final Demo to SIG Stakeholders"
-                    ]}
-                />
-            </div>
+            {/* Gantt-style Timeline */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+            >
+                <GlassPanel style={{
+                    display: 'grid',
+                    gridTemplateColumns: '150px 1fr',
+                    gap: '20px',
+                    padding: '40px'
+                }}>
+                    {/* Labels */}
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', borderRight: '1px solid var(--color-border-functional)', paddingRight: '20px' }}>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '12px' }}>WEEKS 1-2</div>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '12px' }}>WEEKS 3-5</div>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '12px' }}>WEEK 6</div>
+                    </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px' }}>
-                <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-                    <Users size={24} color="var(--color-agent-reasoning-blue)" />
-                    <div style={{ fontSize: '13px', fontWeight: 600 }}>10 Dedicated Pilot Users</div>
-                </div>
-                <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-                    <Target size={24} color="var(--color-agent-extraction-green)" />
-                    <div style={{ fontSize: '13px', fontWeight: 600 }}>3 Target Business Units</div>
-                </div>
-                <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-                    <Zap size={24} color="var(--color-agent-synthesis-purple)" />
-                    <div style={{ fontSize: '13px', fontWeight: 600 }}>Success = 2x Speed Gain</div>
-                </div>
-            </div>
+                    {/* Bars */}
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', position: 'relative' }}>
+                        {/* Grid Lines */}
+                        <div style={{ position: 'absolute', inset: 0, display: 'flex', justifyContent: 'space-between', zIndex: 0, opacity: 0.1 }}>
+                            <div style={{ borderLeft: '1px solid #fff' }} />
+                            <div style={{ borderLeft: '1px solid #fff' }} />
+                            <div style={{ borderLeft: '1px solid #fff' }} />
+                        </div>
+
+                        {/* Bar 1 */}
+                        <div style={{ background: 'var(--color-canvas-layer-2)', padding: '15px', borderLeft: '4px solid var(--color-agent-reasoning-blue)', zIndex: 1, marginBottom: '15px' }}>
+                            <h4 style={{ margin: '0 0 5px 0', color: 'white', fontSize: '14px' }}>Setup & Ingest</h4>
+                            <p style={{ margin: 0, fontSize: '12px', color: 'var(--color-text-secondary)' }}>Connect private data (SharePoint/VDR). Establish baseline cycle times.</p>
+                        </div>
+
+                        {/* Bar 2 */}
+                        <div style={{ background: 'var(--color-canvas-layer-2)', padding: '15px', borderLeft: '4px solid var(--color-agent-reasoning-blue)', marginLeft: '30%', width: '70%', zIndex: 1, marginBottom: '15px' }}>
+                            <h4 style={{ margin: '0 0 5px 0', color: 'white', fontSize: '14px' }}>Execution & Feedback</h4>
+                            <p style={{ margin: 0, fontSize: '12px', color: 'var(--color-text-secondary)' }}>10 Pilot Users. Weekly reviews. Iterate on prompt libraries.</p>
+                        </div>
+
+                        {/* Bar 3 */}
+                        <div style={{ background: 'var(--color-canvas-layer-2)', padding: '15px', borderLeft: '4px solid var(--color-agent-extraction-green)', marginLeft: '80%', width: '20%', zIndex: 1 }}>
+                            <h4 style={{ margin: '0 0 5px 0', color: 'white', fontSize: '14px' }}>ROI Validation</h4>
+                            <p style={{ margin: 0, fontSize: '12px', color: 'var(--color-text-secondary)' }}>Measure delta vs baseline. Present Go/No-Go.</p>
+                        </div>
+                    </div>
+                </GlassPanel>
+            </motion.div>
+
+            {/* Success Metrics */}
+            <motion.div
+                className="grid-3 stagger-in active"
+                style={{ marginTop: '40px' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+            >
+                <ContextBox header="SUCCESS METRIC" borderColor="var(--color-agent-extraction-green)">
+                    <div className="big-num text-green" style={{ fontSize: '40px' }}>&gt;25%</div>
+                    <div style={{ color: 'var(--color-text-secondary)' }}>Efficiency Gain</div>
+                </ContextBox>
+                <ContextBox header="SUCCESS METRIC" borderColor="var(--color-agent-extraction-green)">
+                    <div className="big-num text-green" style={{ fontSize: '40px' }}>&gt;80%</div>
+                    <div style={{ color: 'var(--color-text-secondary)' }}>User Adoption</div>
+                </ContextBox>
+                <ContextBox header="SUCCESS METRIC" borderColor="var(--color-agent-extraction-green)">
+                    <div className="big-num text-green" style={{ fontSize: '40px' }}>0</div>
+                    <div style={{ color: 'var(--color-text-secondary)' }}>Security Incidents</div>
+                </ContextBox>
+            </motion.div>
         </SlideContainer>
     );
 };
