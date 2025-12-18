@@ -96,7 +96,7 @@ function App() {
         zIndex: 100
       }}>
         <button onClick={prevSlide} style={{ color: 'white', opacity: 0.5 }}>←</button>
-        <span style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-mono)' }}>
+        <span style={{ color: 'var(--color-text-tertiary)', fontFamily: 'var(--font-primary)', fontWeight: 600, fontSize: '12px', letterSpacing: '0.05em' }}>
           {currentSlide + 1} / {totalSlides}
         </span>
         <button onClick={nextSlide} style={{ color: 'white', opacity: 0.5 }}>→</button>

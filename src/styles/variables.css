@@ -1,17 +1,17 @@
 :root {
   /* Canvas */
-  --color-canvas-base: #050505;
-  --color-canvas-layer-1: #0F0F0F;
+  --color-canvas-base: #0A0A0A;
+  /* Deeper black for higher contrast */
+  --color-canvas-layer-1: #141414;
   --color-canvas-layer-2: #1A1A1A;
-  --color-canvas-layer-floating: rgba(15, 15, 20, 0.7);
+  --color-canvas-charcoal: #212121;
+  /* Hebbia Brand Background */
   --color-overlay-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
 
   /* Borders */
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-border-functional: rgba(255, 255, 255, 0.15);
-  --color-border-active-agent: #60A5FA;
+  --color-border-subtle: rgba(255, 255, 255, 0.05);
+  --color-border-functional: rgba(255, 255, 255, 0.1);
   --color-border-glass-edge: rgba(255, 255, 255, 0.12);
-  --color-border-glow: rgba(59, 130, 246, 0.5);
 
   /* Text */
   --color-text-primary: #FFFFFF;
@@ -19,30 +19,37 @@
   --color-text-tertiary: #6B7280;
   --color-text-code: #E5E7EB;
 
-  /* Agents: Enhanced Palette with Glows */
-  --color-agent-reasoning-blue: #3B82F6;
-  --color-agent-reasoning-glow: rgba(59, 130, 246, 0.4);
+  /* Brand Blues - Precise Hebbia Extracts */
+  --color-brand-cobalt: #465BFF;
+  --color-brand-lapis: #1B30D4;
+  --color-brand-sky: #B5E4FF;
+
+  /* Agents: Enhanced Palette with Brand Blues */
+  --color-agent-reasoning-blue: var(--color-brand-cobalt);
+  --color-agent-reasoning-glow: rgba(70, 91, 255, 0.3);
 
   --color-agent-extraction-green: #10B981;
-  --color-agent-extraction-glow: rgba(16, 185, 129, 0.4);
+  --color-agent-extraction-glow: rgba(16, 185, 129, 0.3);
 
   --color-agent-synthesis-purple: #8B5CF6;
-  --color-agent-synthesis-glow: rgba(139, 92, 246, 0.4);
+  --color-agent-synthesis-glow: rgba(139, 92, 246, 0.3);
 
   --color-agent-citation-orange: #F59E0B;
-  --color-agent-citation-glow: rgba(245, 158, 11, 0.4);
+  --color-agent-citation-glow: rgba(245, 158, 11, 0.3);
 
   /* Gradients */
-  --gradient-matrix-glow: radial-gradient(circle at 50% -20%, rgba(59, 130, 246, 0.25) 0%, rgba(0, 0, 0, 0) 60%);
+  --gradient-matrix-glow: radial-gradient(circle at 50% -20%, rgba(70, 91, 255, 0.25) 0%, rgba(0, 0, 0, 0) 60%);
   --gradient-glass-surface: linear-gradient(145deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.2) 100%);
   --gradient-glass-border: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
   --gradient-hero-text: linear-gradient(135deg, #FFFFFF 0%, #9CA3AF 100%);
 
-  /* Typography Functions */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --font-display: 'Inter', sans-serif;
-  /* Could be different if we had one */
+  /* Typography - Brand Aligned */
+  --font-primary: 'Outfit', sans-serif;
+  /* Selecta Equivalent */
+  --font-serif: 'Montagu Slab', serif;
+  /* Brand Secondary */
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Outfit', sans-serif;
 
   /* Spacing & Layout */
   --spacing-xs: 4px;
@@ -63,8 +70,8 @@
   /* More rounded for pills */
   --pill-padding: 6px 12px;
   --pill-text-size: 12px;
-  --pill-bg: rgba(59, 130, 246, 0.15);
-  --pill-border: rgba(59, 130, 246, 0.3);
+  --pill-bg: rgba(70, 91, 255, 0.15);
+  --pill-border: rgba(70, 91, 255, 0.3);
 
   /* Components: Glass Panel */
   --glass-backdrop-blur: 16px;

@@ -31,7 +31,7 @@ const SecurityBlock = ({ icon: Icon, title, description, delay }) => (
         <GlassPanel style={{ padding: '24px', borderLeft: '3px solid var(--color-agent-reasoning-blue)' }}>
             <div style={{ display: 'flex', gap: '20px' }}>
                 <div style={{
-                    background: 'rgba(59, 130, 246, 0.1)',
+                    background: 'rgba(70, 91, 255, 0.1)',
                     padding: '12px',
                     borderRadius: '12px',
                     color: 'var(--color-agent-reasoning-blue)',
@@ -91,14 +91,14 @@ export const Slide15_Security = () => {
                                 height: '160px',
                                 border: '2px solid var(--color-agent-reasoning-blue)',
                                 borderRadius: '16px',
-                                background: 'rgba(59, 130, 246, 0.05)',
+                                background: 'rgba(70, 91, 255, 0.05)',
                                 padding: '20px',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 gap: '12px',
-                                boxShadow: '0 0 50px rgba(59, 130, 246, 0.2)'
+                                boxShadow: '0 0 50px rgba(70, 91, 255, 0.2)'
                             }}>
                                 <Lock size={32} color="var(--color-agent-reasoning-blue)" />
                                 <div style={{ fontSize: '14px', fontWeight: 700, textAlign: 'center' }}>HEBBIA <br />VPC ISOLATION</div>

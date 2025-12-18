@@ -15,21 +15,21 @@ export const Slide1_Cover = () => {
                     style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '80px' }}
                 >
                     <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-                        <div style={{ fontWeight: 700, fontSize: '20px', letterSpacing: '0.05em' }}>HEBBIA</div>
+                        <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-brand-cobalt)' }}>HEBBIA</div>
                         <div style={{ width: '1px', height: '16px', background: 'var(--color-border-functional)' }}></div>
-                        <div style={{ fontWeight: 700, fontSize: '20px', letterSpacing: '0.05em', color: 'var(--color-text-tertiary)' }}>SIG</div>
+                        <div style={{ fontWeight: 700, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-text-tertiary)' }}>SIG</div>
                     </div>
                     <div style={{
                         padding: '6px 12px',
-                        background: 'rgba(245, 158, 11, 0.1)',
-                        border: '1px solid rgba(245, 158, 11, 0.3)',
-                        borderRadius: '99px',
-                        color: 'var(--color-agent-citation-orange)',
-                        fontSize: '11px',
-                        fontWeight: 600,
-                        letterSpacing: '0.05em'
+                        background: 'rgba(70, 91, 255, 0.1)',
+                        border: '1px solid rgba(70, 91, 255, 0.3)',
+                        borderRadius: '4px',
+                        color: 'var(--color-brand-sky)',
+                        fontSize: '10px',
+                        fontWeight: 700,
+                        letterSpacing: '0.1em'
                     }}>
-                        CONFIDENTIAL
+                        STRATEGIC PARTNERSHIP
                     </div>
                 </motion.div>
 
@@ -39,15 +39,17 @@ export const Slide1_Cover = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                 >
-                    <h1 className="text-hero" style={{ fontSize: '72px', marginBottom: '32px', lineHeight: 1.05 }}>
+                    <h1 className="text-hero" style={{ fontSize: '84px', marginBottom: '32px', lineHeight: 1, letterSpacing: '-0.04em' }}>
                         Unlocking Growth & <br /> Operating Leverage
                     </h1>
                     <p style={{
-                        fontSize: '24px',
+                        fontSize: '26px',
                         color: 'var(--color-text-secondary)',
-                        fontLight: 300,
-                        maxWidth: '600px',
-                        lineHeight: 1.5
+                        fontFamily: 'var(--font-primary)',
+                        fontWeight: 300,
+                        maxWidth: '700px',
+                        lineHeight: 1.4,
+                        letterSpacing: '-0.01em'
                     }}>
                         A strategic proposal for specific, measurable efficiency gains at Susquehanna International Group.
                     </p>

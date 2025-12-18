@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const StatCard = ({ icon: Icon, title, value, subtext, color, delay }) => (
     <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay, duration: 0.5 }}
         style={{ height: '100%' }}
@@ -14,27 +14,26 @@ const StatCard = ({ icon: Icon, title, value, subtext, color, delay }) => (
         <GlassPanel
             className="u-flex-col"
             style={{
-                padding: '24px',
+                padding: '28px',
                 height: '100%',
                 justifyContent: 'space-between',
-                borderTop: `1px solid ${color}40`, // localized glow
-                background: `linear-gradient(180deg, ${color}10 0%, transparent 100%)`
+                borderTop: `1px solid ${color}`,
+                background: `linear-gradient(180deg, ${color}10 0%, transparent 100%)`,
+                borderRadius: '4px'
             }}
         >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
                 <div style={{
-                    background: `${color}20`,
-                    padding: '10px',
-                    borderRadius: '8px',
-                    color: color
+                    color: color,
+                    opacity: 0.8
                 }}>
                     <Icon size={24} />
                 </div>
-                <div style={{ fontSize: '32px', fontWeight: 600, color: 'var(--color-text-primary)' }}>{value}</div>
+                <div style={{ fontSize: '36px', fontWeight: 800, color: 'white', fontFamily: 'var(--font-primary)', letterSpacing: '-0.02em' }}>{value}</div>
             </div>
             <div>
-                <div className="text-matrix-header" style={{ color: color }}>{title}</div>
-                <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.4, marginTop: '8px' }}>
+                <div className="text-matrix-header" style={{ color: color, fontSize: '10px', letterSpacing: '0.15em' }}>{title}</div>
+                <div style={{ fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5, marginTop: '12px', fontFamily: 'var(--font-primary)' }}>
                     {subtext}
                 </div>
             </div>

@@ -36,10 +36,10 @@ export const Slide21_ReasoningEngine = () => {
     return (
         <SlideContainer>
             <div style={{ marginBottom: '60px' }}>
-                <div className="text-matrix-header">DEEP DIVE // CORE AI</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Agentic Orchestration</h2>
-                <p className="text-subhero" style={{ maxWidth: '600px' }}>
-                    How Hebbia solves what generic RAG systems cannot: Complex, multi-document logic.
+                <div className="text-matrix-header">DEEP DIVE // CORE ENGINE</div>
+                <h2 className="text-hero" style={{ fontSize: '48px', marginBottom: '16px' }}>Agentic Orchestration</h2>
+                <p className="text-subhero" style={{ maxWidth: '700px', fontSize: '20px' }}>
+                    Hebbia solves the "RAG Gap" by decomposing complex reasoning into atomic, verifiable logic traces.
                 </p>
             </div>
 

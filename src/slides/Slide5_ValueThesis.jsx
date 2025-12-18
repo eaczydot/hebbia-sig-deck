@@ -111,7 +111,7 @@ export const Slide5_ValueThesis = () => {
                 transform: 'translateX(-50%)',
                 width: '800px',
                 height: '600px',
-                background: 'radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15), transparent 70%)',
+                background: 'radial-gradient(ellipse at center, rgba(70, 91, 255, 0.15), transparent 70%)',
                 zIndex: 0,
                 pointerEvents: 'none'
             }} />

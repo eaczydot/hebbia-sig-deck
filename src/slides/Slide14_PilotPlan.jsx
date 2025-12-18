@@ -18,7 +18,7 @@ const WeekBlock = ({ week, title, tasks, current }) => (
             padding: '24px',
             height: '280px',
             border: current ? '1px solid var(--color-agent-reasoning-blue)' : '1px solid rgba(255,255,255,0.05)',
-            background: current ? 'rgba(59, 130, 246, 0.05)' : 'rgba(15,15,15,0.6)',
+            background: current ? 'rgba(70, 91, 255, 0.05)' : 'rgba(15,15,15,0.6)',
         }}>
             <div style={{ fontWeight: 600, fontSize: '18px', color: 'white', marginBottom: '16px' }}>{title}</div>
             <ul style={{ padding: 0, margin: 0, listStyle: 'none' }}>

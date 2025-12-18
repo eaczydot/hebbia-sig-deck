@@ -46,33 +46,33 @@ export const Slide22_MatrixDeepDive = () => {
 
                 {/* Visual Simulation of a Live Matrix */}
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <GlassPanel style={{ padding: '0', overflow: 'hidden', height: '500px' }}>
-                        <div style={{ background: '#111', padding: '12px 20px', borderBottom: '1px solid #333', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <GlassPanel style={{ padding: '0', overflow: 'hidden', height: '520px', background: 'var(--color-canvas-charcoal)', border: '1px solid rgba(70, 91, 255, 0.2)' }}>
+                        <div style={{ background: '#1A1A1A', padding: '12px 20px', borderBottom: '1px solid #333', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <div style={{ display: 'flex', gap: '16px' }}>
-                                <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-agent-reasoning-blue)' }}>PORTFOLIO_DILIGENCE.MBX</div>
-                                <div style={{ fontSize: '11px', fontWeight: 500, color: '#666' }}>1,242 Documents Loaded</div>
+                                <div style={{ fontSize: '10px', fontWeight: 800, color: 'var(--color-brand-cobalt)', letterSpacing: '0.05em' }}>PORTFOLIO_DILIGENCE.MBX</div>
+                                <div style={{ fontSize: '10px', fontWeight: 500, color: '#666', fontFamily: 'var(--font-mono)' }}>1,242 Documents</div>
                             </div>
-                            <div style={{ display: 'flex', gap: '8px' }}>
-                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#EF4444' }} />
-                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#F59E0B' }} />
-                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981' }} />
+                            <div style={{ display: 'flex', gap: '6px' }}>
+                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#EF4444', opacity: 0.6 }} />
+                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#F59E0B', opacity: 0.6 }} />
+                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', opacity: 0.6 }} />
                             </div>
                         </div>
 
                         {/* Top Action Bar */}
-                        <div style={{ background: '#050505', padding: '8px 20px', borderBottom: '1px solid #222', display: 'flex', gap: '12px' }}>
-                            <div style={{ padding: '4px 12px', background: '#222', borderRadius: '4px', fontSize: '10px', color: '#888' }}>+ Add column</div>
-                            <div style={{ padding: '4px 12px', background: '#222', borderRadius: '4px', fontSize: '10px', color: '#888' }}>Sort by: Risk Score</div>
-                            <div style={{ padding: '4px 12px', background: 'var(--color-agent-reasoning-blue)', borderRadius: '4px', fontSize: '10px', color: '#000', fontWeight: 700 }}>ASK MATRIX</div>
+                        <div style={{ background: '#0F0F0F', padding: '10px 20px', borderBottom: '1px solid #222', display: 'flex', gap: '12px' }}>
+                            <div style={{ padding: '4px 12px', background: '#1A1A1A', borderRadius: '4px', fontSize: '9px', color: '#888', fontWeight: 600 }}>+ Add column</div>
+                            <div style={{ padding: '4px 12px', background: '#1A1A1A', borderRadius: '4px', fontSize: '9px', color: '#888', fontWeight: 600 }}>Sort by: Risk Score</div>
+                            <div style={{ padding: '4px 12px', background: 'var(--color-brand-cobalt)', borderRadius: '4px', fontSize: '10px', color: 'white', fontWeight: 800, marginLeft: 'auto', letterSpacing: '0.05em' }}>ASK MATRIX</div>
                         </div>
 
                         {/* Matrix Grid Mockup */}
                         <div style={{ padding: '0 20px' }}>
-                            {[1, 2, 3, 4, 5, 6].map((i) => (
-                                <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1.5fr 1fr', padding: '14px 0', borderBottom: '1px solid #111', fontSize: '12px' }}>
+                            {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+                                <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1.5fr 1fr', padding: '16px 0', borderBottom: '1px solid #1A1A1A', fontSize: '12px', fontFamily: 'var(--font-primary)' }}>
                                     <div style={{ color: 'white', fontWeight: 500 }}>{i}. Global Credit Opportunity {i}</div>
-                                    <div style={{ color: '#888' }}>Change of Control Triggered</div>
-                                    <div style={{ textAlign: 'right', color: i % 2 === 0 ? '#10B981' : '#EF4444' }}>{i % 2 === 0 ? 'Verified' : 'Flagged'}</div>
+                                    <div style={{ color: '#888', fontSize: '11px' }}>Change of Control Triggered</div>
+                                    <div style={{ textAlign: 'right', color: i % 2 === 0 ? '#10B981' : '#F59E0B', fontWeight: 600, fontSize: '11px' }}>{i % 2 === 0 ? 'Verified' : 'Review Required'}</div>
                                 </div>
                             ))}
                         </div>
@@ -86,17 +86,18 @@ export const Slide22_MatrixDeepDive = () => {
                                 position: 'absolute',
                                 bottom: '40px',
                                 right: '40px',
-                                width: '240px',
-                                background: 'rgba(10,10,10,0.95)',
-                                border: '1px solid var(--color-agent-reasoning-blue)',
-                                padding: '16px',
-                                borderRadius: '8px',
-                                boxShadow: '0 10px 30px rgba(0,0,0,0.8)'
+                                width: '260px',
+                                background: 'rgba(20,20,25,0.95)',
+                                border: '1px solid var(--color-brand-cobalt)',
+                                padding: '20px',
+                                borderRadius: '4px',
+                                boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
+                                backdropFilter: 'blur(10px)'
                             }}
                         >
-                            <div className="text-matrix-header" style={{ fontSize: '9px', marginBottom: '8px' }}>AGENT REASONING</div>
-                            <div style={{ fontSize: '11px', color: 'white', lineHeight: 1.4 }}>
-                                "The Change of Control trigger in Sec 4.07 is linked to a 50% equity transfer, <span style={{ color: 'var(--color-agent-citation-orange)' }}>Source: pg 42</span>"
+                            <div className="text-matrix-header" style={{ fontSize: '9px', marginBottom: '12px', color: 'var(--color-brand-sky)' }}>AGENT REASONING FLOW</div>
+                            <div style={{ fontSize: '12px', color: 'white', lineHeight: 1.5, fontFamily: 'var(--font-primary)' }}>
+                                "The Change of Control trigger in <span style={{ color: 'var(--color-brand-cobalt)', fontWeight: 600 }}>Sec 4.07</span> is linked to a 50% equity transfer. <span style={{ color: 'var(--color-agent-citation-orange)', fontWeight: 600 }}>Source: pg 42</span>"
                             </div>
                         </motion.div>
                     </GlassPanel>

@@ -68,7 +68,7 @@ export const Slide17_Integration = () => {
                         gap: '12px',
                         background: 'rgba(5,5,5,0.9)',
                         border: '2px solid var(--color-agent-reasoning-blue)',
-                        boxShadow: '0 0 80px rgba(59, 130, 246, 0.3)'
+                        boxShadow: '0 0 80px rgba(70, 91, 255, 0.3)'
                     }}>
                         <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.1em' }}>HEBBIA</div>
                         <div style={{ width: '40px', height: '2px', background: 'var(--color-agent-reasoning-blue)' }}></div>

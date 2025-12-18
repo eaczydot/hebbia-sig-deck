@@ -71,7 +71,7 @@ export const Slide20_Conclusion = () => {
                 </div>
 
                 {/* Background Glow */}
-                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '800px', height: '600px', background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent 70%)', zIndex: -1, pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '800px', height: '600px', background: 'radial-gradient(circle, rgba(70, 91, 255, 0.1), transparent 70%)', zIndex: -1, pointerEvents: 'none' }} />
             </div>
         </SlideContainer>
     );

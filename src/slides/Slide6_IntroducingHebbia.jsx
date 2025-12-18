@@ -18,19 +18,22 @@ const FeatureBlock = ({ title, description, badge, align = 'left', delay }) => (
             transform: 'translateY(-50%)'
         }}
     >
-        <div style={{ marginBottom: '12px' }}>
+        <div style={{ marginBottom: '16px' }}>
             <span style={{
-                fontSize: '11px',
+                fontSize: '10px',
                 fontWeight: 700,
-                letterSpacing: '0.1em',
-                color: 'var(--color-agent-reasoning-blue)',
-                border: '1px solid rgba(59, 130, 246, 0.3)',
-                padding: '4px 8px',
-                borderRadius: '99px'
+                letterSpacing: '0.15em',
+                color: 'var(--color-brand-sky)',
+                background: 'rgba(70, 91, 255, 0.15)',
+                border: '1px solid rgba(70, 91, 255, 0.3)',
+                padding: '6px 12px',
+                borderRadius: '4px',
+                fontFamily: 'var(--font-primary)',
+                textTransform: 'uppercase'
             }}>{badge}</span>
         </div>
-        <h3 style={{ fontSize: '24px', fontWeight: 600, color: 'white', marginBottom: '12px' }}>{title}</h3>
-        <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>{description}</p>
+        <h3 style={{ fontSize: '28px', fontWeight: 600, color: 'white', marginBottom: '16px', fontFamily: 'var(--font-primary)', letterSpacing: '-0.02em' }}>{title}</h3>
+        <p style={{ fontSize: '15px', color: 'var(--color-text-secondary)', lineHeight: 1.6, fontFamily: 'var(--font-primary)' }}>{description}</p>
     </motion.div>
 );
 
@@ -57,50 +60,52 @@ export const Slide6_IntroducingHebbia = () => {
                     <GlassPanel style={{
                         width: '600px',
                         height: '360px',
-                        background: 'linear-gradient(145deg, rgba(10,10,10,0.8) 0%, rgba(5,5,5,0.9) 100%)',
-                        border: '1px solid rgba(255,255,255,0.1)',
+                        background: 'var(--color-canvas-charcoal)',
+                        border: '1px solid rgba(70, 91, 255, 0.2)',
                         display: 'flex',
                         flexDirection: 'column',
-                        padding: '24px'
+                        padding: '24px',
+                        boxShadow: '0 20px 50px rgba(0,0,0,0.4)'
                     }}>
                         {/* Header Bar */}
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '16px' }}>
                             <div style={{ display: 'flex', gap: '8px' }}>
-                                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#EF4444' }} />
-                                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#F59E0B' }} />
-                                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#10B981' }} />
+                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#EF4444' }} />
+                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F59E0B' }} />
+                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10B981' }} />
                             </div>
-                            <div className="text-mono-data">Matrix v2.0 // Connected</div>
+                            <div className="text-mono-data" style={{ fontSize: '10px', opacity: 0.8 }}>Matrix v2.0 // Cobalt Engine</div>
                         </div>
 
                         {/* Search/Prompt Area */}
                         <div style={{
                             background: 'rgba(255,255,255,0.03)',
-                            borderRadius: '8px',
+                            borderRadius: '4px',
                             padding: '16px',
                             marginBottom: '24px',
                             display: 'flex',
                             alignItems: 'center',
-                            gap: '12px'
+                            gap: '12px',
+                            border: '1px solid rgba(255,255,255,0.05)'
                         }}>
-                            <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'var(--color-agent-reasoning-blue)' }} />
-                            <div style={{ color: 'var(--color-text-tertiary)', fontFamily: 'var(--font-mono)' }}>Analyze credit agreements for change of control triggers...</div>
+                            <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'var(--color-brand-cobalt)' }} />
+                            <div style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-primary)', fontSize: '13px' }}>Analyze credit agreements for change of control triggers...</div>
                         </div>
 
                         {/* Agent Activity Area */}
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', flex: 1 }}>
-                            <div style={{ background: 'rgba(0,0,0,0.3)', borderRadius: '6px', padding: '12px' }}>
-                                <div className="text-matrix-header" style={{ fontSize: '10px' }}>Reading 142 Docs</div>
-                                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '8px' }}>
-                                    {[1, 2, 3, 4].map(i => (
-                                        <div key={i} style={{ width: '40px', height: '6px', background: 'var(--color-agent-extraction-green)', borderRadius: '2px', opacity: 0.5 }} />
+                            <div style={{ background: 'rgba(0,0,0,0.5)', borderRadius: '4px', padding: '16px', border: '1px solid rgba(255,255,255,0.03)' }}>
+                                <div className="text-matrix-header" style={{ fontSize: '9px', marginBottom: '12px' }}>INFERENCE // 142 DOMAINS</div>
+                                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                                    {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+                                        <div key={i} style={{ width: '30px', height: '4px', background: 'var(--color-brand-cobalt)', borderRadius: '1px', opacity: i % 3 === 0 ? 0.8 : 0.2 }} />
                                     ))}
                                 </div>
                             </div>
-                            <div style={{ background: 'rgba(0,0,0,0.3)', borderRadius: '6px', padding: '12px' }}>
-                                <div className="text-matrix-header" style={{ fontSize: '10px' }}>Synthesizing Logic</div>
+                            <div style={{ background: 'rgba(0,0,0,0.5)', borderRadius: '4px', padding: '16px', border: '1px solid rgba(255,255,255,0.03)' }}>
+                                <div className="text-matrix-header" style={{ fontSize: '9px', marginBottom: '12px' }}>REASONING TRACE</div>
                                 <div style={{ marginTop: '8px' }}>
-                                    <AgentPill label="Reasoning..." />
+                                    <AgentPill label="Structuring..." />
                                 </div>
                             </div>
                         </div>
@@ -110,7 +115,7 @@ export const Slide6_IntroducingHebbia = () => {
                 {/* Left Feature */}
                 <FeatureBlock
                     align="left"
-                    badge="ENTERPRISE READY"
+                    badge="ENGINEERING"
                     title="Reasoning Engine"
                     description="Unlike chat-based LLMs, Hebbia breaks complex requests into atomic steps, executing them against millions of documents simultaneously."
                     delay={0.5}
@@ -119,7 +124,7 @@ export const Slide6_IntroducingHebbia = () => {
                 {/* Right Feature */}
                 <FeatureBlock
                     align="right"
-                    badge="FULL TRANSPARENCY"
+                    badge="PROTOCOLS"
                     title="Audit Verification"
                     description="Every insight is cited back to the source page. Click to verify the exact paragraph used to generate the answer."
                     delay={0.7}
@@ -133,10 +138,10 @@ export const Slide6_IntroducingHebbia = () => {
                     transform: 'translate(-50%, -50%)',
                     width: '600px',
                     height: '400px',
-                    background: 'radial-gradient(ellipse, rgba(59, 130, 246, 0.2) 0%, transparent 70%)',
+                    background: 'radial-gradient(ellipse, rgba(70, 91, 255, 0.15) 0%, transparent 70%)',
                     zIndex: 0,
                     pointerEvents: 'none',
-                    filter: 'blur(60px)'
+                    filter: 'blur(80px)'
                 }} />
 
             </div>

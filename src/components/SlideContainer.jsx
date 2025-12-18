@@ -35,19 +35,19 @@ export const SlideContainer = ({ children, className = '' }) => {
             <div className="bg-grid-pattern" style={{
                 position: 'absolute',
                 inset: 0,
-                opacity: 0.5,
+                opacity: 0.3, /* Subtle brand grid */
                 pointerEvents: 'none',
                 zIndex: 0
             }} />
 
-            {/* 2. Radial Glow Tracking Mouse */}
+            {/* 2. Radial Glow Tracking Mouse (Brand Cobalt) */}
             <div style={{
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 right: 0,
                 bottom: 0,
-                background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.08), transparent 40%)`,
+                background: `radial-gradient(800px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(70, 91, 255, 0.08), transparent 40%)`,
                 pointerEvents: 'none',
                 zIndex: 1
             }} />
@@ -84,6 +84,16 @@ export const SlideContainer = ({ children, className = '' }) => {
                 background: 'radial-gradient(circle at center, transparent 60%, rgba(5,5,5,0.7) 100%)',
                 pointerEvents: 'none',
                 zIndex: 3
+            }} />
+
+            {/* 6. Grain / Noise Layer (Brand Style) */}
+            <div style={{
+                position: 'absolute',
+                inset: 0,
+                backgroundImage: 'var(--color-overlay-noise)',
+                opacity: 0.4,
+                pointerEvents: 'none',
+                zIndex: 4
             }} />
         </div>
     );
