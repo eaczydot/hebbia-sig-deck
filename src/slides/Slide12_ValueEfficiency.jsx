@@ -30,14 +30,14 @@ export const Slide12_ValueEfficiency = () => {
 
                     {/* Old Way */}
                     <div style={{ marginBottom: 'var(--spacing-2xl)' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', color: '#64748B', fontSize: '13px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', color: '#64748B', fontSize: '15px' }}>
                             <span>Standard Analyst Workflow</span>
                             <span>2 Days</span>
                         </div>
                         <div style={{ width: '100%', height: 'clamp(34px, 4.5vh, 40px)', background: 'rgba(255,255,255,0.05)', borderRadius: '4px', display: 'flex' }}>
-                            <div style={{ width: '40%', background: '#334155', borderRight: '1px solid #000', borderRadius: '4px 0 0 4px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px' }}>Search (6h)</div>
-                            <div style={{ width: '40%', background: '#334155', borderRight: '1px solid #000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px' }}>Extract (6h)</div>
-                            <div style={{ width: '20%', background: '#475569', borderRadius: '0 4px 4px 0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px' }}>Synthesize</div>
+                            <div style={{ width: '40%', background: '#334155', borderRight: '1px solid #000', borderRadius: '4px 0 0 4px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px' }}>Search (6h)</div>
+                            <div style={{ width: '40%', background: '#334155', borderRight: '1px solid #000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px' }}>Extract (6h)</div>
+                            <div style={{ width: '20%', background: '#475569', borderRadius: '0 4px 4px 0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px' }}>Synthesize</div>
                         </div>
                     </div>
 
@@ -47,13 +47,13 @@ export const Slide12_ValueEfficiency = () => {
                         animate={{ width: '100%' }}
                         transition={{ duration: 1, delay: 0.5 }}
                     >
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', color: 'var(--color-agent-extraction-green)', fontSize: '13px', fontWeight: 600 }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', color: 'var(--color-agent-extraction-green)', fontSize: '15px', fontWeight: 600 }}>
                             <span>Hebbia-Augmented</span>
                             <span>4 Hours</span>
                         </div>
                         <div style={{ width: '100%', height: 'clamp(34px, 4.5vh, 40px)', background: 'rgba(255,255,255,0.05)', borderRadius: '4px', display: 'flex', position: 'relative' }}>
-                            <div style={{ width: '15%', background: 'var(--color-agent-extraction-green)', borderRadius: '4px 0 0 4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000', fontSize: '11px', fontWeight: 700 }}>Auto</div>
-                            <div style={{ width: '85%', background: '#334155', borderRadius: '0 4px 4px 0', display: 'flex', alignItems: 'center', paddingLeft: '16px', fontSize: '11px', color: '#94A3B8' }}>High-Value Strategic Analysis (Redeployed Time)</div>
+                            <div style={{ width: '15%', background: 'var(--color-agent-extraction-green)', borderRadius: '4px 0 0 4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000', fontSize: '12px', fontWeight: 700 }}>Auto</div>
+                            <div style={{ width: '85%', background: '#334155', borderRadius: '0 4px 4px 0', display: 'flex', alignItems: 'center', paddingLeft: '16px', fontSize: '12px', color: '#94A3B8' }}>High-Value Strategic Analysis (Redeployed Time)</div>
 
                             {/* Callout Arrow */}
                                 <motion.div
@@ -69,7 +69,7 @@ export const Slide12_ValueEfficiency = () => {
                                         display: 'flex',
                                         alignItems: 'center',
                                         gap: '8px',
-                                        fontSize: '12px',
+                                        fontSize: '14px',
                                         fontWeight: 600
                                     }}
                                 >

@@ -212,11 +212,11 @@ export const InteractiveImage = ({
                 >
                     <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'flex-start' }}>
                         <div>
-                            <div style={{ color: 'white', fontWeight: 700, fontSize: 12, letterSpacing: '0.02em' }}>
+                            <div style={{ color: 'white', fontWeight: 700, fontSize: 14, letterSpacing: '0.02em' }}>
                                 {activeHotspot.title || activeHotspot.label}
                             </div>
                             {activeHotspot.body ? (
-                                <div style={{ marginTop: 6, color: 'rgba(255,255,255,0.75)', fontSize: 12, lineHeight: 1.35 }}>
+                                <div style={{ marginTop: 6, color: 'rgba(255,255,255,0.75)', fontSize: 14, lineHeight: 1.35 }}>
                                     {activeHotspot.body}
                                 </div>
                             ) : null}
@@ -226,7 +226,7 @@ export const InteractiveImage = ({
                             onClick={() => setActiveHotspotId(null)}
                             style={{
                                 fontFamily: 'var(--font-mono)',
-                                fontSize: 10,
+                                fontSize: 11,
                                 padding: '6px 10px',
                                 borderRadius: 999,
                                 border: '1px solid rgba(255,255,255,0.12)',

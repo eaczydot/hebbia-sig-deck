@@ -11,7 +11,7 @@
     border-bottom: var(--matrix-border-width) solid var(--color-border-subtle);
     border-right: var(--matrix-border-width) solid var(--color-border-subtle);
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--color-text-secondary);
     text-transform: uppercase;
@@ -22,7 +22,7 @@
     border-bottom: var(--matrix-border-width) solid var(--color-border-subtle);
     border-right: var(--matrix-border-width) solid var(--color-border-subtle);
     font-family: var(--font-primary);
-    font-size: 14px;
+    font-size: 15px;
     color: var(--color-text-code);
     position: relative;
 }

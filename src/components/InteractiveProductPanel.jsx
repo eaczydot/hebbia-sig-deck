@@ -116,7 +116,7 @@ export const InteractiveProductPanel = ({
                     gap: 10
                 }}>
                     <Sparkles size={16} color="var(--color-agent-reasoning-blue)" />
-                    <div style={{ flex: 1, color: 'var(--color-text-secondary)', fontSize: 14, lineHeight: 1.35 }}>
+                    <div style={{ flex: 1, color: 'var(--color-text-secondary)', fontSize: 16, lineHeight: 1.35 }}>
                         {prompt}
                     </div>
                     <ChevronRight size={18} color="var(--color-text-tertiary)" />

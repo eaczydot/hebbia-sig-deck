@@ -21,7 +21,7 @@ const DemoCard = ({ src, title, description, delay, hotspots = [] }) => (
         <GlassPanel style={{ padding: '18px', height: '100%', gap: '12px' }}>
             <div className="text-matrix-header" style={{ color: 'var(--color-text-tertiary)' }}>{title}</div>
             {description ? (
-                <div style={{ fontSize: 13, lineHeight: 1.5, color: 'var(--color-text-secondary)' }}>
+                <div style={{ fontSize: 15, lineHeight: 1.5, color: 'var(--color-text-secondary)' }}>
                     {description}
                 </div>
             ) : null}
