@@ -26,7 +26,7 @@ export const ContextBox = ({
                 </div>
             )}
             <div style={{
-                fontSize: '17px',
+                fontSize: '20px',
                 color: 'var(--color-text-secondary)',
                 lineHeight: 1.7
             }}>

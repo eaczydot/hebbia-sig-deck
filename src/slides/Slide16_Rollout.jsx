@@ -19,7 +19,7 @@ const PhaseItem = ({ title, items, color, delay }) => (
             </h3>
             <ul style={{ padding: 0, margin: 0, listStyle: 'none' }}>
                 {items.map((item, i) => (
-                    <li key={i} style={{ display: 'flex', gap: 'var(--spacing-sm)', marginBottom: 'var(--spacing-md)', fontSize: 'clamp(12px, 1.35vw, 13px)', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+                    <li key={i} style={{ display: 'flex', gap: 'var(--spacing-sm)', marginBottom: 'var(--spacing-md)', fontSize: 'clamp(15px, 1.6vw, 16px)', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
                         <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#333', marginTop: '6px' }} />
                         {item}
                     </li>

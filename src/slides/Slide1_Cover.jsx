@@ -50,7 +50,7 @@ export const Slide1_Cover = () => {
                         Unlocking Growth & <br /> Operating Leverage
                     </h1>
                     <p style={{
-                        fontSize: 'clamp(18px, 3.6vw, 26px)',
+                        fontSize: 'clamp(22px, 4vw, 30px)',
                         color: 'var(--color-text-secondary)',
                         fontFamily: 'var(--font-primary)',
                         fontWeight: 300,

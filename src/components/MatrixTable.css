@@ -3,7 +3,7 @@
     width: 100%;
     border-collapse: collapse;
     font-family: var(--font-mono);
-    font-size: clamp(13px, 1.15vw, 14px);
+    font-size: clamp(15px, 1.35vw, 16px);
 }
 
 .matrix-table th {
@@ -14,7 +14,7 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    font-size: clamp(11px, 1.1vw, 12px);
+    font-size: clamp(13px, 1.3vw, 14px);
 }
 
 .matrix-table td {

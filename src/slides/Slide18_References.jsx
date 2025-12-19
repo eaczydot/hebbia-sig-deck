@@ -24,10 +24,10 @@ const ReferenceItem = ({ title, source, type, delay }) => (
             <div style={{ padding: '6px', background: 'rgba(255,255,255,0.03)', borderRadius: '6px', color: 'var(--color-text-tertiary)' }}>
                 {type === 'Internal' ? <FileText size={14} /> : <BookOpen size={14} />}
             </div>
-            <span style={{ fontSize: 'clamp(10px, 1.1vw, 11px)', fontWeight: 700, letterSpacing: '0.05em', color: 'var(--color-text-secondary)' }}>{type}</span>
+            <span style={{ fontSize: 'clamp(13px, 1.35vw, 14px)', fontWeight: 700, letterSpacing: '0.05em', color: 'var(--color-text-secondary)' }}>{type}</span>
         </div>
         <div style={{ color: 'white', fontWeight: 500, fontSize: 'clamp(12px, 1.5vw, 14px)' }}>{title}</div>
-        <div style={{ color: 'var(--color-text-tertiary)', fontSize: 'clamp(11px, 1.35vw, 12px)', fontStyle: 'italic', textAlign: 'right' }}>{source}</div>
+        <div style={{ color: 'var(--color-text-tertiary)', fontSize: 'clamp(14px, 1.6vw, 15px)', fontStyle: 'italic', textAlign: 'right' }}>{source}</div>
     </motion.div>
 );
 
@@ -58,12 +58,12 @@ export const Slide18_References = () => {
             </GlassPanel>
 
             <div style={{ marginTop: 'var(--spacing-2xl)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 'var(--layout-gap-md)', flexWrap: 'wrap' }}>
-                <div style={{ fontSize: 'clamp(11px, 1.35vw, 12px)', color: 'var(--color-text-tertiary)' }}>
+                <div style={{ fontSize: 'clamp(14px, 1.6vw, 15px)', color: 'var(--color-text-tertiary)' }}>
                     Hebbia (c) 2025 • Confidential & Proprietary
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', opacity: 0.35 }}>
                     <img src={reactLogo} alt="React" style={{ width: '16px', height: '16px' }} />
-                    <div style={{ fontSize: 'clamp(10px, 1.1vw, 11px)', color: 'var(--color-text-tertiary)' }}>Deck runtime</div>
+                    <div style={{ fontSize: 'clamp(13px, 1.35vw, 14px)', color: 'var(--color-text-tertiary)' }}>Deck runtime</div>
                 </div>
                 <div style={{ display: 'flex', gap: 'var(--spacing-lg)', color: 'var(--color-agent-reasoning-blue)', fontSize: 'clamp(11px, 1.35vw, 12px)', fontWeight: 600, flexWrap: 'wrap' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-xs)' }}>

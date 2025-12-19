@@ -10,7 +10,7 @@ const TeamMember = ({ name, role, bio }) => (
             <div style={{ fontSize: 'clamp(16px, 2vw, 18px)', fontWeight: 600, color: '#fff' }}>{name}</div>
             <div style={{ fontSize: 'clamp(12px, 1.6vw, 14px)', color: 'var(--color-agent-reasoning-blue)' }}>{role}</div>
         </div>
-        <p className="text-cell-data" style={{ fontSize: 'clamp(12px, 1.5vw, 14px)' }}>{bio}</p>
+        <p className="text-cell-data" style={{ fontSize: 'clamp(15px, 1.8vw, 17px)' }}>{bio}</p>
     </GlassPanel>
 );
 

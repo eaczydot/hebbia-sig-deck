@@ -45,7 +45,7 @@ export const Slide4_TheConstraint = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
                             <div>
                                 <div className="text-matrix-header" style={{ color: 'var(--color-text-tertiary)' }}>NARRATIVE</div>
-                                <div style={{ fontSize: 22, color: 'var(--color-text-primary)', lineHeight: 1.25 }}>
+                                <div style={{ fontSize: 26, color: 'var(--color-text-primary)', lineHeight: 1.25 }}>
                                     Data accelerates. Human review does not.
                                 </div>
                             </div>
@@ -66,7 +66,7 @@ export const Slide4_TheConstraint = () => {
                                 style={{ borderLeft: '2px solid rgba(239, 68, 68, 0.9)', paddingLeft: 12 }}
                             >
                                 <div className="u-font-mono" style={{ fontSize: 12, color: 'var(--color-text-tertiary)' }}>PHASE 1</div>
-                                <div style={{ color: 'var(--color-text-primary)', fontSize: 14, lineHeight: 1.5 }}>
+                                <div style={{ color: 'var(--color-text-primary)', fontSize: 18, lineHeight: 1.5 }}>
                                     Manual review burns cycles on extraction.
                                 </div>
                             </motion.div>
@@ -77,7 +77,7 @@ export const Slide4_TheConstraint = () => {
                                 style={{ borderLeft: '2px solid rgba(239, 68, 68, 0.9)', paddingLeft: 12 }}
                             >
                                 <div className="u-font-mono" style={{ fontSize: 12, color: 'var(--color-text-tertiary)' }}>PHASE 2</div>
-                                <div style={{ color: 'var(--color-text-primary)', fontSize: 14, lineHeight: 1.5 }}>
+                                <div style={{ color: 'var(--color-text-primary)', fontSize: 18, lineHeight: 1.5 }}>
                                     The latency gap widens as inputs compound.
                                 </div>
                             </motion.div>
@@ -88,7 +88,7 @@ export const Slide4_TheConstraint = () => {
                                 style={{ borderLeft: '2px solid rgba(59, 130, 246, 0.9)', paddingLeft: 12 }}
                             >
                                 <div className="u-font-mono" style={{ fontSize: 12, color: 'var(--color-text-tertiary)' }}>INFLECTION</div>
-                                <div style={{ color: 'var(--color-text-primary)', fontSize: 14, lineHeight: 1.5 }}>
+                                <div style={{ color: 'var(--color-text-primary)', fontSize: 18, lineHeight: 1.5 }}>
                                     Automation converts volume into throughput.
                                 </div>
                             </motion.div>

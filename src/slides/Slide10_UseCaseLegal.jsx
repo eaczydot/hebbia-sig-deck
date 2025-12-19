@@ -62,13 +62,13 @@ export const Slide10_UseCaseLegal = () => {
                             <div className="grid-2" style={{ marginTop: '20px' }}>
                                 <div style={{ background: 'rgba(255,255,255,0.02)', padding: '15px', border: '1px solid var(--color-border-functional)' }}>
                                     <div className="u-font-mono" style={{ fontSize: '10px', color: 'var(--color-text-tertiary)', marginBottom: '8px' }}>STANDARD TEMPLATE</div>
-                                    <div style={{ fontSize: '12px', lineHeight: 1.5, color: 'var(--color-text-secondary)' }}>
+                                    <div style={{ fontSize: '16px', lineHeight: 1.5, color: 'var(--color-text-secondary)' }}>
                                         Upon the occurrence of a Change of Control, each Holder shall have the right to require the Issuer to repurchase...
                                     </div>
                                 </div>
                                 <div style={{ background: 'rgba(245, 158, 11, 0.05)', padding: '15px', border: '1px solid var(--color-agent-citation-orange)' }}>
                                     <div className="u-font-mono" style={{ fontSize: '10px', color: 'var(--color-agent-citation-orange)', marginBottom: '8px' }}>⚠ VARIANCE DETECTED</div>
-                                    <div style={{ fontSize: '12px', lineHeight: 1.5, color: 'var(--color-text-secondary)' }}>
+                                    <div style={{ fontSize: '16px', lineHeight: 1.5, color: 'var(--color-text-secondary)' }}>
                                         ...shall have the right to repurchase, <span style={{ background: 'rgba(245, 158, 11, 0.2)', color: '#fbbf24' }}>subject to Board discretion</span> regarding liquidity...
                                     </div>
                                 </div>

@@ -32,7 +32,7 @@ const FeatureBlock = ({ title, description, badge, align = 'left', delay }) => (
             }}>{badge}</span>
         </div>
         <h3 style={{ fontSize: '28px', fontWeight: 600, color: 'white', marginBottom: '16px', fontFamily: 'var(--font-primary)', letterSpacing: '-0.02em' }}>{title}</h3>
-        <p style={{ fontSize: '15px', color: 'var(--color-text-secondary)', lineHeight: 1.6, fontFamily: 'var(--font-primary)' }}>{description}</p>
+        <p style={{ fontSize: '19px', color: 'var(--color-text-secondary)', lineHeight: 1.6, fontFamily: 'var(--font-primary)' }}>{description}</p>
     </motion.div>
 );
 
@@ -105,7 +105,7 @@ export const Slide6_IntroducingHebbia = () => {
                             border: '1px solid rgba(255,255,255,0.05)'
                         }}>
                             <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'var(--color-brand-cobalt)' }} />
-                            <div style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-primary)', fontSize: '14px', lineHeight: 1.35 }}>
+                            <div style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-primary)', fontSize: '18px', lineHeight: 1.35 }}>
                                 Analyze credit agreements for change of control triggers…
                             </div>
                         </div>

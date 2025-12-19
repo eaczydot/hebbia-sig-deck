@@ -23,7 +23,7 @@ const RiskItem = ({ risk, mitigation, icon: Icon, delay }) => (
             </div>
             <div style={{ borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '24px' }}>
                 <div className="text-matrix-header" style={{ color: 'var(--color-agent-extraction-green)', marginBottom: '8px' }}>HEBBIA MITIGATION</div>
-                <div className="text-cell-data" style={{ fontSize: '13px' }}>{mitigation}</div>
+                <div className="text-cell-data" style={{ fontSize: '16px' }}>{mitigation}</div>
             </div>
         </GlassPanel>
     </motion.div>

@@ -48,7 +48,7 @@ export const Slide3_StrategicContext = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
                             <div>
                                 <div className="text-matrix-header" style={{ color: 'var(--color-text-tertiary)' }}>HEBBIA INSIGHT</div>
-                                <div style={{ fontSize: 'clamp(16px, 2.3vw, 22px)', color: 'var(--color-text-primary)', lineHeight: 1.25, maxWidth: 520 }}>
+                                <div style={{ fontSize: 'clamp(20px, 2.7vw, 26px)', color: 'var(--color-text-primary)', lineHeight: 1.25, maxWidth: 520 }}>
                                     A reasoning system is a <span style={{ color: 'var(--color-brand-cobalt)', fontWeight: 600 }}>network</span>, not a chatbot.
                                 </div>
                             </div>
@@ -71,7 +71,7 @@ export const Slide3_StrategicContext = () => {
 
                         <div style={{ marginTop: 'var(--spacing-xl)', borderTop: '1px solid var(--color-border-functional)', paddingTop: 'var(--spacing-xl)' }}>
                             <div className="text-matrix-header" style={{ color: 'var(--color-text-secondary)' }}>THE BOTTLENECK</div>
-                            <div style={{ fontSize: 'clamp(16px, 2vw, 20px)', color: 'var(--color-text-primary)', lineHeight: 1.4 }}>
+                            <div style={{ fontSize: 'clamp(20px, 2.4vw, 24px)', color: 'var(--color-text-primary)', lineHeight: 1.4 }}>
                                 "Continuous innovation demands tools that match the pace and scale of inquiry."
                             </div>
                         </div>

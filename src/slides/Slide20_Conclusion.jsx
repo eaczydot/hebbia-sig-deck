@@ -15,9 +15,9 @@ export const Slide20_Conclusion = () => {
                         Build the Future of Quantitative Reasoning.
                     </h1>
                     <div style={{ marginTop: 'var(--spacing-3xl)', borderLeft: '2px solid var(--color-border-functional)', paddingLeft: 'var(--spacing-xl)' }}>
-                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: 'clamp(12px, 1.5vw, 14px)', marginBottom: 'var(--spacing-sm)' }}>1. Finalize Pilot Scope (Week 0)</div>
-                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: 'clamp(12px, 1.5vw, 14px)', marginBottom: 'var(--spacing-sm)' }}>2. Technical Deep Dive (Security)</div>
-                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: 'clamp(12px, 1.5vw, 14px)' }}>3. Procurement Readiness</div>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: 'clamp(15px, 1.8vw, 17px)', marginBottom: 'var(--spacing-sm)' }}>1. Finalize Pilot Scope (Week 0)</div>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: 'clamp(15px, 1.8vw, 17px)', marginBottom: 'var(--spacing-sm)' }}>2. Technical Deep Dive (Security)</div>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: 'clamp(15px, 1.8vw, 17px)' }}>3. Procurement Readiness</div>
                     </div>
                 </div>
 
@@ -37,8 +37,8 @@ export const Slide20_Conclusion = () => {
                         height: '100%'
                     }}>
                         <div className="big-num text-blue" style={{ fontSize: 'clamp(52px, 7vw, 72px)' }}>6 Weeks</div>
-                        <div className="u-font-mono" style={{ fontSize: 'clamp(13px, 1.7vw, 16px)', marginBottom: 'var(--spacing-3xl)', color: 'var(--color-text-secondary)' }}>To Validated Value</div>
-                        <div style={{ fontSize: 'clamp(12px, 1.5vw, 14px)', color: 'var(--color-text-tertiary)', lineHeight: 1.6 }}>
+                        <div className="u-font-mono" style={{ fontSize: 'clamp(16px, 2vw, 19px)', marginBottom: 'var(--spacing-3xl)', color: 'var(--color-text-secondary)' }}>To Validated Value</div>
+                        <div style={{ fontSize: 'clamp(15px, 1.8vw, 17px)', color: 'var(--color-text-tertiary)', lineHeight: 1.6 }}>
                             partnerships@hebbia.ai<br />
                             Classification: Confidential
                         </div>

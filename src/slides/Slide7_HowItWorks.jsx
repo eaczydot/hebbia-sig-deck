@@ -99,7 +99,7 @@ export const Slide7_HowItWorks = () => {
                                 </div>
 
                                 <div style={{
-                                    fontSize: 15,
+                                    fontSize: 19,
                                     color: 'var(--color-text-secondary)',
                                     lineHeight: 1.55,
                                     flex: 1
@@ -122,15 +122,15 @@ export const Slide7_HowItWorks = () => {
             >
                 <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: 'var(--spacing-xl)' }}>
                     <div className="big-num text-blue" style={{ margin: 0 }}>~30s</div>
-                    <div className="u-font-mono" style={{ fontSize: 'clamp(11px, 1.2vw, 12px)', color: 'var(--color-text-secondary)' }}>Per 100 Documents</div>
+                    <div className="u-font-mono" style={{ fontSize: 'clamp(14px, 1.5vw, 15px)', color: 'var(--color-text-secondary)' }}>Per 100 Documents</div>
                 </div>
                 <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: 'var(--spacing-xl)' }}>
                     <div className="big-num text-green" style={{ margin: 0 }}>100%</div>
-                    <div className="u-font-mono" style={{ fontSize: 'clamp(11px, 1.2vw, 12px)', color: 'var(--color-text-secondary)' }}>Citation Coverage</div>
+                    <div className="u-font-mono" style={{ fontSize: 'clamp(14px, 1.5vw, 15px)', color: 'var(--color-text-secondary)' }}>Citation Coverage</div>
                 </div>
                 <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: 'var(--spacing-xl)' }}>
                     <div className="big-num text-purple" style={{ margin: 0 }}>Excel</div>
-                    <div className="u-font-mono" style={{ fontSize: 'clamp(11px, 1.2vw, 12px)', color: 'var(--color-text-secondary)' }}>Native Export</div>
+                    <div className="u-font-mono" style={{ fontSize: 'clamp(14px, 1.5vw, 15px)', color: 'var(--color-text-secondary)' }}>Native Export</div>
                 </div>
             </motion.div>
         </SlideContainer>

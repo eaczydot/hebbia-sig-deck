@@ -22,7 +22,7 @@ const OrchestrationStep = ({ icon: Icon, title, steps, delay }) => (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {steps.map((step, i) => (
                     <div key={i} style={{
-                        fontSize: '12px',
+                        fontSize: '15px',
                         color: 'var(--color-text-secondary)',
                         background: 'rgba(255,255,255,0.03)',
                         padding: '8px 12px',
@@ -45,7 +45,7 @@ export const Slide21_ReasoningEngine = () => {
                 title="Agentic Orchestration"
                 subtitle={'Hebbia solves the "RAG Gap" by decomposing complex reasoning into atomic, verifiable logic traces.'}
                 subtitleMaxWidth={700}
-                subtitleSize={20}
+                subtitleSize={24}
                 marginBottom={60}
             />
 
@@ -125,7 +125,7 @@ export const Slide21_ReasoningEngine = () => {
 
             {/* Logical Flow Viz */}
             <div style={{ marginTop: 'auto', textAlign: 'center', opacity: 0.5 }}>
-                <div className="text-mono-data" style={{ fontSize: '10px' }}>LOGICAL TRACE: ID_8523F326 • DURATION: 12.4s • CONFIDENCE: 98.4%</div>
+                <div className="text-mono-data" style={{ fontSize: '13px' }}>LOGICAL TRACE: ID_8523F326 • DURATION: 12.4s • CONFIDENCE: 98.4%</div>
             </div>
         </SlideContainer>
     );

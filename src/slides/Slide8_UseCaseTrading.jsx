@@ -33,7 +33,7 @@ export const Slide8_UseCaseTrading = () => {
                         content: (
                             <div>
                                 <span className="pill green" style={{ marginBottom: '8px', display: 'inline-block' }}>Impact Assessment</span>
-                                <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Ranked list of impacted assets with citation links.</div>
+                                <div style={{ fontSize: '16px', color: 'var(--color-text-secondary)' }}>Ranked list of impacted assets with citation links.</div>
                             </div>
                         )
                     }
@@ -55,7 +55,7 @@ export const Slide8_UseCaseTrading = () => {
                         content: (
                             <div>
                                 <span className="pill green" style={{ marginBottom: '8px', display: 'inline-block' }}>Strategy Memo</span>
-                                <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>3-page brief on how we traded '08 vs '20.</div>
+                                <div style={{ fontSize: '16px', color: 'var(--color-text-secondary)' }}>3-page brief on how we traded '08 vs '20.</div>
                             </div>
                         )
                     }
@@ -84,7 +84,7 @@ export const Slide8_UseCaseTrading = () => {
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16, marginBottom: 12 }}>
                                 <div>
                                     <div className="text-matrix-header" style={{ color: 'var(--color-text-tertiary)' }}>WORKFLOW</div>
-                                    <div style={{ color: 'var(--color-text-primary)', fontSize: 18, lineHeight: 1.35 }}>
+                                    <div style={{ color: 'var(--color-text-primary)', fontSize: 22, lineHeight: 1.35 }}>
                                         Convert noisy market inputs into a cited, decision-ready brief.
                                     </div>
                                 </div>
@@ -107,17 +107,17 @@ export const Slide8_UseCaseTrading = () => {
                         <GlassPanel style={{ padding: '18px', textAlign: 'center' }}>
                             <div className="text-matrix-header" style={{ justifyContent: 'center' }}>VELOCITY</div>
                             <div className="big-num text-blue" style={{ fontSize: 44 }}>-50%</div>
-                            <div className="u-font-mono" style={{ fontSize: 12, color: 'var(--color-text-secondary)' }}>Time-to-Conviction</div>
+                            <div className="u-font-mono" style={{ fontSize: 14, color: 'var(--color-text-secondary)' }}>Time-to-Conviction</div>
                         </GlassPanel>
                         <GlassPanel style={{ padding: '18px', textAlign: 'center' }}>
                             <div className="text-matrix-header" style={{ justifyContent: 'center' }}>COVERAGE</div>
                             <div className="big-num text-blue" style={{ fontSize: 44 }}>2x</div>
-                            <div className="u-font-mono" style={{ fontSize: 12, color: 'var(--color-text-secondary)' }}>Events/Hour</div>
+                            <div className="u-font-mono" style={{ fontSize: 14, color: 'var(--color-text-secondary)' }}>Events/Hour</div>
                         </GlassPanel>
                         <GlassPanel style={{ padding: '18px', textAlign: 'center' }}>
                             <div className="text-matrix-header" style={{ justifyContent: 'center' }}>ACCURACY</div>
                             <div className="big-num text-blue" style={{ fontSize: 44 }}>&lt;2%</div>
-                            <div className="u-font-mono" style={{ fontSize: 12, color: 'var(--color-text-secondary)' }}>Signal Miss Rate</div>
+                            <div className="u-font-mono" style={{ fontSize: 14, color: 'var(--color-text-secondary)' }}>Signal Miss Rate</div>
                         </GlassPanel>
                     </motion.div>
                 </div>

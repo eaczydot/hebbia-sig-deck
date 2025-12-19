@@ -26,7 +26,7 @@ export const Slide18_Competitive = () => {
                     <h3 style={{ color: 'white', marginTop: '15px', marginBottom: '15px', fontSize: '18px' }}>ChatGPT / Claude</h3>
                     <hr style={{ border: 0, borderBottom: '1px solid var(--color-border-functional)', margin: '15px 0' }} />
                     <div className="u-font-mono" style={{ fontSize: '12px', marginBottom: '10px', color: '#EF4444' }}>RISK: HALLUCINATIONS</div>
-                    <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
+                    <p style={{ fontSize: '18px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
                         Generates prose, not answers. Lacks verifiable links to source documents. Unsuitable for high-stakes decisions.
                     </p>
                 </GlassPanel>
@@ -37,7 +37,7 @@ export const Slide18_Competitive = () => {
                     <h3 style={{ color: 'white', marginTop: '15px', marginBottom: '15px', fontSize: '18px' }}>AlphaSense / Glean</h3>
                     <hr style={{ border: 0, borderBottom: '1px solid var(--color-border-functional)', margin: '15px 0' }} />
                     <div className="u-font-mono" style={{ fontSize: '12px', marginBottom: '10px', color: 'var(--color-agent-citation-orange)' }}>LIMIT: RETRIEVAL ONLY</div>
-                    <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
+                    <p style={{ fontSize: '18px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
                         Great for finding documents, poor for synthesizing net-new insights across thousands of pages.
                     </p>
                 </GlassPanel>
@@ -48,7 +48,7 @@ export const Slide18_Competitive = () => {
                     <h3 style={{ color: 'var(--color-agent-reasoning-blue)', marginTop: '15px', marginBottom: '15px', fontSize: '18px' }}>Hebbia</h3>
                     <hr style={{ border: 0, borderBottom: '1px solid var(--color-border-functional)', margin: '15px 0' }} />
                     <div className="u-font-mono" style={{ fontSize: '12px', marginBottom: '10px', color: 'var(--color-agent-extraction-green)' }}>ADVANTAGE: AGENTIC</div>
-                    <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
+                    <p style={{ fontSize: '18px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
                         Decomposes problems. Reasons across private data. Provides a verifiable fact layer (Citations).
                     </p>
                 </GlassPanel>
