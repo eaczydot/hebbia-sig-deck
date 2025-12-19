@@ -42,7 +42,7 @@ export const Slide4_TheConstraint = () => {
                     }}>
                         {/* Top Label */}
                         <div style={{ position: 'absolute', top: '30px', right: '30px', textAlign: 'right' }}>
-                            <div className="big-num" style={{ fontSize: '32px', color: '#EF4444', margin: 0 }}>UNSCALABLE</div>
+                            <div className="big-num" style={{ fontSize: '32px', color: 'var(--red)', margin: 0 }}>UNSCALABLE</div>
                             <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '12px' }}>Human Capacity vs. Data Volume</div>
                         </div>
 
@@ -59,8 +59,8 @@ export const Slide4_TheConstraint = () => {
                         }}>
                             {/* Data Volume Curve (SVG) */}
                             <svg style={{ position: 'absolute', bottom: '20px', left: '50px', width: '80%', height: '200px', overflow: 'visible' }}>
-                                <path d="M0,200 C80,190 200,80 400,0" fill="none" stroke="#555" strokeWidth="2" strokeDasharray="5,5" />
-                                <text x="410" y="10" fill="#555" fontFamily="JetBrains Mono" fontSize="12">DATA VOLUME</text>
+                                <path d="M0,200 C80,190 200,80 400,0" fill="none" stroke="var(--color-border-glass-edge)" strokeWidth="2" strokeDasharray="5,5" />
+                                <text x="410" y="10" fill="var(--color-text-tertiary)" fontFamily="var(--font-mono)" fontSize="12">DATA VOLUME</text>
                             </svg>
 
                             {/* Capacity Bars */}
@@ -72,7 +72,7 @@ export const Slide4_TheConstraint = () => {
                             ))}
 
                             {/* Gap Annotation */}
-                            <div style={{ position: 'absolute', top: '30%', left: '50%', color: '#EF4444', fontFamily: 'var(--font-mono)', fontSize: '12px' }}>
+                            <div style={{ position: 'absolute', top: '30%', left: '50%', color: 'var(--red)', fontFamily: 'var(--font-mono)', fontSize: '12px' }}>
                                 ↓ THE LATENCY GAP
                             </div>
                         </div>

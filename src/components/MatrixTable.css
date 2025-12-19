@@ -29,23 +29,23 @@
 }
 
 .matrix-table tr:hover td {
-    background: rgba(255, 255, 255, 0.02);
+    background: color-mix(in srgb, var(--color-text-primary) 2%, transparent);
 }
 
 /* Highlighted rows */
 .matrix-table tr.row-highlight {
-    background: rgba(70, 91, 255, 0.05);
+    background: color-mix(in srgb, var(--color-brand-cobalt) 5%, transparent);
 }
 
 .matrix-table tr.row-total {
     border-top: 2px solid var(--color-border-functional);
     font-weight: 600;
-    background: rgba(10, 10, 10, 0.5);
+    background: color-mix(in srgb, var(--bg-void) 50%, transparent);
 }
 
 /* Cell highlight for emphasis */
 .matrix-table .cell-highlight {
-    background: rgba(70, 91, 255, 0.1);
+    background: color-mix(in srgb, var(--color-brand-cobalt) 10%, transparent);
     color: var(--color-agent-reasoning-blue);
     padding: 4px 8px;
     border-radius: 4px;

@@ -25,7 +25,7 @@ export const Slide9_UseCaseQuant = () => {
                 cells: [
                     { content: 'MRK' },
                     { content: 'Q3 24', style: { textAlign: 'center' } },
-                    { content: '2.1', style: { textAlign: 'center', color: '#EF4444' } },
+                    { content: '2.1', style: { textAlign: 'center', color: 'var(--red)' } },
                     { content: 'High', style: { textAlign: 'center' } }
                 ]
             },

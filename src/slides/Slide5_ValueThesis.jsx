@@ -96,7 +96,7 @@ export const Slide5_ValueThesis = () => {
                                         justifyContent: 'center',
                                         fontSize: '12px',
                                         fontFamily: 'var(--font-mono)',
-                                        color: i === 2 ? '#fff' : 'var(--color-text-tertiary)',
+                                        color: i === 2 ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)',
                                         letterSpacing: '0.1em'
                                     }}
                                 >

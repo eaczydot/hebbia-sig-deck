@@ -45,7 +45,7 @@ export const Slide3_StrategicContext = () => {
                         justifyContent: 'space-between'
                     }}>
                         {/* Abstract World Nodes */}
-                        <div style={{ position: 'absolute', top: '30%', left: '20%', width: '8px', height: '8px', background: '#fff', boxShadow: '0 0 15px #fff' }} />
+                        <div style={{ position: 'absolute', top: '30%', left: '20%', width: '8px', height: '8px', background: 'var(--color-text-primary)', boxShadow: '0 0 15px var(--color-text-primary)' }} />
                         <div style={{ position: 'absolute', top: '28%', left: '45%', width: '6px', height: '6px', background: 'var(--color-brand-cobalt)' }} />
                         <div style={{ position: 'absolute', top: '35%', left: '75%', width: '6px', height: '6px', background: 'var(--color-brand-cobalt)' }} />
                         <div style={{ position: 'absolute', top: '60%', left: '85%', width: '6px', height: '6px', background: 'var(--color-brand-cobalt)' }} />

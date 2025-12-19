@@ -5,7 +5,7 @@ export const Slide17_Disclaimer = () => {
     return (
         <SlideContainer className="u-flex-center">
             <div style={{ maxWidth: '800px', textAlign: 'center' }}>
-                <h2 className="text-hero" style={{ fontSize: '24px', marginBottom: '40px', color: '#666' }}>
+                <h2 className="text-hero" style={{ fontSize: '24px', marginBottom: '40px', color: 'var(--color-text-tertiary)' }}>
                     Disclaimer
                 </h2>
 
@@ -13,7 +13,7 @@ export const Slide17_Disclaimer = () => {
                     fontSize: '12px',
                     lineHeight: 1.8,
                     textAlign: 'justify',
-                    color: '#888'
+                    color: 'var(--color-text-secondary)'
                 }}>
                     <p style={{ marginBottom: '20px' }}>
                         This presentation is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities or services. The information contained herein is confidential and intended solely for the recipient. Any unauthorized reproduction or distribution is prohibited.

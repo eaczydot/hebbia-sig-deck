@@ -28,8 +28,8 @@ export const Slide1_Cover = () => {
                     </div>
                     <div style={{
                         padding: '6px 12px',
-                        background: 'rgba(70, 91, 255, 0.1)',
-                        border: '1px solid rgba(70, 91, 255, 0.3)',
+                        background: 'color-mix(in srgb, var(--color-brand-cobalt) 10%, transparent)',
+                        border: '1px solid color-mix(in srgb, var(--color-brand-cobalt) 30%, transparent)',
                         borderRadius: '4px',
                         color: 'var(--color-brand-sky)',
                         fontSize: '10px',

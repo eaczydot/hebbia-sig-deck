@@ -18,7 +18,7 @@ export const GlassPanel = ({ children, className = '', style = {}, active = fals
                 left: 0,
                 right: 0,
                 height: '1px',
-                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+                background: 'linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-text-primary) 30%, transparent), transparent)',
                 opacity: 0.5
             }} />
 

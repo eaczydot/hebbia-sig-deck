@@ -23,56 +23,56 @@ export const Slide22_MatrixDeepDive = () => {
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                         <GlassPanel style={{ padding: '16px' }}>
                             <Filter size={20} color="var(--color-agent-reasoning-blue)" />
-                            <h4 style={{ color: 'white', marginTop: '12px', marginBottom: '4px' }}>Smart Filtering</h4>
-                            <p style={{ fontSize: '11px', color: '#888' }}>Find every mention of 'Material Adverse Effect' across the portfolio.</p>
+                            <h4 style={{ color: 'var(--color-text-primary)', marginTop: '12px', marginBottom: '4px' }}>Smart Filtering</h4>
+                            <p style={{ fontSize: '11px', color: 'var(--color-text-secondary)' }}>Find every mention of 'Material Adverse Effect' across the portfolio.</p>
                         </GlassPanel>
                         <GlassPanel style={{ padding: '16px' }}>
                             <Layers size={20} color="var(--color-agent-extraction-green)" />
-                            <h4 style={{ color: 'white', marginTop: '12px', marginBottom: '4px' }}>Column Extension</h4>
-                            <p style={{ fontSize: '11px', color: '#888' }}>Add any new research field to all rows instantly via AI prompt.</p>
+                            <h4 style={{ color: 'var(--color-text-primary)', marginTop: '12px', marginBottom: '4px' }}>Column Extension</h4>
+                            <p style={{ fontSize: '11px', color: 'var(--color-text-secondary)' }}>Add any new research field to all rows instantly via AI prompt.</p>
                         </GlassPanel>
                         <GlassPanel style={{ padding: '16px' }}>
                             <Layout size={20} color="var(--color-agent-synthesis-purple)" />
-                            <h4 style={{ color: 'white', marginTop: '12px', marginBottom: '4px' }}>Custom Views</h4>
-                            <p style={{ fontSize: '11px', color: '#888' }}>Save bespoke dashboard views for Credit, Legal, or Compliance desks.</p>
+                            <h4 style={{ color: 'var(--color-text-primary)', marginTop: '12px', marginBottom: '4px' }}>Custom Views</h4>
+                            <p style={{ fontSize: '11px', color: 'var(--color-text-secondary)' }}>Save bespoke dashboard views for Credit, Legal, or Compliance desks.</p>
                         </GlassPanel>
                         <GlassPanel style={{ padding: '16px' }}>
                             <MousePointer2 size={20} color="var(--color-agent-citation-orange)" />
-                            <h4 style={{ color: 'white', marginTop: '12px', marginBottom: '4px' }}>Export Ready</h4>
-                            <p style={{ fontSize: '11px', color: '#888' }}>One-click export to SIG's internal Excel models or JSON APIs.</p>
+                            <h4 style={{ color: 'var(--color-text-primary)', marginTop: '12px', marginBottom: '4px' }}>Export Ready</h4>
+                            <p style={{ fontSize: '11px', color: 'var(--color-text-secondary)' }}>One-click export to SIG's internal Excel models or JSON APIs.</p>
                         </GlassPanel>
                     </div>
                 </div>
 
                 {/* Visual Simulation of a Live Matrix */}
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <GlassPanel style={{ padding: '0', overflow: 'hidden', height: '520px', background: 'var(--color-canvas-charcoal)', border: '1px solid rgba(70, 91, 255, 0.2)' }}>
-                        <div style={{ background: '#1A1A1A', padding: '12px 20px', borderBottom: '1px solid #333', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <GlassPanel style={{ padding: '0', overflow: 'hidden', height: '520px', background: 'var(--color-canvas-charcoal)', border: '1px solid color-mix(in srgb, var(--color-brand-cobalt) 20%, transparent)' }}>
+                        <div style={{ background: 'var(--color-canvas-charcoal)', padding: '12px 20px', borderBottom: '1px solid var(--color-border-functional)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                             <div style={{ display: 'flex', gap: '16px' }}>
                                 <div style={{ fontSize: '10px', fontWeight: 800, color: 'var(--color-brand-cobalt)', letterSpacing: '0.05em' }}>PORTFOLIO_DILIGENCE.MBX</div>
-                                <div style={{ fontSize: '10px', fontWeight: 500, color: '#666', fontFamily: 'var(--font-mono)' }}>1,242 Documents</div>
+                                <div style={{ fontSize: '10px', fontWeight: 500, color: 'var(--color-text-tertiary)', fontFamily: 'var(--font-mono)' }}>1,242 Documents</div>
                             </div>
                             <div style={{ display: 'flex', gap: '6px' }}>
-                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#EF4444', opacity: 0.6 }} />
-                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#F59E0B', opacity: 0.6 }} />
-                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', opacity: 0.6 }} />
+                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--red)', opacity: 0.6 }} />
+                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--orange)', opacity: 0.6 }} />
+                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--green)', opacity: 0.6 }} />
                             </div>
                         </div>
 
                         {/* Top Action Bar */}
-                        <div style={{ background: '#0F0F0F', padding: '10px 20px', borderBottom: '1px solid #222', display: 'flex', gap: '12px' }}>
-                            <div style={{ padding: '4px 12px', background: '#1A1A1A', borderRadius: '4px', fontSize: '9px', color: '#888', fontWeight: 600 }}>+ Add column</div>
-                            <div style={{ padding: '4px 12px', background: '#1A1A1A', borderRadius: '4px', fontSize: '9px', color: '#888', fontWeight: 600 }}>Sort by: Risk Score</div>
-                            <div style={{ padding: '4px 12px', background: 'var(--color-brand-cobalt)', borderRadius: '4px', fontSize: '10px', color: 'white', fontWeight: 800, marginLeft: 'auto', letterSpacing: '0.05em' }}>ASK MATRIX</div>
+                        <div style={{ background: 'var(--color-canvas-layer-1)', padding: '10px 20px', borderBottom: '1px solid var(--color-border-subtle)', display: 'flex', gap: '12px' }}>
+                            <div style={{ padding: '4px 12px', background: 'var(--color-canvas-charcoal)', borderRadius: '4px', fontSize: '9px', color: 'var(--color-text-secondary)', fontWeight: 600 }}>+ Add column</div>
+                            <div style={{ padding: '4px 12px', background: 'var(--color-canvas-charcoal)', borderRadius: '4px', fontSize: '9px', color: 'var(--color-text-secondary)', fontWeight: 600 }}>Sort by: Risk Score</div>
+                            <div style={{ padding: '4px 12px', background: 'var(--color-brand-cobalt)', borderRadius: '4px', fontSize: '10px', color: 'var(--color-text-primary)', fontWeight: 800, marginLeft: 'auto', letterSpacing: '0.05em' }}>ASK MATRIX</div>
                         </div>
 
                         {/* Matrix Grid Mockup */}
                         <div style={{ padding: '0 20px' }}>
                             {[1, 2, 3, 4, 5, 6, 7].map((i) => (
-                                <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1.5fr 1fr', padding: '16px 0', borderBottom: '1px solid #1A1A1A', fontSize: '12px', fontFamily: 'var(--font-primary)' }}>
-                                    <div style={{ color: 'white', fontWeight: 500 }}>{i}. Global Credit Opportunity {i}</div>
-                                    <div style={{ color: '#888', fontSize: '11px' }}>Change of Control Triggered</div>
-                                    <div style={{ textAlign: 'right', color: i % 2 === 0 ? '#10B981' : '#F59E0B', fontWeight: 600, fontSize: '11px' }}>{i % 2 === 0 ? 'Verified' : 'Review Required'}</div>
+                                <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1.5fr 1fr', padding: '16px 0', borderBottom: '1px solid var(--color-canvas-charcoal)', fontSize: '12px', fontFamily: 'var(--font-primary)' }}>
+                                    <div style={{ color: 'var(--color-text-primary)', fontWeight: 500 }}>{i}. Global Credit Opportunity {i}</div>
+                                    <div style={{ color: 'var(--color-text-secondary)', fontSize: '11px' }}>Change of Control Triggered</div>
+                                    <div style={{ textAlign: 'right', color: i % 2 === 0 ? 'var(--color-agent-extraction-green)' : 'var(--color-agent-citation-orange)', fontWeight: 600, fontSize: '11px' }}>{i % 2 === 0 ? 'Verified' : 'Review Required'}</div>
                                 </div>
                             ))}
                         </div>
@@ -87,16 +87,16 @@ export const Slide22_MatrixDeepDive = () => {
                                 bottom: '40px',
                                 right: '40px',
                                 width: '260px',
-                                background: 'rgba(20,20,25,0.95)',
+                                background: 'color-mix(in srgb, var(--color-canvas-layer-2) 95%, transparent)',
                                 border: '1px solid var(--color-brand-cobalt)',
                                 padding: '20px',
                                 borderRadius: '4px',
-                                boxShadow: '0 20px 40px rgba(0,0,0,0.6)',
+                                boxShadow: '0 20px 40px color-mix(in srgb, var(--bg-void) 60%, transparent)',
                                 backdropFilter: 'blur(10px)'
                             }}
                         >
                             <div className="text-matrix-header" style={{ fontSize: '9px', marginBottom: '12px', color: 'var(--color-brand-sky)' }}>AGENT REASONING FLOW</div>
-                            <div style={{ fontSize: '12px', color: 'white', lineHeight: 1.5, fontFamily: 'var(--font-primary)' }}>
+                            <div style={{ fontSize: '12px', color: 'var(--color-text-primary)', lineHeight: 1.5, fontFamily: 'var(--font-primary)' }}>
                                 "The Change of Control trigger in <span style={{ color: 'var(--color-brand-cobalt)', fontWeight: 600 }}>Sec 4.07</span> is linked to a 50% equity transfer. <span style={{ color: 'var(--color-agent-citation-orange)', fontWeight: 600 }}>Source: pg 42</span>"
                             </div>
                         </motion.div>

@@ -14,17 +14,17 @@ const ReferenceItem = ({ title, source, type, delay }) => (
             gridTemplateColumns: '1fr 3fr 1fr',
             gap: '24px',
             padding: '16px 0',
-            borderBottom: '1px solid rgba(255,255,255,0.05)',
+            borderBottom: '1px solid var(--color-border-subtle)',
             alignItems: 'center'
         }}
     >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ padding: '6px', background: 'rgba(255,255,255,0.03)', borderRadius: '6px', color: 'var(--color-text-tertiary)' }}>
+            <div style={{ padding: '6px', background: 'color-mix(in srgb, var(--color-text-primary) 3%, transparent)', borderRadius: '6px', color: 'var(--color-text-tertiary)' }}>
                 {type === 'Internal' ? <FileText size={14} /> : <BookOpen size={14} />}
             </div>
             <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.05em', color: 'var(--color-text-secondary)' }}>{type}</span>
         </div>
-        <div style={{ color: 'white', fontWeight: 500, fontSize: '14px' }}>{title}</div>
+        <div style={{ color: 'var(--color-text-primary)', fontWeight: 500, fontSize: '14px' }}>{title}</div>
         <div style={{ color: 'var(--color-text-tertiary)', fontSize: '12px', fontStyle: 'italic', textAlign: 'right' }}>{source}</div>
     </motion.div>
 );
@@ -38,7 +38,7 @@ export const Slide18_References = () => {
             </div>
 
             <GlassPanel style={{ padding: '32px', flex: 1, overflowY: 'auto' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 3fr 1fr', gap: '24px', paddingBottom: '12px', borderBottom: '2px solid rgba(255,255,255,0.1)' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 3fr 1fr', gap: '24px', paddingBottom: '12px', borderBottom: '2px solid var(--color-border-functional)' }}>
                     <div className="text-matrix-header">TYPE</div>
                     <div className="text-matrix-header">DOCUMENT TITLE</div>
                     <div className="text-matrix-header" style={{ textAlign: 'right' }}>SOURCE</div>

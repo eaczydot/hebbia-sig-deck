@@ -1,7 +1,7 @@
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
-export const FinancialLineChart = ({ data, color = '#465BFF', height = 300 }) => {
+export const FinancialLineChart = ({ data, color = 'var(--color-brand-cobalt)', height = 300 }) => {
     return (
         <div style={{ width: '100%', height }}>
             <ResponsiveContainer>
@@ -23,18 +23,18 @@ export const FinancialLineChart = ({ data, color = '#465BFF', height = 300 }) =>
                     <XAxis
                         dataKey="name"
                         hide={true}
-                        stroke="#444"
-                        tick={{ fill: '#666', fontSize: 10 }}
+                        stroke="var(--color-border-functional)"
+                        tick={{ fill: 'var(--color-text-tertiary)', fontSize: 10 }}
                     />
                     <YAxis
                         hide={true}
-                        stroke="#444"
+                        stroke="var(--color-border-functional)"
                     />
                     <Tooltip
                         contentStyle={{
-                            backgroundColor: '#141414',
-                            borderColor: '#333',
-                            color: '#fff',
+                            backgroundColor: 'var(--color-canvas-layer-2)',
+                            borderColor: 'var(--color-border-functional)',
+                            color: 'var(--color-text-primary)',
                             fontSize: '12px'
                         }}
                         itemStyle={{ color: color }}
