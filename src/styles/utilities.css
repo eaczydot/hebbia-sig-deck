@@ -111,7 +111,7 @@
     color: var(--txt-sec);
     margin-bottom: var(--spacing-2xl);
     max-width: 800px;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 .text-serif {
@@ -137,28 +137,28 @@
     font-family: var(--font-primary);
     font-size: var(--type-body-size);
     color: var(--txt-pri);
-    line-height: 1.5;
+    line-height: 1.65;
 }
 
 .text-body {
     font-family: var(--font-primary);
     font-size: var(--type-body-size);
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .text-body-lg {
     font-family: var(--font-primary);
     font-size: var(--type-body-lg-size);
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .text-body-sm {
     font-family: var(--font-primary);
     font-size: var(--type-body-sm-size);
     color: var(--color-text-secondary);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .text-mono-data {
@@ -171,12 +171,14 @@
     font-family: var(--font-primary);
     font-size: var(--type-caption-size);
     color: var(--color-text-secondary);
+    line-height: 1.6;
 }
 
 .text-micro {
     font-family: var(--font-primary);
     font-size: var(--type-micro-size);
     color: var(--color-text-tertiary);
+    line-height: 1.5;
 }
 
 .text-mono-xs {

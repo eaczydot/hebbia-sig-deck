@@ -78,14 +78,14 @@
   --type-title-sm-size: 36px;
   --type-headline-size: 28px;
   --type-subtitle-size: 24px;
-  --type-subtitle-sm-size: 20px;
+  --type-subtitle-sm-size: 22px;
   --type-subtitle-xs-size: 18px;
-  --type-body-lg-size: 16px;
-  --type-body-size: 14px;
-  --type-body-sm-size: 13px;
-  --type-caption-size: 12px;
-  --type-micro-size: 11px;
-  --type-eyebrow-size: 14px;
+  --type-body-lg-size: 18px;
+  --type-body-size: 16px;
+  --type-body-sm-size: 15px;
+  --type-caption-size: 14px;
+  --type-micro-size: 12px;
+  --type-eyebrow-size: 15px;
 
   /* Data + KPI */
   --type-kpi-size: 56px;
