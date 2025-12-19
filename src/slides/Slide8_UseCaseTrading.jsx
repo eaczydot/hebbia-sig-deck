@@ -30,7 +30,7 @@ export const Slide8_UseCaseTrading = () => {
                         content: (
                             <div>
                                 <span className="pill green" style={{ marginBottom: '8px', display: 'inline-block' }}>Impact Assessment</span>
-                                <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Ranked list of impacted assets with citation links.</div>
+                                <div className="text-caption">Ranked list of impacted assets with citation links.</div>
                             </div>
                         )
                     }
@@ -52,7 +52,7 @@ export const Slide8_UseCaseTrading = () => {
                         content: (
                             <div>
                                 <span className="pill green" style={{ marginBottom: '8px', display: 'inline-block' }}>Strategy Memo</span>
-                                <div style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>3-page brief on how we traded '08 vs '20.</div>
+                                <div className="text-caption">3-page brief on how we traded '08 vs '20.</div>
                             </div>
                         )
                     }
@@ -66,7 +66,7 @@ export const Slide8_UseCaseTrading = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">07 // USE CASE: TRADING</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Event Digestion & Precedent Retrieval</h2>
+                <h2 className="text-title">Event Digestion & Precedent Retrieval</h2>
             </div>
 
             {/* Workflow Table */}
@@ -78,7 +78,7 @@ export const Slide8_UseCaseTrading = () => {
                 <MatrixTable
                     headers={workflowData.headers}
                     rows={workflowData.rows}
-                    style={{ fontSize: '14px' }}
+                    style={{ fontSize: 'var(--type-body-size)' }}
                 />
             </motion.div>
 
@@ -93,17 +93,17 @@ export const Slide8_UseCaseTrading = () => {
                 <GlassPanel style={{ padding: '24px', textAlign: 'center' }}>
                     <div className="text-matrix-header" style={{ justifyContent: 'center' }}>KPI: VELOCITY</div>
                     <div className="big-num text-blue">-50%</div>
-                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Time-to-Conviction</div>
+                    <div className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>Time-to-Conviction</div>
                 </GlassPanel>
                 <GlassPanel style={{ padding: '24px', textAlign: 'center' }}>
                     <div className="text-matrix-header" style={{ justifyContent: 'center' }}>KPI: COVERAGE</div>
                     <div className="big-num text-blue">2x</div>
-                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Events Analyzed/Hour</div>
+                    <div className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>Events Analyzed/Hour</div>
                 </GlassPanel>
                 <GlassPanel style={{ padding: '24px', textAlign: 'center' }}>
                     <div className="text-matrix-header" style={{ justifyContent: 'center' }}>KPI: ACCURACY</div>
                     <div className="big-num text-blue">&lt;2%</div>
-                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Signal Miss Rate</div>
+                    <div className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>Signal Miss Rate</div>
                 </GlassPanel>
             </motion.div>
         </SlideContainer>

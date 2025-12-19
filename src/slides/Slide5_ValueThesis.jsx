@@ -16,7 +16,7 @@ export const Slide5_ValueThesis = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">04 // THE SOLUTION</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>An Agentic Reasoning Stack</h2>
+                <h2 className="text-title">An Agentic Reasoning Stack</h2>
             </div>
 
             {/* Split Layout */}
@@ -32,22 +32,17 @@ export const Slide5_ValueThesis = () => {
                         }}>
                             <div className="u-font-mono" style={{
                                 color: step.color,
-                                fontSize: '24px',
+                                fontSize: 'var(--type-subtitle-size)',
                                 fontWeight: 700,
                                 lineHeight: 1
                             }}>
                                 {step.num}
                             </div>
                             <div>
-                                <div style={{
-                                    color: step.color,
-                                    fontSize: '14px',
-                                    letterSpacing: '0.1em',
-                                    marginBottom: '5px'
-                                }}>
+                                <div className="text-matrix-header" style={{ color: step.color, marginBottom: '5px' }}>
                                     {step.title}
                                 </div>
-                                <div style={{ color: 'var(--color-text-secondary)', fontSize: '16px' }}>
+                                <div className="text-body-lg">
                                     {step.desc}
                                 </div>
                             </div>
@@ -94,7 +89,7 @@ export const Slide5_ValueThesis = () => {
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        fontSize: '12px',
+                                        fontSize: 'var(--type-caption-size)',
                                         fontFamily: 'var(--font-mono)',
                                         color: i === 2 ? 'var(--color-text-primary)' : 'var(--color-text-tertiary)',
                                         letterSpacing: '0.1em'
@@ -104,7 +99,7 @@ export const Slide5_ValueThesis = () => {
                                 </motion.div>
                             ))}
                         </div>
-                        <div className="u-font-mono" style={{ marginTop: '30px', color: 'var(--color-text-tertiary)', fontSize: '12px' }}>
+                        <div className="text-mono-sm" style={{ marginTop: '30px', color: 'var(--color-text-tertiary)' }}>
                             CORE = AGENTIC REASONING (Not Just Search)
                         </div>
                     </GlassPanel>

@@ -9,7 +9,7 @@ export const Slide2_ExecutiveSummary = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">01 // EXECUTIVE SUMMARY</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Unlocking Capacity, Accelerating Conviction</h2>
+                <h2 className="text-title">Unlocking Capacity, Accelerating Conviction</h2>
             </div>
 
             {/* 2x2 Grid */}
@@ -23,8 +23,8 @@ export const Slide2_ExecutiveSummary = () => {
                 {/* Box 1: Problem */}
                 <GlassPanel style={{ padding: '30px' }}>
                     <div className="text-matrix-header" style={{ color: 'var(--red)' }}>THE CONSTRAINT</div>
-                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>Decision Latency</div>
-                    <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
+                    <div className="text-subtitle" style={{ marginBottom: '10px' }}>Decision Latency</div>
+                    <p className="text-body">
                         SIG's core challenge is not data access, but the latency in converting vast unstructured data into decision-ready insight. Manual review creates a linear ceiling on growth.
                     </p>
                 </GlassPanel>
@@ -32,8 +32,8 @@ export const Slide2_ExecutiveSummary = () => {
                 {/* Box 2: Solution */}
                 <GlassPanel style={{ padding: '30px' }}>
                     <div className="text-matrix-header" style={{ color: 'var(--color-agent-reasoning-blue)' }}>THE SOLUTION</div>
-                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>Reasoning Engine</div>
-                    <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
+                    <div className="text-subtitle" style={{ marginBottom: '10px' }}>Reasoning Engine</div>
+                    <p className="text-body">
                         Hebbia transforms document workflows into a scalable reasoning engine. We automate data extraction and synthesis to increase throughput.
                     </p>
                 </GlassPanel>
@@ -41,8 +41,8 @@ export const Slide2_ExecutiveSummary = () => {
                 {/* Box 3: Value */}
                 <GlassPanel style={{ padding: '30px' }}>
                     <div className="text-matrix-header" style={{ color: 'var(--color-agent-extraction-green)' }}>PROJECTED VALUE</div>
-                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>&gt;3x ROI & Leverage</div>
-                    <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
+                    <div className="text-subtitle" style={{ marginBottom: '10px' }}>&gt;3x ROI & Leverage</div>
+                    <p className="text-body">
                         By compressing research cycle times by 30-50%, we unlock thousands of expert hours annually for higher-value strategy.
                     </p>
                 </GlassPanel>
@@ -50,8 +50,8 @@ export const Slide2_ExecutiveSummary = () => {
                 {/* Box 4: Plan */}
                 <GlassPanel style={{ padding: '30px' }}>
                     <div className="text-matrix-header" style={{ color: 'var(--color-agent-synthesis-purple)' }}>NEXT STEPS</div>
-                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>6-Week Pilot</div>
-                    <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
+                    <div className="text-subtitle" style={{ marginBottom: '10px' }}>6-Week Pilot</div>
+                    <p className="text-body">
                         A low-risk, high-impact pilot targeting 1-2 workflows (Quant/Legal) to validate efficiency gains and auditability.
                     </p>
                 </GlassPanel>

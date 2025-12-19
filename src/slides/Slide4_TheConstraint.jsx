@@ -10,7 +10,7 @@ export const Slide4_TheConstraint = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">03 // THE CONSTRAINT</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Decision Latency is Opportunity Cost</h2>
+                <h2 className="text-title">Decision Latency is Opportunity Cost</h2>
             </div>
 
             {/* Split Layout */}
@@ -42,8 +42,8 @@ export const Slide4_TheConstraint = () => {
                     }}>
                         {/* Top Label */}
                         <div style={{ position: 'absolute', top: '30px', right: '30px', textAlign: 'right' }}>
-                            <div className="big-num" style={{ fontSize: '32px', color: 'var(--red)', margin: 0 }}>UNSCALABLE</div>
-                            <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '12px' }}>Human Capacity vs. Data Volume</div>
+                            <div className="big-num xs" style={{ color: 'var(--red)', margin: 0 }}>UNSCALABLE</div>
+                            <div className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>Human Capacity vs. Data Volume</div>
                         </div>
 
                         {/* CSS Chart visualization */}
@@ -60,19 +60,19 @@ export const Slide4_TheConstraint = () => {
                             {/* Data Volume Curve (SVG) */}
                             <svg style={{ position: 'absolute', bottom: '20px', left: '50px', width: '80%', height: '200px', overflow: 'visible' }}>
                                 <path d="M0,200 C80,190 200,80 400,0" fill="none" stroke="var(--color-border-glass-edge)" strokeWidth="2" strokeDasharray="5,5" />
-                                <text x="410" y="10" fill="var(--color-text-tertiary)" fontFamily="var(--font-mono)" fontSize="12">DATA VOLUME</text>
+                                <text x="410" y="10" fill="var(--color-text-tertiary)" fontFamily="var(--font-mono)" fontSize="var(--type-caption-size)">DATA VOLUME</text>
                             </svg>
 
                             {/* Capacity Bars */}
                             {[100, 105, 110, 115].map((height, i) => (
                                 <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', flex: 1 }}>
                                     <div style={{ width: '60px', height: `${height}px`, background: 'var(--color-border-functional)' }} />
-                                    {i === 0 && <div className="u-font-mono" style={{ fontSize: '11px', color: 'var(--color-text-secondary)' }}>Capacity (Manual)</div>}
+                                    {i === 0 && <div className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>Capacity (Manual)</div>}
                                 </div>
                             ))}
 
                             {/* Gap Annotation */}
-                            <div style={{ position: 'absolute', top: '30%', left: '50%', color: 'var(--red)', fontFamily: 'var(--font-mono)', fontSize: '12px' }}>
+                            <div className="text-mono-sm" style={{ position: 'absolute', top: '30%', left: '50%', color: 'var(--red)' }}>
                                 ↓ THE LATENCY GAP
                             </div>
                         </div>

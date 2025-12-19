@@ -6,10 +6,10 @@ const TeamMember = ({ name, role, bio }) => (
     <GlassPanel style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
         <div style={{ width: '60px', height: '60px', background: 'var(--color-border-functional)', borderRadius: '50%', marginBottom: '4px' }}></div>
         <div>
-            <div style={{ fontSize: '18px', fontWeight: 600, color: 'var(--color-text-primary)' }}>{name}</div>
-            <div style={{ fontSize: '14px', color: 'var(--color-agent-reasoning-blue)' }}>{role}</div>
+            <div className="text-subtitle-xs">{name}</div>
+            <div className="text-body" style={{ color: 'var(--color-agent-reasoning-blue)' }}>{role}</div>
         </div>
-        <p className="text-cell-data" style={{ fontSize: '14px' }}>{bio}</p>
+        <p className="text-cell-data">{bio}</p>
     </GlassPanel>
 );
 
@@ -17,7 +17,7 @@ export const Slide16_Team = () => {
     return (
         <SlideContainer>
             <div className="text-matrix-header" style={{ marginBottom: '16px' }}>Our Team</div>
-            <h2 className="text-hero" style={{ fontSize: '36px', marginBottom: '60px' }}>
+            <h2 className="text-title-sm" style={{ marginBottom: '60px' }}>
                 World-Class AI & Finance Experts
             </h2>
 
@@ -41,15 +41,15 @@ export const Slide16_Team = () => {
 
             <div style={{ marginTop: '60px', display: 'flex', justifyContent: 'center', gap: '40px' }}>
                 <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '32px', fontWeight: 700, color: 'var(--color-text-primary)' }}>150+</div>
+                    <div className="big-num xs">150+</div>
                     <div className="text-cell-data">Team Members</div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '32px', fontWeight: 700, color: 'var(--color-text-primary)' }}>NY / SF</div>
+                    <div className="big-num xs">NY / SF</div>
                     <div className="text-cell-data">Dual HQ</div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '32px', fontWeight: 700, color: 'var(--color-text-primary)' }}>$160M</div>
+                    <div className="big-num xs">$160M</div>
                     <div className="text-cell-data">Series B (a16z)</div>
                 </div>
             </div>

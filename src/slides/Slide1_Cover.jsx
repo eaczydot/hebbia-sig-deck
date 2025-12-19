@@ -22,9 +22,9 @@ export const Slide1_Cover = () => {
                     }}
                 >
                     <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-                        <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-brand-cobalt)' }}>HEBBIA</div>
+                        <div style={{ fontWeight: 800, fontSize: 'var(--type-subtitle-size)', letterSpacing: '0.15em', color: 'var(--color-brand-cobalt)' }}>HEBBIA</div>
                         <div style={{ width: '1px', height: '16px', background: 'var(--color-border-functional)' }}></div>
-                        <div style={{ fontWeight: 700, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-text-tertiary)' }}>SIG</div>
+                        <div style={{ fontWeight: 700, fontSize: 'var(--type-subtitle-size)', letterSpacing: '0.15em', color: 'var(--color-text-tertiary)' }}>SIG</div>
                     </div>
                     <div style={{
                         padding: '6px 12px',
@@ -32,7 +32,7 @@ export const Slide1_Cover = () => {
                         border: '1px solid color-mix(in srgb, var(--color-brand-cobalt) 30%, transparent)',
                         borderRadius: '4px',
                         color: 'var(--color-brand-sky)',
-                        fontSize: '10px',
+                        fontSize: 'var(--type-micro-size)',
                         fontWeight: 700,
                         letterSpacing: '0.1em'
                     }}>
@@ -46,16 +46,12 @@ export const Slide1_Cover = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                 >
-                    <h1 className="text-hero" style={{ fontSize: 'clamp(44px, 10vw, 84px)', marginBottom: '24px', lineHeight: 1, letterSpacing: '-0.04em' }}>
+                    <h1 className="text-hero" style={{ marginBottom: '24px' }}>
                         Unlocking Growth & <br /> Operating Leverage
                     </h1>
-                    <p style={{
-                        fontSize: 'clamp(18px, 3.6vw, 26px)',
-                        color: 'var(--color-text-secondary)',
-                        fontFamily: 'var(--font-primary)',
+                    <p className="text-body-lg" style={{
                         fontWeight: 300,
                         maxWidth: '700px',
-                        lineHeight: 1.4,
                         letterSpacing: '-0.01em'
                     }}>
                         A strategic proposal for specific, measurable efficiency gains at Susquehanna International Group.
@@ -123,10 +119,9 @@ export const Slide1_Cover = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.2 }}
+                    className="text-micro"
                     style={{
                         marginTop: '40px',
-                        fontSize: '10px',
-                        color: 'var(--color-text-tertiary)',
                         lineHeight: 1.6,
                         maxWidth: '100%',
                         opacity: 0.6

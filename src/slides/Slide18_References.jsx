@@ -2,7 +2,6 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { BookOpen, FileText, Link as LinkIcon } from 'lucide-react';
 
 const ReferenceItem = ({ title, source, type, delay }) => (
     <motion.div
@@ -20,12 +19,12 @@ const ReferenceItem = ({ title, source, type, delay }) => (
     >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <div style={{ padding: '6px', background: 'color-mix(in srgb, var(--color-text-primary) 3%, transparent)', borderRadius: '6px', color: 'var(--color-text-tertiary)' }}>
-                {type === 'Internal' ? <FileText size={14} /> : <BookOpen size={14} />}
+                <span className="text-mono-xs" style={{ color: 'var(--color-text-tertiary)' }}>{type === 'Internal' ? 'INT' : 'EXT'}</span>
             </div>
-            <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.05em', color: 'var(--color-text-secondary)' }}>{type}</span>
+            <span className="text-mono-xs" style={{ fontWeight: 700, letterSpacing: '0.05em' }}>{type}</span>
         </div>
-        <div style={{ color: 'var(--color-text-primary)', fontWeight: 500, fontSize: '14px' }}>{title}</div>
-        <div style={{ color: 'var(--color-text-tertiary)', fontSize: '12px', fontStyle: 'italic', textAlign: 'right' }}>{source}</div>
+        <div className="text-body" style={{ color: 'var(--color-text-primary)', fontWeight: 500 }}>{title}</div>
+        <div className="text-caption" style={{ color: 'var(--color-text-tertiary)', fontStyle: 'italic', textAlign: 'right' }}>{source}</div>
     </motion.div>
 );
 
@@ -34,7 +33,7 @@ export const Slide18_References = () => {
         <SlideContainer>
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">APPENDIX // SOURCES</div>
-                <h2 className="text-hero" style={{ fontSize: '32px' }}>References & Attribution</h2>
+                <h2 className="text-title-sm">References & Attribution</h2>
             </div>
 
             <GlassPanel style={{ padding: '32px', flex: 1, overflowY: 'auto' }}>
@@ -55,16 +54,16 @@ export const Slide18_References = () => {
             </GlassPanel>
 
             <div style={{ marginTop: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div style={{ fontSize: '12px', color: 'var(--color-text-tertiary)' }}>
+                <div className="text-caption" style={{ color: 'var(--color-text-tertiary)' }}>
                     Hebbia (c) 2025 • Confidential & Proprietary
                 </div>
-                <div style={{ display: 'flex', gap: '16px', color: 'var(--color-agent-reasoning-blue)', fontSize: '12px', fontWeight: 600 }}>
+                <div className="text-mono-sm" style={{ display: 'flex', gap: '16px', color: 'var(--color-agent-reasoning-blue)', fontWeight: 600 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <LinkIcon size={14} />
+                        <span className="text-mono-xs">↗</span>
                         TRUST.HEBBIA.AI
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <LinkIcon size={14} />
+                        <span className="text-mono-xs">↗</span>
                         DOCS.HEBBIA.AI
                     </div>
                 </div>
