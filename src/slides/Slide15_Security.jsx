@@ -47,7 +47,7 @@ export const Slide15_Security = () => {
                 {securityItems.map((item, i) => (
                     <GlassPanel key={i} style={{ padding: '30px', borderTop: `2px solid ${item.color}` }}>
                         <div className="text-matrix-header" style={{ color: item.color }}>{item.header}</div>
-                        <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6, marginTop: '10px' }}>
+                        <p style={{ fontSize: '16px', color: 'var(--color-text-secondary)', lineHeight: 1.6, marginTop: '10px' }}>
                             {item.desc}
                         </p>
                     </GlassPanel>

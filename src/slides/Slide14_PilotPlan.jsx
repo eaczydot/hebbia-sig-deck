@@ -53,19 +53,19 @@ export const Slide14_PilotPlan = () => {
                         {/* Bar 1 */}
                         <div style={{ background: 'var(--color-canvas-layer-2)', padding: 'clamp(12px, 1.8vw, 15px)', borderLeft: '4px solid var(--color-agent-reasoning-blue)', zIndex: 1, marginBottom: 'var(--spacing-md)' }}>
                             <h4 style={{ margin: '0 0 var(--spacing-xs) 0', color: 'white', fontSize: 'clamp(13px, 1.5vw, 14px)' }}>Setup & Ingest</h4>
-                            <p style={{ margin: 0, fontSize: 'clamp(11px, 1.2vw, 12px)', color: 'var(--color-text-secondary)' }}>Connect private data (SharePoint/VDR). Establish baseline cycle times.</p>
+                            <p style={{ margin: 0, fontSize: 'clamp(13px, 1.4vw, 14px)', color: 'var(--color-text-secondary)' }}>Connect private data (SharePoint/VDR). Establish baseline cycle times.</p>
                         </div>
 
                         {/* Bar 2 */}
                         <div style={{ background: 'var(--color-canvas-layer-2)', padding: 'clamp(12px, 1.8vw, 15px)', borderLeft: '4px solid var(--color-agent-reasoning-blue)', marginLeft: '30%', width: '70%', zIndex: 1, marginBottom: 'var(--spacing-md)' }}>
                             <h4 style={{ margin: '0 0 var(--spacing-xs) 0', color: 'white', fontSize: 'clamp(13px, 1.5vw, 14px)' }}>Execution & Feedback</h4>
-                            <p style={{ margin: 0, fontSize: 'clamp(11px, 1.2vw, 12px)', color: 'var(--color-text-secondary)' }}>10 Pilot Users. Weekly reviews. Iterate on prompt libraries.</p>
+                            <p style={{ margin: 0, fontSize: 'clamp(13px, 1.4vw, 14px)', color: 'var(--color-text-secondary)' }}>10 Pilot Users. Weekly reviews. Iterate on prompt libraries.</p>
                         </div>
 
                         {/* Bar 3 */}
                         <div style={{ background: 'var(--color-canvas-layer-2)', padding: 'clamp(12px, 1.8vw, 15px)', borderLeft: '4px solid var(--color-agent-extraction-green)', marginLeft: '80%', width: '20%', zIndex: 1 }}>
                             <h4 style={{ margin: '0 0 var(--spacing-xs) 0', color: 'white', fontSize: 'clamp(13px, 1.5vw, 14px)' }}>ROI Validation</h4>
-                            <p style={{ margin: 0, fontSize: 'clamp(11px, 1.2vw, 12px)', color: 'var(--color-text-secondary)' }}>Measure delta vs baseline. Present Go/No-Go.</p>
+                            <p style={{ margin: 0, fontSize: 'clamp(13px, 1.4vw, 14px)', color: 'var(--color-text-secondary)' }}>Measure delta vs baseline. Present Go/No-Go.</p>
                         </div>
                     </div>
                 </GlassPanel>

@@ -125,7 +125,7 @@ export const AgenticStackDiagram = ({ height = 420 }) => {
                                         }}>
                                             {s.label}
                                         </div>
-                                        <div style={{ fontSize: 'clamp(13px, 1.6vw, 15px)', color: 'var(--color-text-primary)', lineHeight: 1.35 }}>
+                                        <div style={{ fontSize: 'clamp(15px, 1.8vw, 17px)', color: 'var(--color-text-primary)', lineHeight: 1.35 }}>
                                             {s.subtitle}
                                         </div>
                                     </div>
@@ -160,7 +160,7 @@ export const AgenticStackDiagram = ({ height = 420 }) => {
                         <div className="text-matrix-header" style={{ color: activeStep.color }}>
                             WHY IT MATTERS
                         </div>
-                        <div style={{ color: 'var(--color-text-primary)', fontSize: 'clamp(13px, 1.6vw, 15px)', lineHeight: 1.6 }}>
+                        <div style={{ color: 'var(--color-text-primary)', fontSize: 'clamp(15px, 1.8vw, 17px)', lineHeight: 1.6 }}>
                             {activeId === 'ingest'
                                 ? 'Bring fragmented inputs into one indexed workspace.'
                                 : activeId === 'extract'

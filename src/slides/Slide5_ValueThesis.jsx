@@ -61,7 +61,7 @@ export const Slide5_ValueThesis = () => {
                                                 }}>
                                                     {step.title}
                                                 </div>
-                                                <div style={{ color: 'var(--color-text-primary)', fontSize: 16, lineHeight: 1.45 }}>
+                                                <div style={{ color: 'var(--color-text-primary)', fontSize: 18, lineHeight: 1.45 }}>
                                                     {step.desc}
                                                 </div>
                                             </div>
@@ -95,7 +95,7 @@ export const Slide5_ValueThesis = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16, marginBottom: 12 }}>
                             <div>
                                 <div className="text-matrix-header" style={{ color: 'var(--color-text-tertiary)' }}>SYSTEM MODEL</div>
-                                <div style={{ color: 'var(--color-text-primary)', fontSize: 'clamp(16px, 2.1vw, 20px)', lineHeight: 1.25 }}>
+                                <div style={{ color: 'var(--color-text-primary)', fontSize: 'clamp(18px, 2.3vw, 22px)', lineHeight: 1.25 }}>
                                     Agentic stack → verifiable outputs
                                 </div>
                             </div>

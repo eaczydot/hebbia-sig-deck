@@ -142,7 +142,7 @@ export const Slide17_Integration = () => {
                     <GlassPanel style={{ padding: 'clamp(16px, 2.2vw, 24px)' }}>
                         <div className="text-matrix-header">REAL-TIME SYNC</div>
                         <h4 style={{ color: 'white', fontSize: 'clamp(16px, 1.9vw, 18px)', fontWeight: 600, marginBottom: 'var(--spacing-md)' }}>Always Accurate</h4>
-                        <p className="text-cell-data" style={{ fontSize: 'clamp(12px, 1.35vw, 13px)' }}>
+                        <p className="text-cell-data" style={{ fontSize: 'clamp(14px, 1.5vw, 15px)' }}>
                             Hebbia maintains a persistent index. When a document is updated in SharePoint or a new email arrives in Exchange, the Hebbia Matrix reflects the changes instantly.
                         </p>
                         <hr style={{ border: 0, height: '1px', background: 'rgba(255,255,255,0.1)', margin: 'var(--spacing-xl) 0' }} />
