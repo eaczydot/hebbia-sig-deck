@@ -1,18 +1,11 @@
 /* Glass Panel Effect V2 - Brand Refined */
 .glass-panel {
-    background: var(--gradient-glass-surface);
-    backdrop-filter: blur(var(--glass-backdrop-blur));
-    -webkit-backdrop-filter: blur(var(--glass-backdrop-blur));
-    border: 1px solid transparent;
-    border-top-color: rgba(181, 228, 255, 0.2);
-    /* Brand Sky tint */
-    border-left-color: rgba(255, 255, 255, 0.05);
-    border-right-color: rgba(255, 255, 255, 0.05);
-    border-bottom-color: rgba(0, 0, 0, 0.2);
-    border-radius: var(--glass-radius);
-    box-shadow:
-        0 10px 20px -5px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--line-mid);
+    border-radius: 4px;
+    padding: 30px;
     position: relative;
     overflow: hidden;
 }
@@ -20,8 +13,32 @@
 /* Subtle inner glow for active panels using brand Cobalt */
 .glass-panel.active {
     box-shadow:
-        0 0 0 1px var(--color-brand-cobalt),
-        0 0 30px -10px var(--color-brand-cobalt);
+        0 0 0 1px var(--blue),
+        0 0 30px -10px var(--blue);
+}
+
+.slide-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: var(--slide-padding);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.slide-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.app-viewport.is-mobile .slide-container {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Matrix Gradient Glow */
@@ -32,14 +49,11 @@
 /* Text Styles Map */
 .text-hero {
     font-family: var(--font-display);
-    font-size: clamp(38px, 7vw, 64px);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    background: var(--gradient-hero-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: clamp(44px, 8vw, 80px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--txt-accent);
     margin-bottom: var(--spacing-lg);
 }
 
@@ -47,7 +61,7 @@
     font-family: var(--font-primary);
     font-size: clamp(18px, 3vw, 24px);
     font-weight: 400;
-    color: var(--color-text-secondary);
+    color: var(--txt-sec);
     margin-bottom: var(--spacing-2xl);
     max-width: 800px;
     line-height: 1.4;
@@ -59,46 +73,34 @@
 
 .text-matrix-header {
     font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--color-agent-reasoning-blue);
+    color: var(--txt-sec);
     margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* Decoration line for matrix headers */
-.text-matrix-header::after {
-    content: '';
-    height: 1px;
-    background: linear-gradient(90deg, var(--color-agent-reasoning-blue) 0%, transparent 100%);
-    flex: 1;
-    opacity: 0.3;
 }
 
 .text-cell-data {
     font-family: var(--font-primary);
     font-size: clamp(13px, 2.1vw, 14px);
-    color: var(--color-text-code);
+    color: var(--txt-pri);
     line-height: 1.5;
 }
 
 .text-mono-data {
     font-family: var(--font-mono);
     font-size: 12px;
-    color: var(--color-text-tertiary);
+    color: var(--txt-dim);
 }
 
 /* Grid Background Animation Utilities */
 .bg-grid-pattern {
     background-image:
-        linear-gradient(to right, rgba(70, 91, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(70, 91, 255, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+        linear-gradient(to right, var(--line-dim) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--line-dim) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.15;
 }
 
 .u-flex-center {
@@ -265,13 +267,13 @@
    ==================================== */
 
 .progress-bar {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     height: 4px;
-    background: var(--color-agent-reasoning-blue);
-    box-shadow: 0 0 20px var(--color-agent-reasoning-blue);
-    transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    background: var(--blue);
+    box-shadow: 0 0 20px var(--blue);
+    transition: width 0.6s var(--ease);
     z-index: 100;
 }
 
@@ -281,26 +283,26 @@
 
 .big-num {
     font-size: 56px;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -0.04em;
     margin: 10px 0;
     font-family: var(--font-primary);
 }
 
 .big-num.text-blue {
-    color: var(--color-agent-reasoning-blue);
+    color: var(--blue);
 }
 
 .big-num.text-green {
-    color: var(--color-agent-extraction-green);
+    color: var(--green);
 }
 
 .big-num.text-purple {
-    color: var(--color-agent-synthesis-purple);
+    color: var(--purple);
 }
 
 .big-num.text-orange {
-    color: var(--color-agent-citation-orange);
+    color: var(--orange);
 }
 
 /* ====================================
@@ -310,7 +312,7 @@
 .pill {
     display: inline-flex;
     align-items: center;
-    padding: 6px 12px;
+    padding: 4px 8px;
     border-radius: 4px;
     border: 1px solid;
     font-family: var(--font-mono);
@@ -320,25 +322,25 @@
 }
 
 .pill.blue {
-    border-color: rgba(70, 91, 255, 0.4);
-    background: rgba(70, 91, 255, 0.1);
-    color: var(--color-agent-reasoning-blue);
+    border-color: rgba(59, 130, 246, 0.3);
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--blue);
 }
 
 .pill.green {
-    border-color: rgba(16, 185, 129, 0.4);
+    border-color: rgba(16, 185, 129, 0.3);
     background: rgba(16, 185, 129, 0.1);
-    color: var(--color-agent-extraction-green);
+    color: var(--green);
 }
 
 .pill.purple {
-    border-color: rgba(139, 92, 246, 0.4);
+    border-color: rgba(139, 92, 246, 0.3);
     background: rgba(139, 92, 246, 0.1);
-    color: var(--color-agent-synthesis-purple);
+    color: var(--purple);
 }
 
 .pill.orange {
-    border-color: rgba(245, 158, 11, 0.4);
+    border-color: rgba(245, 158, 11, 0.3);
     background: rgba(245, 158, 11, 0.1);
-    color: var(--color-agent-citation-orange);
+    color: var(--orange);
 }
