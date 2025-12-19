@@ -10,14 +10,14 @@ export const Slide20_Conclusion = () => {
             <div className="split-50-50" style={{ alignItems: 'center', height: '100%' }}>
                 {/* Left - Hero CTA */}
                 <div className="stagger-in active">
-                    <span className="pill blue" style={{ marginBottom: '20px', display: 'inline-block' }}>NEXT STEPS</span>
-                    <h1 className="text-hero" style={{ fontSize: '64px', lineHeight: 1.05 }}>
+                    <span className="pill blue" style={{ marginBottom: 'var(--spacing-xl)', display: 'inline-block' }}>NEXT STEPS</span>
+                    <h1 className="text-hero" style={{ lineHeight: 1.05 }}>
                         Build the Future of Quantitative Reasoning.
                     </h1>
-                    <div style={{ marginTop: '40px', borderLeft: '2px solid var(--color-border-functional)', paddingLeft: '20px' }}>
-                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '14px', marginBottom: '10px' }}>1. Finalize Pilot Scope (Week 0)</div>
-                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '14px', marginBottom: '10px' }}>2. Technical Deep Dive (Security)</div>
-                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '14px' }}>3. Procurement Readiness</div>
+                    <div style={{ marginTop: 'var(--spacing-3xl)', borderLeft: '2px solid var(--color-border-functional)', paddingLeft: 'var(--spacing-xl)' }}>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: 'clamp(12px, 1.5vw, 14px)', marginBottom: 'var(--spacing-sm)' }}>1. Finalize Pilot Scope (Week 0)</div>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: 'clamp(12px, 1.5vw, 14px)', marginBottom: 'var(--spacing-sm)' }}>2. Technical Deep Dive (Security)</div>
+                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: 'clamp(12px, 1.5vw, 14px)' }}>3. Procurement Readiness</div>
                     </div>
                 </div>
 
@@ -33,12 +33,12 @@ export const Slide20_Conclusion = () => {
                         justifyContent: 'center',
                         alignItems: 'center',
                         textAlign: 'center',
-                        padding: '60px 40px',
+                        padding: 'clamp(28px, 4vw, 60px) clamp(20px, 3vw, 40px)',
                         height: '100%'
                     }}>
-                        <div className="big-num text-blue" style={{ fontSize: '72px' }}>6 Weeks</div>
-                        <div className="u-font-mono" style={{ fontSize: '16px', marginBottom: '40px', color: 'var(--color-text-secondary)' }}>To Validated Value</div>
-                        <div style={{ fontSize: '14px', color: 'var(--color-text-tertiary)', lineHeight: 1.6 }}>
+                        <div className="big-num text-blue" style={{ fontSize: 'clamp(52px, 7vw, 72px)' }}>6 Weeks</div>
+                        <div className="u-font-mono" style={{ fontSize: 'clamp(13px, 1.7vw, 16px)', marginBottom: 'var(--spacing-3xl)', color: 'var(--color-text-secondary)' }}>To Validated Value</div>
+                        <div style={{ fontSize: 'clamp(12px, 1.5vw, 14px)', color: 'var(--color-text-tertiary)', lineHeight: 1.6 }}>
                             partnerships@hebbia.ai<br />
                             Classification: Confidential
                         </div>

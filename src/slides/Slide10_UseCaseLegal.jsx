@@ -2,16 +2,21 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { ContextBox } from '../components/ContextBox';
+import { InteractiveImage } from '../components/InteractiveImage';
+import { SlideHeader } from '../components/SlideHeader';
 import { motion } from 'framer-motion';
+
+import creditAgreements from '../assets/credit-aggrements.webp';
+import redFlagsRisk from '../assets/red-flags-risk.png';
 
 export const Slide10_UseCaseLegal = () => {
     return (
         <SlideContainer>
             {/* Header */}
-            <div style={{ marginBottom: '40px' }}>
-                <div className="text-matrix-header">09 // USE CASE: LEGAL</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Automated Diligence & Risk</h2>
-            </div>
+            <SlideHeader
+                kicker="09 // USE CASE: LEGAL"
+                title="Automated Diligence & Risk"
+            />
 
             {/* Split Layout */}
             <div className="split-50-50" style={{ flex: 1 }}>
@@ -67,6 +72,27 @@ export const Slide10_UseCaseLegal = () => {
                                         ...shall have the right to repurchase, <span style={{ background: 'rgba(245, 158, 11, 0.2)', color: '#fbbf24' }}>subject to Board discretion</span> regarding liquidity...
                                     </div>
                                 </div>
+                            </div>
+
+                            <div style={{ marginTop: '18px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                                <InteractiveImage
+                                    src={creditAgreements}
+                                    alt="Credit agreements matrix product screenshot"
+                                    height={190}
+                                    hotspots={[
+                                        { id: 'rows', x: 0.30, y: 0.52, title: 'Clause extraction', body: 'Rows represent extracted clauses and normalized terms for comparison.' },
+                                        { id: 'cols', x: 0.78, y: 0.35, title: 'Comparison columns', body: 'Hebbia structures documents into comparable fields so variance is obvious.' }
+                                    ]}
+                                />
+                                <InteractiveImage
+                                    src={redFlagsRisk}
+                                    alt="Red flags matrix product screenshot"
+                                    height={190}
+                                    hotspots={[
+                                        { id: 'flags', x: 0.22, y: 0.45, title: 'Risk flags', body: 'Non-standard language is surfaced as actionable flags with traceable citations.' },
+                                        { id: 'citations', x: 0.85, y: 0.55, title: 'Source grounding', body: 'Each flag can be traced back to exact text spans in the source agreement.' }
+                                    ]}
+                                />
                             </div>
                         </div>
                     </GlassPanel>

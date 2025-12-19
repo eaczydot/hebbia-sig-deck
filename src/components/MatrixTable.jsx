@@ -44,11 +44,11 @@ export const CellHighlight = ({ children, color = 'var(--color-agent-reasoning-b
     <span style={{
         background: `${color}20`,
         color: color,
-        padding: '4px 8px',
+        padding: 'clamp(3px, 0.55vw, 4px) clamp(6px, 1.1vw, 8px)',
         borderRadius: '4px',
         display: 'inline-block',
         fontFamily: 'var(--font-mono)',
-        fontSize: '12px'
+        fontSize: 'clamp(12px, 1.15vw, 13px)'
     }}>
         {children}
     </span>

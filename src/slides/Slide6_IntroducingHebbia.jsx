@@ -3,6 +3,8 @@ import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { AgentPill } from '../components/AgentPill';
 import { motion } from 'framer-motion';
+import appScreenshot from '../assets/app-screenshot.png';
+import { SlideHeader } from '../components/SlideHeader';
 
 const FeatureBlock = ({ title, description, badge, align = 'left', delay }) => (
     <motion.div
@@ -11,11 +13,8 @@ const FeatureBlock = ({ title, description, badge, align = 'left', delay }) => (
         transition={{ delay, duration: 0.8 }}
         style={{
             textAlign: align,
-            maxWidth: '300px',
-            position: 'absolute',
-            ...(align === 'left' ? { left: '40px' } : { right: '40px' }),
-            top: '50%',
-            transform: 'translateY(-50%)'
+            maxWidth: '320px',
+            flex: '1 1 280px'
         }}
     >
         <div style={{ marginBottom: '16px' }}>
@@ -24,8 +23,8 @@ const FeatureBlock = ({ title, description, badge, align = 'left', delay }) => (
                 fontWeight: 700,
                 letterSpacing: '0.15em',
                 color: 'var(--color-brand-sky)',
-                background: 'rgba(70, 91, 255, 0.15)',
-                border: '1px solid rgba(70, 91, 255, 0.3)',
+                background: 'var(--pill-bg)',
+                border: '1px solid var(--pill-border)',
                 padding: '6px 12px',
                 borderRadius: '4px',
                 fontFamily: 'var(--font-primary)',
@@ -40,35 +39,52 @@ const FeatureBlock = ({ title, description, badge, align = 'left', delay }) => (
 export const Slide6_IntroducingHebbia = () => {
     return (
         <SlideContainer>
-            <div style={{ textAlign: 'center', marginBottom: '60px', zIndex: 10 }}>
-                <div className="text-matrix-header" style={{ justifyContent: 'center' }}>INTRODUCING HEBBIA</div>
-                <h2 className="text-hero" style={{ fontSize: '56px' }}>
-                    The World's Leading <br />AI Analyst
-                </h2>
-            </div>
+            <SlideHeader
+                kicker="INTRODUCING HEBBIA"
+                title={(
+                    <>
+                        The World's Leading <br />AI Analyst
+                    </>
+                )}
+                align="center"
+                titleSize={56}
+                marginBottom={44}
+            />
 
             {/* Central Interface Visual */}
-            <div style={{ position: 'relative', height: '400px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div style={{ position: 'relative', flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div style={{
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 'var(--layout-gap-xl)',
+                    flexWrap: 'wrap'
+                }}>
 
                 {/* Main Glass Interface */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1 }}
-                    style={{ position: 'relative', zIndex: 2 }}
+                    style={{ position: 'relative', zIndex: 2, flex: '0 1 600px' }}
                 >
                     <GlassPanel style={{
-                        width: '600px',
-                        height: '360px',
+                        width: 'min(600px, 92vw)',
+                        height: 'min(360px, 46vh)',
                         background: 'var(--color-canvas-charcoal)',
-                        border: '1px solid rgba(70, 91, 255, 0.2)',
+                        border: '1px solid rgba(59, 130, 246, 0.2)',
                         display: 'flex',
                         flexDirection: 'column',
-                        padding: '24px',
-                        boxShadow: '0 20px 50px rgba(0,0,0,0.4)'
+                        padding: 'clamp(16px, 2.2vw, 24px)',
+                        boxShadow: '0 20px 50px rgba(0,0,0,0.4)',
+                        backgroundImage: `linear-gradient(rgba(5,5,5,0.6), rgba(5,5,5,0.85)), url(${appScreenshot})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
                     }}>
                         {/* Header Bar */}
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '16px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 'clamp(14px, 2vw, 24px)', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: 'clamp(10px, 1.8vw, 16px)' }}>
                             <div style={{ display: 'flex', gap: '8px' }}>
                                 <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#EF4444' }} />
                                 <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F59E0B' }} />
@@ -81,15 +97,17 @@ export const Slide6_IntroducingHebbia = () => {
                         <div style={{
                             background: 'rgba(255,255,255,0.03)',
                             borderRadius: '4px',
-                            padding: '16px',
-                            marginBottom: '24px',
+                            padding: 'clamp(12px, 1.8vw, 16px)',
+                            marginBottom: 'clamp(14px, 2vw, 24px)',
                             display: 'flex',
                             alignItems: 'center',
                             gap: '12px',
                             border: '1px solid rgba(255,255,255,0.05)'
                         }}>
                             <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'var(--color-brand-cobalt)' }} />
-                            <div style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-primary)', fontSize: '13px' }}>Analyze credit agreements for change of control triggers...</div>
+                            <div style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-primary)', fontSize: '14px', lineHeight: 1.35 }}>
+                                Analyze credit agreements for change of control triggers…
+                            </div>
                         </div>
 
                         {/* Agent Activity Area */}
@@ -130,15 +148,17 @@ export const Slide6_IntroducingHebbia = () => {
                     delay={0.7}
                 />
 
+                </div>
+
                 {/* Background Glow */}
                 <div style={{
                     position: 'absolute',
                     top: '50%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
-                    width: '600px',
-                    height: '400px',
-                    background: 'radial-gradient(ellipse, rgba(70, 91, 255, 0.15) 0%, transparent 70%)',
+                    width: 'min(680px, 92vw)',
+                    height: 'min(420px, 52vh)',
+                    background: 'radial-gradient(ellipse, rgba(59, 130, 246, 0.15) 0%, transparent 70%)',
                     zIndex: 0,
                     pointerEvents: 'none',
                     filter: 'blur(80px)'

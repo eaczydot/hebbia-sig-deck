@@ -1,8 +1,13 @@
 import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
+import { InteractiveImage } from '../components/InteractiveImage';
+import { SlideHeader } from '../components/SlideHeader';
 import { motion } from 'framer-motion';
 import { Brain, Search, GitBranch, Terminal } from 'lucide-react';
+
+import statusQuo from '../assets/status-quo.webp';
+import foreverImproving from '../assets/forever-improving.png';
 
 const OrchestrationStep = ({ icon: Icon, title, steps, delay }) => (
     <motion.div
@@ -35,12 +40,40 @@ const OrchestrationStep = ({ icon: Icon, title, steps, delay }) => (
 export const Slide21_ReasoningEngine = () => {
     return (
         <SlideContainer>
-            <div style={{ marginBottom: '60px' }}>
-                <div className="text-matrix-header">DEEP DIVE // CORE ENGINE</div>
-                <h2 className="text-hero" style={{ fontSize: '48px', marginBottom: '16px' }}>Agentic Orchestration</h2>
-                <p className="text-subhero" style={{ maxWidth: '700px', fontSize: '20px' }}>
-                    Hebbia solves the "RAG Gap" by decomposing complex reasoning into atomic, verifiable logic traces.
-                </p>
+            <SlideHeader
+                kicker="DEEP DIVE // CORE ENGINE"
+                title="Agentic Orchestration"
+                subtitle={'Hebbia solves the "RAG Gap" by decomposing complex reasoning into atomic, verifiable logic traces.'}
+                subtitleMaxWidth={700}
+                subtitleSize={20}
+                marginBottom={60}
+            />
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '20px', marginBottom: '24px' }}>
+                <GlassPanel style={{ padding: '16px' }}>
+                    <div className="text-matrix-header" style={{ color: 'var(--color-text-tertiary)' }}>THE STATUS QUO</div>
+                    <InteractiveImage
+                        src={statusQuo}
+                        alt="Status quo RAG gap chart"
+                        height={230}
+                        hotspots={[
+                            { id: 'rag', x: 0.35, y: 0.38, title: 'RAG gap', body: 'Naive retrieval often fails on multi-step questions even when relevant pages exist.' },
+                            { id: 'success', x: 0.72, y: 0.60, title: 'Success rate', body: 'The engine must decompose, verify, and cite—rather than answer in one shot.' }
+                        ]}
+                    />
+                </GlassPanel>
+                <GlassPanel style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    <div className="text-matrix-header" style={{ color: 'var(--color-text-tertiary)' }}>ITERATIVE DECOMPOSITION</div>
+                    <InteractiveImage
+                        src={foreverImproving}
+                        alt="Iterative question answering diagram"
+                        height={230}
+                        hotspots={[
+                            { id: 'loop', x: 0.48, y: 0.52, title: 'Decompose → verify → refine', body: 'Hebbia tightens the loop until the answer is fully grounded in sources.' },
+                            { id: 'improve', x: 0.78, y: 0.35, title: 'Quality improves', body: 'Each iteration adds structure and checks consistency before synthesis.' }
+                        ]}
+                    />
+                </GlassPanel>
             </div>
 
             <div style={{ display: 'flex', gap: '20px', alignItems: 'stretch' }}>

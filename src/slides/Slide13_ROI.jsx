@@ -3,6 +3,7 @@ import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { ContextBox } from '../components/ContextBox';
 import { MatrixTable, CellHighlight } from '../components/MatrixTable';
+import { SlideHeader } from '../components/SlideHeader';
 import { motion } from 'framer-motion';
 
 export const Slide13_ROI = () => {
@@ -53,10 +54,10 @@ export const Slide13_ROI = () => {
     return (
         <SlideContainer>
             {/* Header */}
-            <div style={{ marginBottom: '40px' }}>
-                <div className="text-matrix-header">12 // ROI ANALYSIS</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Quantified Value Hypothesis</h2>
-            </div>
+            <SlideHeader
+                kicker="12 // ROI ANALYSIS"
+                title="Quantified Value Hypothesis"
+            />
 
             {/* Split Layout */}
             <div className="split-30-70" style={{ flex: 1 }}>

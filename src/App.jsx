@@ -23,6 +23,7 @@ import { Slide19_Risks } from './slides/Slide19_Risks';
 import { Slide20_Conclusion } from './slides/Slide20_Conclusion';
 import { Slide21_ReasoningEngine } from './slides/Slide21_ReasoningEngine';
 import { Slide22_MatrixDeepDive } from './slides/Slide22_MatrixDeepDive';
+import { Slide23_ProductDemos } from './slides/Slide23_ProductDemos';
 import { Slide18_References } from './slides/Slide18_References';
 
 import { AnimatePresence } from 'framer-motion';
@@ -45,6 +46,7 @@ const SLIDES = [
   Slide21_ReasoningEngine, // New Deep Dive
   Slide7_HowItWorks,
   Slide22_MatrixDeepDive, // New Deep Dive
+  Slide23_ProductDemos,
   Slide15_Security,
   Slide8_UseCaseTrading,
   Slide9_UseCaseQuant,
@@ -70,15 +72,19 @@ function App() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
-      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        setCurrentSlide(prev => Math.min(prev + 1, totalSlides - 1));
+      }
+      if (e.key === 'ArrowLeft') {
+        setCurrentSlide(prev => Math.max(prev - 1, 0));
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [totalSlides]);
 
-  const CurrentSlideComponent = SLIDES[currentSlide] || (() => <SlidePlaceholder number={currentSlide + 1} />);
+  const CurrentSlideComponent = SLIDES[currentSlide];
   const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
 
   return (
@@ -88,7 +94,9 @@ function App() {
 
       {/* Render Current Slide */}
       <AnimatePresence mode="wait">
-        <CurrentSlideComponent key={currentSlide} />
+        {CurrentSlideComponent
+          ? <CurrentSlideComponent key={currentSlide} />
+          : <SlidePlaceholder key={currentSlide} number={currentSlide + 1} />}
       </AnimatePresence>
 
       {/* Progress Bar */}

@@ -2,7 +2,10 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { MatrixTable } from '../components/MatrixTable';
+import { InteractiveImage } from '../components/InteractiveImage';
+import { SlideHeader } from '../components/SlideHeader';
 import { motion } from 'framer-motion';
+import marketAnalysis from '../assets/market-analysis.webp';
 
 export const Slide9_UseCaseQuant = () => {
     const quantData = {
@@ -59,10 +62,10 @@ export const Slide9_UseCaseQuant = () => {
     return (
         <SlideContainer>
             {/* Header */}
-            <div style={{ marginBottom: '40px' }}>
-                <div className="text-matrix-header">08 // USE CASE: QUANT</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Structuring the Unstructured</h2>
-            </div>
+            <SlideHeader
+                kicker="08 // USE CASE: QUANT"
+                title="Structuring the Unstructured"
+            />
 
             {/* Split Layout */}
             <div className="split-40-60" style={{ flex: 1 }}>
@@ -102,6 +105,17 @@ export const Slide9_UseCaseQuant = () => {
                             headers={quantData.headers}
                             rows={quantData.rows}
                         />
+                        <div style={{ marginTop: '18px' }}>
+                            <InteractiveImage
+                                src={marketAnalysis}
+                                alt="Market analysis matrix product screenshot"
+                                height={240}
+                                hotspots={[
+                                    { id: 'sentiment', x: 0.72, y: 0.35, title: 'Derived sentiment', body: 'Hovering in the Matrix lets you verify extracted scores against the underlying transcript lines.' },
+                                    { id: 'confidence', x: 0.90, y: 0.35, title: 'Confidence + traceability', body: 'Confidence is coupled to citations so analysts can validate signals quickly.' }
+                                ]}
+                            />
+                        </div>
                     </GlassPanel>
                 </motion.div>
             </div>

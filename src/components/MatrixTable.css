@@ -3,25 +3,26 @@
     width: 100%;
     border-collapse: collapse;
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: clamp(13px, 1.15vw, 14px);
 }
 
 .matrix-table th {
     text-align: left;
-    padding: 15px;
+    padding: clamp(12px, 1.8vw, 16px);
     color: var(--color-text-tertiary);
     border-bottom: 1px solid var(--color-border-functional);
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 11px;
+    letter-spacing: 0.08em;
+    font-size: clamp(11px, 1.1vw, 12px);
 }
 
 .matrix-table td {
-    padding: 15px;
+    padding: clamp(12px, 1.8vw, 16px);
     border-bottom: 1px solid var(--color-border-subtle);
     color: var(--color-text-primary);
     vertical-align: top;
+    line-height: 1.5;
 }
 
 .matrix-table tr:last-child td {
@@ -34,7 +35,7 @@
 
 /* Highlighted rows */
 .matrix-table tr.row-highlight {
-    background: rgba(70, 91, 255, 0.05);
+    background: rgba(59, 130, 246, 0.05);
 }
 
 .matrix-table tr.row-total {
@@ -45,9 +46,9 @@
 
 /* Cell highlight for emphasis */
 .matrix-table .cell-highlight {
-    background: rgba(70, 91, 255, 0.1);
+    background: rgba(59, 130, 246, 0.1);
     color: var(--color-agent-reasoning-blue);
-    padding: 4px 8px;
+    padding: clamp(3px, 0.55vw, 4px) clamp(6px, 1.1vw, 8px);
     border-radius: 4px;
 }
 

@@ -12,21 +12,16 @@ export const HeaderBar = ({ currentSlide, totalSlides }) => {
             justifyContent: 'space-between',
             alignItems: 'center',
             padding: 'var(--header-padding)',
-            background: 'rgba(0, 0, 0, 0.8)',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
-            borderBottom: '1px solid var(--color-border-functional)',
+            background: 'var(--color-canvas-base)',
+            borderBottom: '1px solid var(--color-border-subtle)',
             fontFamily: 'var(--font-mono)',
             fontSize: 'var(--header-font-size)',
             color: 'var(--color-text-tertiary)',
             letterSpacing: '0.05em',
             zIndex: 100
         }}>
-            <span>HEBBIA // ENTERPRISE PROPOSAL</span>
-            <span style={{ color: 'var(--color-text-secondary)' }}>
-                {String(currentSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
-            </span>
-            <span>CONFIDENTIAL: SIG</span>
+            <span>HEBBIA // MATRIX_OS v3.5</span>
+                        <span>CONFIDENTIAL: SIG PROPOSAL</span>
         </div>
     );
 };

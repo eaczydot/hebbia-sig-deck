@@ -1,7 +1,7 @@
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
-export const FinancialLineChart = ({ data, color = '#465BFF', height = 300 }) => {
+export const FinancialLineChart = ({ data, color = '#3B82F6', height = 300 }) => {
     return (
         <div style={{ width: '100%', height }}>
             <ResponsiveContainer>

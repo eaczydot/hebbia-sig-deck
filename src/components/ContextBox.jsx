@@ -16,7 +16,7 @@ export const ContextBox = ({
             {header && (
                 <div style={{
                     fontFamily: 'var(--font-mono)',
-                    fontSize: '11px',
+                    fontSize: '12px',
                     color: 'var(--color-text-tertiary)',
                     marginBottom: '8px',
                     textTransform: 'uppercase',
@@ -26,9 +26,9 @@ export const ContextBox = ({
                 </div>
             )}
             <div style={{
-                fontSize: '16px',
+                fontSize: '17px',
                 color: 'var(--color-text-secondary)',
-                lineHeight: 1.6
+                lineHeight: 1.7
             }}>
                 {children}
             </div>

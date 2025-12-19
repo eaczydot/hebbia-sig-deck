@@ -2,15 +2,16 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
+import { SlideHeader } from '../components/SlideHeader';
 
 export const Slide2_ExecutiveSummary = () => {
     return (
         <SlideContainer>
             {/* Header */}
-            <div style={{ marginBottom: '40px' }}>
-                <div className="text-matrix-header">01 // EXECUTIVE SUMMARY</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Unlocking Capacity, Accelerating Conviction</h2>
-            </div>
+            <SlideHeader
+                kicker="01 // EXECUTIVE SUMMARY"
+                title="Unlocking Capacity, Accelerating Conviction"
+            />
 
             {/* 2x2 Grid */}
             <motion.div

@@ -2,17 +2,18 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { ContextBox } from '../components/ContextBox';
-import { Globe, Users, TrendingUp, Cpu } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { NeuralNet3D } from '../components/NeuralNet3D';
+import { SlideHeader } from '../components/SlideHeader';
 
 export const Slide3_StrategicContext = () => {
     return (
         <SlideContainer>
             {/* Header */}
-            <div style={{ marginBottom: '40px' }}>
-                <div className="text-matrix-header">02 // STRATEGIC CONTEXT</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>SIG: Scientific Rigor at Global Scale</h2>
-            </div>
+            <SlideHeader
+                kicker="02 // STRATEGIC CONTEXT"
+                title="SIG: Scientific Rigor at Global Scale"
+            />
 
             {/* Split Layout */}
             <div className="split-30-70" style={{ flex: 1 }}>
@@ -22,10 +23,10 @@ export const Slide3_StrategicContext = () => {
                         SIG is powered by decision science and game theory. Hebbia matches this ethos by moving AI from "chat" to rigorous, verifiable <strong style={{ color: 'var(--color-brand-cobalt)' }}>reasoning</strong>.
                     </ContextBox>
 
-                    <ContextBox header="SCALE" style={{ marginTop: '30px' }}>
-                        <div className="u-font-mono" style={{ fontSize: '14px', marginBottom: '5px' }}>&gt; 3,200 Employees</div>
-                        <div className="u-font-mono" style={{ fontSize: '14px', marginBottom: '5px' }}>&gt; 17 Global Offices</div>
-                        <div className="u-font-mono" style={{ fontSize: '14px' }}>&gt; 24/7 Trading</div>
+                    <ContextBox header="SCALE" style={{ marginTop: 'var(--spacing-xl)' }}>
+                        <div className="u-font-mono" style={{ fontSize: 'clamp(12px, 1.5vw, 14px)', marginBottom: 'var(--spacing-xs)' }}>&gt; 3,200 Employees</div>
+                        <div className="u-font-mono" style={{ fontSize: 'clamp(12px, 1.5vw, 14px)', marginBottom: 'var(--spacing-xs)' }}>&gt; 17 Global Offices</div>
+                        <div className="u-font-mono" style={{ fontSize: 'clamp(12px, 1.5vw, 14px)' }}>&gt; 24/7 Trading</div>
                     </ContextBox>
                 </div>
 
@@ -37,26 +38,40 @@ export const Slide3_StrategicContext = () => {
                 >
                     <GlassPanel style={{
                         height: '100%',
-                        padding: '40px',
+                        padding: 'clamp(16px, 2.2vw, 24px)',
                         position: 'relative',
                         overflow: 'hidden',
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'space-between'
                     }}>
-                        {/* Abstract World Nodes */}
-                        <div style={{ position: 'absolute', top: '30%', left: '20%', width: '8px', height: '8px', background: '#fff', boxShadow: '0 0 15px #fff' }} />
-                        <div style={{ position: 'absolute', top: '28%', left: '45%', width: '6px', height: '6px', background: 'var(--color-brand-cobalt)' }} />
-                        <div style={{ position: 'absolute', top: '35%', left: '75%', width: '6px', height: '6px', background: 'var(--color-brand-cobalt)' }} />
-                        <div style={{ position: 'absolute', top: '60%', left: '85%', width: '6px', height: '6px', background: 'var(--color-brand-cobalt)' }} />
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
+                            <div>
+                                <div className="text-matrix-header" style={{ color: 'var(--color-text-tertiary)' }}>HEBBIA INSIGHT</div>
+                                <div style={{ fontSize: 'clamp(16px, 2.3vw, 22px)', color: 'var(--color-text-primary)', lineHeight: 1.25, maxWidth: 520 }}>
+                                    A reasoning system is a <span style={{ color: 'var(--color-brand-cobalt)', fontWeight: 600 }}>network</span>, not a chatbot.
+                                </div>
+                            </div>
+                                                    </div>
 
-                        <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-tertiary)', marginTop: 'auto' }}>
+                        <div style={{ marginTop: 'var(--spacing-lg)', flex: 1, display: 'flex', alignItems: 'center' }}>
+                            <NeuralNet3D
+                                height="min(420px, 52vh)"
+                                style={{
+                                    width: '100%',
+                                    border: '1px solid var(--color-border-functional)',
+                                    background: 'rgba(0,0,0,0.25)'
+                                }}
+                            />
+                        </div>
+
+                        <div className="u-font-mono" style={{ fontSize: 'clamp(11px, 1.2vw, 12px)', color: 'var(--color-text-tertiary)', marginTop: 'auto' }}>
                             DIVERSE OPERATIONS: Market Making, Quant Trading, Private Equity, Institutional Brokerage.
                         </div>
 
-                        <div style={{ marginTop: '20px', borderTop: '1px solid var(--color-border-functional)', paddingTop: '20px' }}>
+                        <div style={{ marginTop: 'var(--spacing-xl)', borderTop: '1px solid var(--color-border-functional)', paddingTop: 'var(--spacing-xl)' }}>
                             <div className="text-matrix-header" style={{ color: 'var(--color-text-secondary)' }}>THE BOTTLENECK</div>
-                            <div style={{ fontSize: '20px', color: 'var(--color-text-primary)', lineHeight: 1.4 }}>
+                            <div style={{ fontSize: 'clamp(16px, 2vw, 20px)', color: 'var(--color-text-primary)', lineHeight: 1.4 }}>
                                 "Continuous innovation demands tools that match the pace and scale of inquiry."
                             </div>
                         </div>

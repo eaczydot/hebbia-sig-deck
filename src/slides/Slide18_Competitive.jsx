@@ -1,16 +1,17 @@
 import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
+import { SlideHeader } from '../components/SlideHeader';
 import { motion } from 'framer-motion';
 
 export const Slide18_Competitive = () => {
     return (
         <SlideContainer>
             {/* Header */}
-            <div style={{ marginBottom: '40px' }}>
-                <div className="text-matrix-header">15 // LANDSCAPE</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Competitive Differentiation</h2>
-            </div>
+            <SlideHeader
+                kicker="15 // LANDSCAPE"
+                title="Competitive Differentiation"
+            />
 
             {/* 3-Column Competitor Comparison */}
             <motion.div

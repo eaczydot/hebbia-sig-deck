@@ -16,20 +16,20 @@ export const Slide1_Cover = () => {
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
-                        gap: '20px',
+                        gap: 'var(--layout-gap-sm)',
                         flexWrap: 'wrap',
                         marginBottom: 'clamp(32px, 6vw, 80px)'
                     }}
                 >
-                    <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', gap: 'var(--layout-gap-sm)', alignItems: 'center' }}>
                         <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-brand-cobalt)' }}>HEBBIA</div>
                         <div style={{ width: '1px', height: '16px', background: 'var(--color-border-functional)' }}></div>
                         <div style={{ fontWeight: 700, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-text-tertiary)' }}>SIG</div>
                     </div>
                     <div style={{
                         padding: '6px 12px',
-                        background: 'rgba(70, 91, 255, 0.1)',
-                        border: '1px solid rgba(70, 91, 255, 0.3)',
+                        background: 'var(--pill-bg)',
+                        border: '1px solid var(--pill-border)',
                         borderRadius: '4px',
                         color: 'var(--color-brand-sky)',
                         fontSize: '10px',
@@ -96,8 +96,8 @@ export const Slide1_Cover = () => {
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
                         borderTop: '1px solid var(--color-border-subtle)',
-                        paddingTop: '24px',
-                        gap: '18px'
+                        paddingTop: 'var(--spacing-xl)',
+                        gap: 'var(--layout-gap-sm)'
                     }}
                 >
                     <div>
@@ -124,8 +124,8 @@ export const Slide1_Cover = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.2 }}
                     style={{
-                        marginTop: '40px',
-                        fontSize: '10px',
+                        marginTop: 'var(--spacing-3xl)',
+                        fontSize: 'clamp(9px, 1vw, 10px)',
                         color: 'var(--color-text-tertiary)',
                         lineHeight: 1.6,
                         maxWidth: '100%',

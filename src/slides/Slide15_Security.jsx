@@ -1,6 +1,7 @@
 import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
+import { SlideHeader } from '../components/SlideHeader';
 import { motion } from 'framer-motion';
 
 export const Slide15_Security = () => {
@@ -30,10 +31,10 @@ export const Slide15_Security = () => {
     return (
         <SlideContainer>
             {/* Header */}
-            <div style={{ marginBottom: '40px' }}>
-                <div className="text-matrix-header">13 // SECURITY</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Enterprise-Grade Security</h2>
-            </div>
+            <SlideHeader
+                kicker="13 // SECURITY"
+                title="Enterprise-Grade Security"
+            />
 
             {/* 2x2 Grid */}
             <motion.div

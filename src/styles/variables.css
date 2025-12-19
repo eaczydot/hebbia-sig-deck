@@ -1,32 +1,32 @@
 :root {
   /* Canvas */
-  --color-canvas-base: #0A0A0A;
+  --color-canvas-base: #050505;
   /* Deeper black for higher contrast */
-  --color-canvas-layer-1: #141414;
-  --color-canvas-layer-2: #1A1A1A;
-  --color-canvas-charcoal: #212121;
+  --color-canvas-layer-1: #000000;
+  --color-canvas-layer-2: #111111;
+  --color-canvas-charcoal: #141414;
   /* Hebbia Brand Background */
   --color-overlay-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
 
   /* Borders */
-  --color-border-subtle: rgba(255, 255, 255, 0.05);
-  --color-border-functional: rgba(255, 255, 255, 0.1);
-  --color-border-glass-edge: rgba(255, 255, 255, 0.12);
+  --color-border-subtle: #222;
+  --color-border-functional: #333;
+  --color-border-glass-edge: #555;
 
   /* Text */
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #9CA3AF;
-  --color-text-tertiary: #6B7280;
-  --color-text-code: #E5E7EB;
+  --color-text-primary: #F0F0F0;
+  --color-text-secondary: #A3A3A3;
+  --color-text-tertiary: #666;
+  --color-text-code: #F0F0F0;
 
   /* Brand Blues - Precise Hebbia Extracts */
-  --color-brand-cobalt: #465BFF;
-  --color-brand-lapis: #1B30D4;
-  --color-brand-sky: #B5E4FF;
+  --color-brand-cobalt: #3B82F6;
+  --color-brand-lapis: #3B82F6;
+  --color-brand-sky: #FFFFFF;
 
   /* Agents: Enhanced Palette with Brand Blues */
   --color-agent-reasoning-blue: var(--color-brand-cobalt);
-  --color-agent-reasoning-glow: rgba(70, 91, 255, 0.3);
+  --color-agent-reasoning-glow: rgba(59, 130, 246, 0.3);
 
   --color-agent-extraction-green: #10B981;
   --color-agent-extraction-glow: rgba(16, 185, 129, 0.3);
@@ -38,27 +38,34 @@
   --color-agent-citation-glow: rgba(245, 158, 11, 0.3);
 
   /* Gradients */
-  --gradient-matrix-glow: radial-gradient(circle at 50% -20%, rgba(70, 91, 255, 0.25) 0%, rgba(0, 0, 0, 0) 60%);
-  --gradient-glass-surface: linear-gradient(145deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.2) 100%);
-  --gradient-glass-border: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
-  --gradient-hero-text: linear-gradient(135deg, #FFFFFF 0%, #9CA3AF 100%);
+  --gradient-matrix-glow: radial-gradient(circle at 50% 0%, #111, #000 60%);
+  --gradient-glass-surface: rgba(255, 255, 255, 0.03);
+  --gradient-glass-border: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --gradient-hero-text: none;
 
   /* Typography - Brand Aligned */
-  --font-primary: 'Outfit', sans-serif;
+  --font-primary: 'Inter', sans-serif;
   /* Selecta Equivalent */
-  --font-serif: 'Montagu Slab', serif;
+  --font-serif: 'Inter', sans-serif;
   /* Brand Secondary */
   --font-mono: 'JetBrains Mono', monospace;
-  --font-display: 'Outfit', sans-serif;
+  --font-display: 'Inter', sans-serif;
 
   /* Spacing & Layout */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 12px;
-  --spacing-lg: 16px;
-  --spacing-xl: 24px;
-  --spacing-2xl: 32px;
-  --spacing-3xl: 48px;
+  --spacing-xs: clamp(3px, 0.5vw, 4px);
+  --spacing-sm: clamp(6px, 0.9vw, 8px);
+  --spacing-md: clamp(10px, 1.2vw, 12px);
+  --spacing-lg: clamp(14px, 1.6vw, 16px);
+  --spacing-xl: clamp(18px, 2.2vw, 24px);
+  --spacing-2xl: clamp(24px, 2.8vw, 32px);
+  --spacing-3xl: clamp(34px, 3.8vw, 48px);
+
+  --layout-gap-sm: clamp(14px, 1.6vw, 20px);
+  --layout-gap-md: clamp(18px, 2.2vw, 30px);
+  --layout-gap-lg: clamp(22px, 2.8vw, 40px);
+  --layout-gap-xl: clamp(24px, 3.2vw, 60px);
+
+  --grid-size: clamp(40px, 6vw, 60px);
 
   /* Components: Matrix Grid */
   --matrix-cell-padding: 12px 16px;
@@ -66,16 +73,16 @@
   --matrix-header-bg: rgba(15, 23, 42, 0.8);
 
   /* Components: Agent Pill */
-  --pill-radius: 9999px;
+  --pill-radius: 4px;
   /* More rounded for pills */
-  --pill-padding: 6px 12px;
-  --pill-text-size: 12px;
-  --pill-bg: rgba(70, 91, 255, 0.15);
-  --pill-border: rgba(70, 91, 255, 0.3);
+  --pill-padding: 4px 8px;
+  --pill-text-size: 11px;
+  --pill-bg: rgba(59, 130, 246, 0.1);
+  --pill-border: rgba(59, 130, 246, 0.3);
 
   /* Components: Glass Panel */
-  --glass-backdrop-blur: 16px;
-  --glass-radius: 12px;
+  --glass-backdrop-blur: 10px;
+  --glass-radius: 4px;
 
   /* Animation Durations */
   --duration-fast: 0.2s;
@@ -84,23 +91,29 @@
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   /* Layout */
-  --slide-padding: 40px 60px;
-  --header-height: 60px;
-  --header-padding: 0 60px;
+  --slide-padding-y: clamp(56px, 6vh, 100px);
+  --slide-padding-x: clamp(20px, 5vw, 80px);
+  --slide-padding: var(--slide-padding-y) var(--slide-padding-x);
+  --header-height: 40px;
+  --header-padding: 0 40px;
   --header-font-size: 12px;
 }
 
 @media (max-width: 1024px) {
   :root {
-    --slide-padding: 32px 36px;
+    --slide-padding-y: clamp(52px, 6vh, 80px);
+    --slide-padding-x: clamp(18px, 4vw, 60px);
+    --slide-padding: var(--slide-padding-y) var(--slide-padding-x);
     --header-padding: 0 32px;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --slide-padding: 20px 16px;
-    --header-height: 56px;
+    --slide-padding-y: clamp(44px, 5.5vh, 56px);
+    --slide-padding-x: clamp(16px, 4vw, 24px);
+    --slide-padding: var(--slide-padding-y) var(--slide-padding-x);
+    --header-height: 40px;
     --header-padding: 0 20px;
     --header-font-size: 11px;
   }

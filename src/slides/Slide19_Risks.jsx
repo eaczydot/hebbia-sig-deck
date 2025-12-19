@@ -1,8 +1,11 @@
 import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
+import { InteractiveImage } from '../components/InteractiveImage';
+import { SlideHeader } from '../components/SlideHeader';
 import { motion } from 'framer-motion';
 import { ShieldAlert, ShieldCheck, Eye, Database, Lock } from 'lucide-react';
+import trustworthyByDesign from '../assets/trustworthy-by-design.png';
 
 const RiskItem = ({ risk, mitigation, icon: Icon, delay }) => (
     <motion.div
@@ -29,13 +32,14 @@ const RiskItem = ({ risk, mitigation, icon: Icon, delay }) => (
 export const Slide19_Risks = () => {
     return (
         <SlideContainer>
-            <div style={{ marginBottom: '60px' }}>
-                <div className="text-matrix-header" style={{ color: '#EF4444' }}>RISK GATING</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Addressing the Core Concerns</h2>
-                <p className="text-subhero" style={{ maxWidth: '600px' }}>
-                    Institutional-grade controls for the most sensitive data environments.
-                </p>
-            </div>
+            <SlideHeader
+                kicker="RISK GATING"
+                kickerColor="#EF4444"
+                title="Addressing the Core Concerns"
+                subtitle="Institutional-grade controls for the most sensitive data environments."
+                subtitleMaxWidth={600}
+                marginBottom={60}
+            />
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <RiskItem
@@ -63,6 +67,24 @@ export const Slide19_Risks = () => {
                     delay={0.5}
                 />
             </div>
+
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}
+            >
+                <InteractiveImage
+                    src={trustworthyByDesign}
+                    alt="Trustworthy by design diagram"
+                    height={260}
+                    style={{ width: '100%', maxWidth: '520px' }}
+                    hotspots={[
+                        { id: 'claim', x: 0.70, y: 0.35, title: 'Grounded claims', body: 'Users can click into source snippets for any extracted fact.' },
+                        { id: 'review', x: 0.35, y: 0.70, title: 'Review workflow', body: 'Auditability is built into the interaction, not added after the fact.' }
+                    ]}
+                />
+            </motion.div>
 
             {/* Bottom Summary */}
             <motion.div

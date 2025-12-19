@@ -3,15 +3,17 @@ import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { ContextBox } from '../components/ContextBox';
 import { motion } from 'framer-motion';
+import { LatencyNarrativeChart } from '../components/LatencyNarrativeChart';
+import { SlideHeader } from '../components/SlideHeader';
 
 export const Slide4_TheConstraint = () => {
     return (
         <SlideContainer>
             {/* Header */}
-            <div style={{ marginBottom: '40px' }}>
-                <div className="text-matrix-header">03 // THE CONSTRAINT</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Decision Latency is Opportunity Cost</h2>
-            </div>
+            <SlideHeader
+                kicker="03 // THE CONSTRAINT"
+                title="Decision Latency is Opportunity Cost"
+            />
 
             {/* Split Layout */}
             <div className="split-30-70" style={{ flex: 1 }}>
@@ -34,47 +36,62 @@ export const Slide4_TheConstraint = () => {
                 >
                     <GlassPanel style={{
                         height: '100%',
-                        padding: '40px',
+                        padding: '24px',
                         position: 'relative',
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'flex-end'
                     }}>
-                        {/* Top Label */}
-                        <div style={{ position: 'absolute', top: '30px', right: '30px', textAlign: 'right' }}>
-                            <div className="big-num" style={{ fontSize: '32px', color: '#EF4444', margin: 0 }}>UNSCALABLE</div>
-                            <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '12px' }}>Human Capacity vs. Data Volume</div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
+                            <div>
+                                <div className="text-matrix-header" style={{ color: 'var(--color-text-tertiary)' }}>NARRATIVE</div>
+                                <div style={{ fontSize: 22, color: 'var(--color-text-primary)', lineHeight: 1.25 }}>
+                                    Data accelerates. Human review does not.
+                                </div>
+                            </div>
+                            <div className="pill orange" style={{ flex: '0 0 auto', marginTop: 2 }}>OPPORTUNITY COST</div>
                         </div>
 
-                        {/* CSS Chart visualization */}
-                        <div style={{
-                            display: 'flex',
-                            height: '250px',
-                            gap: '40px',
-                            alignItems: 'flex-end',
-                            borderLeft: '1px solid var(--color-border-functional)',
-                            borderBottom: '1px solid var(--color-border-functional)',
-                            padding: '20px',
-                            position: 'relative'
-                        }}>
-                            {/* Data Volume Curve (SVG) */}
-                            <svg style={{ position: 'absolute', bottom: '20px', left: '50px', width: '80%', height: '200px', overflow: 'visible' }}>
-                                <path d="M0,200 C80,190 200,80 400,0" fill="none" stroke="#555" strokeWidth="2" strokeDasharray="5,5" />
-                                <text x="410" y="10" fill="#555" fontFamily="JetBrains Mono" fontSize="12">DATA VOLUME</text>
-                            </svg>
-
-                            {/* Capacity Bars */}
-                            {[100, 105, 110, 115].map((height, i) => (
-                                <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', flex: 1 }}>
-                                    <div style={{ width: '60px', height: `${height}px`, background: 'var(--color-border-functional)' }} />
-                                    {i === 0 && <div className="u-font-mono" style={{ fontSize: '11px', color: 'var(--color-text-secondary)' }}>Capacity (Manual)</div>}
-                                </div>
-                            ))}
-
-                            {/* Gap Annotation */}
-                            <div style={{ position: 'absolute', top: '30%', left: '50%', color: '#EF4444', fontFamily: 'var(--font-mono)', fontSize: '12px' }}>
-                                ↓ THE LATENCY GAP
+                        <div style={{ marginTop: 16, flex: 1, display: 'flex', alignItems: 'center' }}>
+                            <div style={{ width: '100%', border: '1px solid var(--color-border-functional)', borderRadius: 4, padding: 14, background: 'rgba(0,0,0,0.35)' }}>
+                                <LatencyNarrativeChart height={360} />
                             </div>
+                        </div>
+
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12, marginTop: 16 }}>
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.9, duration: 0.6 }}
+                                style={{ borderLeft: '2px solid rgba(239, 68, 68, 0.9)', paddingLeft: 12 }}
+                            >
+                                <div className="u-font-mono" style={{ fontSize: 12, color: 'var(--color-text-tertiary)' }}>PHASE 1</div>
+                                <div style={{ color: 'var(--color-text-primary)', fontSize: 14, lineHeight: 1.5 }}>
+                                    Manual review burns cycles on extraction.
+                                </div>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 1.1, duration: 0.6 }}
+                                style={{ borderLeft: '2px solid rgba(239, 68, 68, 0.9)', paddingLeft: 12 }}
+                            >
+                                <div className="u-font-mono" style={{ fontSize: 12, color: 'var(--color-text-tertiary)' }}>PHASE 2</div>
+                                <div style={{ color: 'var(--color-text-primary)', fontSize: 14, lineHeight: 1.5 }}>
+                                    The latency gap widens as inputs compound.
+                                </div>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 1.3, duration: 0.6 }}
+                                style={{ borderLeft: '2px solid rgba(59, 130, 246, 0.9)', paddingLeft: 12 }}
+                            >
+                                <div className="u-font-mono" style={{ fontSize: 12, color: 'var(--color-text-tertiary)' }}>INFLECTION</div>
+                                <div style={{ color: 'var(--color-text-primary)', fontSize: 14, lineHeight: 1.5 }}>
+                                    Automation converts volume into throughput.
+                                </div>
+                            </motion.div>
                         </div>
                     </GlassPanel>
                 </motion.div>
