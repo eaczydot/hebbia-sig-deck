@@ -24,15 +24,15 @@ const FeatureBlock = ({ title, description, badge, align = 'left', delay }) => (
                 fontWeight: 700,
                 letterSpacing: '0.15em',
                 color: 'var(--color-brand-sky)',
-                background: 'rgba(70, 91, 255, 0.15)',
-                border: '1px solid rgba(70, 91, 255, 0.3)',
+                background: 'color-mix(in srgb, var(--color-brand-cobalt) 15%, transparent)',
+                border: '1px solid color-mix(in srgb, var(--color-brand-cobalt) 30%, transparent)',
                 padding: '6px 12px',
                 borderRadius: '4px',
                 fontFamily: 'var(--font-primary)',
                 textTransform: 'uppercase'
             }}>{badge}</span>
         </div>
-        <h3 style={{ fontSize: '28px', fontWeight: 600, color: 'white', marginBottom: '16px', fontFamily: 'var(--font-primary)', letterSpacing: '-0.02em' }}>{title}</h3>
+        <h3 style={{ fontSize: '28px', fontWeight: 600, color: 'var(--color-text-primary)', marginBottom: '16px', fontFamily: 'var(--font-primary)', letterSpacing: '-0.02em' }}>{title}</h3>
         <p style={{ fontSize: '15px', color: 'var(--color-text-secondary)', lineHeight: 1.6, fontFamily: 'var(--font-primary)' }}>{description}</p>
     </motion.div>
 );
@@ -61,32 +61,32 @@ export const Slide6_IntroducingHebbia = () => {
                         width: '600px',
                         height: '360px',
                         background: 'var(--color-canvas-charcoal)',
-                        border: '1px solid rgba(70, 91, 255, 0.2)',
+                        border: '1px solid color-mix(in srgb, var(--color-brand-cobalt) 20%, transparent)',
                         display: 'flex',
                         flexDirection: 'column',
                         padding: '24px',
-                        boxShadow: '0 20px 50px rgba(0,0,0,0.4)'
+                        boxShadow: '0 20px 50px color-mix(in srgb, var(--bg-void) 40%, transparent)'
                     }}>
                         {/* Header Bar */}
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '16px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px', borderBottom: '1px solid color-mix(in srgb, var(--color-text-primary) 5%, transparent)', paddingBottom: '16px' }}>
                             <div style={{ display: 'flex', gap: '8px' }}>
-                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#EF4444' }} />
-                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#F59E0B' }} />
-                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10B981' }} />
+                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--red)' }} />
+                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--orange)' }} />
+                                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--green)' }} />
                             </div>
                             <div className="text-mono-data" style={{ fontSize: '10px', opacity: 0.8 }}>Matrix v2.0 // Cobalt Engine</div>
                         </div>
 
                         {/* Search/Prompt Area */}
                         <div style={{
-                            background: 'rgba(255,255,255,0.03)',
+                            background: 'color-mix(in srgb, var(--color-text-primary) 3%, transparent)',
                             borderRadius: '4px',
                             padding: '16px',
                             marginBottom: '24px',
                             display: 'flex',
                             alignItems: 'center',
                             gap: '12px',
-                            border: '1px solid rgba(255,255,255,0.05)'
+                            border: '1px solid color-mix(in srgb, var(--color-text-primary) 5%, transparent)'
                         }}>
                             <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'var(--color-brand-cobalt)' }} />
                             <div style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-primary)', fontSize: '13px' }}>Analyze credit agreements for change of control triggers...</div>
@@ -94,7 +94,7 @@ export const Slide6_IntroducingHebbia = () => {
 
                         {/* Agent Activity Area */}
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', flex: 1 }}>
-                            <div style={{ background: 'rgba(0,0,0,0.5)', borderRadius: '4px', padding: '16px', border: '1px solid rgba(255,255,255,0.03)' }}>
+                            <div style={{ background: 'color-mix(in srgb, var(--bg-void) 50%, transparent)', borderRadius: '4px', padding: '16px', border: '1px solid color-mix(in srgb, var(--color-text-primary) 3%, transparent)' }}>
                                 <div className="text-matrix-header" style={{ fontSize: '9px', marginBottom: '12px' }}>INFERENCE // 142 DOMAINS</div>
                                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                                     {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
@@ -102,7 +102,7 @@ export const Slide6_IntroducingHebbia = () => {
                                     ))}
                                 </div>
                             </div>
-                            <div style={{ background: 'rgba(0,0,0,0.5)', borderRadius: '4px', padding: '16px', border: '1px solid rgba(255,255,255,0.03)' }}>
+                            <div style={{ background: 'color-mix(in srgb, var(--bg-void) 50%, transparent)', borderRadius: '4px', padding: '16px', border: '1px solid color-mix(in srgb, var(--color-text-primary) 3%, transparent)' }}>
                                 <div className="text-matrix-header" style={{ fontSize: '9px', marginBottom: '12px' }}>REASONING TRACE</div>
                                 <div style={{ marginTop: '8px' }}>
                                     <AgentPill label="Structuring..." />
@@ -138,7 +138,7 @@ export const Slide6_IntroducingHebbia = () => {
                     transform: 'translate(-50%, -50%)',
                     width: '600px',
                     height: '400px',
-                    background: 'radial-gradient(ellipse, rgba(70, 91, 255, 0.15) 0%, transparent 70%)',
+                    background: 'radial-gradient(ellipse, color-mix(in srgb, var(--color-brand-cobalt) 15%, transparent) 0%, transparent 70%)',
                     zIndex: 0,
                     pointerEvents: 'none',
                     filter: 'blur(80px)'

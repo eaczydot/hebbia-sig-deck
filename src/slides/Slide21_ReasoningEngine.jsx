@@ -13,13 +13,13 @@ const OrchestrationStep = ({ icon: Icon, title, steps, delay }) => (
     >
         <GlassPanel style={{ height: '100%', padding: '24px', position: 'relative' }}>
             <div style={{ color: 'var(--color-agent-reasoning-blue)', marginBottom: '16px' }}><Icon size={32} /></div>
-            <h4 style={{ color: 'white', fontWeight: 600, fontSize: '18px', marginBottom: '16px' }}>{title}</h4>
+            <h4 style={{ color: 'var(--color-text-primary)', fontWeight: 600, fontSize: '18px', marginBottom: '16px' }}>{title}</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {steps.map((step, i) => (
                     <div key={i} style={{
                         fontSize: '12px',
                         color: 'var(--color-text-secondary)',
-                        background: 'rgba(255,255,255,0.03)',
+                        background: 'color-mix(in srgb, var(--color-text-primary) 3%, transparent)',
                         padding: '8px 12px',
                         borderRadius: '4px',
                         fontFamily: 'var(--font-mono)'

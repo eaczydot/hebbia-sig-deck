@@ -22,9 +22,9 @@ export const Slide18_Competitive = () => {
                 {/* Generic LLMs */}
                 <GlassPanel style={{ padding: '30px' }}>
                     <span className="pill" style={{ marginBottom: '20px', display: 'inline-block', borderColor: 'var(--color-text-tertiary)', color: 'var(--color-text-tertiary)' }}>GENERIC LLMS</span>
-                    <h3 style={{ color: 'white', marginTop: '15px', marginBottom: '15px', fontSize: '18px' }}>ChatGPT / Claude</h3>
+                    <h3 style={{ color: 'var(--color-text-primary)', marginTop: '15px', marginBottom: '15px', fontSize: '18px' }}>ChatGPT / Claude</h3>
                     <hr style={{ border: 0, borderBottom: '1px solid var(--color-border-functional)', margin: '15px 0' }} />
-                    <div className="u-font-mono" style={{ fontSize: '12px', marginBottom: '10px', color: '#EF4444' }}>RISK: HALLUCINATIONS</div>
+                    <div className="u-font-mono" style={{ fontSize: '12px', marginBottom: '10px', color: 'var(--red)' }}>RISK: HALLUCINATIONS</div>
                     <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
                         Generates prose, not answers. Lacks verifiable links to source documents. Unsuitable for high-stakes decisions.
                     </p>
@@ -33,7 +33,7 @@ export const Slide18_Competitive = () => {
                 {/* RAG / Search */}
                 <GlassPanel style={{ padding: '30px' }}>
                     <span className="pill" style={{ marginBottom: '20px', display: 'inline-block', borderColor: 'var(--color-text-tertiary)', color: 'var(--color-text-tertiary)' }}>RAG / SEARCH</span>
-                    <h3 style={{ color: 'white', marginTop: '15px', marginBottom: '15px', fontSize: '18px' }}>AlphaSense / Glean</h3>
+                    <h3 style={{ color: 'var(--color-text-primary)', marginTop: '15px', marginBottom: '15px', fontSize: '18px' }}>AlphaSense / Glean</h3>
                     <hr style={{ border: 0, borderBottom: '1px solid var(--color-border-functional)', margin: '15px 0' }} />
                     <div className="u-font-mono" style={{ fontSize: '12px', marginBottom: '10px', color: 'var(--color-agent-citation-orange)' }}>LIMIT: RETRIEVAL ONLY</div>
                     <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>

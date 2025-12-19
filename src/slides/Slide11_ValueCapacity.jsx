@@ -19,7 +19,7 @@ export const Slide11_ValueCapacity = () => {
                 <GlassPanel style={{ gridColumn: 'span 2', padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <h3 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px' }}>Decoupling AUM from FTEs</h3>
 
-                    <div style={{ height: '300px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', paddingLeft: '40px', paddingBottom: '40px', borderLeft: '1px solid #333', borderBottom: '1px solid #333', position: 'relative' }}>
+                    <div style={{ height: '300px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', paddingLeft: '40px', paddingBottom: '40px', borderLeft: '1px solid var(--color-border-functional)', borderBottom: '1px solid var(--color-border-functional)', position: 'relative' }}>
 
                         {/* Legend */}
                         <div style={{ position: 'absolute', top: '20px', left: '60px', zIndex: 5 }}>
@@ -28,7 +28,7 @@ export const Slide11_ValueCapacity = () => {
                                 <div className="text-cell-data">Coverage (Hebbia)</div>
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                <div style={{ width: '12px', height: '12px', background: '#444' }}></div>
+                                <div style={{ width: '12px', height: '12px', background: 'var(--color-border-functional)' }}></div>
                                 <div className="text-cell-data">Headcount (FTEs)</div>
                             </div>
                         </div>
@@ -37,8 +37,8 @@ export const Slide11_ValueCapacity = () => {
                         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                             {/* Headcount Line (Flat) */}
                             <svg style={{ position: 'absolute', inset: 0, overflow: 'visible' }}>
-                                <path d="M 0 250 L 500 230" stroke="#444" strokeWidth="2" strokeDasharray="4 4" fill="none" />
-                                <text x="510" y="235" fill="#666" fontSize="12">FTEs</text>
+                                <path d="M 0 250 L 500 230" stroke="var(--color-border-functional)" strokeWidth="2" strokeDasharray="4 4" fill="none" />
+                                <text x="510" y="235" fill="var(--color-text-tertiary)" fontSize="12">FTEs</text>
                             </svg>
 
                             {/* Hebbia Impact (Exponential) */}
@@ -58,7 +58,7 @@ export const Slide11_ValueCapacity = () => {
                         transition={{ delay: 0.2 }}
                     >
                         <GlassPanel style={{ padding: '24px', height: '100%', borderTop: '2px solid var(--color-agent-reasoning-blue)' }}>
-                            <div style={{ fontSize: '48px', fontWeight: 600, color: 'white' }}>10x</div>
+                            <div style={{ fontSize: '48px', fontWeight: 600, color: 'var(--color-text-primary)' }}>10x</div>
                             <div style={{ fontSize: '16px', color: 'var(--color-agent-reasoning-blue)', fontWeight: 600, marginBottom: '8px' }}>Market Universe</div>
                             <p className="text-cell-data">Expand coverage from core names (50-100) to the entire investable universe (500+).</p>
                         </GlassPanel>
@@ -70,8 +70,8 @@ export const Slide11_ValueCapacity = () => {
                         transition={{ delay: 0.4 }}
                     >
                         <GlassPanel style={{ padding: '24px', height: '100%' }}>
-                            <div style={{ fontSize: '48px', fontWeight: 600, color: 'white' }}>0</div>
-                            <div style={{ fontSize: '16px', color: '#9CA3AF', fontWeight: 600, marginBottom: '8px' }}>Additional Headcount</div>
+                            <div style={{ fontSize: '48px', fontWeight: 600, color: 'var(--color-text-primary)' }}>0</div>
+                            <div style={{ fontSize: '16px', color: 'var(--color-text-secondary)', fontWeight: 600, marginBottom: '8px' }}>Additional Headcount</div>
                             <p className="text-cell-data">Scale strategy AUM without dilution of talent density.</p>
                         </GlassPanel>
                     </motion.div>

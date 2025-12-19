@@ -12,14 +12,14 @@ const PhaseItem = ({ title, items, color, delay }) => (
         style={{ flex: 1 }}
     >
         <GlassPanel style={{ height: '100%', padding: '24px', borderTop: `2px solid ${color}` }}>
-            <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'white', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--color-text-primary)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: color }}></div>
                 {title}
             </h3>
             <ul style={{ padding: 0, margin: 0, listStyle: 'none' }}>
                 {items.map((item, i) => (
                     <li key={i} style={{ display: 'flex', gap: '8px', marginBottom: '14px', fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
-                        <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#333', marginTop: '6px' }} />
+                        <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--color-border-functional)', marginTop: '6px' }} />
                         {item}
                     </li>
                 ))}

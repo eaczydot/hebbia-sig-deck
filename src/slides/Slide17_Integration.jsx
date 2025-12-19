@@ -15,13 +15,13 @@ const Connector = ({ icon: Icon, label, color, delay }) => (
             width: '64px',
             height: '64px',
             borderRadius: '16px',
-            background: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.1)',
+            background: 'color-mix(in srgb, var(--color-text-primary) 3%, transparent)',
+            border: '1px solid color-mix(in srgb, var(--color-text-primary) 10%, transparent)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: color,
-            boxShadow: `0 4px 20px -5px ${color}20`
+            boxShadow: `0 4px 20px -5px color-mix(in srgb, ${color} 20%, transparent)`
         }}>
             <Icon size={32} />
         </div>
@@ -66,9 +66,9 @@ export const Slide17_Integration = () => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         gap: '12px',
-                        background: 'rgba(5,5,5,0.9)',
+                        background: 'color-mix(in srgb, var(--bg-void) 90%, transparent)',
                         border: '2px solid var(--color-agent-reasoning-blue)',
-                        boxShadow: '0 0 80px rgba(70, 91, 255, 0.3)'
+                        boxShadow: '0 0 80px color-mix(in srgb, var(--color-brand-cobalt) 30%, transparent)'
                     }}>
                         <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.1em' }}>HEBBIA</div>
                         <div style={{ width: '40px', height: '2px', background: 'var(--color-agent-reasoning-blue)' }}></div>
@@ -107,11 +107,11 @@ export const Slide17_Integration = () => {
                 >
                     <GlassPanel style={{ padding: '24px' }}>
                         <div className="text-matrix-header">REAL-TIME SYNC</div>
-                        <h4 style={{ color: 'white', fontSize: '18px', fontWeight: 600, marginBottom: '12px' }}>Always Accurate</h4>
+                        <h4 style={{ color: 'var(--color-text-primary)', fontSize: '18px', fontWeight: 600, marginBottom: '12px' }}>Always Accurate</h4>
                         <p className="text-cell-data" style={{ fontSize: '13px' }}>
                             Hebbia maintains a persistent index. When a document is updated in SharePoint or a new email arrives in Exchange, the Hebbia Matrix reflects the changes instantly.
                         </p>
-                        <hr style={{ border: 0, height: '1px', background: 'rgba(255,255,255,0.1)', margin: '20px 0' }} />
+                        <hr style={{ border: 0, height: '1px', background: 'var(--color-border-functional)', margin: '20px 0' }} />
                         <div style={{ display: 'flex', gap: '8px', alignItems: 'center', color: 'var(--color-agent-reasoning-blue)' }}>
                             <Zap size={16} />
                             <span style={{ fontSize: '11px', fontWeight: 700 }}>ZERO MIGRATION REQUIRED</span>

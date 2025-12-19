@@ -4,7 +4,7 @@ const cardStyle = {
     backgroundColor: 'var(--color-canvas-layer-2)',
     borderLeft: '2px solid var(--color-agent-citation-orange)',
     padding: '12px',
-    boxShadow: '0px 4px 20px rgba(0,0,0,0.6)',
+    boxShadow: '0px 4px 20px color-mix(in srgb, var(--bg-void) 60%, transparent)',
     borderRadius: '0 4px 4px 0', // Slight radius on right
     color: 'var(--color-text-primary)',
     fontSize: '13px',
