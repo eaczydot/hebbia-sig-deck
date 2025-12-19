@@ -25,6 +25,14 @@ body {
     /* App-like feel, no global scrollbar */
 }
 
+@media (max-width: 768px) {
+    html,
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
 a {
     color: inherit;
     text-decoration: none;

@@ -12,7 +12,14 @@ export const Slide1_Cover = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '80px' }}
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        gap: '20px',
+                        flexWrap: 'wrap',
+                        marginBottom: 'clamp(32px, 6vw, 80px)'
+                    }}
                 >
                     <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
                         <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-brand-cobalt)' }}>HEBBIA</div>
@@ -39,11 +46,11 @@ export const Slide1_Cover = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                 >
-                    <h1 className="text-hero" style={{ fontSize: '84px', marginBottom: '32px', lineHeight: 1, letterSpacing: '-0.04em' }}>
+                    <h1 className="text-hero" style={{ fontSize: 'clamp(44px, 10vw, 84px)', marginBottom: '24px', lineHeight: 1, letterSpacing: '-0.04em' }}>
                         Unlocking Growth & <br /> Operating Leverage
                     </h1>
                     <p style={{
-                        fontSize: '26px',
+                        fontSize: 'clamp(18px, 3.6vw, 26px)',
                         color: 'var(--color-text-secondary)',
                         fontFamily: 'var(--font-primary)',
                         fontWeight: 300,
@@ -85,11 +92,12 @@ export const Slide1_Cover = () => {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.8, duration: 1 }}
                     style={{
-                        marginTop: '120px',
+                        marginTop: 'clamp(48px, 8vw, 120px)',
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(4, 1fr)',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
                         borderTop: '1px solid var(--color-border-subtle)',
-                        paddingTop: '32px'
+                        paddingTop: '24px',
+                        gap: '18px'
                     }}
                 >
                     <div>

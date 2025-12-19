@@ -25,8 +25,9 @@ export const SlideContainer = ({ children, className = '' }) => {
             className={`u-full-size u-flex-center ${className}`}
             style={{
                 position: 'relative',
-                padding: '40px 60px',
-                overflow: 'hidden',
+                padding: 'var(--slide-padding)',
+                overflowX: 'hidden',
+                overflowY: 'auto',
                 background: 'var(--color-canvas-base)',
                 perspective: '1000px'
             }}
