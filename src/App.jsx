@@ -25,6 +25,7 @@ import { Slide21_ReasoningEngine } from './slides/Slide21_ReasoningEngine';
 import { Slide22_MatrixDeepDive } from './slides/Slide22_MatrixDeepDive';
 import { Slide23_ProductDemos } from './slides/Slide23_ProductDemos';
 import { Slide18_References } from './slides/Slide18_References';
+import { Slide24_FinalQuote } from './slides/Slide24_FinalQuote';
 
 import { AnimatePresence } from 'framer-motion';
 
@@ -61,6 +62,7 @@ const SLIDES = [
   Slide19_Risks,
   Slide20_Conclusion,
   Slide18_References,
+  Slide24_FinalQuote,
 ];
 
 function App() {
