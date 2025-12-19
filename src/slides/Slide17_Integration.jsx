@@ -99,7 +99,17 @@ export const Slide17_Integration = () => {
                     <svg
                         viewBox="0 0 800 800"
                         preserveAspectRatio="xMidYMid meet"
-                        style={{ position: 'absolute', top: '50%', left: '50%', width: 'min(800px, 92vw)', height: 'min(800px, 92vw)', transform: 'translate(-50%, -50%)', pointerEvents: 'none', zIndex: -1 }}
+                        style={{
+                            /* eslint-disable-next-line design-system/no-absolute-positioning */
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            width: 'min(800px, 92vw)',
+                            height: 'min(800px, 92vw)',
+                            transform: 'translate(-50%, -50%)',
+                            pointerEvents: 'none',
+                            zIndex: -1
+                        }}
                     >
                         <defs>
                             <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">

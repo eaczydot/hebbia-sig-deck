@@ -221,10 +221,6 @@
         font-size: clamp(32px, 9vw, 48px);
     }
 
-    .progress-bar {
-        height: 6px;
-    }
-
     .pill {
         font-size: 10px;
         padding: 6px 10px;
@@ -269,21 +265,6 @@
 
 .stagger-in>*:nth-child(6) {
     transition-delay: 0.6s;
-}
-
-/* ====================================
-   PROGRESS BAR
-   ==================================== */
-
-.progress-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 4px;
-    background: var(--color-agent-reasoning-blue);
-    box-shadow: 0 0 20px var(--color-agent-reasoning-blue);
-    transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: 100;
 }
 
 /* ====================================

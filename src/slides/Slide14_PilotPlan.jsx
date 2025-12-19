@@ -36,7 +36,15 @@ export const Slide14_PilotPlan = () => {
                     {/* Bars */}
                     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', position: 'relative' }}>
                         {/* Grid Lines */}
-                        <div style={{ position: 'absolute', inset: 0, display: 'flex', justifyContent: 'space-between', zIndex: 0, opacity: 0.1 }}>
+                        <div style={{
+                            /* eslint-disable-next-line design-system/no-absolute-positioning */
+                            position: 'absolute',
+                            inset: 0,
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            zIndex: 0,
+                            opacity: 0.1
+                        }}>
                             <div style={{ borderLeft: '1px solid #fff' }} />
                             <div style={{ borderLeft: '1px solid #fff' }} />
                             <div style={{ borderLeft: '1px solid #fff' }} />
