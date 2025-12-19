@@ -25,7 +25,7 @@ const Connector = ({ icon: Icon, label, color, delay }) => (
         }}>
             <Icon size={32} />
         </div>
-        <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.05em', color: 'var(--color-text-secondary)', textAlign: 'center' }}>{label}</div>
+        <div className="text-mono-xs" style={{ fontWeight: 700, letterSpacing: '0.05em', textAlign: 'center' }}>{label}</div>
     </motion.div>
 );
 
@@ -34,7 +34,7 @@ export const Slide17_Integration = () => {
         <SlideContainer>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                 <div className="text-matrix-header" style={{ justifyContent: 'center' }}>DATA STRATEGY</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Native Integration & Sync</h2>
+                <h2 className="text-title">Native Integration & Sync</h2>
                 <p className="text-subhero" style={{ maxWidth: '600px', margin: '24px auto' }}>
                     Connect Hebbia to SIG's internal data sources without complex migration.
                 </p>
@@ -70,9 +70,9 @@ export const Slide17_Integration = () => {
                         border: '2px solid var(--color-agent-reasoning-blue)',
                         boxShadow: '0 0 80px color-mix(in srgb, var(--color-brand-cobalt) 30%, transparent)'
                     }}>
-                        <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.1em' }}>HEBBIA</div>
+                        <div style={{ fontWeight: 800, fontSize: 'var(--type-subtitle-size)', letterSpacing: '0.1em' }}>HEBBIA</div>
                         <div style={{ width: '40px', height: '2px', background: 'var(--color-agent-reasoning-blue)' }}></div>
-                        <div className="text-matrix-header" style={{ fontSize: '10px' }}>REASONING CORE</div>
+                        <div className="text-matrix-header sm">REASONING CORE</div>
                     </GlassPanel>
 
                     {/* Particle / Line pulses moving inward */}
@@ -107,14 +107,14 @@ export const Slide17_Integration = () => {
                 >
                     <GlassPanel style={{ padding: '24px' }}>
                         <div className="text-matrix-header">REAL-TIME SYNC</div>
-                        <h4 style={{ color: 'var(--color-text-primary)', fontSize: '18px', fontWeight: 600, marginBottom: '12px' }}>Always Accurate</h4>
-                        <p className="text-cell-data" style={{ fontSize: '13px' }}>
+                        <h4 className="text-subtitle-xs" style={{ marginBottom: '12px' }}>Always Accurate</h4>
+                        <p className="text-body-sm">
                             Hebbia maintains a persistent index. When a document is updated in SharePoint or a new email arrives in Exchange, the Hebbia Matrix reflects the changes instantly.
                         </p>
                         <hr style={{ border: 0, height: '1px', background: 'var(--color-border-functional)', margin: '20px 0' }} />
                         <div style={{ display: 'flex', gap: '8px', alignItems: 'center', color: 'var(--color-agent-reasoning-blue)' }}>
                             <Zap size={16} />
-                            <span style={{ fontSize: '11px', fontWeight: 700 }}>ZERO MIGRATION REQUIRED</span>
+                            <span className="text-mono-xs" style={{ fontWeight: 700 }}>ZERO MIGRATION REQUIRED</span>
                         </div>
                     </GlassPanel>
                 </motion.div>

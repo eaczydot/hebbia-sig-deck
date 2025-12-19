@@ -16,11 +16,11 @@ const RiskItem = ({ risk, mitigation, icon: Icon, delay }) => (
             </div>
             <div>
                 <div className="text-matrix-header" style={{ color: 'var(--red)', marginBottom: '8px' }}>POTENTIAL RISK</div>
-                <div style={{ color: 'var(--color-text-primary)', fontWeight: 600, fontSize: '16px' }}>{risk}</div>
+                <div className="text-body-lg" style={{ color: 'var(--color-text-primary)', fontWeight: 600 }}>{risk}</div>
             </div>
             <div style={{ borderLeft: '1px solid var(--color-border-functional)', paddingLeft: '24px' }}>
                 <div className="text-matrix-header" style={{ color: 'var(--color-agent-extraction-green)', marginBottom: '8px' }}>HEBBIA MITIGATION</div>
-                <div className="text-cell-data" style={{ fontSize: '13px' }}>{mitigation}</div>
+                <div className="text-body-sm">{mitigation}</div>
             </div>
         </GlassPanel>
     </motion.div>
@@ -31,7 +31,7 @@ export const Slide19_Risks = () => {
         <SlideContainer>
             <div style={{ marginBottom: '60px' }}>
                 <div className="text-matrix-header" style={{ color: 'var(--red)' }}>RISK GATING</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Addressing the Core Concerns</h2>
+                <h2 className="text-title">Addressing the Core Concerns</h2>
                 <p className="text-subhero" style={{ maxWidth: '600px' }}>
                     Institutional-grade controls for the most sensitive data environments.
                 </p>
@@ -73,7 +73,7 @@ export const Slide19_Risks = () => {
             >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--color-agent-extraction-green)', background: 'color-mix(in srgb, var(--color-agent-extraction-green) 5%, transparent)', padding: '12px 24px', borderRadius: '99px', border: '1px solid color-mix(in srgb, var(--color-agent-extraction-green) 20%, transparent)' }}>
                     <ShieldCheck size={20} />
-                    <span style={{ fontWeight: 700, fontSize: '13px', letterSpacing: '0.05em' }}>CERTIFIED FOR USE IN HIGHLY REGULATED FINANCIAL ENVIRONMENTS</span>
+                    <span className="text-body-sm" style={{ fontWeight: 700, letterSpacing: '0.05em' }}>CERTIFIED FOR USE IN HIGHLY REGULATED FINANCIAL ENVIRONMENTS</span>
                 </div>
             </motion.div>
         </SlideContainer>

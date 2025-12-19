@@ -32,7 +32,7 @@ export const Slide15_Security = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">13 // SECURITY</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Enterprise-Grade Security</h2>
+                <h2 className="text-title">Enterprise-Grade Security</h2>
             </div>
 
             {/* 2x2 Grid */}
@@ -46,7 +46,7 @@ export const Slide15_Security = () => {
                 {securityItems.map((item, i) => (
                     <GlassPanel key={i} style={{ padding: '30px', borderTop: `2px solid ${item.color}` }}>
                         <div className="text-matrix-header" style={{ color: item.color }}>{item.header}</div>
-                        <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6, marginTop: '10px' }}>
+                        <p className="text-body" style={{ marginTop: '10px' }}>
                             {item.desc}
                         </p>
                     </GlassPanel>

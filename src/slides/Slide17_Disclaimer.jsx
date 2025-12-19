@@ -5,12 +5,11 @@ export const Slide17_Disclaimer = () => {
     return (
         <SlideContainer className="u-flex-center">
             <div style={{ maxWidth: '800px', textAlign: 'center' }}>
-                <h2 className="text-hero" style={{ fontSize: '24px', marginBottom: '40px', color: 'var(--color-text-tertiary)' }}>
+                <h2 className="text-subtitle" style={{ marginBottom: '40px', color: 'var(--color-text-tertiary)' }}>
                     Disclaimer
                 </h2>
 
-                <div className="text-cell-data" style={{
-                    fontSize: '12px',
+                <div className="text-caption" style={{
                     lineHeight: 1.8,
                     textAlign: 'justify',
                     color: 'var(--color-text-secondary)'

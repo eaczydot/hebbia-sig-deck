@@ -16,7 +16,7 @@ export const Slide7_HowItWorks = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">06 // HOW IT WORKS</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>From Query to Conviction</h2>
+                <h2 className="text-title">From Query to Conviction</h2>
             </div>
 
             {/* Horizontal Flow */}
@@ -36,7 +36,7 @@ export const Slide7_HowItWorks = () => {
                                 top: '50%',
                                 right: '-15px',
                                 color: 'var(--color-border-functional)',
-                                fontSize: '20px',
+                                fontSize: 'var(--type-subtitle-sm-size)',
                                 zIndex: 10
                             }}>→</div>
                         )}
@@ -49,26 +49,16 @@ export const Slide7_HowItWorks = () => {
                         }}>
                             <div className="u-font-mono" style={{
                                 color: step.color,
-                                fontSize: '24px',
+                                fontSize: 'var(--type-subtitle-size)',
                                 fontWeight: 700,
                                 marginBottom: '15px'
                             }}>
                                 {step.num}
                             </div>
-                            <div style={{
-                                fontSize: '14px',
-                                letterSpacing: '0.1em',
-                                color: step.color,
-                                marginBottom: '10px'
-                            }}>
+                            <div className="text-matrix-header" style={{ color: step.color, marginBottom: '10px' }}>
                                 {step.title}
                             </div>
-                            <div style={{
-                                fontSize: '14px',
-                                color: 'var(--color-text-secondary)',
-                                lineHeight: 1.5,
-                                flex: 1
-                            }}>
+                            <div className="text-body" style={{ flex: 1 }}>
                                 {step.desc}
                             </div>
                         </GlassPanel>
@@ -85,16 +75,16 @@ export const Slide7_HowItWorks = () => {
                 transition={{ delay: 0.5 }}
             >
                 <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: '20px' }}>
-                    <div className="big-num text-blue" style={{ fontSize: '40px', margin: 0 }}>~30s</div>
-                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Per 100 Documents</div>
+                    <div className="big-num sm text-blue" style={{ margin: 0 }}>~30s</div>
+                    <div className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>Per 100 Documents</div>
                 </div>
                 <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: '20px' }}>
-                    <div className="big-num text-green" style={{ fontSize: '40px', margin: 0 }}>100%</div>
-                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Citation Coverage</div>
+                    <div className="big-num sm text-green" style={{ margin: 0 }}>100%</div>
+                    <div className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>Citation Coverage</div>
                 </div>
                 <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: '20px' }}>
-                    <div className="big-num text-purple" style={{ fontSize: '40px', margin: 0 }}>Excel</div>
-                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Native Export</div>
+                    <div className="big-num sm text-purple" style={{ margin: 0 }}>Excel</div>
+                    <div className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>Native Export</div>
                 </div>
             </motion.div>
         </SlideContainer>

@@ -9,7 +9,7 @@ export const Slide12_ValueEfficiency = () => {
         <SlideContainer>
             <div style={{ textAlign: 'center', marginBottom: '40px' }}>
                 <div className="text-matrix-header" style={{ justifyContent: 'center', color: 'var(--color-agent-extraction-green)' }}>VALUE THESIS: EFFICIENCY</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>
+                <h2 className="text-title">
                     Compressing Time to Conviction
                 </h2>
             </div>
@@ -19,20 +19,20 @@ export const Slide12_ValueEfficiency = () => {
                 {/* Comparison Visual */}
                 <div>
                     <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <h3 style={{ fontSize: '20px', fontWeight: 600 }}>Covenant Review Cycle</h3>
+                        <h3 className="text-subtitle-sm">Covenant Review Cycle</h3>
                         <div className="text-mono-data" style={{ opacity: 0.5 }}>AVG DEAL TIMELINE</div>
                     </div>
 
                     {/* Old Way */}
                     <div style={{ marginBottom: '32px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', color: 'var(--color-text-tertiary)', fontSize: '13px' }}>
+                        <div className="text-body-sm" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', color: 'var(--color-text-tertiary)' }}>
                             <span>Standard Analyst Workflow</span>
                             <span>2 Days</span>
                         </div>
                         <div style={{ width: '100%', height: '40px', background: 'color-mix(in srgb, var(--color-text-primary) 5%, transparent)', borderRadius: '4px', display: 'flex' }}>
-                            <div style={{ width: '40%', background: 'var(--color-canvas-charcoal)', borderRight: '1px solid var(--color-border-subtle)', borderRadius: '4px 0 0 4px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', color: 'var(--color-text-secondary)' }}>Search (6h)</div>
-                            <div style={{ width: '40%', background: 'var(--color-canvas-charcoal)', borderRight: '1px solid var(--color-border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', color: 'var(--color-text-secondary)' }}>Extract (6h)</div>
-                            <div style={{ width: '20%', background: 'var(--color-canvas-layer-2)', borderRadius: '0 4px 4px 0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '11px', color: 'var(--color-text-secondary)' }}>Synthesize</div>
+                            <div className="text-caption" style={{ width: '40%', background: 'var(--color-canvas-charcoal)', borderRight: '1px solid var(--color-border-subtle)', borderRadius: '4px 0 0 4px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Search (6h)</div>
+                            <div className="text-caption" style={{ width: '40%', background: 'var(--color-canvas-charcoal)', borderRight: '1px solid var(--color-border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Extract (6h)</div>
+                            <div className="text-caption" style={{ width: '20%', background: 'var(--color-canvas-layer-2)', borderRadius: '0 4px 4px 0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Synthesize</div>
                         </div>
                     </div>
 
@@ -42,20 +42,21 @@ export const Slide12_ValueEfficiency = () => {
                         animate={{ width: '100%' }}
                         transition={{ duration: 1, delay: 0.5 }}
                     >
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', color: 'var(--color-agent-extraction-green)', fontSize: '13px', fontWeight: 600 }}>
+                        <div className="text-body-sm" style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', color: 'var(--color-agent-extraction-green)', fontWeight: 600 }}>
                             <span>Hebbia-Augmented</span>
                             <span>4 Hours</span>
                         </div>
                         <div style={{ width: '100%', height: '40px', background: 'color-mix(in srgb, var(--color-text-primary) 5%, transparent)', borderRadius: '4px', display: 'flex', position: 'relative' }}>
-                            <div style={{ width: '15%', background: 'var(--color-agent-extraction-green)', borderRadius: '4px 0 0 4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--bg-void)', fontSize: '11px', fontWeight: 700 }}>Auto</div>
-                            <div style={{ width: '85%', background: 'var(--color-canvas-charcoal)', borderRadius: '0 4px 4px 0', display: 'flex', alignItems: 'center', paddingLeft: '16px', fontSize: '11px', color: 'var(--color-text-secondary)' }}>High-Value Strategic Analysis (Redeployed Time)</div>
+                            <div className="text-caption" style={{ width: '15%', background: 'var(--color-agent-extraction-green)', borderRadius: '4px 0 0 4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--bg-void)', fontWeight: 700 }}>Auto</div>
+                            <div className="text-caption" style={{ width: '85%', background: 'var(--color-canvas-charcoal)', borderRadius: '0 4px 4px 0', display: 'flex', alignItems: 'center', paddingLeft: '16px', color: 'var(--color-text-secondary)' }}>High-Value Strategic Analysis (Redeployed Time)</div>
 
                             {/* Callout Arrow */}
                             <motion.div
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 1.5 }}
-                                style={{ position: 'absolute', right: '0', top: '-30px', color: 'var(--color-agent-extraction-green)', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', fontWeight: 600 }}
+                                className="text-mono-sm"
+                                style={{ position: 'absolute', right: '0', top: '-30px', color: 'var(--color-agent-extraction-green)', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 600 }}
                             >
                                 <Clock size={14} />
                                 12-16 Hours Saved
@@ -71,7 +72,7 @@ export const Slide12_ValueEfficiency = () => {
                             <CheckCircle2 color="var(--color-agent-extraction-green)" size={32} />
                         </div>
                         <div>
-                            <div style={{ fontSize: '32px', fontWeight: 600, color: 'var(--color-text-primary)' }}>90%</div>
+                            <div className="big-num xs">90%</div>
                             <div className="text-cell-data">Reduction in initial drafting time for investment memos.</div>
                         </div>
                     </GlassPanel>
@@ -81,7 +82,7 @@ export const Slide12_ValueEfficiency = () => {
                             <CheckCircle2 color="var(--color-agent-extraction-green)" size={32} />
                         </div>
                         <div>
-                            <div style={{ fontSize: '32px', fontWeight: 600, color: 'var(--color-text-primary)' }}>Zero</div>
+                            <div className="big-num xs">Zero</div>
                             <div className="text-cell-data">Hallucinations on extracted data points (verifiable via citations).</div>
                         </div>
                     </GlassPanel>
