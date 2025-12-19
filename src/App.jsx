@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { SlideContainer } from './components/SlideContainer';
 import { HeaderBar } from './components/HeaderBar';
 import { Slide1_Cover } from './slides/Slide1_Cover';
@@ -25,7 +25,7 @@ import { Slide21_ReasoningEngine } from './slides/Slide21_ReasoningEngine';
 import { Slide22_MatrixDeepDive } from './slides/Slide22_MatrixDeepDive';
 import { Slide18_References } from './slides/Slide18_References';
 
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 // Placeholder slides until implemented
 const SlidePlaceholder = ({ number }) => (
@@ -63,10 +63,24 @@ const SLIDES = [
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [viewportScale, setViewportScale] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
   const totalSlides = SLIDES.length;
+  const touchStart = useRef({ x: 0, y: 0 });
 
-  const nextSlide = () => setCurrentSlide(prev => Math.min(prev + 1, totalSlides - 1));
-  const prevSlide = () => setCurrentSlide(prev => Math.max(prev - 1, 0));
+  const goToSlide = (delta) => {
+    setCurrentSlide(prev => {
+      const next = Math.max(0, Math.min(totalSlides - 1, prev + delta));
+      if (next !== prev) {
+        setDirection(delta);
+      }
+      return next;
+    });
+  };
+
+  const nextSlide = () => goToSlide(1);
+  const prevSlide = () => goToSlide(-1);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -78,40 +92,104 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  useEffect(() => {
+    const updateScale = () => {
+      const nextIsMobile = window.innerWidth < 900 || window.innerHeight < 600;
+      const scale = Math.min(1, Math.min(window.innerWidth / 1920, window.innerHeight / 1080));
+      setIsMobile(nextIsMobile);
+      setViewportScale(nextIsMobile ? 1 : scale);
+    };
+
+    updateScale();
+    window.addEventListener('resize', updateScale);
+    return () => window.removeEventListener('resize', updateScale);
+  }, []);
+
+  const handleTouchStart = (event) => {
+    const touch = event.touches[0];
+    touchStart.current = { x: touch.clientX, y: touch.clientY };
+  };
+
+  const handleTouchEnd = (event) => {
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchStart.current.x;
+    const deltaY = touch.clientY - touchStart.current.y;
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 60) {
+      if (deltaX < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  };
+
   const CurrentSlideComponent = SLIDES[currentSlide] || (() => <SlidePlaceholder number={currentSlide + 1} />);
   const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
 
+  const slideVariants = {
+    enter: (dir) => ({
+      opacity: 0,
+      x: dir > 0 ? 120 : -120,
+      scale: 1.02,
+      filter: 'blur(8px)'
+    }),
+    center: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: { duration: 0.8, ease: [0.19, 1, 0.22, 1] }
+    },
+    exit: (dir) => ({
+      opacity: 0,
+      x: dir > 0 ? -120 : 120,
+      scale: 0.98,
+      filter: 'blur(8px)',
+      transition: { duration: 0.6, ease: [0.19, 1, 0.22, 1] }
+    })
+  };
+
   return (
-    <div style={{ width: '100vw', height: '100vh', background: 'var(--color-canvas-base)' }}>
-      {/* Header Bar */}
-      <HeaderBar currentSlide={currentSlide} totalSlides={totalSlides} />
-
-      {/* Render Current Slide */}
-      <AnimatePresence mode="wait">
-        <CurrentSlideComponent key={currentSlide} />
-      </AnimatePresence>
-
-      {/* Progress Bar */}
+    <div
+      className="app-shell"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      style={{ touchAction: 'pan-y' }}
+    >
       <div
-        className="progress-bar"
-        style={{ width: `${progressPercent}%` }}
-      />
+        className={`app-viewport${isMobile ? ' is-mobile' : ''}`}
+        style={{ '--viewport-scale': viewportScale }}
+      >
+        <div className="grid-overlay" />
 
-      {/* Navigation Overlay (for dev/mouse users) */}
-      <div style={{
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        display: 'flex',
-        gap: '10px',
-        zIndex: 100
-      }}>
-        <button onClick={prevSlide} style={{ color: 'white', opacity: 0.5 }}>←</button>
-        <button onClick={nextSlide} style={{ color: 'white', opacity: 0.5 }}>→</button>
+        {/* Header Bar */}
+        <HeaderBar currentSlide={currentSlide} totalSlides={totalSlides} />
+
+        {/* Render Current Slide */}
+        <div className="slides-stage">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.div
+              key={currentSlide}
+              className="slide-motion"
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+            >
+              <CurrentSlideComponent />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Progress Bar */}
+        <div
+          className="progress-bar"
+          style={{ width: `${progressPercent}%` }}
+        />
       </div>
     </div>
   );
 }
 
 export default App;
-

@@ -1,55 +1,76 @@
 :root {
+  /* HEBBIA MATRIX DESIGN SYSTEM v3.5 (Enterprise) */
+  --bg-void: #050505;
+  --bg-panel: rgba(20, 20, 20, 0.6);
+  --bg-glass: rgba(255, 255, 255, 0.03);
+
+  --line-dim: #222;
+  --line-mid: #333;
+  --line-bright: #555;
+
+  --txt-pri: #F0F0F0;
+  --txt-sec: #888;
+  --txt-dim: #444;
+  --txt-accent: #FFF;
+
+  /* Agent Colors */
+  --blue: #3B82F6;
+  --green: #10B981;
+  --purple: #8B5CF6;
+  --orange: #F59E0B;
+  --red: #EF4444;
+
+  --ease: cubic-bezier(0.19, 1, 0.22, 1);
+
   /* Canvas */
-  --color-canvas-base: #0A0A0A;
-  /* Deeper black for higher contrast */
-  --color-canvas-layer-1: #141414;
-  --color-canvas-layer-2: #1A1A1A;
-  --color-canvas-charcoal: #212121;
+  --color-canvas-base: var(--bg-void);
+  --color-canvas-layer-1: #111;
+  --color-canvas-layer-2: #141414;
+  --color-canvas-charcoal: #1b1b1b;
+
   /* Hebbia Brand Background */
   --color-overlay-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
 
   /* Borders */
-  --color-border-subtle: rgba(255, 255, 255, 0.05);
-  --color-border-functional: rgba(255, 255, 255, 0.1);
-  --color-border-glass-edge: rgba(255, 255, 255, 0.12);
+  --color-border-subtle: var(--line-dim);
+  --color-border-functional: var(--line-mid);
+  --color-border-glass-edge: var(--line-bright);
 
   /* Text */
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #9CA3AF;
-  --color-text-tertiary: #6B7280;
-  --color-text-code: #E5E7EB;
+  --color-text-primary: var(--txt-pri);
+  --color-text-secondary: var(--txt-sec);
+  --color-text-tertiary: var(--txt-dim);
+  --color-text-code: var(--txt-pri);
 
   /* Brand Blues - Precise Hebbia Extracts */
-  --color-brand-cobalt: #465BFF;
+  --color-brand-cobalt: var(--blue);
   --color-brand-lapis: #1B30D4;
   --color-brand-sky: #B5E4FF;
 
   /* Agents: Enhanced Palette with Brand Blues */
-  --color-agent-reasoning-blue: var(--color-brand-cobalt);
-  --color-agent-reasoning-glow: rgba(70, 91, 255, 0.3);
+  --color-agent-reasoning-blue: var(--blue);
+  --color-agent-reasoning-glow: rgba(59, 130, 246, 0.3);
 
-  --color-agent-extraction-green: #10B981;
+  --color-agent-extraction-green: var(--green);
   --color-agent-extraction-glow: rgba(16, 185, 129, 0.3);
 
-  --color-agent-synthesis-purple: #8B5CF6;
+  --color-agent-synthesis-purple: var(--purple);
   --color-agent-synthesis-glow: rgba(139, 92, 246, 0.3);
 
-  --color-agent-citation-orange: #F59E0B;
+  --color-agent-citation-orange: var(--orange);
   --color-agent-citation-glow: rgba(245, 158, 11, 0.3);
 
   /* Gradients */
-  --gradient-matrix-glow: radial-gradient(circle at 50% -20%, rgba(70, 91, 255, 0.25) 0%, rgba(0, 0, 0, 0) 60%);
-  --gradient-glass-surface: linear-gradient(145deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.2) 100%);
-  --gradient-glass-border: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
+  --gradient-matrix-glow: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.2) 0%, rgba(0, 0, 0, 0) 60%);
+  --gradient-glass-surface: linear-gradient(145deg, rgba(20, 20, 20, 0.6) 0%, rgba(10, 10, 10, 0.8) 100%);
+  --gradient-glass-border: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
   --gradient-hero-text: linear-gradient(135deg, #FFFFFF 0%, #9CA3AF 100%);
 
   /* Typography - Brand Aligned */
-  --font-primary: 'Outfit', sans-serif;
-  /* Selecta Equivalent */
-  --font-serif: 'Montagu Slab', serif;
-  /* Brand Secondary */
+  --font-primary: 'Inter', sans-serif;
+  --font-serif: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-display: 'Outfit', sans-serif;
+  --font-display: 'Inter', sans-serif;
 
   /* Spacing & Layout */
   --spacing-xs: 4px;
@@ -81,27 +102,27 @@
   --duration-fast: 0.2s;
   --duration-normal: 0.4s;
   --duration-slow: 0.8s;
-  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-spring: var(--ease);
 
   /* Layout */
-  --slide-padding: 40px 60px;
-  --header-height: 60px;
-  --header-padding: 0 60px;
+  --slide-padding: 100px 80px;
+  --header-height: 40px;
+  --header-padding: 0 40px;
   --header-font-size: 12px;
 }
 
 @media (max-width: 1024px) {
   :root {
-    --slide-padding: 32px 36px;
+    --slide-padding: 64px 48px;
     --header-padding: 0 32px;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --slide-padding: 20px 16px;
-    --header-height: 56px;
-    --header-padding: 0 20px;
-    --header-font-size: 11px;
+    --slide-padding: 32px 24px;
+    --header-height: 36px;
+    --header-padding: 0 24px;
+    --header-font-size: 10px;
   }
 }
