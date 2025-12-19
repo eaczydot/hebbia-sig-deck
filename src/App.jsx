@@ -88,38 +88,36 @@ function App() {
   const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
 
   return (
-    <div style={{ width: '100vw', height: '100vh', background: 'var(--color-canvas-base)' }}>
-      {/* Header Bar */}
-      <HeaderBar currentSlide={currentSlide} totalSlides={totalSlides} />
+    <div className="deck-shell">
+      <div className="deck-viewport-wrapper">
+        <div className="deck-viewport">
+          <div className="deck-stage">
+            {/* Header Bar */}
+            <HeaderBar />
 
-      {/* Render Current Slide */}
-      <AnimatePresence mode="wait">
-        {CurrentSlideComponent
-          ? <CurrentSlideComponent key={currentSlide} />
-          : <SlidePlaceholder key={currentSlide} number={currentSlide + 1} />}
-      </AnimatePresence>
+            {/* Render Current Slide */}
+            <AnimatePresence mode="wait">
+              {CurrentSlideComponent
+                ? <CurrentSlideComponent key={currentSlide} />
+                : <SlidePlaceholder key={currentSlide} number={currentSlide + 1} />}
+            </AnimatePresence>
 
-      {/* Progress Bar */}
-      <div
-        className="progress-bar"
-        style={{ width: `${progressPercent}%` }}
-      />
+            {/* Progress Bar */}
+            <div
+              className="progress-bar"
+              style={{ width: `${progressPercent}%` }}
+            />
 
-      {/* Navigation Overlay (for dev/mouse users) */}
-      <div style={{
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        display: 'flex',
-        gap: '10px',
-        zIndex: 100
-      }}>
-        <button onClick={prevSlide} style={{ color: 'white', opacity: 0.5 }}>←</button>
-        <button onClick={nextSlide} style={{ color: 'white', opacity: 0.5 }}>→</button>
+            {/* Navigation Overlay (for dev/mouse users) */}
+            <div className="deck-controls">
+              <button onClick={prevSlide} className="deck-control-button">←</button>
+              <button onClick={nextSlide} className="deck-control-button">→</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
 export default App;
-

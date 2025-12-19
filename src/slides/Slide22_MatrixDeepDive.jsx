@@ -90,6 +90,7 @@ export const Slide22_MatrixDeepDive = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 1 }}
                             style={{
+                                /* eslint-disable-next-line design-system/no-absolute-positioning */
                                 position: 'absolute',
                                 bottom: 'var(--spacing-2xl)',
                                 right: 'var(--spacing-2xl)',

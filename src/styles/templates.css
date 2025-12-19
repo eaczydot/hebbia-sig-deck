@@ -1,0 +1,131 @@
+.template-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: var(--layout-gap-lg);
+}
+
+.template-hero__body {
+  max-width: min(920px, 90%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.template-hero__footer {
+  display: flex;
+  gap: var(--layout-gap-lg);
+  border-top: 1px solid var(--color-border-functional);
+  padding-top: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.template-two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: var(--layout-gap-xl);
+  height: 100%;
+}
+
+.template-two-column__aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap-md);
+}
+
+.template-two-column__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap-md);
+}
+
+.template-data-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: var(--layout-gap-lg);
+  height: 100%;
+}
+
+.template-data-story__callouts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap-md);
+}
+
+.template-data-story__chart {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap-sm);
+}
+
+.template-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--layout-gap-lg);
+  height: 100%;
+}
+
+.template-comparison__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap-md);
+}
+
+.template-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap-lg);
+  height: 100%;
+}
+
+.template-timeline__track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--layout-gap-md);
+}
+
+.template-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--layout-gap-lg);
+  height: 100%;
+  align-items: center;
+}
+
+.template-summary__points {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap-sm);
+}
+
+.template-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap-md);
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .template-two-column,
+  .template-data-story,
+  .template-comparison,
+  .template-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .template-timeline__track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .template-hero__footer {
+    gap: var(--layout-gap-md);
+  }
+
+  .template-timeline__track {
+    grid-template-columns: 1fr;
+  }
+}

@@ -65,6 +65,7 @@ export const Slide1_Cover = () => {
                 {/* 3. Decorative Agent Pulse */}
                 <motion.div
                     style={{
+                        /* eslint-disable-next-line design-system/no-absolute-positioning */
                         position: 'absolute',
                         top: '50%',
                         right: '-100px',

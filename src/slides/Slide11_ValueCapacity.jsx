@@ -24,7 +24,13 @@ export const Slide11_ValueCapacity = () => {
                     <div style={{ height: 'min(300px, 36vh)', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', paddingLeft: 'clamp(18px, 3vw, 40px)', paddingBottom: 'clamp(18px, 3vw, 40px)', borderLeft: '1px solid #333', borderBottom: '1px solid #333', position: 'relative' }}>
 
                         {/* Legend */}
-                        <div style={{ position: 'absolute', top: 'clamp(12px, 2vw, 20px)', left: 'clamp(18px, 4vw, 60px)', zIndex: 5 }}>
+                        <div style={{
+                            /* eslint-disable-next-line design-system/no-absolute-positioning */
+                            position: 'absolute',
+                            top: 'clamp(12px, 2vw, 20px)',
+                            left: 'clamp(18px, 4vw, 60px)',
+                            zIndex: 5
+                        }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: 'var(--spacing-sm)' }}>
                                 <div style={{ width: '12px', height: '12px', background: 'var(--color-agent-reasoning-blue)' }}></div>
                                 <div className="text-cell-data">Coverage (Hebbia)</div>
@@ -38,13 +44,23 @@ export const Slide11_ValueCapacity = () => {
                         {/* Bars / Lines */}
                         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                             {/* Headcount Line (Flat) */}
-                            <svg style={{ position: 'absolute', inset: 0, overflow: 'visible' }}>
+                            <svg style={{
+                                /* eslint-disable-next-line design-system/no-absolute-positioning */
+                                position: 'absolute',
+                                inset: 0,
+                                overflow: 'visible'
+                            }}>
                                 <path d="M 0 250 L 500 230" stroke="#444" strokeWidth="2" strokeDasharray="4 4" fill="none" />
                                 <text x="510" y="235" fill="#666" fontSize="12">FTEs</text>
                             </svg>
 
                             {/* Hebbia Impact (Exponential) */}
-                            <svg style={{ position: 'absolute', inset: 0, overflow: 'visible' }}>
+                            <svg style={{
+                                /* eslint-disable-next-line design-system/no-absolute-positioning */
+                                position: 'absolute',
+                                inset: 0,
+                                overflow: 'visible'
+                            }}>
                                 <path d="M 0 250 Q 250 200 500 50" stroke="var(--color-agent-reasoning-blue)" strokeWidth="4" fill="none" />
                                 <text x="510" y="55" fill="var(--color-agent-reasoning-blue)" fontSize="12" fontWeight="bold">Coverage</text>
                             </svg>

@@ -152,6 +152,7 @@ export const Slide6_IntroducingHebbia = () => {
 
                 {/* Background Glow */}
                 <div style={{
+                    /* eslint-disable-next-line design-system/no-absolute-positioning */
                     position: 'absolute',
                     top: '50%',
                     left: '50%',

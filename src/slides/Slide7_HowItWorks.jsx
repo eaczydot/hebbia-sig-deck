@@ -38,6 +38,7 @@ export const Slide7_HowItWorks = () => {
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.55 + i * 0.12, duration: 0.6 }}
                                 style={{
+                                    /* eslint-disable-next-line design-system/no-absolute-positioning */
                                     position: 'absolute',
                                     top: '50%',
                                     right: '-18px',

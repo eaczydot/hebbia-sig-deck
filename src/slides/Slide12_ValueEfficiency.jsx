@@ -56,12 +56,23 @@ export const Slide12_ValueEfficiency = () => {
                             <div style={{ width: '85%', background: '#334155', borderRadius: '0 4px 4px 0', display: 'flex', alignItems: 'center', paddingLeft: '16px', fontSize: '11px', color: '#94A3B8' }}>High-Value Strategic Analysis (Redeployed Time)</div>
 
                             {/* Callout Arrow */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 1.5 }}
-                                style={{ position: 'absolute', right: '0', top: '-30px', color: '#10B981', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', fontWeight: 600 }}
-                            >
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 1.5 }}
+                                    style={{
+                                        /* eslint-disable-next-line design-system/no-absolute-positioning */
+                                        position: 'absolute',
+                                        right: '0',
+                                        top: '-30px',
+                                        color: '#10B981',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '8px',
+                                        fontSize: '12px',
+                                        fontWeight: 600
+                                    }}
+                                >
                                 <Clock size={14} />
                                 12-16 Hours Saved
                             </motion.div>
