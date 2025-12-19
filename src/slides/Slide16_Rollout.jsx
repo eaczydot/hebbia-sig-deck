@@ -2,7 +2,6 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { Globe, ShieldCheck, Zap, Users } from 'lucide-react';
 
 const PhaseItem = ({ title, items, color, delay }) => (
     <motion.div
@@ -77,15 +76,15 @@ export const Slide16_Rollout = () => {
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: '40px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <Users size={20} color="var(--color-text-secondary)" />
+                    <span className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>◎</span>
                     <div className="text-body-sm" style={{ fontWeight: 600 }}>Training & Onboarding Included</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <ShieldCheck size={20} color="var(--color-text-secondary)" />
+                    <span className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>⛨</span>
                     <div className="text-body-sm" style={{ fontWeight: 600 }}>Dedicated Solution Architects</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <Zap size={20} color="var(--color-text-secondary)" />
+                    <span className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>⚡</span>
                     <div className="text-body-sm" style={{ fontWeight: 600 }}>24/7 Enterprise Support</div>
                 </div>
             </div>

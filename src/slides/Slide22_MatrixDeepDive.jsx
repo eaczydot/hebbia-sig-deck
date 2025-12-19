@@ -2,7 +2,6 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { Filter, Layers, Layout, MousePointer2 } from 'lucide-react';
 
 export const Slide22_MatrixDeepDive = () => {
     return (
@@ -22,22 +21,22 @@ export const Slide22_MatrixDeepDive = () => {
 
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                         <GlassPanel style={{ padding: '16px' }}>
-                            <Filter size={20} color="var(--color-agent-reasoning-blue)" />
+                            <span className="text-mono-sm" style={{ color: 'var(--color-agent-reasoning-blue)', fontWeight: 700 }}>FLT</span>
                             <h4 className="text-body" style={{ color: 'var(--color-text-primary)', marginTop: '12px', marginBottom: '4px', fontWeight: 600 }}>Smart Filtering</h4>
                             <p className="text-caption">Find every mention of 'Material Adverse Effect' across the portfolio.</p>
                         </GlassPanel>
                         <GlassPanel style={{ padding: '16px' }}>
-                            <Layers size={20} color="var(--color-agent-extraction-green)" />
+                            <span className="text-mono-sm" style={{ color: 'var(--color-agent-extraction-green)', fontWeight: 700 }}>COL</span>
                             <h4 className="text-body" style={{ color: 'var(--color-text-primary)', marginTop: '12px', marginBottom: '4px', fontWeight: 600 }}>Column Extension</h4>
                             <p className="text-caption">Add any new research field to all rows instantly via AI prompt.</p>
                         </GlassPanel>
                         <GlassPanel style={{ padding: '16px' }}>
-                            <Layout size={20} color="var(--color-agent-synthesis-purple)" />
+                            <span className="text-mono-sm" style={{ color: 'var(--color-agent-synthesis-purple)', fontWeight: 700 }}>VIEW</span>
                             <h4 className="text-body" style={{ color: 'var(--color-text-primary)', marginTop: '12px', marginBottom: '4px', fontWeight: 600 }}>Custom Views</h4>
                             <p className="text-caption">Save bespoke dashboard views for Credit, Legal, or Compliance desks.</p>
                         </GlassPanel>
                         <GlassPanel style={{ padding: '16px' }}>
-                            <MousePointer2 size={20} color="var(--color-agent-citation-orange)" />
+                            <span className="text-mono-sm" style={{ color: 'var(--color-agent-citation-orange)', fontWeight: 700 }}>EXP</span>
                             <h4 className="text-body" style={{ color: 'var(--color-text-primary)', marginTop: '12px', marginBottom: '4px', fontWeight: 600 }}>Export Ready</h4>
                             <p className="text-caption">One-click export to SIG's internal Excel models or JSON APIs.</p>
                         </GlassPanel>

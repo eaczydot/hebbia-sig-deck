@@ -2,7 +2,6 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { ContextBox } from '../components/ContextBox';
-import { Globe, Users, TrendingUp, Cpu } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Slide3_StrategicContext = () => {

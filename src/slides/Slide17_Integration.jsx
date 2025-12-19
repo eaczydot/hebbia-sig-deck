@@ -2,9 +2,8 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { Database, Mail, Server, Folder, Shield, Zap } from 'lucide-react';
 
-const Connector = ({ icon: Icon, label, color, delay }) => (
+const Connector = ({ monogram, label, color, delay }) => (
     <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -23,7 +22,7 @@ const Connector = ({ icon: Icon, label, color, delay }) => (
             color: color,
             boxShadow: `0 4px 20px -5px color-mix(in srgb, ${color} 20%, transparent)`
         }}>
-            <Icon size={32} />
+            <span className="text-mono-sm" style={{ fontWeight: 700 }}>{monogram}</span>
         </div>
         <div className="text-mono-xs" style={{ fontWeight: 700, letterSpacing: '0.05em', textAlign: 'center' }}>{label}</div>
     </motion.div>
@@ -44,10 +43,10 @@ export const Slide17_Integration = () => {
 
                 {/* Source Grid (Left) */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '40px', position: 'absolute', left: '10%' }}>
-                    <Connector icon={Folder} label="SHAREPOINT" color="var(--color-agent-reasoning-blue)" delay={0.2} />
-                    <Connector icon={Mail} label="EMAIL / EXCHANGE" color="var(--color-agent-extraction-green)" delay={0.3} />
-                    <Connector icon={Database} label="S3 / BLOB STORAGE" color="var(--color-agent-synthesis-purple)" delay={0.4} />
-                    <Connector icon={Server} label="SFTP / SHARED DRIVE" color="var(--color-agent-citation-orange)" delay={0.5} />
+                    <Connector monogram="SP" label="SHAREPOINT" color="var(--color-agent-reasoning-blue)" delay={0.2} />
+                    <Connector monogram="MX" label="EMAIL / EXCHANGE" color="var(--color-agent-extraction-green)" delay={0.3} />
+                    <Connector monogram="DB" label="S3 / BLOB STORAGE" color="var(--color-agent-synthesis-purple)" delay={0.4} />
+                    <Connector monogram="SF" label="SFTP / SHARED DRIVE" color="var(--color-agent-citation-orange)" delay={0.5} />
                 </div>
 
                 {/* Central Hub (Hebbia) */}
@@ -113,7 +112,7 @@ export const Slide17_Integration = () => {
                         </p>
                         <hr style={{ border: 0, height: '1px', background: 'var(--color-border-functional)', margin: '20px 0' }} />
                         <div style={{ display: 'flex', gap: '8px', alignItems: 'center', color: 'var(--color-agent-reasoning-blue)' }}>
-                            <Zap size={16} />
+                            <span className="text-mono-xs">⚡</span>
                             <span className="text-mono-xs" style={{ fontWeight: 700 }}>ZERO MIGRATION REQUIRED</span>
                         </div>
                     </GlassPanel>

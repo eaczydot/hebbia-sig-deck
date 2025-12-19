@@ -2,9 +2,8 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { Brain, Search, GitBranch, Terminal } from 'lucide-react';
 
-const OrchestrationStep = ({ icon: Icon, title, steps, delay }) => (
+const OrchestrationStep = ({ monogram, title, steps, delay }) => (
     <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -12,7 +11,9 @@ const OrchestrationStep = ({ icon: Icon, title, steps, delay }) => (
         style={{ flex: 1 }}
     >
         <GlassPanel style={{ height: '100%', padding: '24px', position: 'relative' }}>
-            <div style={{ color: 'var(--color-agent-reasoning-blue)', marginBottom: '16px' }}><Icon size={32} /></div>
+            <div style={{ color: 'var(--color-agent-reasoning-blue)', marginBottom: '16px' }}>
+                <span className="text-mono-sm" style={{ fontWeight: 700 }}>{monogram}</span>
+            </div>
             <h4 className="text-subtitle-xs" style={{ marginBottom: '16px' }}>{title}</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {steps.map((step, i) => (
@@ -42,7 +43,7 @@ export const Slide21_ReasoningEngine = () => {
 
             <div style={{ display: 'flex', gap: '20px', alignItems: 'stretch' }}>
                 <OrchestrationStep
-                    icon={Brain}
+                    monogram="INT"
                     title="1. Intent Parsing"
                     steps={[
                         "Query: Calculate EBITDA leverage",
@@ -53,7 +54,7 @@ export const Slide21_ReasoningEngine = () => {
                     delay={0.2}
                 />
                 <OrchestrationStep
-                    icon={Search}
+                    monogram="CTX"
                     title="2. Context Retrieval"
                     steps={[
                         "Semantic search across 10M+ pgs",
@@ -64,7 +65,7 @@ export const Slide21_ReasoningEngine = () => {
                     delay={0.4}
                 />
                 <OrchestrationStep
-                    icon={GitBranch}
+                    monogram="LOG"
                     title="3. Logic Branching"
                     steps={[
                         "Parallel execution of sub-queries",
@@ -75,7 +76,7 @@ export const Slide21_ReasoningEngine = () => {
                     delay={0.6}
                 />
                 <OrchestrationStep
-                    icon={Terminal}
+                    monogram="SYN"
                     title="4. Synthesis"
                     steps={[
                         "Aggregating into Matrix rows",

@@ -2,7 +2,6 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
 
 export const Slide11_ValueCapacity = () => {
     return (

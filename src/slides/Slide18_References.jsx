@@ -2,7 +2,6 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { BookOpen, FileText, Link as LinkIcon } from 'lucide-react';
 
 const ReferenceItem = ({ title, source, type, delay }) => (
     <motion.div
@@ -20,7 +19,7 @@ const ReferenceItem = ({ title, source, type, delay }) => (
     >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <div style={{ padding: '6px', background: 'color-mix(in srgb, var(--color-text-primary) 3%, transparent)', borderRadius: '6px', color: 'var(--color-text-tertiary)' }}>
-                {type === 'Internal' ? <FileText size={14} /> : <BookOpen size={14} />}
+                <span className="text-mono-xs" style={{ color: 'var(--color-text-tertiary)' }}>{type === 'Internal' ? 'INT' : 'EXT'}</span>
             </div>
             <span className="text-mono-xs" style={{ fontWeight: 700, letterSpacing: '0.05em' }}>{type}</span>
         </div>
@@ -60,11 +59,11 @@ export const Slide18_References = () => {
                 </div>
                 <div className="text-mono-sm" style={{ display: 'flex', gap: '16px', color: 'var(--color-agent-reasoning-blue)', fontWeight: 600 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <LinkIcon size={14} />
+                        <span className="text-mono-xs">↗</span>
                         TRUST.HEBBIA.AI
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                        <LinkIcon size={14} />
+                        <span className="text-mono-xs">↗</span>
                         DOCS.HEBBIA.AI
                     </div>
                 </div>

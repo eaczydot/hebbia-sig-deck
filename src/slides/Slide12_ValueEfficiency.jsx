@@ -2,7 +2,6 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { Clock, CheckCircle2 } from 'lucide-react';
 
 export const Slide12_ValueEfficiency = () => {
     return (
@@ -58,7 +57,7 @@ export const Slide12_ValueEfficiency = () => {
                                 className="text-mono-sm"
                                 style={{ position: 'absolute', right: '0', top: '-30px', color: 'var(--color-agent-extraction-green)', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 600 }}
                             >
-                                <Clock size={14} />
+                                <span className="text-mono-sm" style={{ color: 'var(--color-agent-extraction-green)' }}>⏱</span>
                                 12-16 Hours Saved
                             </motion.div>
                         </div>
@@ -69,7 +68,7 @@ export const Slide12_ValueEfficiency = () => {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                     <GlassPanel style={{ padding: '24px', display: 'flex', gap: '24px', alignItems: 'center' }}>
                         <div style={{ background: 'color-mix(in srgb, var(--color-agent-extraction-green) 10%, transparent)', padding: '16px', borderRadius: '12px' }}>
-                            <CheckCircle2 color="var(--color-agent-extraction-green)" size={32} />
+                            <span className="text-subtitle" style={{ color: 'var(--color-agent-extraction-green)' }}>✓</span>
                         </div>
                         <div>
                             <div className="big-num xs">90%</div>
@@ -79,7 +78,7 @@ export const Slide12_ValueEfficiency = () => {
 
                     <GlassPanel style={{ padding: '24px', display: 'flex', gap: '24px', alignItems: 'center' }}>
                         <div style={{ background: 'color-mix(in srgb, var(--color-agent-extraction-green) 10%, transparent)', padding: '16px', borderRadius: '12px' }}>
-                            <CheckCircle2 color="var(--color-agent-extraction-green)" size={32} />
+                            <span className="text-subtitle" style={{ color: 'var(--color-agent-extraction-green)' }}>✓</span>
                         </div>
                         <div>
                             <div className="big-num xs">Zero</div>
