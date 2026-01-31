@@ -28,10 +28,13 @@ export default defineConfig([
       'no-unused-vars': [
         'error',
         {
-          varsIgnorePattern: '^(?:[A-Z_]|motion)$',
+          varsIgnorePattern: '^[A-Z_]|^motion$',
           argsIgnorePattern: '^[A-Z_]',
         },
       ],
+      // This codebase intentionally uses dynamic route-driven component selection and `React.lazy()`.
+      // The `static-components` rule is too strict for this pattern.
+      'react-hooks/static-components': 'off',
     },
   },
 ])
