@@ -6,6 +6,7 @@ import TemplatePage from './site/pages/TemplatePage';
 import AssetsPage from './site/pages/AssetsPage';
 import SolutionsIndexPage from './site/pages/SolutionsIndexPage';
 import AiForCreditInvestingPage from './site/pages/solutions/AiForCreditInvestingPage';
+import ComponentsCatalogPage from './site/pages/ComponentsCatalogPage';
 import NotFoundPage from './site/pages/NotFoundPage';
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/assets" element={<AssetsPage />} />
         <Route path="/solutions" element={<SolutionsIndexPage />} />
         <Route path="/solutions/ai-for-credit-investing" element={<AiForCreditInvestingPage />} />
+        <Route path="/components" element={<ComponentsCatalogPage />} />
         <Route path="/case-studies/:id" element={<CaseStudyPage />} />
         <Route path="/templates/:id" element={<TemplatePage />} />
         <Route path="*" element={<NotFoundPage />} />
