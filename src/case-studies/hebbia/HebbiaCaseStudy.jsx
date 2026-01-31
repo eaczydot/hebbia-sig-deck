@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { HeaderBar } from '../../components/HeaderBar';
 import { SlideDeck } from '../../templates/SlideDeck';
@@ -55,9 +55,21 @@ const SLIDES = [
 ];
 
 export default function HebbiaCaseStudy() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const slideParam = Number.parseInt(searchParams.get('slide') ?? '1', 10);
+  const initialSlide = Number.isFinite(slideParam) ? slideParam - 1 : 0;
+
   return (
     <SlideDeck
       slides={SLIDES}
+      initialSlide={initialSlide}
+      onSlideChange={(idx) => {
+        const desired = String(idx + 1);
+        if (searchParams.get('slide') === desired) return;
+        const next = new URLSearchParams(searchParams);
+        next.set('slide', desired);
+        setSearchParams(next, { replace: true });
+      }}
       renderHeader={({ currentSlide, totalSlides }) => (
         <HeaderBar currentSlide={currentSlide} totalSlides={totalSlides} />
       )}

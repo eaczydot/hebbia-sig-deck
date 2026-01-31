@@ -1,7 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SlideContainer } from '../components/SlideContainer';
 import { ViewportShell } from './ViewportShell';
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
 
 const SlidePlaceholder = ({ number }) => (
   <SlideContainer>
@@ -15,22 +19,36 @@ export function SlideDeck({
   renderHeader,
   renderChrome,
   initialSlide = 0,
+  onSlideChange,
 }) {
-  const [currentSlide, setCurrentSlide] = useState(initialSlide);
+  const totalSlides = slides.length;
+  const clampIndex = useCallback(
+    (idx) => clamp(idx, 0, Math.max(0, totalSlides - 1)),
+    [totalSlides],
+  );
+
+  const [currentSlide, setCurrentSlide] = useState(() => clampIndex(initialSlide));
   const [direction, setDirection] = useState(0);
   const touchStart = useRef({ x: 0, y: 0 });
-  const totalSlides = slides.length;
 
-  const goToSlide = (delta) => {
+  useEffect(() => {
+    setCurrentSlide(clampIndex(initialSlide));
+  }, [initialSlide, clampIndex]);
+
+  useEffect(() => {
+    onSlideChange?.(currentSlide);
+  }, [currentSlide, onSlideChange]);
+
+  const goToSlide = useCallback((delta) => {
     setCurrentSlide((prev) => {
-      const next = Math.max(0, Math.min(totalSlides - 1, prev + delta));
+      const next = clampIndex(prev + delta);
       if (next !== prev) setDirection(delta);
       return next;
     });
-  };
+  }, [clampIndex]);
 
-  const nextSlide = () => goToSlide(1);
-  const prevSlide = () => goToSlide(-1);
+  const nextSlide = useCallback(() => goToSlide(1), [goToSlide]);
+  const prevSlide = useCallback(() => goToSlide(-1), [goToSlide]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -40,14 +58,14 @@ export function SlideDeck({
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [totalSlides]);
+  }, [nextSlide, prevSlide]);
 
-  const handleTouchStart = (event) => {
+  const handleTouchStart = useCallback((event) => {
     const touch = event.touches[0];
     touchStart.current = { x: touch.clientX, y: touch.clientY };
-  };
+  }, []);
 
-  const handleTouchEnd = (event) => {
+  const handleTouchEnd = useCallback((event) => {
     const touch = event.changedTouches[0];
     const deltaX = touch.clientX - touchStart.current.x;
     const deltaY = touch.clientY - touchStart.current.y;
@@ -55,7 +73,7 @@ export function SlideDeck({
       if (deltaX < 0) nextSlide();
       else prevSlide();
     }
-  };
+  }, [nextSlide, prevSlide]);
 
   const CurrentSlideComponent =
     slides[currentSlide] || (() => <SlidePlaceholder number={currentSlide + 1} />);
