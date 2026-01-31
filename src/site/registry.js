@@ -11,6 +11,12 @@ export const templates = [
     description: 'A minimal 3-slide deck with shareable ?slide= deep links.',
     loader: () => import('../templates/StarterDeckTemplate.jsx'),
   },
+  {
+    id: 'credit-investing-deck',
+    title: 'AI for Credit Investing (deck)',
+    description: 'Concept deck template for the AI-for-credit-investing solution page.',
+    loader: () => import('../templates/CreditInvestingDeckTemplate.jsx'),
+  },
 ];
 
 export const caseStudies = [
