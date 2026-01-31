@@ -1,20 +1,18 @@
-import React, { Suspense, useMemo } from 'react';
+import React, { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { ViewportShell } from '../../templates/ViewportShell';
 import { SlideContainer } from '../../components/SlideContainer';
 import { templates } from '../registry';
 import NotFoundPage from './NotFoundPage';
 
+const TEMPLATE_COMPONENTS = new Map(templates.map((t) => [t.id, React.lazy(t.loader)]));
+
 export default function TemplatePage() {
   const { id } = useParams();
   const entry = templates.find((t) => t.id === id);
+  const LazyTemplate = TEMPLATE_COMPONENTS.get(id);
 
-  const LazyTemplate = useMemo(() => {
-    if (!entry) return null;
-    return React.lazy(entry.loader);
-  }, [entry]);
-
-  if (!entry) {
+  if (!entry || !LazyTemplate) {
     return (
       <NotFoundPage
         title="Template not found"

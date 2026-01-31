@@ -1,20 +1,18 @@
-import React, { Suspense, useMemo } from 'react';
+import React, { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { ViewportShell } from '../../templates/ViewportShell';
 import { SlideContainer } from '../../components/SlideContainer';
 import { caseStudies } from '../registry';
 import NotFoundPage from './NotFoundPage';
 
+const CASE_STUDY_COMPONENTS = new Map(caseStudies.map((c) => [c.id, React.lazy(c.loader)]));
+
 export default function CaseStudyPage() {
   const { id } = useParams();
   const entry = caseStudies.find((c) => c.id === id);
+  const LazyCaseStudy = CASE_STUDY_COMPONENTS.get(id);
 
-  const LazyCaseStudy = useMemo(() => {
-    if (!entry) return null;
-    return React.lazy(entry.loader);
-  }, [entry]);
-
-  if (!entry) {
+  if (!entry || !LazyCaseStudy) {
     return (
       <NotFoundPage
         title="Case study not found"

@@ -23,7 +23,15 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // NOTE: Our codebase uses Framer Motion's `motion` in JSX member expressions (e.g. `<motion.div />`).
+      // ESLint's core `no-unused-vars` can mis-detect those as unused in some setups, so we ignore `motion`.
+      'no-unused-vars': [
+        'error',
+        {
+          varsIgnorePattern: '^(?:[A-Z_]|motion)$',
+          argsIgnorePattern: '^[A-Z_]',
+        },
+      ],
     },
   },
 ])
