@@ -1,16 +1,49 @@
-# React + Vite
+## Case Study Library Website (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repo is a **multi-page website** that hosts multiple **case studies** and **templates**. The original slide-deck app has been preserved as the first case study and is now selectable from the library home page.
 
-Currently, two official plugins are available:
+### Local development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+### Navigation model
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Library home**: `#/`
+- **Case study route**: `#/case-studies/<id>`
+- **Template route**: `#/templates/<id>`
+- **Deep linking to a slide** (supported by slide decks): `?slide=<n>` (1-based)
 
-## Expanding the ESLint configuration
+This site uses a hash-based router so it can be hosted as static files without server rewrite configuration.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Adding a new case study (recommended workflow)
+
+1) Create a new folder:
+- `src/case-studies/<your-id>/`
+
+2) Add a default-exported component that renders the deck template:
+- Use `src/templates/SlideDeck.jsx`
+- Example reference: `src/case-studies/hebbia/HebbiaCaseStudy.jsx`
+
+3) Register it so it appears in the library UI:
+- Edit `src/site/registry.js` and add to `caseStudies`
+
+### Adding a new template
+
+1) Create a template page component under `src/templates/`
+2) Register it in `src/site/registry.js` under `templates`
+
+### Notes on structure
+
+- **Registry-driven UI**: The home page is data-driven from `src/site/registry.js` so new entries automatically show up.
+- **Reusable deck engine**: `src/templates/SlideDeck.jsx` provides viewport scaling, keyboard + swipe navigation, transitions, and a header slot.
+
+### Assets
+
+This repo includes an `#/assets` page intended to display **only assets you have rights to use**.
+
+- Add files under `public/assets/<collection>/...`
+- Register them in `src/site/assets/approvedAssets.js`
+- Keep the manifest “approved-only” so you can exclude anything with people or other-company logos/branding
