@@ -25,7 +25,11 @@ export default function HomePage() {
     <ViewportShell>
       <div className="site-header">
         <div className="site-header__left">CASE STUDIES // LIBRARY</div>
-        <div className="site-header__right">v1</div>
+        <div className="site-header__right">
+          <Link to="/assets" className="site-nav-link">
+            Assets
+          </Link>
+        </div>
       </div>
 
       <SlideContainer>
@@ -40,7 +44,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="grid-2" style={{ flex: 1, alignItems: 'stretch' }}>
+        <div className="grid-3" style={{ flex: 1, alignItems: 'stretch' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <div className="text-matrix-header">TEMPLATES</div>
             <div style={{ display: 'grid', gap: 16 }}>
@@ -68,6 +72,18 @@ export default function HomePage() {
                   description={c.description}
                 />
               ))}
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div className="text-matrix-header">ASSETS</div>
+            <div style={{ display: 'grid', gap: 16 }}>
+              <LibraryCard
+                to="/assets"
+                eyebrow="ASSETS // APPROVED"
+                title="Asset library"
+                description="A curated gallery of rights-cleared product shots, icons, videos, and animations (no people / no other-company logos)."
+              />
             </div>
           </div>
         </div>

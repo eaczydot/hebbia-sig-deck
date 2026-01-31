@@ -39,3 +39,11 @@ This site uses a hash-based router so it can be hosted as static files without s
 
 - **Registry-driven UI**: The home page is data-driven from `src/site/registry.js` so new entries automatically show up.
 - **Reusable deck engine**: `src/templates/SlideDeck.jsx` provides viewport scaling, keyboard + swipe navigation, transitions, and a header slot.
+
+### Assets
+
+This repo includes an `#/assets` page intended to display **only assets you have rights to use**.
+
+- Add files under `public/assets/<collection>/...`
+- Register them in `src/site/assets/approvedAssets.js`
+- Keep the manifest “approved-only” so you can exclude anything with people or other-company logos/branding
