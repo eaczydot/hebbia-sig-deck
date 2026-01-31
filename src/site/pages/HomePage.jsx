@@ -26,6 +26,12 @@ export default function HomePage() {
       <div className="site-header">
         <div className="site-header__left">CASE STUDIES // LIBRARY</div>
         <div className="site-header__right">
+          <Link to="/solutions" className="site-nav-link">
+            Solutions
+          </Link>
+          <Link to="/components" className="site-nav-link">
+            Components
+          </Link>
           <Link to="/assets" className="site-nav-link">
             Assets
           </Link>
