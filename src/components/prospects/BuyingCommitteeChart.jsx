@@ -73,7 +73,7 @@ const SENTIMENT_CONFIG = {
 };
 
 // Individual member card component
-const MemberCard = ({ member, isExpanded, onToggle, style = {} }) => {
+const MemberCard = ({ member, isExpanded, onToggle, style = {}, isMobile = false }) => {
     const roleConfig = ROLE_CONFIG[member.role] || ROLE_CONFIG.influencer;
     const RoleIcon = roleConfig.icon;
     const sentimentConfig = SENTIMENT_CONFIG[member.sentiment || 'unknown'];
@@ -81,9 +81,10 @@ const MemberCard = ({ member, isExpanded, onToggle, style = {} }) => {
     return (
         <motion.div
             layout
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
             style={{
                 position: 'relative',
                 ...style
@@ -91,10 +92,10 @@ const MemberCard = ({ member, isExpanded, onToggle, style = {} }) => {
         >
             <GlassPanel
                 style={{
-                    padding: '16px',
+                    padding: isMobile ? '14px' : '16px',
                     cursor: 'pointer',
-                    minWidth: '200px',
-                    maxWidth: '280px',
+                    minWidth: isMobile ? '100%' : '200px',
+                    maxWidth: isMobile ? '100%' : '280px',
                     background: 'var(--color-canvas-charcoal)',
                     border: `1px solid ${isExpanded ? roleConfig.color : 'var(--color-border-functional)'}`,
                     transition: 'border-color 0.3s ease'
@@ -367,118 +368,188 @@ const MemberCard = ({ member, isExpanded, onToggle, style = {} }) => {
 };
 
 // Filter panel component
-const FilterPanel = ({ filters, setFilters, roles }) => {
+const FilterPanel = ({ filters, setFilters, roles, isMobile = false }) => {
+    const [isExpanded, setIsExpanded] = useState(!isMobile);
+    
     return (
         <GlassPanel style={{
-            padding: '16px',
-            marginBottom: '24px',
+            padding: isMobile ? '12px' : '16px',
+            marginBottom: isMobile ? '16px' : '24px',
             background: 'var(--color-canvas-charcoal)'
         }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-                {/* Search */}
-                <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    padding: '8px 12px',
-                    background: 'var(--color-border-functional)',
-                    borderRadius: '4px',
-                    flex: '1',
-                    maxWidth: '250px'
+            {/* Mobile: Collapsible header */}
+            {isMobile && (
+                <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        width: '100%',
+                        padding: '4px 0',
+                        marginBottom: isExpanded ? '12px' : 0,
+                        background: 'transparent',
+                        border: 'none',
+                        color: 'var(--color-text-secondary)',
+                        fontSize: '12px',
+                        fontWeight: 500,
+                        cursor: 'pointer'
+                    }}
+                >
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Filter size={14} />
+                        Filters
+                        {(filters.role || filters.influence || filters.search) && (
+                            <span style={{
+                                width: '6px',
+                                height: '6px',
+                                borderRadius: '50%',
+                                background: 'var(--blue)'
+                            }} />
+                        )}
+                    </span>
+                    {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+            )}
+            
+            {/* Filter content */}
+            {(isExpanded || !isMobile) && (
+                <div style={{ 
+                    display: 'flex', 
+                    flexDirection: isMobile ? 'column' : 'row',
+                    alignItems: isMobile ? 'stretch' : 'center', 
+                    gap: isMobile ? '12px' : '16px', 
+                    flexWrap: 'wrap' 
                 }}>
-                    <Search size={14} color="var(--color-text-tertiary)" />
-                    <input
-                        type="text"
-                        placeholder="Search members..."
-                        value={filters.search}
-                        onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-                        style={{
-                            background: 'transparent',
-                            border: 'none',
-                            outline: 'none',
-                            color: 'var(--color-text-primary)',
-                            fontSize: '12px',
-                            width: '100%'
-                        }}
-                    />
-                    {filters.search && (
-                        <X 
-                            size={14} 
-                            color="var(--color-text-tertiary)"
-                            style={{ cursor: 'pointer' }}
-                            onClick={() => setFilters({ ...filters, search: '' })}
-                        />
-                    )}
-                </div>
-
-                {/* Role filter */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Filter size={14} color="var(--color-text-tertiary)" />
-                    <span style={{ fontSize: '11px', color: 'var(--color-text-tertiary)' }}>Role:</span>
-                    <div style={{ display: 'flex', gap: '4px' }}>
-                        <button
-                            onClick={() => setFilters({ ...filters, role: null })}
+                    {/* Search */}
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        padding: isMobile ? '10px 12px' : '8px 12px',
+                        background: 'var(--color-border-functional)',
+                        borderRadius: '4px',
+                        flex: isMobile ? 'none' : '1',
+                        maxWidth: isMobile ? '100%' : '250px',
+                        minHeight: isMobile ? '44px' : 'auto'
+                    }}>
+                        <Search size={14} color="var(--color-text-tertiary)" />
+                        <input
+                            type="text"
+                            placeholder="Search members..."
+                            value={filters.search}
+                            onChange={(e) => setFilters({ ...filters, search: e.target.value })}
                             style={{
-                                padding: '4px 8px',
-                                fontSize: '10px',
-                                borderRadius: '3px',
-                                background: !filters.role ? 'var(--color-brand-cobalt)' : 'var(--color-border-functional)',
-                                color: !filters.role ? 'white' : 'var(--color-text-secondary)',
-                                transition: 'all 0.2s ease'
+                                background: 'transparent',
+                                border: 'none',
+                                outline: 'none',
+                                color: 'var(--color-text-primary)',
+                                fontSize: isMobile ? '14px' : '12px',
+                                width: '100%'
                             }}
-                        >
-                            All
-                        </button>
-                        {roles.map(role => {
-                            const config = ROLE_CONFIG[role];
-                            return (
-                                <button
-                                    key={role}
-                                    onClick={() => setFilters({ ...filters, role })}
-                                    style={{
-                                        padding: '4px 8px',
-                                        fontSize: '10px',
-                                        borderRadius: '3px',
-                                        background: filters.role === role ? config.color : 'var(--color-border-functional)',
-                                        color: filters.role === role ? 'white' : 'var(--color-text-secondary)',
-                                        transition: 'all 0.2s ease'
-                                    }}
-                                >
-                                    {config.label}
-                                </button>
-                            );
-                        })}
+                        />
+                        {filters.search && (
+                            <X 
+                                size={16} 
+                                color="var(--color-text-tertiary)"
+                                style={{ cursor: 'pointer', minWidth: '16px' }}
+                                onClick={() => setFilters({ ...filters, search: '' })}
+                            />
+                        )}
                     </div>
-                </div>
 
-                {/* Influence filter */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '11px', color: 'var(--color-text-tertiary)' }}>Influence:</span>
-                    <div style={{ display: 'flex', gap: '4px' }}>
-                        {['all', 'high', 'medium', 'low'].map(level => (
+                    {/* Role filter */}
+                    <div style={{ 
+                        display: 'flex', 
+                        flexDirection: isMobile ? 'column' : 'row',
+                        alignItems: isMobile ? 'flex-start' : 'center', 
+                        gap: '8px' 
+                    }}>
+                        {!isMobile && <Filter size={14} color="var(--color-text-tertiary)" />}
+                        <span style={{ fontSize: '11px', color: 'var(--color-text-tertiary)' }}>Role:</span>
+                        <div style={{ 
+                            display: 'flex', 
+                            gap: '4px', 
+                            flexWrap: 'wrap',
+                            overflowX: isMobile ? 'auto' : 'visible',
+                            WebkitOverflowScrolling: 'touch',
+                            paddingBottom: isMobile ? '4px' : 0
+                        }}>
                             <button
-                                key={level}
-                                onClick={() => setFilters({ ...filters, influence: level === 'all' ? null : level })}
+                                onClick={() => setFilters({ ...filters, role: null })}
                                 style={{
-                                    padding: '4px 8px',
-                                    fontSize: '10px',
+                                    padding: isMobile ? '8px 12px' : '4px 8px',
+                                    fontSize: isMobile ? '11px' : '10px',
                                     borderRadius: '3px',
-                                    background: (level === 'all' && !filters.influence) || filters.influence === level 
-                                        ? INFLUENCE_COLORS[level] || 'var(--color-brand-cobalt)'
-                                        : 'var(--color-border-functional)',
-                                    color: (level === 'all' && !filters.influence) || filters.influence === level 
-                                        ? 'white' 
-                                        : 'var(--color-text-secondary)',
+                                    background: !filters.role ? 'var(--color-brand-cobalt)' : 'var(--color-border-functional)',
+                                    color: !filters.role ? 'white' : 'var(--color-text-secondary)',
                                     transition: 'all 0.2s ease',
-                                    textTransform: 'capitalize'
+                                    whiteSpace: 'nowrap',
+                                    minHeight: isMobile ? '36px' : 'auto'
                                 }}
                             >
-                                {level}
+                                All
                             </button>
-                        ))}
+                            {roles.map(role => {
+                                const config = ROLE_CONFIG[role];
+                                return (
+                                    <button
+                                        key={role}
+                                        onClick={() => setFilters({ ...filters, role })}
+                                        style={{
+                                            padding: isMobile ? '8px 12px' : '4px 8px',
+                                            fontSize: isMobile ? '11px' : '10px',
+                                            borderRadius: '3px',
+                                            background: filters.role === role ? config.color : 'var(--color-border-functional)',
+                                            color: filters.role === role ? 'white' : 'var(--color-text-secondary)',
+                                            transition: 'all 0.2s ease',
+                                            whiteSpace: 'nowrap',
+                                            minHeight: isMobile ? '36px' : 'auto'
+                                        }}
+                                    >
+                                        {config.label}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* Influence filter */}
+                    <div style={{ 
+                        display: 'flex', 
+                        flexDirection: isMobile ? 'column' : 'row',
+                        alignItems: isMobile ? 'flex-start' : 'center', 
+                        gap: '8px' 
+                    }}>
+                        <span style={{ fontSize: '11px', color: 'var(--color-text-tertiary)' }}>Influence:</span>
+                        <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+                            {['all', 'high', 'medium', 'low'].map(level => (
+                                <button
+                                    key={level}
+                                    onClick={() => setFilters({ ...filters, influence: level === 'all' ? null : level })}
+                                    style={{
+                                        padding: isMobile ? '8px 12px' : '4px 8px',
+                                        fontSize: isMobile ? '11px' : '10px',
+                                        borderRadius: '3px',
+                                        background: (level === 'all' && !filters.influence) || filters.influence === level 
+                                            ? INFLUENCE_COLORS[level] || 'var(--color-brand-cobalt)'
+                                            : 'var(--color-border-functional)',
+                                        color: (level === 'all' && !filters.influence) || filters.influence === level 
+                                            ? 'white' 
+                                            : 'var(--color-text-secondary)',
+                                        transition: 'all 0.2s ease',
+                                        textTransform: 'capitalize',
+                                        whiteSpace: 'nowrap',
+                                        minHeight: isMobile ? '36px' : 'auto'
+                                    }}
+                                >
+                                    {level}
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
         </GlassPanel>
     );
 };
@@ -491,6 +562,17 @@ export const BuyingCommitteeChart = ({ data, showFilters = true }) => {
         role: null,
         influence: null
     });
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Detect mobile
+    React.useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const { company, committee = [] } = data || {};
 
@@ -524,31 +606,38 @@ export const BuyingCommitteeChart = ({ data, showFilters = true }) => {
         <div style={{ width: '100%' }}>
             {/* Company header */}
             {company && (
-                <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <div style={{ 
+                    marginBottom: isMobile ? '16px' : '24px', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: isMobile ? '12px' : '16px' 
+                }}>
                     <div style={{
-                        width: '48px',
-                        height: '48px',
+                        width: isMobile ? '40px' : '48px',
+                        height: isMobile ? '40px' : '48px',
                         borderRadius: '8px',
                         background: 'var(--color-border-functional)',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center'
+                        justifyContent: 'center',
+                        flexShrink: 0
                     }}>
-                        <Building2 size={24} color="var(--color-text-secondary)" />
+                        <Building2 size={isMobile ? 20 : 24} color="var(--color-text-secondary)" />
                     </div>
-                    <div>
+                    <div style={{ minWidth: 0 }}>
                         <div style={{
-                            fontSize: '20px',
+                            fontSize: isMobile ? '16px' : '20px',
                             fontWeight: 600,
                             color: 'var(--color-text-primary)'
                         }}>
                             {company}
                         </div>
                         <div style={{
-                            fontSize: '12px',
-                            color: 'var(--color-text-secondary)'
+                            fontSize: isMobile ? '11px' : '12px',
+                            color: 'var(--color-text-secondary)',
+                            whiteSpace: isMobile ? 'normal' : 'nowrap'
                         }}>
-                            {data.industry} • {data.aum} AUM • {committee.length} Committee Members
+                            {data.industry} • {data.aum} AUM • {committee.length} Members
                         </div>
                     </div>
                 </div>
@@ -560,18 +649,19 @@ export const BuyingCommitteeChart = ({ data, showFilters = true }) => {
                     filters={filters} 
                     setFilters={setFilters}
                     roles={availableRoles}
+                    isMobile={isMobile}
                 />
             )}
 
             {/* Committee grid by department */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: isMobile ? '20px' : '32px' }}>
                 {Object.entries(groupedMembers).map(([department, members]) => (
                     <div key={department}>
                         <div style={{
-                            fontSize: '12px',
+                            fontSize: isMobile ? '11px' : '12px',
                             fontWeight: 600,
                             color: 'var(--color-text-tertiary)',
-                            marginBottom: '16px',
+                            marginBottom: isMobile ? '12px' : '16px',
                             textTransform: 'uppercase',
                             letterSpacing: '0.1em',
                             display: 'flex',
@@ -579,13 +669,13 @@ export const BuyingCommitteeChart = ({ data, showFilters = true }) => {
                             gap: '8px'
                         }}>
                             <span style={{
-                                width: '24px',
+                                width: isMobile ? '16px' : '24px',
                                 height: '1px',
                                 background: 'var(--color-border-functional)'
                             }} />
                             {department}
                             <span style={{
-                                fontSize: '10px',
+                                fontSize: isMobile ? '9px' : '10px',
                                 color: 'var(--color-text-quaternary)',
                                 fontWeight: 400
                             }}>
@@ -594,8 +684,10 @@ export const BuyingCommitteeChart = ({ data, showFilters = true }) => {
                         </div>
                         <div style={{
                             display: 'grid',
-                            gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
-                            gap: '16px'
+                            gridTemplateColumns: isMobile 
+                                ? '1fr' 
+                                : 'repeat(auto-fill, minmax(240px, 1fr))',
+                            gap: isMobile ? '12px' : '16px'
                         }}>
                             {members.map(member => (
                                 <MemberCard
@@ -605,6 +697,7 @@ export const BuyingCommitteeChart = ({ data, showFilters = true }) => {
                                     onToggle={() => setExpandedId(
                                         expandedId === member.id ? null : member.id
                                     )}
+                                    isMobile={isMobile}
                                 />
                             ))}
                         </div>
@@ -628,42 +721,52 @@ export const BuyingCommitteeChart = ({ data, showFilters = true }) => {
 
             {/* Legend */}
             <div style={{
-                marginTop: '32px',
-                padding: '16px',
+                marginTop: isMobile ? '20px' : '32px',
+                padding: isMobile ? '12px' : '16px',
                 background: 'var(--color-border-functional)',
                 borderRadius: '8px',
                 display: 'flex',
+                flexDirection: isMobile ? 'column' : 'row',
                 flexWrap: 'wrap',
-                gap: '16px',
-                justifyContent: 'center'
+                gap: isMobile ? '8px' : '16px',
+                justifyContent: isMobile ? 'flex-start' : 'center'
             }}>
                 <div style={{
-                    fontSize: '10px',
+                    fontSize: isMobile ? '9px' : '10px',
                     fontWeight: 600,
                     color: 'var(--color-text-tertiary)',
                     textTransform: 'uppercase',
                     letterSpacing: '0.1em',
-                    marginRight: '8px'
+                    marginRight: isMobile ? 0 : '8px',
+                    marginBottom: isMobile ? '4px' : 0,
+                    width: isMobile ? '100%' : 'auto'
                 }}>
                     Buyer Roles:
                 </div>
-                {Object.entries(ROLE_CONFIG).map(([key, config]) => (
-                    <div key={key} style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        fontSize: '10px',
-                        color: 'var(--color-text-secondary)'
-                    }}>
-                        <span style={{
-                            width: '8px',
-                            height: '8px',
-                            borderRadius: '2px',
-                            background: config.color
-                        }} />
-                        {config.label}
-                    </div>
-                ))}
+                <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: isMobile ? '8px' : '16px'
+                }}>
+                    {Object.entries(ROLE_CONFIG).map(([key, config]) => (
+                        <div key={key} style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            fontSize: isMobile ? '9px' : '10px',
+                            color: 'var(--color-text-secondary)'
+                        }}>
+                            <span style={{
+                                width: '8px',
+                                height: '8px',
+                                borderRadius: '2px',
+                                background: config.color,
+                                flexShrink: 0
+                            }} />
+                            {config.label}
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
