@@ -7,10 +7,17 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "scrape:lcatterton": "node scripts/firecrawl/index.js scrape",
+    "scrape:enrich": "node scripts/firecrawl/index.js enrich",
+    "scrape:templates": "node scripts/firecrawl/index.js templates",
+    "scrape:status": "node scripts/firecrawl/index.js status",
+    "scrape:help": "node scripts/firecrawl/index.js help"
   },
   "dependencies": {
+    "@mendable/firecrawl-js": "^4.12.0",
     "clsx": "^2.1.1",
+    "dotenv": "^17.2.3",
     "framer-motion": "^12.23.26",
     "lucide-react": "^0.561.0",
     "react": "^19.2.0",
