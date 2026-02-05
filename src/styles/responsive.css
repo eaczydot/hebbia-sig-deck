@@ -1,0 +1,614 @@
+/* ====================================
+   RESPONSIVE DESIGN SYSTEM
+   Comprehensive breakpoints and utilities for mobile optimization
+   ==================================== */
+
+/* Breakpoint Reference:
+   - xs: 0-479px (mobile portrait)
+   - sm: 480-767px (mobile landscape / small tablet)
+   - md: 768-1023px (tablet)
+   - lg: 1024-1279px (small desktop)
+   - xl: 1280-1919px (desktop)
+   - 2xl: 1920px+ (large desktop)
+*/
+
+/* ====================================
+   MOBILE-FIRST BASE ADJUSTMENTS
+   ==================================== */
+
+/* Ensure touch targets are at least 44px */
+@media (max-width: 1023px) {
+    button,
+    a,
+    [role="button"],
+    .clickable {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* ====================================
+   VIEWPORT & APP SHELL - MOBILE
+   ==================================== */
+
+@media (max-width: 899px) {
+    .app-viewport {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+        transform: none;
+        box-shadow: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .app-viewport .slides-stage {
+        height: auto;
+        min-height: 100%;
+    }
+
+    .app-viewport .slide-motion {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    .grid-overlay {
+        background-size: 40px 40px;
+        opacity: 0.08;
+    }
+}
+
+/* ====================================
+   SLIDE CONTAINER - RESPONSIVE
+   ==================================== */
+
+.slide-container {
+    min-height: 100%;
+}
+
+@media (max-width: 1023px) {
+    .slide-container {
+        padding: 60px 32px 32px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 767px) {
+    .slide-container {
+        padding: 56px 20px 80px; /* Extra bottom padding for mobile nav */
+    }
+}
+
+@media (max-width: 479px) {
+    .slide-container {
+        padding: 52px 16px 90px;
+    }
+}
+
+/* ====================================
+   HEADER BAR - MOBILE OPTIMIZATION
+   ==================================== */
+
+@media (max-width: 767px) {
+    .header-bar {
+        padding: 0 16px;
+        height: 48px;
+    }
+
+    .header-bar .header-left,
+    .header-bar .header-right {
+        display: none;
+    }
+
+    .header-bar .header-center {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ====================================
+   TYPOGRAPHY - RESPONSIVE SCALING
+   ==================================== */
+
+@media (max-width: 1023px) {
+    .text-hero {
+        font-size: clamp(32px, 7vw, 56px);
+        margin-bottom: var(--spacing-md);
+    }
+
+    .text-subhero {
+        font-size: clamp(16px, 2.5vw, 20px);
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .text-matrix-header {
+        font-size: 10px;
+        letter-spacing: 0.08em;
+    }
+}
+
+@media (max-width: 767px) {
+    .text-hero {
+        font-size: clamp(28px, 8vw, 42px);
+        line-height: 1.1;
+    }
+
+    .text-subhero {
+        font-size: clamp(14px, 4vw, 18px);
+    }
+
+    .text-cell-data {
+        font-size: 13px;
+    }
+
+    .text-mono-data {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 479px) {
+    .text-hero {
+        font-size: clamp(24px, 7vw, 32px);
+    }
+
+    .text-matrix-header {
+        font-size: 9px;
+    }
+}
+
+/* ====================================
+   GLASS PANEL - MOBILE
+   ==================================== */
+
+@media (max-width: 1023px) {
+    .glass-panel {
+        padding: 20px;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 767px) {
+    .glass-panel {
+        padding: 16px;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+}
+
+@media (max-width: 479px) {
+    .glass-panel {
+        padding: 12px;
+        border-radius: 6px;
+    }
+}
+
+/* ====================================
+   GRID LAYOUTS - RESPONSIVE
+   ==================================== */
+
+@media (max-width: 1023px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .grid-2x2 {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .grid-4,
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .grid-2x2 {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 12px;
+    }
+}
+
+/* ====================================
+   SPLIT LAYOUTS - RESPONSIVE
+   ==================================== */
+
+@media (max-width: 1023px) {
+    .split-30-70,
+    .split-40-60,
+    .split-50-50 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        height: auto;
+    }
+}
+
+/* ====================================
+   BIG NUMBERS - RESPONSIVE
+   ==================================== */
+
+@media (max-width: 1023px) {
+    .big-num {
+        font-size: clamp(36px, 8vw, 48px);
+    }
+}
+
+@media (max-width: 767px) {
+    .big-num {
+        font-size: clamp(28px, 10vw, 40px);
+    }
+}
+
+/* ====================================
+   PILLS & BADGES - MOBILE
+   ==================================== */
+
+@media (max-width: 767px) {
+    .pill {
+        font-size: 9px;
+        padding: 4px 8px;
+    }
+}
+
+/* ====================================
+   PROGRESS BAR - MOBILE
+   ==================================== */
+
+@media (max-width: 767px) {
+    .progress-bar {
+        height: 3px;
+        box-shadow: 0 0 10px var(--blue);
+    }
+}
+
+/* ====================================
+   MOBILE NAVIGATION DOTS
+   ==================================== */
+
+.mobile-nav-dots {
+    display: none;
+}
+
+@media (max-width: 899px) {
+    .mobile-nav-dots {
+        display: flex;
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 8px;
+        padding: 12px 16px;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid var(--line-mid);
+        z-index: 1000;
+    }
+
+    .mobile-nav-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--line-mid);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .mobile-nav-dot.active {
+        background: var(--blue);
+        box-shadow: 0 0 10px var(--blue);
+        transform: scale(1.2);
+    }
+
+    .mobile-nav-dot:hover {
+        background: var(--txt-sec);
+    }
+}
+
+/* ====================================
+   SWIPE INDICATOR
+   ==================================== */
+
+.swipe-indicator {
+    display: none;
+}
+
+@media (max-width: 899px) {
+    .swipe-indicator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        position: fixed;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 8px 16px;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 16px;
+        font-size: 11px;
+        color: var(--txt-sec);
+        z-index: 999;
+        opacity: 0;
+        animation: fadeInOut 3s ease-in-out;
+        pointer-events: none;
+    }
+
+    @keyframes fadeInOut {
+        0%, 100% { opacity: 0; }
+        20%, 80% { opacity: 1; }
+    }
+}
+
+/* ====================================
+   TOUCH-FRIENDLY BUTTONS
+   ==================================== */
+
+@media (max-width: 1023px) {
+    .btn,
+    button[class*="btn"] {
+        padding: 12px 20px;
+        font-size: 14px;
+        min-height: 48px;
+    }
+}
+
+/* ====================================
+   SCROLLABLE AREAS - MOBILE
+   ==================================== */
+
+@media (max-width: 899px) {
+    .scroll-area {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .scroll-area::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scroll-area-y {
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        max-height: 100%;
+    }
+}
+
+/* ====================================
+   RESPONSIVE VISIBILITY UTILITIES
+   ==================================== */
+
+.hide-mobile {
+    display: block;
+}
+
+.show-mobile {
+    display: none;
+}
+
+@media (max-width: 899px) {
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .show-mobile {
+        display: block !important;
+    }
+
+    .show-mobile-flex {
+        display: flex !important;
+    }
+
+    .show-mobile-grid {
+        display: grid !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hide-sm {
+        display: none !important;
+    }
+}
+
+@media (max-width: 479px) {
+    .hide-xs {
+        display: none !important;
+    }
+}
+
+/* ====================================
+   RESPONSIVE SPACING UTILITIES
+   ==================================== */
+
+@media (max-width: 767px) {
+    .mb-responsive {
+        margin-bottom: 16px !important;
+    }
+
+    .mt-responsive {
+        margin-top: 16px !important;
+    }
+
+    .p-responsive {
+        padding: 16px !important;
+    }
+
+    .gap-responsive {
+        gap: 12px !important;
+    }
+}
+
+/* ====================================
+   FLEX DIRECTION UTILITIES
+   ==================================== */
+
+@media (max-width: 767px) {
+    .flex-col-mobile {
+        flex-direction: column !important;
+    }
+
+    .flex-wrap-mobile {
+        flex-wrap: wrap !important;
+    }
+
+    .items-start-mobile {
+        align-items: flex-start !important;
+    }
+
+    .justify-start-mobile {
+        justify-content: flex-start !important;
+    }
+}
+
+/* ====================================
+   IMAGE & MEDIA - RESPONSIVE
+   ==================================== */
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 767px) {
+    .responsive-media {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+}
+
+/* ====================================
+   TABLES - MOBILE SCROLL
+   ==================================== */
+
+@media (max-width: 899px) {
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -16px;
+        padding: 0 16px;
+    }
+
+    .table-wrapper table {
+        min-width: 600px;
+    }
+}
+
+/* ====================================
+   MODAL / OVERLAY - MOBILE
+   ==================================== */
+
+@media (max-width: 767px) {
+    .modal-content {
+        width: 95%;
+        max-width: none;
+        margin: 16px;
+        max-height: calc(100vh - 32px);
+        max-height: calc(100dvh - 32px);
+        overflow-y: auto;
+    }
+}
+
+/* ====================================
+   SAFE AREA INSETS (NOTCHED DEVICES)
+   ==================================== */
+
+@supports (padding: max(0px)) {
+    @media (max-width: 899px) {
+        .slide-container {
+            padding-left: max(16px, env(safe-area-inset-left));
+            padding-right: max(16px, env(safe-area-inset-right));
+            padding-bottom: max(80px, env(safe-area-inset-bottom));
+        }
+
+        .mobile-nav-dots {
+            bottom: max(20px, env(safe-area-inset-bottom));
+        }
+    }
+}
+
+/* ====================================
+   LANDSCAPE MODE ADJUSTMENTS
+   ==================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .slide-container {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .text-hero {
+        font-size: clamp(24px, 5vh, 36px);
+    }
+
+    .mobile-nav-dots {
+        bottom: 10px;
+        padding: 8px 12px;
+    }
+
+    .mobile-nav-dot {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* ====================================
+   ANIMATIONS
+   ==================================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* ====================================
+   PRINT STYLES
+   ==================================== */
+
+@media print {
+    .app-viewport {
+        position: static;
+        width: 100%;
+        height: auto;
+        transform: none;
+    }
+
+    .grid-overlay,
+    .progress-bar,
+    .mobile-nav-dots,
+    .swipe-indicator {
+        display: none !important;
+    }
+
+    .slide-container {
+        page-break-after: always;
+        padding: 20px;
+    }
+}
