@@ -25,6 +25,7 @@ import { Slide21_ReasoningEngine } from './slides/Slide21_ReasoningEngine';
 import { Slide22_MatrixDeepDive } from './slides/Slide22_MatrixDeepDive';
 import { Slide18_References } from './slides/Slide18_References';
 import { PresentationPip } from './conference/ui/PresentationPip';
+import { BubbleCanvas } from './conference/ui/BubbleCanvas';
 
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -64,6 +65,26 @@ const SLIDES = [
 ];
 
 const isPresentationHash = () => window.location.hash !== '#/site';
+const CONFERENCE_PARTICIPANTS = [
+  { id: 'p1', name: 'Alex Morgan', cameraOn: true },
+  { id: 'p2', name: 'Priya Shah', cameraOn: false },
+  { id: 'p3', name: 'Jordan Lee', cameraOn: true },
+  { id: 'p4', name: 'Morgan Chen', cameraOn: false },
+];
+
+const ROOM_ID = 'deck-room';
+
+const getLocalViewerId = () => {
+  const key = 'conference:local-viewer-id';
+  const existing = window.localStorage.getItem(key);
+  if (existing) {
+    return existing;
+  }
+
+  const next = `viewer-${Math.random().toString(36).slice(2, 9)}`;
+  window.localStorage.setItem(key, next);
+  return next;
+};
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -75,6 +96,7 @@ function App() {
   const [isPresentationLive] = useState(true);
   const totalSlides = SLIDES.length;
   const touchStart = useRef({ x: 0, y: 0 });
+  const [viewerId, setViewerId] = useState('viewer-anon');
 
   const clampSlide = useCallback(index => Math.max(0, Math.min(totalSlides - 1, index)), [totalSlides]);
 
@@ -123,6 +145,10 @@ function App() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [nextSlide, prevSlide]);
+
+  useEffect(() => {
+    setViewerId(getLocalViewerId());
+  }, []);
 
   useEffect(() => {
     const updateScale = () => {
@@ -253,6 +279,19 @@ function App() {
           </div>
         </PresentationPip>
       )}
+        <BubbleCanvas
+          participants={CONFERENCE_PARTICIPANTS}
+          roomId={ROOM_ID}
+          userId={viewerId}
+          isMobile={isMobile}
+        />
+
+        {/* Progress Bar */}
+        <div
+          className="progress-bar"
+          style={{ width: `${progressPercent}%` }}
+        />
+      </div>
     </div>
   );
 }
