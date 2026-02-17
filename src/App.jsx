@@ -291,7 +291,6 @@ function App() {
           className="progress-bar"
           style={{ width: `${progressPercent}%` }}
         />
-      </div>
     </div>
   );
 }
