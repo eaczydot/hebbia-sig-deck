@@ -1,3 +1,6 @@
+export * from './protocol/controlEvents';
+export * from './controlSession';
+export * from './components';
 export { ConferenceProvider } from './ConferenceProvider';
 export { useConference } from './useConference';
 export { SignalingClient } from './services/SignalingClient';
