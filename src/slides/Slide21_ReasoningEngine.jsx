@@ -2,9 +2,8 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { Brain, Search, GitBranch, Terminal } from 'lucide-react';
 
-const OrchestrationStep = ({ icon: Icon, title, steps, delay }) => (
+const OrchestrationStep = ({ monogram, title, steps, delay }) => (
     <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -12,17 +11,16 @@ const OrchestrationStep = ({ icon: Icon, title, steps, delay }) => (
         style={{ flex: 1 }}
     >
         <GlassPanel style={{ height: '100%', padding: '24px', position: 'relative' }}>
-            <div style={{ color: 'var(--color-agent-reasoning-blue)', marginBottom: '16px' }}><Icon size={32} /></div>
-            <h4 style={{ color: 'var(--color-text-primary)', fontWeight: 600, fontSize: '18px', marginBottom: '16px' }}>{title}</h4>
+            <div style={{ color: 'var(--color-agent-reasoning-blue)', marginBottom: '16px' }}>
+                <span className="text-mono-sm" style={{ fontWeight: 700 }}>{monogram}</span>
+            </div>
+            <h4 className="text-subtitle-xs" style={{ marginBottom: '16px' }}>{title}</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {steps.map((step, i) => (
-                    <div key={i} style={{
-                        fontSize: '12px',
-                        color: 'var(--color-text-secondary)',
+                    <div key={i} className="text-mono-sm" style={{
                         background: 'color-mix(in srgb, var(--color-text-primary) 3%, transparent)',
                         padding: '8px 12px',
-                        borderRadius: '4px',
-                        fontFamily: 'var(--font-mono)'
+                        borderRadius: '4px'
                     }}>
                         {step}
                     </div>
@@ -37,15 +35,15 @@ export const Slide21_ReasoningEngine = () => {
         <SlideContainer>
             <div style={{ marginBottom: '60px' }}>
                 <div className="text-matrix-header">DEEP DIVE // CORE ENGINE</div>
-                <h2 className="text-hero" style={{ fontSize: '48px', marginBottom: '16px' }}>Agentic Orchestration</h2>
-                <p className="text-subhero" style={{ maxWidth: '700px', fontSize: '20px' }}>
+                <h2 className="text-title" style={{ marginBottom: '16px' }}>Agentic Orchestration</h2>
+                <p className="text-subhero" style={{ maxWidth: '700px', fontSize: 'var(--type-subtitle-sm-size)' }}>
                     Hebbia solves the "RAG Gap" by decomposing complex reasoning into atomic, verifiable logic traces.
                 </p>
             </div>
 
             <div style={{ display: 'flex', gap: '20px', alignItems: 'stretch' }}>
                 <OrchestrationStep
-                    icon={Brain}
+                    monogram="INT"
                     title="1. Intent Parsing"
                     steps={[
                         "Query: Calculate EBITDA leverage",
@@ -56,7 +54,7 @@ export const Slide21_ReasoningEngine = () => {
                     delay={0.2}
                 />
                 <OrchestrationStep
-                    icon={Search}
+                    monogram="CTX"
                     title="2. Context Retrieval"
                     steps={[
                         "Semantic search across 10M+ pgs",
@@ -67,7 +65,7 @@ export const Slide21_ReasoningEngine = () => {
                     delay={0.4}
                 />
                 <OrchestrationStep
-                    icon={GitBranch}
+                    monogram="LOG"
                     title="3. Logic Branching"
                     steps={[
                         "Parallel execution of sub-queries",
@@ -78,7 +76,7 @@ export const Slide21_ReasoningEngine = () => {
                     delay={0.6}
                 />
                 <OrchestrationStep
-                    icon={Terminal}
+                    monogram="SYN"
                     title="4. Synthesis"
                     steps={[
                         "Aggregating into Matrix rows",
@@ -92,7 +90,7 @@ export const Slide21_ReasoningEngine = () => {
 
             {/* Logical Flow Viz */}
             <div style={{ marginTop: 'auto', textAlign: 'center', opacity: 0.5 }}>
-                <div className="text-mono-data" style={{ fontSize: '10px' }}>LOGICAL TRACE: ID_8523F326 • DURATION: 12.4s • CONFIDENCE: 98.4%</div>
+                <div className="text-mono-xs">LOGICAL TRACE: ID_8523F326 • DURATION: 12.4s • CONFIDENCE: 98.4%</div>
             </div>
         </SlideContainer>
     );

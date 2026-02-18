@@ -55,7 +55,7 @@ export const Slide13_ROI = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">12 // ROI ANALYSIS</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Quantified Value Hypothesis</h2>
+                <h2 className="text-title">Quantified Value Hypothesis</h2>
             </div>
 
             {/* Split Layout */}
@@ -63,7 +63,7 @@ export const Slide13_ROI = () => {
                 {/* Left Column - Context */}
                 <div className="stagger-in active">
                     <ContextBox header="THE MODEL">
-                        <div className="u-font-mono" style={{ fontSize: '14px' }}>
+                        <div className="text-mono-md">
                             Annual Savings = <br />
                             (Hours Saved/Task)<br />
                             x (Tasks/Year)<br />
@@ -72,7 +72,7 @@ export const Slide13_ROI = () => {
                     </ContextBox>
 
                     <ContextBox header="ASSUMPTIONS (BASE CASE)" style={{ marginTop: '30px' }}>
-                        <div className="u-font-mono" style={{ fontSize: '14px' }}>
+                        <div className="text-mono-md">
                             &gt; Adoption: 70%<br />
                             &gt; Time Saved: 8hr/wk/user<br />
                             &gt; Avg Rate: $250/hr
@@ -91,7 +91,7 @@ export const Slide13_ROI = () => {
                             headers={roiData.headers}
                             rows={roiData.rows}
                         />
-                        <div style={{ marginTop: '20px', fontSize: '12px', color: 'var(--color-text-tertiary)', textAlign: 'right' }}>
+                        <div className="text-caption" style={{ marginTop: '20px', color: 'var(--color-text-tertiary)', textAlign: 'right' }}>
                             *Values are illustrative based on standard financial services benchmarks.
                         </div>
                     </GlassPanel>

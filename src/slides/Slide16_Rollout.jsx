@@ -2,7 +2,6 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { Globe, ShieldCheck, Zap, Users } from 'lucide-react';
 
 const PhaseItem = ({ title, items, color, delay }) => (
     <motion.div
@@ -12,13 +11,13 @@ const PhaseItem = ({ title, items, color, delay }) => (
         style={{ flex: 1 }}
     >
         <GlassPanel style={{ height: '100%', padding: '24px', borderTop: `2px solid ${color}` }}>
-            <h3 style={{ fontSize: '18px', fontWeight: 600, color: 'var(--color-text-primary)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <h3 className="text-subtitle-xs" style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: color }}></div>
                 {title}
             </h3>
             <ul style={{ padding: 0, margin: 0, listStyle: 'none' }}>
                 {items.map((item, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '8px', marginBottom: '14px', fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>
+                    <li key={i} className="text-body-sm" style={{ display: 'flex', gap: '8px', marginBottom: '14px', lineHeight: 1.5 }}>
                         <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--color-border-functional)', marginTop: '6px' }} />
                         {item}
                     </li>
@@ -33,7 +32,7 @@ export const Slide16_Rollout = () => {
         <SlideContainer>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
                 <div className="text-matrix-header" style={{ justifyContent: 'center' }}>STRATEGIC ROADMAP</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Phased Enterprise Rollout</h2>
+                <h2 className="text-title">Phased Enterprise Rollout</h2>
                 <p className="text-subhero" style={{ maxWidth: '600px', margin: '24px auto' }}>
                     Ensuring adoption, compliance, and institutional memory across global desks.
                 </p>
@@ -77,16 +76,16 @@ export const Slide16_Rollout = () => {
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: '40px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <Users size={20} color="var(--color-text-secondary)" />
-                    <div style={{ fontSize: '13px', fontWeight: 600 }}>Training & Onboarding Included</div>
+                    <span className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>◎</span>
+                    <div className="text-body-sm" style={{ fontWeight: 600 }}>Training & Onboarding Included</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <ShieldCheck size={20} color="var(--color-text-secondary)" />
-                    <div style={{ fontSize: '13px', fontWeight: 600 }}>Dedicated Solution Architects</div>
+                    <span className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>⛨</span>
+                    <div className="text-body-sm" style={{ fontWeight: 600 }}>Dedicated Solution Architects</div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <Zap size={20} color="var(--color-text-secondary)" />
-                    <div style={{ fontSize: '13px', fontWeight: 600 }}>24/7 Enterprise Support</div>
+                    <span className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>⚡</span>
+                    <div className="text-body-sm" style={{ fontWeight: 600 }}>24/7 Enterprise Support</div>
                 </div>
             </div>
         </SlideContainer>

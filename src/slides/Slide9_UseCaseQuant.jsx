@@ -61,7 +61,7 @@ export const Slide9_UseCaseQuant = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">08 // USE CASE: QUANT</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Structuring the Unstructured</h2>
+                <h2 className="text-title">Structuring the Unstructured</h2>
             </div>
 
             {/* Split Layout */}
@@ -70,19 +70,19 @@ export const Slide9_UseCaseQuant = () => {
                 <div className="stagger-in active">
                     <div style={{ marginBottom: '30px' }}>
                         <div className="text-matrix-header" style={{ color: 'var(--color-agent-synthesis-purple)' }}>THE INPUT</div>
-                        <div style={{ fontSize: '16px', marginTop: '10px', color: 'var(--color-text-secondary)' }}>
+                        <div className="text-body-lg" style={{ marginTop: '10px' }}>
                             10 years of earnings transcripts for Russell 2000 Healthcare names.
                         </div>
                     </div>
                     <div style={{ marginBottom: '30px' }}>
                         <div className="text-matrix-header" style={{ color: 'var(--color-agent-synthesis-purple)' }}>THE QUERY</div>
-                        <div style={{ fontSize: '16px', marginTop: '10px', color: 'var(--color-text-secondary)' }}>
+                        <div className="text-body-lg" style={{ marginTop: '10px' }}>
                             "Score management sentiment on supply chain headwinds (1-5) and extract mentions of specific drug trials."
                         </div>
                     </div>
                     <div>
                         <div className="text-matrix-header" style={{ color: 'var(--color-agent-synthesis-purple)' }}>THE ALPHA</div>
-                        <div style={{ fontSize: '16px', marginTop: '10px', color: 'var(--color-text-secondary)' }}>
+                        <div className="text-body-lg" style={{ marginTop: '10px' }}>
                             A novel factor for "Supply Chain Confidence" uncorrelated with standard momentum metrics.
                         </div>
                     </div>
@@ -95,7 +95,7 @@ export const Slide9_UseCaseQuant = () => {
                     transition={{ delay: 0.3, duration: 0.8 }}
                 >
                     <GlassPanel style={{ height: '100%', padding: '24px' }}>
-                        <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-tertiary)', marginBottom: '20px' }}>
+                        <div className="text-mono-sm" style={{ color: 'var(--color-text-tertiary)', marginBottom: '20px' }}>
                             // Export: sentiment_factor_v1.csv
                         </div>
                         <MatrixTable

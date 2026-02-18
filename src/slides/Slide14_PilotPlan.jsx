@@ -10,7 +10,7 @@ export const Slide14_PilotPlan = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">13 // EXECUTION</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>6-Week Pilot Plan</h2>
+                <h2 className="text-title">6-Week Pilot Plan</h2>
             </div>
 
             {/* Gantt-style Timeline */}
@@ -27,9 +27,9 @@ export const Slide14_PilotPlan = () => {
                 }}>
                     {/* Labels */}
                     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', borderRight: '1px solid var(--color-border-functional)', paddingRight: '20px' }}>
-                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '12px' }}>WEEKS 1-2</div>
-                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '12px' }}>WEEKS 3-5</div>
-                        <div className="u-font-mono" style={{ color: 'var(--color-text-secondary)', fontSize: '12px' }}>WEEK 6</div>
+                        <div className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>WEEKS 1-2</div>
+                        <div className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>WEEKS 3-5</div>
+                        <div className="text-mono-sm" style={{ color: 'var(--color-text-secondary)' }}>WEEK 6</div>
                     </div>
 
                     {/* Bars */}
@@ -43,20 +43,20 @@ export const Slide14_PilotPlan = () => {
 
                         {/* Bar 1 */}
                         <div style={{ background: 'var(--color-canvas-layer-2)', padding: '15px', borderLeft: '4px solid var(--color-agent-reasoning-blue)', zIndex: 1, marginBottom: '15px' }}>
-                            <h4 style={{ margin: '0 0 5px 0', color: 'var(--color-text-primary)', fontSize: '14px' }}>Setup & Ingest</h4>
-                            <p style={{ margin: 0, fontSize: '12px', color: 'var(--color-text-secondary)' }}>Connect private data (SharePoint/VDR). Establish baseline cycle times.</p>
+                            <h4 className="text-body" style={{ margin: '0 0 5px 0', color: 'var(--color-text-primary)', fontWeight: 600 }}>Setup & Ingest</h4>
+                            <p className="text-caption" style={{ margin: 0 }}>Connect private data (SharePoint/VDR). Establish baseline cycle times.</p>
                         </div>
 
                         {/* Bar 2 */}
                         <div style={{ background: 'var(--color-canvas-layer-2)', padding: '15px', borderLeft: '4px solid var(--color-agent-reasoning-blue)', marginLeft: '30%', width: '70%', zIndex: 1, marginBottom: '15px' }}>
-                            <h4 style={{ margin: '0 0 5px 0', color: 'var(--color-text-primary)', fontSize: '14px' }}>Execution & Feedback</h4>
-                            <p style={{ margin: 0, fontSize: '12px', color: 'var(--color-text-secondary)' }}>10 Pilot Users. Weekly reviews. Iterate on prompt libraries.</p>
+                            <h4 className="text-body" style={{ margin: '0 0 5px 0', color: 'var(--color-text-primary)', fontWeight: 600 }}>Execution & Feedback</h4>
+                            <p className="text-caption" style={{ margin: 0 }}>10 Pilot Users. Weekly reviews. Iterate on prompt libraries.</p>
                         </div>
 
                         {/* Bar 3 */}
                         <div style={{ background: 'var(--color-canvas-layer-2)', padding: '15px', borderLeft: '4px solid var(--color-agent-extraction-green)', marginLeft: '80%', width: '20%', zIndex: 1 }}>
-                            <h4 style={{ margin: '0 0 5px 0', color: 'var(--color-text-primary)', fontSize: '14px' }}>ROI Validation</h4>
-                            <p style={{ margin: 0, fontSize: '12px', color: 'var(--color-text-secondary)' }}>Measure delta vs baseline. Present Go/No-Go.</p>
+                            <h4 className="text-body" style={{ margin: '0 0 5px 0', color: 'var(--color-text-primary)', fontWeight: 600 }}>ROI Validation</h4>
+                            <p className="text-caption" style={{ margin: 0 }}>Measure delta vs baseline. Present Go/No-Go.</p>
                         </div>
                     </div>
                 </GlassPanel>
@@ -71,16 +71,16 @@ export const Slide14_PilotPlan = () => {
                 transition={{ delay: 0.5 }}
             >
                 <ContextBox header="SUCCESS METRIC" borderColor="var(--color-agent-extraction-green)">
-                    <div className="big-num text-green" style={{ fontSize: '40px' }}>&gt;25%</div>
-                    <div style={{ color: 'var(--color-text-secondary)' }}>Efficiency Gain</div>
+                    <div className="big-num sm text-green">&gt;25%</div>
+                    <div className="text-body-sm">Efficiency Gain</div>
                 </ContextBox>
                 <ContextBox header="SUCCESS METRIC" borderColor="var(--color-agent-extraction-green)">
-                    <div className="big-num text-green" style={{ fontSize: '40px' }}>&gt;80%</div>
-                    <div style={{ color: 'var(--color-text-secondary)' }}>User Adoption</div>
+                    <div className="big-num sm text-green">&gt;80%</div>
+                    <div className="text-body-sm">User Adoption</div>
                 </ContextBox>
                 <ContextBox header="SUCCESS METRIC" borderColor="var(--color-agent-extraction-green)">
-                    <div className="big-num text-green" style={{ fontSize: '40px' }}>0</div>
-                    <div style={{ color: 'var(--color-text-secondary)' }}>Security Incidents</div>
+                    <div className="big-num sm text-green">0</div>
+                    <div className="text-body-sm">Security Incidents</div>
                 </ContextBox>
             </motion.div>
         </SlideContainer>

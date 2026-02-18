@@ -2,7 +2,6 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { ContextBox } from '../components/ContextBox';
-import { Globe, Users, TrendingUp, Cpu } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Slide3_StrategicContext = () => {
@@ -11,7 +10,7 @@ export const Slide3_StrategicContext = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">02 // STRATEGIC CONTEXT</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>SIG: Scientific Rigor at Global Scale</h2>
+                <h2 className="text-title">SIG: Scientific Rigor at Global Scale</h2>
             </div>
 
             {/* Split Layout */}
@@ -23,9 +22,9 @@ export const Slide3_StrategicContext = () => {
                     </ContextBox>
 
                     <ContextBox header="SCALE" style={{ marginTop: '30px' }}>
-                        <div className="u-font-mono" style={{ fontSize: '14px', marginBottom: '5px' }}>&gt; 3,200 Employees</div>
-                        <div className="u-font-mono" style={{ fontSize: '14px', marginBottom: '5px' }}>&gt; 17 Global Offices</div>
-                        <div className="u-font-mono" style={{ fontSize: '14px' }}>&gt; 24/7 Trading</div>
+                        <div className="text-mono-md" style={{ marginBottom: '5px' }}>&gt; 3,200 Employees</div>
+                        <div className="text-mono-md" style={{ marginBottom: '5px' }}>&gt; 17 Global Offices</div>
+                        <div className="text-mono-md">&gt; 24/7 Trading</div>
                     </ContextBox>
                 </div>
 
@@ -50,13 +49,13 @@ export const Slide3_StrategicContext = () => {
                         <div style={{ position: 'absolute', top: '35%', left: '75%', width: '6px', height: '6px', background: 'var(--color-brand-cobalt)' }} />
                         <div style={{ position: 'absolute', top: '60%', left: '85%', width: '6px', height: '6px', background: 'var(--color-brand-cobalt)' }} />
 
-                        <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-tertiary)', marginTop: 'auto' }}>
+                        <div className="text-mono-sm" style={{ color: 'var(--color-text-tertiary)', marginTop: 'auto' }}>
                             DIVERSE OPERATIONS: Market Making, Quant Trading, Private Equity, Institutional Brokerage.
                         </div>
 
                         <div style={{ marginTop: '20px', borderTop: '1px solid var(--color-border-functional)', paddingTop: '20px' }}>
                             <div className="text-matrix-header" style={{ color: 'var(--color-text-secondary)' }}>THE BOTTLENECK</div>
-                            <div style={{ fontSize: '20px', color: 'var(--color-text-primary)', lineHeight: 1.4 }}>
+                            <div className="text-subtitle-sm" style={{ lineHeight: 1.4 }}>
                                 "Continuous innovation demands tools that match the pace and scale of inquiry."
                             </div>
                         </div>

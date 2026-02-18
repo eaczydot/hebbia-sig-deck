@@ -72,6 +72,28 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-display: 'Inter', sans-serif;
 
+  /* Type Scale (aligned to ai_studio_code-2.html values) */
+  --type-hero-size: 80px;
+  --type-title-size: 48px;
+  --type-title-sm-size: 36px;
+  --type-headline-size: 28px;
+  --type-subtitle-size: 24px;
+  --type-subtitle-sm-size: 22px;
+  --type-subtitle-xs-size: 18px;
+  --type-body-lg-size: 18px;
+  --type-body-size: 16px;
+  --type-body-sm-size: 15px;
+  --type-caption-size: 14px;
+  --type-micro-size: 12px;
+  --type-eyebrow-size: 15px;
+
+  /* Data + KPI */
+  --type-kpi-size: 56px;
+  --type-kpi-lg-size: 72px;
+  --type-kpi-md-size: 48px;
+  --type-kpi-sm-size: 40px;
+  --type-kpi-xs-size: 32px;
+
   /* Spacing & Layout */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
