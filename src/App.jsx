@@ -24,6 +24,7 @@ import { Slide20_Conclusion } from './slides/Slide20_Conclusion';
 import { Slide21_ReasoningEngine } from './slides/Slide21_ReasoningEngine';
 import { Slide22_MatrixDeepDive } from './slides/Slide22_MatrixDeepDive';
 import { Slide18_References } from './slides/Slide18_References';
+import { Slide23_ConferenceReadiness } from './slides/Slide23_ConferenceReadiness';
 
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -57,6 +58,7 @@ const SLIDES = [
   Slide17_Integration,
   Slide18_Competitive,
   Slide19_Risks,
+  Slide23_ConferenceReadiness,
   Slide20_Conclusion,
   Slide18_References,
 ];
