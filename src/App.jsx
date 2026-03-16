@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { SlideContainer } from './components/SlideContainer';
 import { HeaderBar } from './components/HeaderBar';
+import { ActionToolbar } from './conference/ui/ActionToolbar';
 import { Slide1_Cover } from './slides/Slide1_Cover';
 import { Slide2_ExecutiveSummary } from './slides/Slide2_ExecutiveSummary';
 import { Slide3_StrategicContext } from './slides/Slide3_StrategicContext';
@@ -27,7 +28,6 @@ import { Slide18_References } from './slides/Slide18_References';
 
 import { AnimatePresence, motion } from 'framer-motion';
 
-// Placeholder slides until implemented
 const SlidePlaceholder = ({ number }) => (
   <SlideContainer>
     <div className="text-hero">Slide {number}</div>
@@ -42,9 +42,9 @@ const SLIDES = [
   Slide4_TheConstraint,
   Slide5_ValueThesis,
   Slide6_IntroducingHebbia,
-  Slide21_ReasoningEngine, // New Deep Dive
+  Slide21_ReasoningEngine,
   Slide7_HowItWorks,
-  Slide22_MatrixDeepDive, // New Deep Dive
+  Slide22_MatrixDeepDive,
   Slide15_Security,
   Slide8_UseCaseTrading,
   Slide9_UseCaseQuant,
@@ -61,15 +61,35 @@ const SLIDES = [
   Slide18_References,
 ];
 
+const ACTION_LABELS = {
+  question: 'Question to host',
+  comment: 'Comment to host',
+  tag: 'Tag',
+  private: 'Private note',
+  queue: 'Queue item',
+};
+
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
   const [viewportScale, setViewportScale] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
+  const [isPresentationMode, setIsPresentationMode] = useState(true);
+  const [toolbarVisible, setToolbarVisible] = useState(true);
+  const [stores, setStores] = useState({
+    notes: {
+      private: [],
+      toHost: [],
+    },
+    annotations: {
+      shared: [],
+    },
+  });
+
   const totalSlides = SLIDES.length;
   const touchStart = useRef({ x: 0, y: 0 });
 
-  const goToSlide = (delta) => {
+  const goToSlide = useCallback((delta) => {
     setCurrentSlide(prev => {
       const next = Math.max(0, Math.min(totalSlides - 1, prev + delta));
       if (next !== prev) {
@@ -77,20 +97,18 @@ function App() {
       }
       return next;
     });
-  };
-
-  const nextSlide = () => goToSlide(1);
-  const prevSlide = () => goToSlide(-1);
+  }, [totalSlides]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
-      if (e.key === 'ArrowLeft') prevSlide();
+      if (!isPresentationMode) return;
+      if (e.key === 'ArrowRight' || e.key === ' ') goToSlide(1);
+      if (e.key === 'ArrowLeft') goToSlide(-1);
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [goToSlide, isPresentationMode]);
 
   useEffect(() => {
     const updateScale = () => {
@@ -111,19 +129,104 @@ function App() {
   };
 
   const handleTouchEnd = (event) => {
+    if (!isPresentationMode) return;
     const touch = event.changedTouches[0];
     const deltaX = touch.clientX - touchStart.current.x;
     const deltaY = touch.clientY - touchStart.current.y;
     if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 60) {
       if (deltaX < 0) {
-        nextSlide();
+        goToSlide(1);
       } else {
-        prevSlide();
+        goToSlide(-1);
       }
     }
   };
 
-  const CurrentSlideComponent = SLIDES[currentSlide] || (() => <SlidePlaceholder number={currentSlide + 1} />);
+  const handleSendAction = ({ action, text, route, deferred }) => {
+    const entry = {
+      id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      action,
+      actionLabel: ACTION_LABELS[action],
+      author: 'you',
+      text,
+      deferred,
+      read: false,
+      createdAt: Date.now(),
+    };
+
+    setStores(prev => {
+      if (route === 'notes.private') {
+        return {
+          ...prev,
+          notes: {
+            ...prev.notes,
+            private: [entry, ...prev.notes.private],
+          },
+        };
+      }
+
+      if (route === 'notes.toHost') {
+        return {
+          ...prev,
+          notes: {
+            ...prev.notes,
+            toHost: [entry, ...prev.notes.toHost],
+          },
+        };
+      }
+
+      return {
+        ...prev,
+        annotations: {
+          ...prev.annotations,
+          shared: [entry, ...prev.annotations.shared],
+        },
+      };
+    });
+  };
+
+  const handleMarkRead = (id, route) => {
+    setStores(prev => {
+      if (route === 'notes.private') {
+        return {
+          ...prev,
+          notes: {
+            ...prev.notes,
+            private: prev.notes.private.map(item => (item.id === id ? { ...item, read: true } : item)),
+          },
+        };
+      }
+
+      if (route === 'notes.toHost') {
+        return {
+          ...prev,
+          notes: {
+            ...prev.notes,
+            toHost: prev.notes.toHost.map(item => (item.id === id ? { ...item, read: true } : item)),
+          },
+        };
+      }
+
+      return {
+        ...prev,
+        annotations: {
+          ...prev.annotations,
+          shared: prev.annotations.shared.map(item => (item.id === id ? { ...item, read: true } : item)),
+        },
+      };
+    });
+  };
+
+  const slideComponent = useMemo(() => {
+    const SlideComponent = SLIDES[currentSlide];
+    if (!SlideComponent) {
+      return <SlidePlaceholder number={currentSlide + 1} />;
+    }
+
+    return <SlideComponent />;
+  }, [currentSlide]);
+
+  const MotionDiv = motion.div;
   const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
 
   const slideVariants = {
@@ -154,7 +257,7 @@ function App() {
       className="app-shell"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      style={{ touchAction: 'pan-y' }}
+      style={{ touchAction: isPresentationMode ? 'pan-y' : 'auto' }}
     >
       <div
         className={`app-viewport${isMobile ? ' is-mobile' : ''}`}
@@ -162,32 +265,51 @@ function App() {
       >
         <div className="grid-overlay" />
 
-        {/* Header Bar */}
-        <HeaderBar currentSlide={currentSlide} totalSlides={totalSlides} />
+        <HeaderBar
+          currentSlide={currentSlide}
+          totalSlides={totalSlides}
+          isPresentationMode={isPresentationMode}
+          onModeChange={() => setIsPresentationMode(prev => !prev)}
+        />
 
-        {/* Render Current Slide */}
         <div className="slides-stage">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={currentSlide}
-              className="slide-motion"
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-            >
-              <CurrentSlideComponent />
-            </motion.div>
-          </AnimatePresence>
+          {isPresentationMode ? (
+            <AnimatePresence mode="wait" custom={direction}>
+              <MotionDiv
+                key={currentSlide}
+                className="slide-motion"
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+              >
+                {slideComponent}
+              </MotionDiv>
+            </AnimatePresence>
+          ) : (
+            <div className="slide-motion">
+              {slideComponent}
+            </div>
+          )}
         </div>
 
-        {/* Progress Bar */}
         <div
           className="progress-bar"
           style={{ width: `${progressPercent}%` }}
         />
       </div>
+
+      <ActionToolbar
+        currentUser="you"
+        presenterPolicy={isPresentationMode ? 'toolbar suggested hidden during pitch' : 'toolbar encouraged during collaboration'}
+        toolbarVisible={toolbarVisible}
+        onToggleVisibility={() => setToolbarVisible(prev => !prev)}
+        notes={stores.notes}
+        annotations={stores.annotations}
+        onSendAction={handleSendAction}
+        onMarkRead={handleMarkRead}
+      />
     </div>
   );
 }

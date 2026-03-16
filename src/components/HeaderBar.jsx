@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const HeaderBar = ({ currentSlide, totalSlides }) => {
+export const HeaderBar = ({ currentSlide, totalSlides, isPresentationMode, onModeChange }) => {
     return (
         <div style={{
             position: 'absolute',
@@ -21,8 +21,22 @@ export const HeaderBar = ({ currentSlide, totalSlides }) => {
             zIndex: 100
         }}>
             <span>HEBBIA // MATRIX_OS v3.5</span>
-            <span style={{ color: 'var(--txt-sec)' }}>
+            <span style={{ color: 'var(--txt-sec)', display: 'flex', gap: '10px', alignItems: 'center' }}>
                 {String(currentSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
+                <button
+                    onClick={onModeChange}
+                    style={{
+                        fontSize: '10px',
+                        textTransform: 'uppercase',
+                        border: '1px solid var(--line-mid)',
+                        borderRadius: '999px',
+                        padding: '2px 8px',
+                        color: 'var(--txt-pri)',
+                        background: 'var(--bg-glass)'
+                    }}
+                >
+                    {isPresentationMode ? 'Presentation mode' : 'Browsing mode'}
+                </button>
             </span>
             <span>CONFIDENTIAL: SIG PROPOSAL</span>
         </div>
