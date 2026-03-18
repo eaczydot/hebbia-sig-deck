@@ -26,6 +26,7 @@ import { Slide22_MatrixDeepDive } from './slides/Slide22_MatrixDeepDive';
 import { Slide18_References } from './slides/Slide18_References';
 import { PresentationPip } from './conference/ui/PresentationPip';
 import { BubbleCanvas } from './conference/ui/BubbleCanvas';
+import { ActionToolbar } from './components/ActionToolbar';
 
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -285,6 +286,9 @@ function App() {
           userId={viewerId}
           isMobile={isMobile}
         />
+
+        {/* Action Toolbar */}
+        <ActionToolbar slideIndex={isPresentationPage ? currentSlide : independentSlide} />
 
         {/* Progress Bar */}
         <div
