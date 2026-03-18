@@ -9,7 +9,8 @@ import { ParticipantBubble } from './ParticipantBubble';
 
 const RESIZE_MIN = 72;
 
-export const BubbleCanvas = ({ participants, roomId, userId, isMobile }) => {
+export const BubbleCanvas = ({ visible, participants, roomId, userId, isMobile }) => {
+  if (!visible) return null;
   const containerRef = useRef(null);
   const dragStateRef = useRef(null);
   const [bounds, setBounds] = useState({ width: 0, height: 0 });
@@ -173,9 +174,9 @@ export const BubbleCanvas = ({ participants, roomId, userId, isMobile }) => {
     <div
       ref={containerRef}
       style={{
-        position: 'absolute',
+        position: 'fixed',
         inset: 0,
-        zIndex: 2,
+        zIndex: 8000,
         pointerEvents: 'none',
       }}
     >
@@ -195,6 +196,7 @@ export const BubbleCanvas = ({ participants, roomId, userId, isMobile }) => {
               width: `${item.size}px`,
               height: `${item.size}px`,
               zIndex: item.z,
+              '--participant-color': participant.color || '#3b82f6',
             }}
             onPointerDown={event => startInteraction(event, participant.id, 'move')}
             onResizePointerDown={event => startInteraction(event, participant.id, 'resize')}

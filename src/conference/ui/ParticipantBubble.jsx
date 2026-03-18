@@ -5,7 +5,6 @@ const initialsFromName = (name) => {
   if (!name) {
     return '?';
   }
-
   return name
     .split(' ')
     .filter(Boolean)
@@ -35,16 +34,17 @@ export const ParticipantBubble = ({
           </div>
         )}
 
-        <div className={styles.label}>
-          <span>{participant?.name || 'Participant'}</span>
-        </div>
-
         <button
           type="button"
           aria-label={`Resize ${participant?.name || 'participant'} bubble`}
           className={styles.resizeHandle}
           onPointerDown={onResizePointerDown}
         />
+      </div>
+
+      {/* Name tag rendered outside .bubble so it's not clipped */}
+      <div className={styles.nameTag}>
+        <span className={styles.nameLabel}>{participant?.name || 'Participant'}</span>
       </div>
     </div>
   );

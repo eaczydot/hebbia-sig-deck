@@ -65,11 +65,12 @@ const SLIDES = [
 ];
 
 const isPresentationHash = () => window.location.hash !== '#/site';
+
 const CONFERENCE_PARTICIPANTS = [
-  { id: 'p1', name: 'Alex Morgan', cameraOn: true },
-  { id: 'p2', name: 'Priya Shah', cameraOn: false },
-  { id: 'p3', name: 'Jordan Lee', cameraOn: true },
-  { id: 'p4', name: 'Morgan Chen', cameraOn: false },
+  { id: 'p1', name: 'Alex Morgan', cameraOn: true, color: '#3B82F6' },
+  { id: 'p2', name: 'Priya Shah', cameraOn: false, color: '#10B981' },
+  { id: 'p3', name: 'Jordan Lee', cameraOn: true, color: '#F59E0B' },
+  { id: 'p4', name: 'Morgan Chen', cameraOn: false, color: '#8B5CF6' },
 ];
 
 const ROOM_ID = 'deck-room';
@@ -80,7 +81,6 @@ const getLocalViewerId = () => {
   if (existing) {
     return existing;
   }
-
   const next = `viewer-${Math.random().toString(36).slice(2, 9)}`;
   window.localStorage.setItem(key, next);
   return next;
@@ -94,6 +94,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [isPresentationPage, setIsPresentationPage] = useState(isPresentationHash);
   const [isPresentationLive] = useState(true);
+  const [isDemoMode, setIsDemoMode] = useState(false);
   const totalSlides = SLIDES.length;
   const touchStart = useRef({ x: 0, y: 0 });
   const [viewerId, setViewerId] = useState('viewer-anon');
@@ -141,7 +142,6 @@ function App() {
       if (event.key === 'ArrowRight' || event.key === ' ') nextSlide();
       if (event.key === 'ArrowLeft') prevSlide();
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [nextSlide, prevSlide]);
@@ -153,11 +153,10 @@ function App() {
   useEffect(() => {
     const updateScale = () => {
       const nextIsMobile = window.innerWidth < 900 || window.innerHeight < 600;
-      const scale = Math.min(1, Math.min(window.innerWidth / 1920, window.innerHeight / 1080));
+      const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
       setIsMobile(nextIsMobile);
       setViewportScale(nextIsMobile ? 1 : scale);
     };
-
     updateScale();
     window.addEventListener('resize', updateScale);
     return () => window.removeEventListener('resize', updateScale);
@@ -172,7 +171,6 @@ function App() {
     const touch = event.changedTouches[0];
     const deltaX = touch.clientX - touchStart.current.x;
     const deltaY = touch.clientY - touchStart.current.y;
-
     if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 60) {
       if (deltaX < 0) {
         nextSlide();
@@ -230,12 +228,17 @@ function App() {
   return (
     <div className="app-shell" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} style={{ touchAction: 'pan-y' }}>
       {isPresentationPage ? (
-        <div className={`app-viewport${isMobile ? ' is-mobile' : ''}`} style={{ '--viewport-scale': viewportScale }}>
+        <div className={`app-viewport${isMobile ? ' is-mobile' : ''}`}>
           <div className="grid-overlay" />
-          <HeaderBar currentSlide={currentSlide} totalSlides={totalSlides} />
+          <HeaderBar
+            currentSlide={currentSlide}
+            totalSlides={totalSlides}
+            isDemoMode={isDemoMode}
+            onDemoModeChange={() => setIsDemoMode(prev => !prev)}
+          />
           <button type="button" className="app-site-nav-button" onClick={goToSite}>Browse independently</button>
 
-          <div className="slides-stage">
+          <div className="slides-stage" style={{ '--viewport-scale': viewportScale }}>
             <AnimatePresence mode="wait" custom={direction}>
               <MotionDiv
                 key={currentSlide}
@@ -279,18 +282,14 @@ function App() {
           </div>
         </PresentationPip>
       )}
-        <BubbleCanvas
-          participants={CONFERENCE_PARTICIPANTS}
-          roomId={ROOM_ID}
-          userId={viewerId}
-          isMobile={isMobile}
-        />
 
-        {/* Progress Bar */}
-        <div
-          className="progress-bar"
-          style={{ width: `${progressPercent}%` }}
-        />
+      <BubbleCanvas
+        visible={isDemoMode}
+        participants={CONFERENCE_PARTICIPANTS}
+        roomId={ROOM_ID}
+        userId={viewerId}
+        isMobile={isMobile}
+      />
     </div>
   );
 }
