@@ -22,7 +22,7 @@ export const Slide1_Cover = () => {
                     }}
                 >
                     <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
-                        <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-brand-cobalt)' }}>HEBBIA</div>
+                        <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-brand-primary)' }}>STEDI</div>
                         <div style={{ width: '1px', height: '16px', background: 'var(--color-border-functional)' }}></div>
                         <div style={{ fontWeight: 700, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-text-tertiary)' }}>SIG</div>
                     </div>

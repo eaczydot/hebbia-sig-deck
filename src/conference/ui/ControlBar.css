@@ -9,8 +9,8 @@
   gap: 8px;
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(12, 18, 27, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 31, 26, 0.85);
+  border: 1px solid rgba(79, 194, 181, 0.15);
   backdrop-filter: blur(12px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
@@ -22,25 +22,25 @@
   width: 40px;
   height: 40px;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.08);
-  color: #e3f6ff;
+  border: 1px solid rgba(79, 194, 181, 0.2);
+  background: rgba(79, 194, 181, 0.08);
+  color: var(--teal-bright);
   transition: background 0.15s, border-color 0.15s;
 }
 
 .control-bar-btn:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(79, 194, 181, 0.14);
+  border-color: rgba(79, 194, 181, 0.3);
 }
 
 .control-bar-btn.is-off {
-  background: rgba(239, 68, 68, 0.2);
-  border-color: rgba(239, 68, 68, 0.4);
-  color: #fca5a5;
+  background: rgba(240, 117, 117, 0.2);
+  border-color: rgba(240, 117, 117, 0.4);
+  color: #f07575;
 }
 
 .control-bar-btn.is-off:hover {
-  background: rgba(239, 68, 68, 0.3);
+  background: rgba(240, 117, 117, 0.3);
 }
 
 .control-bar-join {
@@ -49,27 +49,27 @@
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.01em;
-  background: rgba(59, 130, 246, 0.25);
-  border-color: rgba(59, 130, 246, 0.4);
-  color: #93c5fd;
+  background: rgba(79, 194, 181, 0.2);
+  border-color: rgba(79, 194, 181, 0.4);
+  color: var(--teal-bright);
 }
 
 .control-bar-join:hover {
-  background: rgba(59, 130, 246, 0.35);
+  background: rgba(79, 194, 181, 0.3);
 }
 
 .control-bar-leave {
-  background: rgba(239, 68, 68, 0.15);
-  border-color: rgba(239, 68, 68, 0.3);
-  color: #fca5a5;
+  background: rgba(240, 117, 117, 0.15);
+  border-color: rgba(240, 117, 117, 0.3);
+  color: #f07575;
 }
 
 .control-bar-leave:hover {
-  background: rgba(239, 68, 68, 0.25);
+  background: rgba(240, 117, 117, 0.25);
 }
 
 .control-bar-error {
   font-size: 11px;
-  color: #fca5a5;
+  color: #f07575;
   padding: 0 8px;
 }

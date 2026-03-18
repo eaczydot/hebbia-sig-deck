@@ -4,7 +4,7 @@ const btnBase = {
     fontSize: '10px',
     textTransform: 'uppercase',
     border: '1px solid var(--line-mid)',
-    borderRadius: '999px',
+    borderRadius: '6px',
     padding: '2px 8px',
     color: 'var(--txt-pri)',
     background: 'var(--bg-glass)',
@@ -14,9 +14,9 @@ const btnBase = {
 
 const btnActive = {
     ...btnBase,
-    border: '1px solid rgba(139, 92, 246, 0.6)',
-    background: 'rgba(139, 92, 246, 0.18)',
-    color: '#c4b5fd',
+    border: '1px solid rgba(79, 194, 181, 0.6)',
+    background: 'rgba(79, 194, 181, 0.18)',
+    color: '#73d6c9',
 };
 
 export const HeaderBar = ({
@@ -44,7 +44,7 @@ export const HeaderBar = ({
             letterSpacing: '0.05em',
             zIndex: 100
         }}>
-            <span>HEBBIA // MATRIX_OS v3.5</span>
+            <span>STEDI // DECK v1.0</span>
             <span style={{ color: 'var(--txt-sec)', display: 'flex', gap: '8px', alignItems: 'center' }}>
                 {String(currentSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
                 <button

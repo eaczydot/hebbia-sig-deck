@@ -19,7 +19,7 @@ const RiskItem = ({ risk, mitigation, icon: Icon, delay }) => (
                 <div style={{ color: 'var(--color-text-primary)', fontWeight: 600, fontSize: '16px' }}>{risk}</div>
             </div>
             <div style={{ borderLeft: '1px solid var(--color-border-functional)', paddingLeft: '24px' }}>
-                <div className="text-matrix-header" style={{ color: 'var(--color-agent-extraction-green)', marginBottom: '8px' }}>HEBBIA MITIGATION</div>
+                <div className="text-matrix-header" style={{ color: 'var(--color-agent-extraction-green)', marginBottom: '8px' }}>STEDI MITIGATION</div>
                 <div className="text-cell-data" style={{ fontSize: '13px' }}>{mitigation}</div>
             </div>
         </GlassPanel>

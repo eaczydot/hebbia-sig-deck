@@ -39,7 +39,7 @@ export const Slide20_Conclusion = () => {
                         <div className="big-num text-blue" style={{ fontSize: '72px' }}>6 Weeks</div>
                         <div className="u-font-mono" style={{ fontSize: '16px', marginBottom: '40px', color: 'var(--color-text-secondary)' }}>To Validated Value</div>
                         <div style={{ fontSize: '14px', color: 'var(--color-text-tertiary)', lineHeight: 1.6 }}>
-                            partnerships@hebbia.ai<br />
+                            partnerships@stedi.com<br />
                             Classification: Confidential
                         </div>
                     </GlassPanel>

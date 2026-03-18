@@ -41,7 +41,7 @@ export const Slide6_IntroducingHebbia = () => {
     return (
         <SlideContainer>
             <div style={{ textAlign: 'center', marginBottom: '60px', zIndex: 10 }}>
-                <div className="text-matrix-header" style={{ justifyContent: 'center' }}>INTRODUCING HEBBIA</div>
+                <div className="text-matrix-header" style={{ justifyContent: 'center' }}>INTRODUCING STEDI</div>
                 <h2 className="text-hero" style={{ fontSize: '56px' }}>
                     The World's Leading <br />AI Analyst
                 </h2>

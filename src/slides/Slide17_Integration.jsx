@@ -70,7 +70,7 @@ export const Slide17_Integration = () => {
                         border: '2px solid var(--color-agent-reasoning-blue)',
                         boxShadow: '0 0 80px color-mix(in srgb, var(--color-brand-cobalt) 30%, transparent)'
                     }}>
-                        <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.1em' }}>HEBBIA</div>
+                        <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.1em' }}>STEDI</div>
                         <div style={{ width: '40px', height: '2px', background: 'var(--color-agent-reasoning-blue)' }}></div>
                         <div className="text-matrix-header" style={{ fontSize: '10px' }}>REASONING CORE</div>
                     </GlassPanel>

@@ -11,7 +11,7 @@
   border-radius: 9999px;
   overflow: hidden;
   border: 3px solid rgba(255, 255, 255, 0.9);
-  background: #1a1a2e;
+  background: #001f1a;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   cursor: grab;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -46,12 +46,12 @@
 
 .cameraOnFill {
   background:
-    radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.55), rgba(7, 11, 16, 0.95) 70%),
+    radial-gradient(circle at 50% 20%, rgba(79, 194, 181, 0.45), rgba(0, 20, 18, 0.95) 70%),
     var(--gradient-matrix-glow);
 }
 
 .avatarFallback {
-  background: radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.45), rgba(5, 5, 5, 0.95) 74%);
+  background: radial-gradient(circle at 20% 20%, rgba(31, 150, 140, 0.45), rgba(0, 20, 18, 0.95) 74%);
 }
 
 .initials {

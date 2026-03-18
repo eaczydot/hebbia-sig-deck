@@ -2,6 +2,7 @@
     display: grid;
     width: 100%;
     border: var(--matrix-border-width) solid var(--color-border-subtle);
+    border-radius: var(--glass-radius);
     background-color: var(--color-canvas-base);
 }
 
@@ -27,7 +28,5 @@
     position: relative;
 }
 
-/* Remove right border for the last column to prevent double borders if the container has a border */
 .cell:last-child {
-    /* This might need adjustment based on how the grid is constructed prop-wise */
 }

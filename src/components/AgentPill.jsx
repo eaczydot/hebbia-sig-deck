@@ -14,8 +14,6 @@ const pillStyle = {
 };
 
 export const AgentPill = ({ label, type = 'reasoning' }) => {
-    // Can extend to handle different agent types/colors if needed
-    // For now defaults to reasoning blue as per JSON "agent_pill" spec
     return (
         <span style={pillStyle}>
             {label}
