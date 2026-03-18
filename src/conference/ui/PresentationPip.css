@@ -10,10 +10,19 @@
   pointer-events: auto;
   border-radius: 14px;
   overflow: hidden;
-  background: #03060d;
+  background: rgba(5, 5, 5, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
   outline: none;
+  will-change: left, top;
+}
+
+.presentation-pip.is-snapping {
+  transition: left 0.3s cubic-bezier(0.19, 1, 0.22, 1), top 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.presentation-pip.is-dragging {
+  transition: none;
 }
 
 .presentation-pip:focus-visible {
@@ -37,8 +46,8 @@
   gap: 10px;
   padding: 6px 8px;
   border-radius: 999px;
-  background: rgba(12, 18, 27, 0.7);
-  backdrop-filter: blur(10px);
+  background: rgba(12, 18, 27, 0.75);
+  backdrop-filter: blur(12px);
   cursor: grab;
 }
 
@@ -80,13 +89,6 @@
 .presentation-pip-preview-frame {
   overflow: hidden;
   pointer-events: none;
-}
-
-.presentation-pip-preview-frame .slide-container {
-  transform: scale(0.38);
-  transform-origin: top left;
-  width: 263%;
-  height: 263%;
 }
 
 .presentation-pip-resize-handle {

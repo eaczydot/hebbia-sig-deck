@@ -1,10 +1,10 @@
 const STORAGE_PREFIX = 'conference:bubble-layout:';
-const LAYOUT_VERSION = 1;
+const LAYOUT_VERSION = 2;
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
 const normalizeLayoutItem = (item, bounds, fallbackSize = 140) => {
-  const size = clamp(Number(item?.size) || fallbackSize, 96, Math.min(bounds.width, bounds.height));
+  const size = clamp(Number(item?.size) || fallbackSize, 56, Math.min(bounds.width, bounds.height));
   const maxX = Math.max(0, bounds.width - size);
   const maxY = Math.max(0, bounds.height - size);
 
@@ -52,7 +52,7 @@ export const loadLocalLayout = ({ roomId, userId, participants, bounds, isMobile
   }
 
   const storageKey = getLayoutStorageKey(roomId, userId);
-  const fallbackSize = isMobile ? 92 : 140;
+  const fallbackSize = isMobile ? 72 : 96;
 
   let parsed = null;
   try {
@@ -63,7 +63,7 @@ export const loadLocalLayout = ({ roomId, userId, participants, bounds, isMobile
 
   const items = {};
   participants.forEach((participant, index) => {
-    const baseSize = isMobile ? 88 : fallbackSize;
+    const baseSize = isMobile ? 72 : fallbackSize;
     const position = getDefaultPosition(index, participants.length, bounds, isMobile, baseSize);
     const defaultItem = {
       x: position.x,

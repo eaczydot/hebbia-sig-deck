@@ -1,0 +1,75 @@
+.control-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(12, 18, 27, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.control-bar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: #e3f6ff;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.control-bar-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.control-bar-btn.is-off {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+}
+
+.control-bar-btn.is-off:hover {
+  background: rgba(239, 68, 68, 0.3);
+}
+
+.control-bar-join {
+  width: auto;
+  padding: 0 20px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  background: rgba(59, 130, 246, 0.25);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #93c5fd;
+}
+
+.control-bar-join:hover {
+  background: rgba(59, 130, 246, 0.35);
+}
+
+.control-bar-leave {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.control-bar-leave:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+.control-bar-error {
+  font-size: 11px;
+  color: #fca5a5;
+  padding: 0 8px;
+}

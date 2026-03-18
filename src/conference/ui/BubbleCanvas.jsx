@@ -173,9 +173,9 @@ export const BubbleCanvas = ({ participants, roomId, userId, isMobile }) => {
     <div
       ref={containerRef}
       style={{
-        position: 'absolute',
+        position: 'fixed',
         inset: 0,
-        zIndex: 2,
+        zIndex: 1000,
         pointerEvents: 'none',
       }}
     >

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { SlideContainer } from './components/SlideContainer';
 import { HeaderBar } from './components/HeaderBar';
+import { ModeToggle } from './components/ModeToggle';
+import { useAppMode, APP_MODES } from './hooks/useAppMode';
 import { Slide1_Cover } from './slides/Slide1_Cover';
 import { Slide2_ExecutiveSummary } from './slides/Slide2_ExecutiveSummary';
 import { Slide3_StrategicContext } from './slides/Slide3_StrategicContext';
@@ -26,6 +28,8 @@ import { Slide22_MatrixDeepDive } from './slides/Slide22_MatrixDeepDive';
 import { Slide18_References } from './slides/Slide18_References';
 import { PresentationPip } from './conference/ui/PresentationPip';
 import { BubbleCanvas } from './conference/ui/BubbleCanvas';
+import { ControlBar } from './conference/ui/ControlBar';
+import { QuestionDrawer } from './components/QuestionDrawer';
 
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -64,7 +68,6 @@ const SLIDES = [
   Slide18_References,
 ];
 
-const isPresentationHash = () => window.location.hash !== '#/site';
 const CONFERENCE_PARTICIPANTS = [
   { id: 'p1', name: 'Alex Morgan', cameraOn: true },
   { id: 'p2', name: 'Priya Shah', cameraOn: false },
@@ -87,13 +90,13 @@ const getLocalViewerId = () => {
 };
 
 function App() {
+  const { mode, setMode } = useAppMode();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [independentSlide, setIndependentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
   const [viewportScale, setViewportScale] = useState(1);
   const [isMobile, setIsMobile] = useState(false);
-  const [isPresentationPage, setIsPresentationPage] = useState(isPresentationHash);
-  const [isPresentationLive] = useState(true);
+  const [isBrowsingIndependently, setIsBrowsingIndependently] = useState(false);
   const totalSlides = SLIDES.length;
   const touchStart = useRef({ x: 0, y: 0 });
   const [viewerId, setViewerId] = useState('viewer-anon');
@@ -115,26 +118,20 @@ function App() {
   }, [clampSlide]);
 
   const nextSlide = useCallback(() => {
-    if (isPresentationPage) {
-      goToPresenterSlide(1);
+    if (isBrowsingIndependently) {
+      goToIndependentSlide(1);
       return;
     }
-    goToIndependentSlide(1);
-  }, [goToIndependentSlide, goToPresenterSlide, isPresentationPage]);
+    goToPresenterSlide(1);
+  }, [goToIndependentSlide, goToPresenterSlide, isBrowsingIndependently]);
 
   const prevSlide = useCallback(() => {
-    if (isPresentationPage) {
-      goToPresenterSlide(-1);
+    if (isBrowsingIndependently) {
+      goToIndependentSlide(-1);
       return;
     }
-    goToIndependentSlide(-1);
-  }, [goToIndependentSlide, goToPresenterSlide, isPresentationPage]);
-
-  useEffect(() => {
-    const handleHashChange = () => setIsPresentationPage(isPresentationHash());
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+    goToPresenterSlide(-1);
+  }, [goToIndependentSlide, goToPresenterSlide, isBrowsingIndependently]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -153,7 +150,7 @@ function App() {
   useEffect(() => {
     const updateScale = () => {
       const nextIsMobile = window.innerWidth < 900 || window.innerHeight < 600;
-      const scale = Math.min(1, Math.min(window.innerWidth / 1920, window.innerHeight / 1080));
+      const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
       setIsMobile(nextIsMobile);
       setViewportScale(nextIsMobile ? 1 : scale);
     };
@@ -162,6 +159,11 @@ function App() {
     window.addEventListener('resize', updateScale);
     return () => window.removeEventListener('resize', updateScale);
   }, []);
+
+  // Reset independent browsing when switching modes
+  useEffect(() => {
+    setIsBrowsingIndependently(false);
+  }, [mode]);
 
   const handleTouchStart = (event) => {
     const touch = event.touches[0];
@@ -193,15 +195,13 @@ function App() {
 
   const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
 
-  const goToPresentation = () => {
-    window.location.hash = '#/presentation';
-    setIsPresentationPage(true);
+  const startBrowsingIndependently = () => {
+    setIndependentSlide(currentSlide);
+    setIsBrowsingIndependently(true);
   };
 
-  const goToSite = () => {
-    window.location.hash = '#/site';
-    setIndependentSlide(currentSlide);
-    setIsPresentationPage(false);
+  const returnToLive = () => {
+    setIsBrowsingIndependently(false);
   };
 
   const slideVariants = {
@@ -227,14 +227,119 @@ function App() {
     }),
   };
 
+  const renderSlideViewport = (slideContent, slideIndex) => (
+    <div className={`app-viewport${isMobile ? ' is-mobile' : ''}`} style={{ '--viewport-scale': viewportScale }}>
+      <div className="grid-overlay" />
+      <HeaderBar currentSlide={slideIndex} totalSlides={totalSlides} />
+
+      <div className="slides-stage">
+        <AnimatePresence mode="wait" custom={direction}>
+          <MotionDiv
+            key={slideIndex}
+            className="slide-motion"
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+          >
+            {slideContent}
+          </MotionDiv>
+        </AnimatePresence>
+      </div>
+
+      <div className="progress-bar" style={{ width: `${progressPercent}%` }} />
+    </div>
+  );
+
   return (
     <div className="app-shell" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} style={{ touchAction: 'pan-y' }}>
-      {isPresentationPage ? (
+      <ModeToggle mode={mode} onChangeMode={setMode} />
+
+      {/* ===== PRE-MEETING MODE ===== */}
+      {mode === APP_MODES.PREVIEW && (
+        <>
+          {renderSlideViewport(presenterSlideContent, currentSlide)}
+          <QuestionDrawer currentSlide={currentSlide} deckId="sig-deck-v1" />
+        </>
+      )}
+
+      {/* ===== MEETING MODE ===== */}
+      {mode === APP_MODES.MEETING && (
+        <>
+          {!isBrowsingIndependently ? (
+            <>
+              {renderSlideViewport(presenterSlideContent, currentSlide)}
+              <button type="button" className="app-site-nav-button" onClick={startBrowsingIndependently}>
+                Browse independently
+              </button>
+            </>
+          ) : (
+            <main className="attendee-page" aria-label="Independent navigation view">
+              <div className="independent-banner" role="status" aria-live="polite">
+                You are browsing slides independently while the presenter stays live in PiP.
+              </div>
+
+              <div className="independent-nav">
+                <button type="button" onClick={prevSlide}>Prev</button>
+                <span>{String(independentSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}</span>
+                <button type="button" onClick={nextSlide}>Next</button>
+                <button type="button" onClick={returnToLive}>Live</button>
+              </div>
+
+              <div className="independent-slide-stage">
+                {independentSlideContent}
+              </div>
+            </main>
+          )}
+
+          {isBrowsingIndependently && (
+            <PresentationPip presenterName="Maya Chen" onGoLive={returnToLive}>
+              <div className="pip-slide-preview">
+                {presenterSlideContent}
+              </div>
+            </PresentationPip>
+          )}
+
+          <BubbleCanvas
+            participants={CONFERENCE_PARTICIPANTS}
+            roomId={ROOM_ID}
+            userId={viewerId}
+            isMobile={isMobile}
+          />
+          <ControlBar />
+        </>
+      )}
+
+      {/* ===== REVIEW MODE ===== */}
+      {mode === APP_MODES.REVIEW && (
+        <ReviewModePlaceholder
+          slides={SLIDES}
+          currentSlide={currentSlide}
+          onSlideChange={setCurrentSlide}
+          totalSlides={totalSlides}
+          presenterSlideContent={presenterSlideContent}
+          direction={direction}
+          slideVariants={slideVariants}
+          isMobile={isMobile}
+          viewportScale={viewportScale}
+          progressPercent={progressPercent}
+        />
+      )}
+    </div>
+  );
+}
+
+// Temporary placeholder until ReviewMode component is built in Phase 7
+function ReviewModePlaceholder({ slides, currentSlide, onSlideChange, totalSlides, presenterSlideContent, direction, slideVariants, isMobile, viewportScale, progressPercent }) {
+  const SlideComponent = slides[currentSlide];
+  const slideContent = SlideComponent ? <SlideComponent /> : null;
+
+  return (
+    <div className="review-mode">
+      <div className="review-slide-panel">
         <div className={`app-viewport${isMobile ? ' is-mobile' : ''}`} style={{ '--viewport-scale': viewportScale }}>
           <div className="grid-overlay" />
-          <HeaderBar currentSlide={currentSlide} totalSlides={totalSlides} />
-          <button type="button" className="app-site-nav-button" onClick={goToSite}>Browse independently</button>
-
           <div className="slides-stage">
             <AnimatePresence mode="wait" custom={direction}>
               <MotionDiv
@@ -246,51 +351,42 @@ function App() {
                 animate="center"
                 exit="exit"
               >
-                {presenterSlideContent}
+                {slideContent}
               </MotionDiv>
             </AnimatePresence>
           </div>
-
           <div className="progress-bar" style={{ width: `${progressPercent}%` }} />
         </div>
-      ) : (
-        <main className="attendee-page" aria-label="Independent navigation view">
-          <div className="independent-banner" role="status" aria-live="polite">
-            You are browsing slides independently while the presenter stays live in PiP.
-          </div>
 
-          <div className="independent-nav">
-            <button type="button" onClick={prevSlide}>Prev</button>
-            <span>{String(independentSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}</span>
-            <button type="button" onClick={nextSlide}>Next</button>
-            <button type="button" onClick={goToPresentation}>Live</button>
-          </div>
+        <div className="review-slide-nav">
+          <button type="button" onClick={() => onSlideChange(Math.max(0, currentSlide - 1))}>Prev</button>
+          <span className="review-slide-counter">
+            {String(currentSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
+          </span>
+          <button type="button" onClick={() => onSlideChange(Math.min(totalSlides - 1, currentSlide + 1))}>Next</button>
+        </div>
+      </div>
 
-          <div className="independent-slide-stage">
-            {independentSlideContent}
-          </div>
-        </main>
-      )}
+      <div className="review-notes-panel">
+        <div className="review-section">
+          <h3 className="review-section-title">Meeting Summary</h3>
+          <p className="review-placeholder-text">AI summary will appear here after meeting processing.</p>
+        </div>
 
-      {isPresentationLive && !isPresentationPage && (
-        <PresentationPip presenterName="Maya Chen" onGoLive={goToPresentation}>
-          <div className="pip-slide-preview">
-            {presenterSlideContent}
-          </div>
-        </PresentationPip>
-      )}
-        <BubbleCanvas
-          participants={CONFERENCE_PARTICIPANTS}
-          roomId={ROOM_ID}
-          userId={viewerId}
-          isMobile={isMobile}
-        />
+        <div className="review-section">
+          <h3 className="review-section-title">Slide Notes</h3>
+          <textarea
+            className="review-notes-textarea"
+            placeholder="Add your notes for this slide..."
+            key={currentSlide}
+          />
+        </div>
 
-        {/* Progress Bar */}
-        <div
-          className="progress-bar"
-          style={{ width: `${progressPercent}%` }}
-        />
+        <div className="review-section">
+          <h3 className="review-section-title">Transcript</h3>
+          <p className="review-placeholder-text">Transcript not yet available.</p>
+        </div>
+      </div>
     </div>
   );
 }
