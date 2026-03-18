@@ -1,4 +1,4 @@
-/* Matrix Table - Excel-like Data Table Styling */
+/* Matrix Table - Stedi-styled Data Table */
 .matrix-table {
     width: 100%;
     border-collapse: collapse;
@@ -29,41 +29,41 @@
 }
 
 .matrix-table tr:hover td {
-    background: color-mix(in srgb, var(--color-text-primary) 2%, transparent);
+    background: rgba(79, 194, 181, 0.03);
 }
 
 /* Highlighted rows */
 .matrix-table tr.row-highlight {
-    background: color-mix(in srgb, var(--color-brand-cobalt) 5%, transparent);
+    background: rgba(79, 194, 181, 0.05);
 }
 
 .matrix-table tr.row-total {
     border-top: 2px solid var(--color-border-functional);
     font-weight: 600;
-    background: color-mix(in srgb, var(--bg-void) 50%, transparent);
+    background: rgba(0, 20, 18, 0.5);
 }
 
 /* Cell highlight for emphasis */
 .matrix-table .cell-highlight {
-    background: color-mix(in srgb, var(--color-brand-cobalt) 10%, transparent);
-    color: var(--color-agent-reasoning-blue);
+    background: rgba(79, 194, 181, 0.1);
+    color: var(--teal);
     padding: 4px 8px;
     border-radius: 4px;
 }
 
 /* Color variants for values */
 .matrix-table .text-green {
-    color: var(--color-agent-extraction-green);
+    color: var(--teal-bright);
 }
 
 .matrix-table .text-blue {
-    color: var(--color-agent-reasoning-blue);
+    color: var(--teal);
 }
 
 .matrix-table .text-purple {
-    color: var(--color-agent-synthesis-purple);
+    color: var(--blue);
 }
 
 .matrix-table .text-orange {
-    color: var(--color-agent-citation-orange);
+    color: var(--orange);
 }

@@ -4,14 +4,45 @@ import './PresentationPip.css';
 const LAYOUT_KEY = 'conference.presentationPip.layout';
 const MIN_WIDTH = 300;
 const MIN_HEIGHT = 188;
+const EDGE_MARGIN = 16;
 const KEYBOARD_MOVE_STEP = 24;
 const KEYBOARD_RESIZE_STEP = 24;
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
+const getCornerPositions = (vpW, vpH, pipW, pipH) => [
+  { x: EDGE_MARGIN, y: EDGE_MARGIN },
+  { x: vpW - pipW - EDGE_MARGIN, y: EDGE_MARGIN },
+  { x: EDGE_MARGIN, y: vpH - pipH - EDGE_MARGIN },
+  { x: vpW - pipW - EDGE_MARGIN, y: vpH - pipH - EDGE_MARGIN },
+];
+
+const snapToNearestCorner = (x, y, width, height) => {
+  const vpW = window.innerWidth;
+  const vpH = window.innerHeight;
+  const corners = getCornerPositions(vpW, vpH, width, height);
+  const centerX = x + width / 2;
+  const centerY = y + height / 2;
+
+  let nearest = corners[3]; // default: bottom-right
+  let minDist = Infinity;
+
+  for (const corner of corners) {
+    const cx = corner.x + width / 2;
+    const cy = corner.y + height / 2;
+    const dist = (centerX - cx) ** 2 + (centerY - cy) ** 2;
+    if (dist < minDist) {
+      minDist = dist;
+      nearest = corner;
+    }
+  }
+
+  return nearest;
+};
+
 const getDefaultLayout = (viewportWidth = window.innerWidth, viewportHeight = window.innerHeight) => ({
-  x: Math.max(16, viewportWidth - 420),
-  y: Math.max(16, viewportHeight - 260),
+  x: Math.max(EDGE_MARGIN, viewportWidth - 420),
+  y: Math.max(EDGE_MARGIN, viewportHeight - 260),
   width: 380,
   height: 214,
   mode: 'dock',
@@ -32,6 +63,7 @@ export function PresentationPip({ presenterName = 'Presenter', onGoLive, childre
   const [layout, setLayout] = useState(loadLayout);
   const [isDragging, setIsDragging] = useState(false);
   const [isResizing, setIsResizing] = useState(false);
+  const [isSnapping, setIsSnapping] = useState(false);
   const panelRef = useRef(null);
   const dragOffset = useRef({ x: 0, y: 0 });
 
@@ -42,9 +74,9 @@ export function PresentationPip({ presenterName = 'Presenter', onGoLive, childre
   useEffect(() => {
     const handleResize = () => {
       setLayout(prev => {
-        const maxX = window.innerWidth - prev.width - 16;
-        const maxY = window.innerHeight - prev.height - 16;
-        return { ...prev, x: clamp(prev.x, 16, maxX), y: clamp(prev.y, 16, maxY) };
+        const maxX = window.innerWidth - prev.width - EDGE_MARGIN;
+        const maxY = window.innerHeight - prev.height - EDGE_MARGIN;
+        return { ...prev, x: clamp(prev.x, EDGE_MARGIN, maxX), y: clamp(prev.y, EDGE_MARGIN, maxY) };
       });
     };
 
@@ -54,12 +86,12 @@ export function PresentationPip({ presenterName = 'Presenter', onGoLive, childre
 
   const updatePosition = useCallback((clientX, clientY) => {
     setLayout(prev => {
-      const maxX = window.innerWidth - prev.width - 16;
-      const maxY = window.innerHeight - prev.height - 16;
+      const maxX = window.innerWidth - prev.width - EDGE_MARGIN;
+      const maxY = window.innerHeight - prev.height - EDGE_MARGIN;
       return {
         ...prev,
-        x: clamp(clientX - dragOffset.current.x, 16, maxX),
-        y: clamp(clientY - dragOffset.current.y, 16, maxY),
+        x: clamp(clientX - dragOffset.current.x, EDGE_MARGIN, maxX),
+        y: clamp(clientY - dragOffset.current.y, EDGE_MARGIN, maxY),
       };
     });
   }, []);
@@ -69,12 +101,14 @@ export function PresentationPip({ presenterName = 'Presenter', onGoLive, childre
     const rect = panelRef.current.getBoundingClientRect();
     dragOffset.current = { x: event.clientX - rect.left, y: event.clientY - rect.top };
     setIsDragging(true);
+    setIsSnapping(false);
     event.preventDefault();
   };
 
   const onResizeStart = (event) => {
     if (layout.mode === 'focus') return;
     setIsResizing(true);
+    setIsSnapping(false);
     event.preventDefault();
     event.stopPropagation();
   };
@@ -87,13 +121,21 @@ export function PresentationPip({ presenterName = 'Presenter', onGoLive, childre
       if (isResizing) {
         setLayout(prev => ({
           ...prev,
-          width: clamp(event.clientX - prev.x, MIN_WIDTH, window.innerWidth - prev.x - 16),
-          height: clamp(event.clientY - prev.y, MIN_HEIGHT, window.innerHeight - prev.y - 16),
+          width: clamp(event.clientX - prev.x, MIN_WIDTH, window.innerWidth - prev.x - EDGE_MARGIN),
+          height: clamp(event.clientY - prev.y, MIN_HEIGHT, window.innerHeight - prev.y - EDGE_MARGIN),
         }));
       }
     };
 
     const onUp = () => {
+      if (isDragging) {
+        // Snap to nearest corner on release
+        setLayout(prev => {
+          const snapped = snapToNearestCorner(prev.x, prev.y, prev.width, prev.height);
+          return { ...prev, ...snapped };
+        });
+        setIsSnapping(true);
+      }
       setIsDragging(false);
       setIsResizing(false);
     };
@@ -161,19 +203,19 @@ export function PresentationPip({ presenterName = 'Presenter', onGoLive, childre
     setLayout(prev => {
       const [axis, direction] = axisConfig;
       if (isMove) {
-        const maxX = window.innerWidth - prev.width - 16;
-        const maxY = window.innerHeight - prev.height - 16;
+        const maxX = window.innerWidth - prev.width - EDGE_MARGIN;
+        const maxY = window.innerHeight - prev.height - EDGE_MARGIN;
         return {
           ...prev,
-          [axis]: clamp(prev[axis] + direction * KEYBOARD_MOVE_STEP, 16, axis === 'x' ? maxX : maxY),
+          [axis]: clamp(prev[axis] + direction * KEYBOARD_MOVE_STEP, EDGE_MARGIN, axis === 'x' ? maxX : maxY),
         };
       }
 
       if (prev.mode === 'focus') return prev;
       return {
         ...prev,
-        width: clamp(prev.width + (axis === 'x' ? direction * KEYBOARD_RESIZE_STEP : 0), MIN_WIDTH, window.innerWidth - prev.x - 16),
-        height: clamp(prev.height + (axis === 'y' ? direction * KEYBOARD_RESIZE_STEP : 0), MIN_HEIGHT, window.innerHeight - prev.y - 16),
+        width: clamp(prev.width + (axis === 'x' ? direction * KEYBOARD_RESIZE_STEP : 0), MIN_WIDTH, window.innerWidth - prev.x - EDGE_MARGIN),
+        height: clamp(prev.height + (axis === 'y' ? direction * KEYBOARD_RESIZE_STEP : 0), MIN_HEIGHT, window.innerHeight - prev.y - EDGE_MARGIN),
       };
     });
 
@@ -190,12 +232,15 @@ export function PresentationPip({ presenterName = 'Presenter', onGoLive, childre
     );
   }
 
+  const snapClass = isSnapping && !isDragging ? ' is-snapping' : '';
+  const draggingClass = isDragging ? ' is-dragging' : '';
+
   return (
     <div className="presentation-pip-layer" aria-live="polite">
       <section
         ref={panelRef}
         tabIndex={0}
-        className={`presentation-pip ${layout.mode === 'focus' ? 'is-focus' : ''}`}
+        className={`presentation-pip ${layout.mode === 'focus' ? 'is-focus' : ''}${snapClass}${draggingClass}`}
         style={pipStyle}
         onKeyDown={onKeyDown}
         aria-label="Live presentation picture in picture"
@@ -205,7 +250,7 @@ export function PresentationPip({ presenterName = 'Presenter', onGoLive, childre
           <div className="presentation-pip-actions">
             <button type="button" onClick={onGoLive} aria-label="Return to live presentation">Live</button>
             <button type="button" onClick={toggleMode} aria-label="Toggle picture in picture size">{layout.mode === 'dock' ? 'Max' : 'Dock'}</button>
-            <button type="button" onClick={() => setLayout(prev => ({ ...prev, closed: true }))} aria-label="Close picture in picture">✕</button>
+            <button type="button" onClick={() => setLayout(prev => ({ ...prev, closed: true }))} aria-label="Close picture in picture">&times;</button>
           </div>
         </header>
 

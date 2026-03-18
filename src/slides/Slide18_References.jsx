@@ -61,11 +61,11 @@ export const Slide18_References = () => {
                 <div style={{ display: 'flex', gap: '16px', color: 'var(--color-agent-reasoning-blue)', fontSize: '12px', fontWeight: 600 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                         <LinkIcon size={14} />
-                        TRUST.HEBBIA.AI
+                        TRUST.STEDI.COM
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                         <LinkIcon size={14} />
-                        DOCS.HEBBIA.AI
+                        DOCS.STEDI.COM
                     </div>
                 </div>
             </div>

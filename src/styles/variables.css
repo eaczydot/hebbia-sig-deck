@@ -1,35 +1,38 @@
 :root {
-  /* HEBBIA MATRIX DESIGN SYSTEM v3.5 (Enterprise) */
-  --bg-void: #050505;
-  --bg-panel: rgba(20, 20, 20, 0.6);
-  --bg-glass: rgba(255, 255, 255, 0.03);
+  /* STEDI DESIGN SYSTEM v1.0 */
+  --bg-void: #001412;
+  --bg-panel: rgba(0, 31, 26, 0.6);
+  --bg-glass: rgba(79, 194, 181, 0.04);
 
-  --line-dim: #222;
-  --line-mid: #333;
-  --line-bright: #555;
+  --line-dim: rgba(79, 194, 181, 0.12);
+  --line-mid: rgba(79, 194, 181, 0.2);
+  --line-bright: rgba(79, 194, 181, 0.35);
 
-  --txt-pri: #F0F0F0;
-  --txt-sec: #888;
-  --txt-dim: #444;
-  --txt-accent: #FFF;
+  --txt-pri: #e6f2f0;
+  --txt-sec: #7fada5;
+  --txt-dim: #3d6b64;
+  --txt-accent: #ffffff;
 
-  /* Agent Colors */
-  --blue: #3B82F6;
-  --green: #10B981;
-  --purple: #8B5CF6;
-  --orange: #F59E0B;
-  --red: #EF4444;
+  /* Stedi Accent Colors */
+  --teal: #4fc2b5;
+  --teal-bright: #73d6c9;
+  --teal-deep: #1f968c;
+  --teal-dark: #00726b;
+  --orange: #fabd5e;
+  --red: #f07575;
+  --blue: #73d3ff;
+  --purple: #ba82ea;
 
   --ease: cubic-bezier(0.19, 1, 0.22, 1);
 
   /* Canvas */
   --color-canvas-base: var(--bg-void);
-  --color-canvas-layer-1: #111;
-  --color-canvas-layer-2: #141414;
-  --color-canvas-charcoal: #1b1b1b;
+  --color-canvas-layer-1: #001f1a;
+  --color-canvas-layer-2: #002621;
+  --color-canvas-charcoal: #00322b;
 
-  /* Hebbia Brand Background */
-  --color-overlay-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  /* Stedi Background */
+  --color-overlay-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
 
   /* Borders */
   --color-border-subtle: var(--line-dim);
@@ -42,34 +45,35 @@
   --color-text-tertiary: var(--txt-dim);
   --color-text-code: var(--txt-pri);
 
-  /* Brand Blues - Precise Hebbia Extracts */
-  --color-brand-cobalt: var(--blue);
-  --color-brand-lapis: #1B30D4;
-  --color-brand-sky: #B5E4FF;
+  /* Brand Teals - Stedi Palette */
+  --color-brand-primary: var(--teal);
+  --color-brand-cobalt: var(--teal);
+  --color-brand-lapis: var(--teal-deep);
+  --color-brand-sky: var(--teal-bright);
 
-  /* Agents: Enhanced Palette with Brand Blues */
-  --color-agent-reasoning-blue: var(--blue);
-  --color-agent-reasoning-glow: rgba(59, 130, 246, 0.3);
+  /* Agents: Teal-centric Palette */
+  --color-agent-reasoning-blue: var(--teal);
+  --color-agent-reasoning-glow: rgba(79, 194, 181, 0.3);
 
-  --color-agent-extraction-green: var(--green);
-  --color-agent-extraction-glow: rgba(16, 185, 129, 0.3);
+  --color-agent-extraction-green: var(--teal-bright);
+  --color-agent-extraction-glow: rgba(115, 214, 201, 0.3);
 
-  --color-agent-synthesis-purple: var(--purple);
-  --color-agent-synthesis-glow: rgba(139, 92, 246, 0.3);
+  --color-agent-synthesis-purple: var(--blue);
+  --color-agent-synthesis-glow: rgba(115, 211, 255, 0.3);
 
   --color-agent-citation-orange: var(--orange);
-  --color-agent-citation-glow: rgba(245, 158, 11, 0.3);
+  --color-agent-citation-glow: rgba(250, 189, 94, 0.3);
 
   /* Gradients */
-  --gradient-matrix-glow: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.2) 0%, rgba(0, 0, 0, 0) 60%);
-  --gradient-glass-surface: linear-gradient(145deg, rgba(20, 20, 20, 0.6) 0%, rgba(10, 10, 10, 0.8) 100%);
-  --gradient-glass-border: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
-  --gradient-hero-text: linear-gradient(135deg, #FFFFFF 0%, #9CA3AF 100%);
+  --gradient-matrix-glow: radial-gradient(circle at 50% 0%, rgba(79, 194, 181, 0.15) 0%, rgba(0, 20, 18, 0) 60%);
+  --gradient-glass-surface: linear-gradient(145deg, rgba(0, 31, 26, 0.6) 0%, rgba(0, 15, 13, 0.8) 100%);
+  --gradient-glass-border: linear-gradient(180deg, rgba(79, 194, 181, 0.2) 0%, rgba(79, 194, 181, 0.05) 100%);
+  --gradient-hero-text: linear-gradient(135deg, #FFFFFF 0%, #7fada5 100%);
 
-  /* Typography - Brand Aligned */
+  /* Typography - Stedi Aligned */
   --font-primary: 'Inter', sans-serif;
   --font-serif: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-mono: 'IBM Plex Mono', 'Noto Sans Mono', monospace;
   --font-display: 'Inter', sans-serif;
 
   /* Spacing & Layout */
@@ -84,19 +88,18 @@
   /* Components: Matrix Grid */
   --matrix-cell-padding: 12px 16px;
   --matrix-border-width: 1px;
-  --matrix-header-bg: rgba(15, 23, 42, 0.8);
+  --matrix-header-bg: rgba(0, 38, 33, 0.8);
 
   /* Components: Agent Pill */
-  --pill-radius: 9999px;
-  /* More rounded for pills */
+  --pill-radius: 6px;
   --pill-padding: 6px 12px;
   --pill-text-size: 12px;
-  --pill-bg: rgba(70, 91, 255, 0.15);
-  --pill-border: rgba(70, 91, 255, 0.3);
+  --pill-bg: rgba(79, 194, 181, 0.1);
+  --pill-border: rgba(79, 194, 181, 0.25);
 
   /* Components: Glass Panel */
   --glass-backdrop-blur: 16px;
-  --glass-radius: 12px;
+  --glass-radius: 8px;
 
   /* Animation Durations */
   --duration-fast: 0.2s;

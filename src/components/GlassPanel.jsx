@@ -8,18 +8,18 @@ export const GlassPanel = ({ children, className = '', style = {}, active = fals
                 position: 'relative',
                 display: 'flex',
                 flexDirection: 'column',
-                ...style // Allow overrides
+                ...style
             }}
         >
-            {/* Top Gloss Highlight */}
+            {/* Top Gloss Highlight - Stedi teal tint */}
             <div style={{
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 right: 0,
                 height: '1px',
-                background: 'linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-text-primary) 30%, transparent), transparent)',
-                opacity: 0.5
+                background: 'linear-gradient(90deg, transparent, rgba(79, 194, 181, 0.3), transparent)',
+                opacity: 0.6
             }} />
 
             {children}

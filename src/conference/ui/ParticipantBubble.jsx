@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './ParticipantBubble.module.css';
 
 const initialsFromName = (name) => {
@@ -16,19 +16,39 @@ const initialsFromName = (name) => {
 
 export const ParticipantBubble = ({
   participant,
+  videoTrack,
   style,
   onPointerDown,
   onResizePointerDown,
 }) => {
   const initials = initialsFromName(participant?.name);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+    if (videoTrack) {
+      const stream = new MediaStream([videoTrack]);
+      videoRef.current.srcObject = stream;
+    } else {
+      videoRef.current.srcObject = null;
+    }
+  }, [videoTrack]);
+
+  const showVideo = participant?.cameraOn && videoTrack;
 
   return (
     <div className={styles.bubbleWrapper} style={style}>
       <div className={styles.bubble} onPointerDown={onPointerDown}>
-        {participant?.cameraOn ? (
-          <div className={styles.cameraOnFill}>
-            <div className={styles.liveBadge}>LIVE</div>
-          </div>
+        {showVideo ? (
+          <video
+            ref={videoRef}
+            autoPlay
+            playsInline
+            muted
+            className={styles.videoFill}
+          />
+        ) : participant?.cameraOn ? (
+          <div className={styles.cameraOnFill} />
         ) : (
           <div className={styles.avatarFallback}>
             <span className={styles.initials}>{initials}</span>
@@ -39,9 +59,7 @@ export const ParticipantBubble = ({
           <span>{participant?.name || 'Participant'}</span>
         </div>
 
-        <button
-          type="button"
-          aria-label={`Resize ${participant?.name || 'participant'} bubble`}
+        <div
           className={styles.resizeHandle}
           onPointerDown={onResizePointerDown}
         />

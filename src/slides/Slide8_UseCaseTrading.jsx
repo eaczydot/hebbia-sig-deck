@@ -9,7 +9,7 @@ export const Slide8_UseCaseTrading = () => {
         headers: [
             { label: 'WORKFLOW', style: { width: '20%' } },
             { label: 'INPUTS', style: { width: '30%' } },
-            { label: 'HEBBIA AGENT ACTION', style: { width: '30%' } },
+            { label: 'STEDI AGENT ACTION', style: { width: '30%' } },
             { label: 'OUTPUT (DONE)', style: { width: '20%' } }
         ],
         rows: [
