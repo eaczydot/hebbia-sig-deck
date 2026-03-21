@@ -9,7 +9,7 @@ export const Slide2_ExecutiveSummary = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">01 // EXECUTIVE SUMMARY</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Unlocking Capacity, Accelerating Conviction</h2>
+                <h2 className="text-hero" style={{ fontSize: '48px' }}>Modern Infrastructure for Healthcare Transactions</h2>
             </div>
 
             {/* 2x2 Grid */}
@@ -22,37 +22,37 @@ export const Slide2_ExecutiveSummary = () => {
             >
                 {/* Box 1: Problem */}
                 <GlassPanel style={{ padding: '30px' }}>
-                    <div className="text-matrix-header" style={{ color: 'var(--red)' }}>THE CONSTRAINT</div>
-                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>Decision Latency</div>
+                    <div className="text-matrix-header" style={{ color: 'var(--red)' }}>THE PROBLEM</div>
+                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>Legacy Infrastructure</div>
                     <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
-                        SIG's core challenge is not data access, but the latency in converting vast unstructured data into decision-ready insight. Manual review creates a linear ceiling on growth.
+                        Most of the revenue cycle is spent waiting. Legacy clearinghouses are black boxes: slow to integrate, impossible to debug, and stuck in the EDI era.
                     </p>
                 </GlassPanel>
 
                 {/* Box 2: Solution */}
                 <GlassPanel style={{ padding: '30px' }}>
                     <div className="text-matrix-header" style={{ color: 'var(--color-agent-reasoning-blue)' }}>THE SOLUTION</div>
-                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>Reasoning Engine</div>
+                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>API-First Clearinghouse</div>
                     <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
-                        Hebbia transforms document workflows into a scalable reasoning engine. We automate data extraction and synthesis to increase throughput.
+                        Stedi brings best-in-class software standards to healthcare transactions: fast APIs, reliable connections, scalable architecture, meticulous engineering. No compromises.
                     </p>
                 </GlassPanel>
 
                 {/* Box 3: Value */}
                 <GlassPanel style={{ padding: '30px' }}>
-                    <div className="text-matrix-header" style={{ color: 'var(--color-agent-extraction-green)' }}>PROJECTED VALUE</div>
-                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>&gt;3x ROI & Leverage</div>
+                    <div className="text-matrix-header" style={{ color: 'var(--color-agent-extraction-green)' }}>PROVEN RESULTS</div>
+                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>Trusted by Innovators</div>
                     <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
-                        By compressing research cycle times by 30-50%, we unlock thousands of expert hours annually for higher-value strategy.
+                        "Stedi didn't just give us better APIs. They gave us the support to scale, automate, and build a better product." — Nolan Chase, Co-founder of Berry Street
                     </p>
                 </GlassPanel>
 
                 {/* Box 4: Plan */}
                 <GlassPanel style={{ padding: '30px' }}>
-                    <div className="text-matrix-header" style={{ color: 'var(--color-agent-synthesis-purple)' }}>NEXT STEPS</div>
-                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>6-Week Pilot</div>
+                    <div className="text-matrix-header" style={{ color: 'var(--color-agent-synthesis-purple)' }}>GET STARTED</div>
+                    <div style={{ fontSize: '24px', marginBottom: '10px', color: 'var(--color-text-primary)', fontWeight: 500 }}>Live in a Day</div>
                     <p style={{ fontSize: '14px', color: 'var(--color-text-secondary)', lineHeight: 1.6 }}>
-                        A low-risk, high-impact pilot targeting 1-2 workflows (Quant/Legal) to validate efficiency gains and auditability.
+                        Dedicated Slack or Teams channel for every customer. Average response: under 10 minutes. Go from sign-up to first transaction in hours, not months.
                     </p>
                 </GlassPanel>
             </motion.div>

@@ -55,7 +55,7 @@ export const HeaderBar = ({
                     {isDemoMode ? '● Demo mode' : 'Demo mode'}
                 </button>
             </span>
-            <span>CONFIDENTIAL: SIG PROPOSAL</span>
+            <span>CONFIDENTIAL: STEDI ENTERPRISE</span>
         </div>
     );
 };

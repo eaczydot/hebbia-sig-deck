@@ -2,29 +2,29 @@ const STORAGE_PREFIX = 'qa:';
 
 const MOCK_RESPONSES = {
   intro: [
-    'This deck covers our strategic rationale for adopting Hebbia as an AI-powered document analysis platform. The executive summary outlines the key value drivers and expected ROI.',
-    'The strategic context section addresses current market pressures and how AI-driven document intelligence fits into our broader technology modernization initiative.',
+    'Stedi is the only programmable healthcare clearinghouse. We offer modern, AI-ready APIs for eligibility checks, claims, transaction enrollment, and more. Connect to 3,400+ medical and dental payers.',
+    'The revenue cycle is how healthcare providers get paid. When it slows down, the provider\'s cash flow dries up. Most of the revenue cycle is spent waiting. Stedi automates the critical path.',
   ],
   product: [
-    'Hebbia\'s reasoning engine uses a multi-step approach to analyze documents — it breaks complex queries into sub-tasks, retrieves relevant passages, and synthesizes structured answers with citations.',
-    'The security architecture includes SOC 2 Type II compliance, end-to-end encryption, and on-premise deployment options. Data never leaves your VPC.',
-    'The integration section covers API connectivity with existing systems including your document management platform, compliance tools, and internal knowledge bases.',
+    'Stedi\'s APIs translate your JSON requests to X12 EDI format and route them to payers automatically. Real-time eligibility checks typically return results in 1-3 seconds. No EDI expertise required.',
+    'The Stedi Payer Network maps all of a payer\'s commonly used names and IDs to a single stable record. Stedi automatically uses the required ID for each payer on the backend. No stale CSVs or manual mapping.',
+    'The Stedi MCP server gives AI agents plug-and-play access to Stedi\'s Real-Time Eligibility and Search Payers API endpoints, along with built-in guidance for common errors.',
   ],
   value: [
-    'Our ROI analysis projects a 3.2x return within the first 18 months, driven primarily by analyst time savings and faster deal execution.',
-    'The pilot plan proposes a 90-day phased rollout starting with the trading desk, followed by quant research, then legal review workflows.',
-    'Capacity modeling shows each analyst can process approximately 4x more documents per day with Hebbia, without sacrificing depth of analysis.',
+    'Automating eligibility checks alone saves 6-8 minutes per verification. At scale, that translates to hundreds of thousands in annual savings. Automating parts of the revenue cycle can cut 10-20 days off the typical 30-60 day cycle.',
+    'Getting started takes less than a day. Create an account, get API keys, send your first eligibility check — all within hours. Test keys let you send mock requests and receive realistic responses before going live.',
+    'Stedi supports real-time eligibility for 1,100+ payers, claims for 2,700+, claim status for 300+, and ERAs for 1,800+. 850+ payers support one-click transaction enrollment.',
   ],
   risks: [
-    'The competitive landscape slide compares Hebbia against alternatives including Kira Systems, Luminance, and general-purpose LLM tools. Key differentiators are domain specificity and auditability.',
-    'Risk mitigation strategies include a phased rollout with clear success metrics at each gate, fallback to manual processes, and a dedicated vendor management review.',
+    'Unlike legacy clearinghouses, Stedi offers JSON-native APIs, programmatic payer lists, and no long-term contracts. Unlike point solutions, we offer the full transaction suite: eligibility, claims, ERAs, claim status, and attachments.',
+    'Stedi is HIPAA compliant. We offer BAAs to all customers. API keys are role-based. Idempotency keys prevent duplicate claims. We maintain backwards compatibility across API versions.',
   ],
 };
 
 const getResponseCategory = (slideIndex) => {
-  if (slideIndex <= 5) return 'intro';
-  if (slideIndex <= 13) return 'product';
-  if (slideIndex <= 18) return 'value';
+  if (slideIndex <= 3) return 'intro';
+  if (slideIndex <= 8) return 'product';
+  if (slideIndex <= 12) return 'value';
   return 'risks';
 };
 

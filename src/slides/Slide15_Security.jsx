@@ -6,23 +6,23 @@ import { motion } from 'framer-motion';
 export const Slide15_Security = () => {
     const securityItems = [
         {
-            header: 'ZERO DATA RETENTION',
-            desc: 'Hebbia does not retain data longer than necessary for processing. No training on customer data.',
+            header: '99.9% UPTIME SLA',
+            desc: 'Redundant routes and automatic failover keep transactions flowing fast, even during upstream outages. Real-time monitoring across the entire payer network.',
             color: 'var(--color-agent-reasoning-blue)'
         },
         {
-            header: 'DEDICATED COMPUTE',
-            desc: 'Each enterprise tenant runs on an isolated compute cluster within our secure Azure/AWS perimeter.',
+            header: 'HIPAA COMPLIANT',
+            desc: 'Full HIPAA compliance with BAA. PHI encrypted at rest and in transit. Production API keys secured with role-based access.',
             color: 'var(--color-agent-extraction-green)'
         },
         {
-            header: 'MNPI & PII PROTECTION',
-            desc: 'Automated PII/MNPI redaction and classification workflows baked into the reasoning engine.',
+            header: 'REAL-TIME MONITORING',
+            desc: 'We strive to maintain backwards compatibility. Idempotency keys prevent duplicate claims during network errors. Transaction-level observability.',
             color: 'var(--color-agent-synthesis-purple)'
         },
         {
-            header: 'FLEXIBLE DEPLOYMENT',
-            desc: 'VPC, Private Cloud, or Managed SaaS - we meet SIG\'s security requirements where they are.',
+            header: 'RESPONSIVE HUMAN SUPPORT',
+            desc: '"Stedi delivers the highest quality support and a headache-free implementation process." — Kara Brenholt, Product at Candid Health',
             color: 'var(--color-agent-citation-orange)'
         }
     ];
@@ -31,8 +31,8 @@ export const Slide15_Security = () => {
         <SlideContainer>
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
-                <div className="text-matrix-header">13 // SECURITY</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Enterprise-Grade Security</h2>
+                <div className="text-matrix-header">10 // PLATFORM</div>
+                <h2 className="text-hero" style={{ fontSize: '48px' }}>Enterprise-Grade Reliability</h2>
             </div>
 
             {/* 2x2 Grid */}
@@ -65,7 +65,7 @@ export const Slide15_Security = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
             >
-                {['SOC 2 TYPE II', 'AES-256', 'TLS 1.3', 'SAML/SSO', 'GDPR'].map((cert, i) => (
+                {['HIPAA', 'BAA', 'SOC 2 TYPE II', 'AES-256', 'TLS 1.3'].map((cert, i) => (
                     <span key={i} className="pill green">{cert}</span>
                 ))}
             </motion.div>

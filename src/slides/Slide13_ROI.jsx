@@ -8,43 +8,51 @@ import { motion } from 'framer-motion';
 export const Slide13_ROI = () => {
     const roiData = {
         headers: [
-            { label: 'DEPARTMENT' },
-            { label: 'HEADCOUNT (EST)', style: { textAlign: 'center' } },
-            { label: 'HOURS SAVED (YR)', style: { textAlign: 'center' } },
-            { label: 'VALUE CREATED', style: { textAlign: 'center', color: 'var(--color-agent-extraction-green)' } }
+            { label: 'WORKFLOW' },
+            { label: 'BEFORE STEDI', style: { textAlign: 'center' } },
+            { label: 'AFTER STEDI', style: { textAlign: 'center' } },
+            { label: 'ANNUAL IMPACT', style: { textAlign: 'center', color: 'var(--color-agent-extraction-green)' } }
         ],
         rows: [
             {
                 cells: [
-                    { content: 'Trading / Desk' },
-                    { content: '100', style: { textAlign: 'center' } },
-                    { content: '40,000', style: { textAlign: 'center' } },
-                    { content: '$10.0 M', style: { textAlign: 'center', color: 'var(--color-agent-extraction-green)' } }
+                    { content: 'Eligibility Verification' },
+                    { content: 'Manual/phone (8 min avg)', style: { textAlign: 'center' } },
+                    { content: 'API (1-3 seconds)', style: { textAlign: 'center' } },
+                    { content: '$180K', style: { textAlign: 'center', color: 'var(--color-agent-extraction-green)' } }
                 ]
             },
             {
                 cells: [
-                    { content: 'Quant Research' },
-                    { content: '50', style: { textAlign: 'center' } },
-                    { content: '20,000', style: { textAlign: 'center' } },
-                    { content: '$5.0 M', style: { textAlign: 'center', color: 'var(--color-agent-extraction-green)' } }
+                    { content: 'Claim Submission' },
+                    { content: 'Batch EDI files, manual edits', style: { textAlign: 'center' } },
+                    { content: 'Real-time API, automated edits', style: { textAlign: 'center' } },
+                    { content: '$120K', style: { textAlign: 'center', color: 'var(--color-agent-extraction-green)' } }
                 ]
             },
             {
                 cells: [
-                    { content: 'Legal / Compliance' },
-                    { content: '20', style: { textAlign: 'center' } },
-                    { content: '8,000', style: { textAlign: 'center' } },
-                    { content: '$2.0 M', style: { textAlign: 'center', color: 'var(--color-agent-extraction-green)' } }
+                    { content: 'Denial Management' },
+                    { content: 'Manual rework, phone calls', style: { textAlign: 'center' } },
+                    { content: 'Pre-submission validation', style: { textAlign: 'center' } },
+                    { content: '$240K', style: { textAlign: 'center', color: 'var(--color-agent-extraction-green)' } }
+                ]
+            },
+            {
+                cells: [
+                    { content: 'ERA Processing' },
+                    { content: 'Manual posting from paper EOBs', style: { textAlign: 'center' } },
+                    { content: 'Auto-parsed webhooks (835)', style: { textAlign: 'center' } },
+                    { content: '$90K', style: { textAlign: 'center', color: 'var(--color-agent-extraction-green)' } }
                 ]
             },
             {
                 className: 'row-total',
                 cells: [
-                    { content: 'TOTAL' },
-                    { content: '170', style: { textAlign: 'center' } },
-                    { content: '68,000', style: { textAlign: 'center' } },
-                    { content: '$17.0 M / YR', style: { textAlign: 'center', color: 'var(--color-agent-extraction-green)', fontWeight: 700 } }
+                    { content: 'TOTAL ANNUAL IMPACT' },
+                    { content: '', style: { textAlign: 'center' } },
+                    { content: '', style: { textAlign: 'center' } },
+                    { content: '$630K / YR', style: { textAlign: 'center', color: 'var(--color-agent-extraction-green)', fontWeight: 700 } }
                 ]
             }
         ]
@@ -55,7 +63,7 @@ export const Slide13_ROI = () => {
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
                 <div className="text-matrix-header">12 // ROI ANALYSIS</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Quantified Value Hypothesis</h2>
+                <h2 className="text-hero" style={{ fontSize: '48px' }}>Revenue Cycle Impact</h2>
             </div>
 
             {/* Split Layout */}
@@ -64,18 +72,19 @@ export const Slide13_ROI = () => {
                 <div className="stagger-in active">
                     <ContextBox header="THE MODEL">
                         <div className="u-font-mono" style={{ fontSize: '14px' }}>
-                            Annual Savings = <br />
-                            (Hours Saved/Task)<br />
-                            x (Tasks/Year)<br />
-                            x (Fully Loaded Rate)
+                            Savings = <br />
+                            (Manual Hours Eliminated<br />
+                            × Staff Cost/Hr)<br />
+                            + (Denial Reduction<br />
+                            × Avg Claim Value)
                         </div>
                     </ContextBox>
 
-                    <ContextBox header="ASSUMPTIONS (BASE CASE)" style={{ marginTop: '30px' }}>
+                    <ContextBox header="KEY METRICS" style={{ marginTop: '30px' }}>
                         <div className="u-font-mono" style={{ fontSize: '14px' }}>
-                            &gt; Adoption: 70%<br />
-                            &gt; Time Saved: 8hr/wk/user<br />
-                            &gt; Avg Rate: $250/hr
+                            &gt; Eligibility: 1-3 sec vs 8 min manual<br />
+                            &gt; Enrollment: 1-2 days vs weeks<br />
+                            &gt; Cycle reduction: 10-20 days off 30-60 day cycle
                         </div>
                     </ContextBox>
                 </div>
@@ -92,7 +101,7 @@ export const Slide13_ROI = () => {
                             rows={roiData.rows}
                         />
                         <div style={{ marginTop: '20px', fontSize: '12px', color: 'var(--color-text-tertiary)', textAlign: 'right' }}>
-                            *Values are illustrative based on standard financial services benchmarks.
+                            *Based on 50K claims/month. Actual savings vary by volume and workflow complexity.
                         </div>
                     </GlassPanel>
                 </motion.div>
