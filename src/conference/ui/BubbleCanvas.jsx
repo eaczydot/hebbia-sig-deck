@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   constrainBubbleToBounds,
   getMobileSnapPosition,
@@ -58,11 +58,7 @@ export const BubbleCanvas = ({ participants, roomId, userId, isMobile }) => {
     saveLocalLayout({ roomId, userId, layout });
   }, [layout, roomId, userId]);
 
-  const maxZ = useMemo(() => {
-    return Object.values(layout).reduce((max, item) => Math.max(max, item.z || 1), 1);
-  }, [layout]);
-
-  const startInteraction = (event, participantId, mode) => {
+  const startInteraction = useCallback((event, participantId, mode) => {
     const item = layout[participantId];
     if (!item) {
       return;
@@ -81,11 +77,13 @@ export const BubbleCanvas = ({ participants, roomId, userId, isMobile }) => {
 
     dragStateRef.current = start;
 
+    // Capture maxZ at interaction start to avoid stale closure
+    const currentMaxZ = Object.values(layout).reduce((max, it) => Math.max(max, it.z || 1), 1);
     setLayout(prev => ({
       ...prev,
       [participantId]: {
         ...prev[participantId],
-        z: maxZ + 1,
+        z: currentMaxZ + 1,
       },
     }));
 
@@ -167,7 +165,7 @@ export const BubbleCanvas = ({ participants, roomId, userId, isMobile }) => {
 
     window.addEventListener('pointermove', handleMove);
     window.addEventListener('pointerup', handleUp);
-  };
+  }, [layout, bounds, isMobile]);
 
   return (
     <div
