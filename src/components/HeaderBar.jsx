@@ -48,6 +48,7 @@ export const HeaderBar = ({
             <span style={{ color: 'var(--txt-sec)', display: 'flex', gap: '8px', alignItems: 'center' }}>
                 {String(currentSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
                 <button
+                    type="button"
                     onClick={onDemoModeChange}
                     style={isDemoMode ? btnActive : btnBase}
                     title={isDemoMode ? 'Exit demo mode' : 'Enter demo mode (shows video bubbles)'}
@@ -55,7 +56,7 @@ export const HeaderBar = ({
                     {isDemoMode ? '● Demo mode' : 'Demo mode'}
                 </button>
             </span>
-            <span>CONFIDENTIAL: SIG PROPOSAL</span>
+            <span>CONFIDENTIAL: STEDI ENTERPRISE</span>
         </div>
     );
 };

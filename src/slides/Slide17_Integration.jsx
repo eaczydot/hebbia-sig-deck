@@ -33,10 +33,10 @@ export const Slide17_Integration = () => {
     return (
         <SlideContainer>
             <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-                <div className="text-matrix-header" style={{ justifyContent: 'center' }}>DATA STRATEGY</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>Native Integration & Sync</h2>
+                <div className="text-matrix-header" style={{ justifyContent: 'center' }}>13 // INTEGRATION</div>
+                <h2 className="text-hero" style={{ fontSize: '48px' }}>Connect Your Systems</h2>
                 <p className="text-subhero" style={{ maxWidth: '600px', margin: '24px auto' }}>
-                    Connect Hebbia to SIG's internal data sources without complex migration.
+                    Stedi's REST APIs use JSON, not raw EDI. SDKs, webhooks, and comprehensive documentation.
                 </p>
             </div>
 
@@ -44,13 +44,13 @@ export const Slide17_Integration = () => {
 
                 {/* Source Grid (Left) */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '40px', position: 'absolute', left: '10%' }}>
-                    <Connector icon={Folder} label="SHAREPOINT" color="var(--color-agent-reasoning-blue)" delay={0.2} />
-                    <Connector icon={Mail} label="EMAIL / EXCHANGE" color="var(--color-agent-extraction-green)" delay={0.3} />
-                    <Connector icon={Database} label="S3 / BLOB STORAGE" color="var(--color-agent-synthesis-purple)" delay={0.4} />
-                    <Connector icon={Server} label="SFTP / SHARED DRIVE" color="var(--color-agent-citation-orange)" delay={0.5} />
+                    <Connector icon={Folder} label="EHR / PM SYSTEM" color="var(--color-agent-reasoning-blue)" delay={0.2} />
+                    <Connector icon={Mail} label="BILLING ENGINE" color="var(--color-agent-extraction-green)" delay={0.3} />
+                    <Connector icon={Database} label="RCM PLATFORM" color="var(--color-agent-synthesis-purple)" delay={0.4} />
+                    <Connector icon={Server} label="AI AGENTS (MCP)" color="var(--color-agent-citation-orange)" delay={0.5} />
                 </div>
 
-                {/* Central Hub (Hebbia) */}
+                {/* Central Hub (Stedi) */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -72,7 +72,7 @@ export const Slide17_Integration = () => {
                     }}>
                         <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.1em' }}>STEDI</div>
                         <div style={{ width: '40px', height: '2px', background: 'var(--color-agent-reasoning-blue)' }}></div>
-                        <div className="text-matrix-header" style={{ fontSize: '10px' }}>REASONING CORE</div>
+                        <div className="text-matrix-header" style={{ fontSize: '10px' }}>CLEARINGHOUSE API</div>
                     </GlassPanel>
 
                     {/* Particle / Line pulses moving inward */}
@@ -106,15 +106,15 @@ export const Slide17_Integration = () => {
                     style={{ position: 'absolute', right: '10%', maxWidth: '280px' }}
                 >
                     <GlassPanel style={{ padding: '24px' }}>
-                        <div className="text-matrix-header">REAL-TIME SYNC</div>
-                        <h4 style={{ color: 'var(--color-text-primary)', fontSize: '18px', fontWeight: 600, marginBottom: '12px' }}>Always Accurate</h4>
+                        <div className="text-matrix-header">DEVELOPER-FIRST</div>
+                        <h4 style={{ color: 'var(--color-text-primary)', fontSize: '18px', fontWeight: 600, marginBottom: '12px' }}>Ship in Hours</h4>
                         <p className="text-cell-data" style={{ fontSize: '13px' }}>
-                            Hebbia maintains a persistent index. When a document is updated in SharePoint or a new email arrives in Exchange, the Hebbia Matrix reflects the changes instantly.
+                            You need an API key to use any Stedi API. Test keys let you send mock requests and receive realistic responses. Production keys connect to real payers. Idempotency keys prevent duplicate claims.
                         </p>
                         <hr style={{ border: 0, height: '1px', background: 'var(--color-border-functional)', margin: '20px 0' }} />
                         <div style={{ display: 'flex', gap: '8px', alignItems: 'center', color: 'var(--color-agent-reasoning-blue)' }}>
                             <Zap size={16} />
-                            <span style={{ fontSize: '11px', fontWeight: 700 }}>ZERO MIGRATION REQUIRED</span>
+                            <span style={{ fontSize: '11px', fontWeight: 700 }}>LIVE IN A DAY</span>
                         </div>
                     </GlassPanel>
                 </motion.div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { SlideContainer } from '../components/SlideContainer';
 import { GlassPanel } from '../components/GlassPanel';
 import { motion } from 'framer-motion';
-import { Brain, Search, GitBranch, Terminal } from 'lucide-react';
+import { Shield, Search, GitBranch, Terminal } from 'lucide-react';
 
 const OrchestrationStep = ({ icon: Icon, title, steps, delay }) => (
     <motion.div
@@ -36,63 +36,63 @@ export const Slide21_ReasoningEngine = () => {
     return (
         <SlideContainer>
             <div style={{ marginBottom: '60px' }}>
-                <div className="text-matrix-header">DEEP DIVE // CORE ENGINE</div>
-                <h2 className="text-hero" style={{ fontSize: '48px', marginBottom: '16px' }}>Agentic Orchestration</h2>
+                <div className="text-matrix-header">08 // PAYER NETWORK</div>
+                <h2 className="text-hero" style={{ fontSize: '48px', marginBottom: '16px' }}>Connect to 3,400+ Medical and Dental Payers</h2>
                 <p className="text-subhero" style={{ maxWidth: '700px', fontSize: '20px' }}>
-                    Hebbia solves the "RAG Gap" by decomposing complex reasoning into atomic, verifiable logic traces.
+                    The broadest coverage of any clearinghouse. Onboard in a day. Start transacting in minutes.
                 </p>
             </div>
 
             <div style={{ display: 'flex', gap: '20px', alignItems: 'stretch' }}>
                 <OrchestrationStep
-                    icon={Brain}
-                    title="1. Intent Parsing"
+                    icon={Shield}
+                    title="Government & Commercial"
                     steps={[
-                        "Query: Calculate EBITDA leverage",
-                        "Step A: Define EBITDA formula",
-                        "Step B: Map GAAP to non-GAAP",
-                        "Step C: Identify period end dates"
+                        "Connect to Medicare",
+                        "State Medicaid programs",
+                        "Every major commercial payer",
+                        "Medical and dental payers"
                     ]}
                     delay={0.2}
                 />
                 <OrchestrationStep
                     icon={Search}
-                    title="2. Context Retrieval"
+                    title="Programmatic Discovery"
                     steps={[
-                        "Semantic search across 10M+ pgs",
-                        "Hybrid keyword-vector ranking",
-                        "Structural metadata extraction",
-                        "OCR for scanned/handwritten notes"
+                        "Search by payer name or ID",
+                        "Search Payers API",
+                        "Payer Network site",
+                        "Stable records, unified aliases"
                     ]}
                     delay={0.4}
                 />
                 <OrchestrationStep
                     icon={GitBranch}
-                    title="3. Logic Branching"
+                    title="Fast, Reliable Routing"
                     steps={[
-                        "Parallel execution of sub-queries",
-                        "Validation against 10-K footnotes",
-                        "Cross-doc conflict resolution",
-                        "Verification of logic consistency"
+                        "Redundant payer routes",
+                        "Automatic failover",
+                        "Upstream outage resilience",
+                        "Sub-second response times"
                     ]}
                     delay={0.6}
                 />
                 <OrchestrationStep
                     icon={Terminal}
-                    title="4. Synthesis"
+                    title="Broad Transaction Support"
                     steps={[
-                        "Aggregating into Matrix rows",
-                        "Generating traceable citations",
-                        "Final LLM reasoning check",
-                        "API delivery to SIG terminal"
+                        "837P, 837I, 837D claims",
+                        "270/271 eligibility",
+                        "276/277 claim status",
+                        "835 ERAs, 275 attachments"
                     ]}
                     delay={0.8}
                 />
             </div>
 
-            {/* Logical Flow Viz */}
+            {/* Network Stats */}
             <div style={{ marginTop: 'auto', textAlign: 'center', opacity: 0.5 }}>
-                <div className="text-mono-data" style={{ fontSize: '10px' }}>LOGICAL TRACE: ID_8523F326 • DURATION: 12.4s • CONFIDENCE: 98.4%</div>
+                <div className="text-mono-data" style={{ fontSize: '10px' }}>NETWORK: 3,400+ PAYERS • ELIGIBILITY: 1,100+ • CLAIMS: 2,700+ • ERAs: 1,800+</div>
             </div>
         </SlideContainer>
     );

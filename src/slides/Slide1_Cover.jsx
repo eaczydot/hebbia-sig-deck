@@ -23,8 +23,6 @@ export const Slide1_Cover = () => {
                 >
                     <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
                         <div style={{ fontWeight: 800, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-brand-primary)' }}>STEDI</div>
-                        <div style={{ width: '1px', height: '16px', background: 'var(--color-border-functional)' }}></div>
-                        <div style={{ fontWeight: 700, fontSize: '24px', letterSpacing: '0.15em', color: 'var(--color-text-tertiary)' }}>SIG</div>
                     </div>
                     <div style={{
                         padding: '6px 12px',
@@ -36,7 +34,7 @@ export const Slide1_Cover = () => {
                         fontWeight: 700,
                         letterSpacing: '0.1em'
                     }}>
-                        STRATEGIC PARTNERSHIP
+                        ENTERPRISE PLATFORM
                     </div>
                 </motion.div>
 
@@ -47,7 +45,7 @@ export const Slide1_Cover = () => {
                     transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                 >
                     <h1 className="text-hero" style={{ fontSize: 'clamp(44px, 10vw, 84px)', marginBottom: '24px', lineHeight: 1, letterSpacing: '-0.04em' }}>
-                        Unlocking Growth & <br /> Operating Leverage
+                        The only programmable <br /> healthcare clearinghouse
                     </h1>
                     <p style={{
                         fontSize: 'clamp(18px, 3.6vw, 26px)',
@@ -58,7 +56,7 @@ export const Slide1_Cover = () => {
                         lineHeight: 1.4,
                         letterSpacing: '-0.01em'
                     }}>
-                        A strategic proposal for specific, measurable efficiency gains at Susquehanna International Group.
+                        AI-ready. Easy to use. Scales infinitely.
                     </p>
                 </motion.div>
 
@@ -102,19 +100,19 @@ export const Slide1_Cover = () => {
                 >
                     <div>
                         <div className="text-matrix-header">PREPARED FOR</div>
-                        <div className="text-cell-data" style={{ color: 'var(--color-text-primary)' }}>Susquehanna International Group</div>
+                        <div className="text-cell-data" style={{ color: 'var(--color-text-primary)' }}>[Enterprise Customer]</div>
                     </div>
                     <div>
                         <div className="text-matrix-header">PREPARED BY</div>
-                        <div className="text-cell-data" style={{ color: 'var(--color-text-primary)' }}>Hebbia AI Strategy Team</div>
+                        <div className="text-cell-data" style={{ color: 'var(--color-text-primary)' }}>Stedi</div>
                     </div>
                     <div>
                         <div className="text-matrix-header">DATE</div>
-                        <div className="text-cell-data" style={{ color: 'var(--color-text-primary)' }}>December 18, 2025</div>
+                        <div className="text-cell-data" style={{ color: 'var(--color-text-primary)' }}>March 2026</div>
                     </div>
                     <div>
                         <div className="text-matrix-header">VERSION</div>
-                        <div className="text-cell-data" style={{ color: 'var(--color-text-primary)' }}>1.0 (Enterprise Proposal)</div>
+                        <div className="text-cell-data" style={{ color: 'var(--color-text-primary)' }}>Enterprise Overview</div>
                     </div>
                 </motion.div>
 
@@ -132,7 +130,7 @@ export const Slide1_Cover = () => {
                         opacity: 0.6
                     }}
                 >
-                    Disclaimer: This document is a confidential proposal prepared by Hebbia for discussion purposes with Susquehanna International Group (SIG). The information contained herein is based on publicly available data, industry benchmarks, and Hebbia's analysis. ROI projections are estimates based on stated assumptions.
+                    This document is confidential. Stedi, Inc. All rights reserved.
                 </motion.div>
             </div>
         </SlideContainer>

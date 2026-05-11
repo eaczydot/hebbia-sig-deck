@@ -5,18 +5,18 @@ import { motion } from 'framer-motion';
 
 export const Slide7_HowItWorks = () => {
     const steps = [
-        { num: '01', title: 'INGEST', desc: 'Index PDFs, Excel, emails from your VPC or SharePoint.', color: 'var(--color-text-tertiary)' },
-        { num: '02', title: 'PLAN', desc: 'Decompose queries into sub-questions and retrieval steps.', color: 'var(--color-agent-reasoning-blue)' },
-        { num: '03', title: 'EXECUTE', desc: 'Specialized agents run in parallel across documents.', color: 'var(--color-agent-extraction-green)' },
-        { num: '04', title: 'SYNTHESIZE', desc: 'Aggregate, compare, and export to structured formats.', color: 'var(--color-agent-synthesis-purple)' }
+        { num: '01', title: 'CONNECT', desc: 'Get API keys. Configure webhooks for async responses. Complete payer enrollment.', color: 'var(--color-text-tertiary)' },
+        { num: '02', title: 'SUBMIT', desc: 'Send eligibility checks, claims, or status requests via REST API in JSON.', color: 'var(--color-agent-reasoning-blue)' },
+        { num: '03', title: 'ROUTE', desc: 'Stedi translates to X12 EDI, routes to 3,400+ payers, handles automatic failover.', color: 'var(--color-agent-extraction-green)' },
+        { num: '04', title: 'RECEIVE', desc: 'Get structured JSON responses. ERAs auto-parsed. Webhooks fire on events.', color: 'var(--color-agent-synthesis-purple)' }
     ];
 
     return (
         <SlideContainer>
             {/* Header */}
             <div style={{ marginBottom: '40px' }}>
-                <div className="text-matrix-header">06 // HOW IT WORKS</div>
-                <h2 className="text-hero" style={{ fontSize: '48px' }}>From Query to Conviction</h2>
+                <div className="text-matrix-header">05 // HOW IT WORKS</div>
+                <h2 className="text-hero" style={{ fontSize: '48px' }}>From API Call to Paid Claim</h2>
             </div>
 
             {/* Horizontal Flow */}
@@ -85,16 +85,16 @@ export const Slide7_HowItWorks = () => {
                 transition={{ delay: 0.5 }}
             >
                 <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: '20px' }}>
-                    <div className="big-num text-blue" style={{ fontSize: '40px', margin: 0 }}>~30s</div>
-                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Per 100 Documents</div>
+                    <div className="big-num text-blue" style={{ fontSize: '40px', margin: 0 }}>1-3s</div>
+                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Eligibility Response</div>
                 </div>
                 <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: '20px' }}>
-                    <div className="big-num text-green" style={{ fontSize: '40px', margin: 0 }}>100%</div>
-                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Citation Coverage</div>
+                    <div className="big-num text-green" style={{ fontSize: '40px', margin: 0 }}>3,400+</div>
+                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Connected Payers</div>
                 </div>
                 <div style={{ borderLeft: '2px solid var(--color-border-functional)', paddingLeft: '20px' }}>
-                    <div className="big-num text-purple" style={{ fontSize: '40px', margin: 0 }}>Excel</div>
-                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Native Export</div>
+                    <div className="big-num text-purple" style={{ fontSize: '40px', margin: 0 }}>99.9%</div>
+                    <div className="u-font-mono" style={{ fontSize: '12px', color: 'var(--color-text-secondary)' }}>Uptime SLA</div>
                 </div>
             </motion.div>
         </SlideContainer>

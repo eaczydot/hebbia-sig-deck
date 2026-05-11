@@ -12,12 +12,14 @@ export function ControlBar() {
   const handleJoin = useCallback(async () => {
     setError(null);
     const tracks = await mediaSession.start({ video: true, audio: true });
-    if (!tracks.camera && !tracks.microphone) {
+    // Guard against adapters that return undefined (e.g. noop adapter)
+    const resolvedTracks = tracks ?? {};
+    if (!resolvedTracks.camera && !resolvedTracks.microphone) {
       setError('Could not access camera or microphone');
       return;
     }
-    setCameraOn(Boolean(tracks.camera));
-    setMicOn(Boolean(tracks.microphone));
+    setCameraOn(Boolean(resolvedTracks.camera));
+    setMicOn(Boolean(resolvedTracks.microphone));
     setJoined(true);
   }, [mediaSession]);
 

@@ -43,7 +43,7 @@ export const Slide6_IntroducingHebbia = () => {
             <div style={{ textAlign: 'center', marginBottom: '60px', zIndex: 10 }}>
                 <div className="text-matrix-header" style={{ justifyContent: 'center' }}>INTRODUCING STEDI</div>
                 <h2 className="text-hero" style={{ fontSize: '56px' }}>
-                    The World's Leading <br />AI Analyst
+                    The Only Programmable <br />Healthcare Clearinghouse
                 </h2>
             </div>
 
@@ -74,7 +74,7 @@ export const Slide6_IntroducingHebbia = () => {
                                 <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--orange)' }} />
                                 <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--green)' }} />
                             </div>
-                            <div className="text-mono-data" style={{ fontSize: '10px', opacity: 0.8 }}>Matrix v2.0 // Cobalt Engine</div>
+                            <div className="text-mono-data" style={{ fontSize: '10px', opacity: 0.8 }}>Stedi API // Healthcare Clearinghouse</div>
                         </div>
 
                         {/* Search/Prompt Area */}
@@ -89,13 +89,13 @@ export const Slide6_IntroducingHebbia = () => {
                             border: '1px solid color-mix(in srgb, var(--color-text-primary) 5%, transparent)'
                         }}>
                             <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'var(--color-brand-cobalt)' }} />
-                            <div style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-primary)', fontSize: '13px' }}>Analyze credit agreements for change of control triggers...</div>
+                            <div style={{ color: 'var(--color-text-secondary)', fontFamily: 'var(--font-mono)', fontSize: '13px' }}>POST /healthcare/eligibility/v1</div>
                         </div>
 
                         {/* Agent Activity Area */}
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', flex: 1 }}>
                             <div style={{ background: 'color-mix(in srgb, var(--bg-void) 50%, transparent)', borderRadius: '4px', padding: '16px', border: '1px solid color-mix(in srgb, var(--color-text-primary) 3%, transparent)' }}>
-                                <div className="text-matrix-header" style={{ fontSize: '9px', marginBottom: '12px' }}>INFERENCE // 142 DOMAINS</div>
+                                <div className="text-matrix-header" style={{ fontSize: '9px', marginBottom: '12px' }}>PAYERS // 3,400+ CONNECTED</div>
                                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                                     {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
                                         <div key={i} style={{ width: '30px', height: '4px', background: 'var(--color-brand-cobalt)', borderRadius: '1px', opacity: i % 3 === 0 ? 0.8 : 0.2 }} />
@@ -103,9 +103,9 @@ export const Slide6_IntroducingHebbia = () => {
                                 </div>
                             </div>
                             <div style={{ background: 'color-mix(in srgb, var(--bg-void) 50%, transparent)', borderRadius: '4px', padding: '16px', border: '1px solid color-mix(in srgb, var(--color-text-primary) 3%, transparent)' }}>
-                                <div className="text-matrix-header" style={{ fontSize: '9px', marginBottom: '12px' }}>REASONING TRACE</div>
+                                <div className="text-matrix-header" style={{ fontSize: '9px', marginBottom: '12px' }}>RESPONSE // 200 OK</div>
                                 <div style={{ marginTop: '8px' }}>
-                                    <AgentPill label="Structuring..." />
+                                    <AgentPill label="Coverage verified..." />
                                 </div>
                             </div>
                         </div>
@@ -115,18 +115,18 @@ export const Slide6_IntroducingHebbia = () => {
                 {/* Left Feature */}
                 <FeatureBlock
                     align="left"
-                    badge="ENGINEERING"
-                    title="Reasoning Engine"
-                    description="Unlike chat-based LLMs, Hebbia breaks complex requests into atomic steps, executing them against millions of documents simultaneously."
+                    badge="API-FIRST"
+                    title="Modern Infrastructure"
+                    description="JSON-native. AI-ready. Well-documented APIs for everything: real-time eligibility checks, claims, transaction enrollment, and payer lists."
                     delay={0.5}
                 />
 
                 {/* Right Feature */}
                 <FeatureBlock
                     align="right"
-                    badge="PROTOCOLS"
-                    title="Audit Verification"
-                    description="Every insight is cited back to the source page. Click to verify the exact paragraph used to generate the answer."
+                    badge="RELIABILITY"
+                    title="99.9% Uptime SLA"
+                    description="Redundant routes and automatic failover keep transactions flowing fast, even during upstream outages."
                     delay={0.7}
                 />
 
