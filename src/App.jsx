@@ -302,14 +302,16 @@ function App() {
         <ReviewModePlaceholder
           slides={SLIDES}
           currentSlide={currentSlide}
-          onSlideChange={setCurrentSlide}
+          onSlideChange={(nextSlide) => {
+            setDirection(nextSlide > currentSlide ? 1 : -1);
+            setCurrentSlide(nextSlide);
+          }}
           totalSlides={totalSlides}
-          presenterSlideContent={presenterSlideContent}
           direction={direction}
           slideVariants={slideVariants}
           isMobile={isMobile}
           viewportScale={viewportScale}
-          progressPercent={progressPercent}
+          progressPercent={((currentSlide + 1) / totalSlides) * 100}
         />
       )}
     </div>
@@ -317,7 +319,7 @@ function App() {
 }
 
 // Temporary placeholder until ReviewMode component is built in Phase 7
-function ReviewModePlaceholder({ slides, currentSlide, onSlideChange, totalSlides, presenterSlideContent, direction, slideVariants, isMobile, viewportScale, progressPercent }) {
+function ReviewModePlaceholder({ slides, currentSlide, onSlideChange, totalSlides, direction, slideVariants, isMobile, viewportScale, progressPercent }) {
   const SlideComponent = slides[currentSlide];
   const slideContent = SlideComponent ? <SlideComponent /> : null;
 

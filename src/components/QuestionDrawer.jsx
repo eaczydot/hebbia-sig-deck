@@ -44,8 +44,10 @@ export function QuestionDrawer({ currentSlide, deckId = 'sig-deck-v1' }) {
 
     // Simulate AI thinking delay
     const delay = 800 + Math.random() * 1200;
+    const capturedDeckId = deckId;
+    const capturedSlide = currentSlide;
     setTimeout(() => {
-      const response = generateMockResponse(currentSlide, text);
+      const response = generateMockResponse(capturedSlide, text);
       const updatedQuestion = {
         ...question,
         aiResponse: response,
@@ -56,12 +58,12 @@ export function QuestionDrawer({ currentSlide, deckId = 'sig-deck-v1' }) {
         prev.map(q => q.id === question.id ? updatedQuestion : q)
       );
 
-      // Update in storage
-      const allQuestions = loadQuestions(deckId);
+      // Update in storage using captured deckId to avoid stale closure
+      const allQuestions = loadQuestions(capturedDeckId);
       const idx = allQuestions.findIndex(q => q.id === question.id);
       if (idx !== -1) {
         allQuestions[idx] = updatedQuestion;
-        window.localStorage.setItem(`qa:${deckId}`, JSON.stringify({ questions: allQuestions }));
+        window.localStorage.setItem(`qa:${capturedDeckId}`, JSON.stringify({ questions: allQuestions }));
       }
 
       setIsThinking(false);
